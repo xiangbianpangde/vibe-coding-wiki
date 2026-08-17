@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if any)
+node_modules/
+.playwright-browsers/
+npm-debug.log*
+
+# Build
+dist/
+build/
+.cache/
+
+# Temporary
+*.tmp
+*.bak
+*.log

@@ -1,0 +1,495 @@
+/* Vibe Coding Wiki · Dark Theme
+ * 继承《中国传统色 Studio》dark palette 设计原则：
+ * 玄青主导、暖灰文本、避免高饱和度
+ */
+
+[data-theme="dark"] {
+  /* 基础变量 */
+  --c-paper: #11100E;          /* 玄青黑底 */
+  --c-paper-deep: #191816;     /* 面板深色（次深） */
+  --c-panel: #2E2C28;          /* 玄青 panel（明显浮起，contrast vs paper = 1.36） */
+  --c-panel-soft: #3A352F;     /* hover / elevated card（更亮一层） */
+  --c-ink: #F2F0EA;            /* 暖白文字 */
+  --c-ink-soft: #D3CFC6;       /* 次文字 */
+  --c-muted: #9C968C;          /* 弱化 */
+  --c-line-soft: #3A352F;      /* 暗线细（与 panel-soft 同色，深底场景） */
+  --c-line: #4A443C;           /* 暗线中（border 明显） */
+  --c-line-strong: #625A4F;    /* 暗线强 */
+
+  /* 品牌色（与中国色 invert 后保持） */
+  --c-shihqing: #5A8DC4;       /* 石青明度提升 */
+  --c-zhuqing: #44C994;        /* 竹青明度提升 */
+  --c-zhusha: #FF6E40;         /* 朱砂明度提升（保持显眼） */
+  --c-liujin: #F0CB5E;         /* 鎏金明度提升 */
+  --c-xuanqing: #C8D5E8;       /* 玄青 invert */
+  --c-dai: #D3CFC6;            /* 黛色 invert */
+  --c-shui: #88AEFF;           /* 绀青明度 */
+  --c-qianjiang: #E2B0A0;      /* 浅绛明度 */
+
+  /* 暗色 wash */
+  --c-wash-yellow: #3A3010;
+  --c-wash-green: #1F3A2D;
+  --c-wash-red: #3A1F1A;
+  --c-wash-blue: #1F2A38;
+
+  /* 8 大层级色（暗色模式调整） */
+  --L1-paradigm: #C8D5E8;
+  --L2-method: #88AEFF;
+  --L3-tech: #44C994;
+  --L4-tools: #5A8DC4;
+  --L5-quality: #F0CB5E;
+  --L6-risk: #FF6E40;
+  --L7-prompt: #D3CFC6;
+  --L8-scenario: #E2B0A0;
+
+  /* 其他 */
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background: var(--c-paper);
+  color: var(--c-ink);
+}
+
+/* Header / Footer */
+[data-theme="dark"] .topnav {
+  background: rgba(17, 16, 14, 0.86);
+  border-bottom-color: var(--c-line);
+}
+
+[data-theme="dark"] .brand-text strong {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .brand-text small {
+  color: var(--c-muted);
+}
+
+[data-theme="dark"] .topnav__links a {
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .topnav__links a.active {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .topnav__links a.active::after {
+  background: var(--c-ink);
+}
+
+[data-theme="dark"] .topnav__search {
+  background: var(--c-panel-soft);
+  border-color: var(--c-line);
+  color: var(--c-muted);
+}
+
+[data-theme="dark"] .topnav__search:hover {
+  background: var(--c-panel);
+  border-color: var(--c-line-strong);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .topnav__search kbd {
+  background: var(--c-paper);
+  color: var(--c-ink-soft);
+  border-color: var(--c-line);
+}
+
+/* Hero */
+[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, var(--c-paper) 0%, var(--c-paper-deep) 100%);
+}
+
+[data-theme="dark"] .hero__chip {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .hero__title {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .hero__subtitle {
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .hero__metrics {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+}
+
+[data-theme="dark"] .metric {
+  border-right-color: var(--c-line-soft);
+}
+
+[data-theme="dark"] .metric__value {
+  color: var(--c-ink);
+}
+
+/* Cards */
+[data-theme="dark"] .concept-card,
+[data-theme="dark"] .side-card,
+[data-theme="dark"] .compare-table-wrap,
+[data-theme="dark"] .stats-card,
+[data-theme="dark"] .compare-col,
+[data-theme="dark"] .layer-card,
+[data-theme="dark"] .evo-card,
+[data-theme="dark"] .kpi-card,
+[data-theme="dark"] .term-card,
+[data-theme="dark"] .tile-card,
+[data-theme="dark"] .decision-card,
+[data-theme="dark"] .tl-card,
+[data-theme="dark"] .pain-row,
+[data-theme="dark"] .gitclear-stat,
+[data-theme="dark"] .agent-stat,
+[data-theme="dark"] .search-result,
+[data-theme="dark"] .quote-card,
+[data-theme="dark"] .research-table,
+[data-theme="dark"] .layer-card,
+[data-theme="dark"] .timeline__content,
+[data-theme="dark"] .timeline__content strong,
+[data-theme="dark"] .timeline__item::before {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .concept-card:hover,
+[data-theme="dark"] .evo-card:hover,
+[data-theme="dark"] .term-card:hover {
+  background: var(--c-panel-soft);
+}
+
+[data-theme="dark"] .layer-card__title,
+[data-theme="dark"] .concept-card h3,
+[data-theme="dark"] .stats-card h3,
+[data-theme="dark"] .decision-card h3,
+[data-theme="dark"] .evo-card__title,
+[data-theme="dark"] .tl-card strong,
+[data-theme="dark"] .pain-text strong,
+[data-theme="dark"] .quote-card__text,
+[data-theme="dark"] .term-header__title,
+[data-theme="dark"] .term-header__subtitle {
+  color: var(--c-ink);
+}
+
+/* Tags */
+[data-theme="dark"] .term-header__tag {
+  background: var(--c-panel-soft);
+  border-color: var(--c-line);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .badge--core { background: var(--c-wash-yellow); color: var(--c-ink); }
+[data-theme="dark"] .badge--method { background: var(--c-wash-blue); color: var(--c-ink); }
+[data-theme="dark"] .badge--tech { background: var(--c-wash-green); color: var(--c-ink); }
+[data-theme="dark"] .badge--quality { background: var(--c-wash-yellow); color: var(--c-ink); }
+[data-theme="dark"] .badge--risk { background: var(--c-wash-red); color: var(--c-ink); }
+
+/* Buttons */
+[data-theme="dark"] .btn--primary {
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-color: var(--c-ink);
+}
+
+[data-theme="dark"] .btn--primary:hover {
+  background: var(--c-zhusha);
+  border-color: var(--c-zhusha);
+  color: var(--c-paper);
+}
+
+[data-theme="dark"] .btn--ghost {
+  color: var(--c-ink);
+  border-color: var(--c-line-strong);
+}
+
+[data-theme="dark"] .btn--ghost:hover {
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-color: var(--c-ink);
+}
+
+/* Tables */
+[data-theme="dark"] .tbl,
+[data-theme="dark"] .compare-table,
+[data-theme="dark"] .research-table {
+  background: var(--c-panel);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .tbl th,
+[data-theme="dark"] .compare-table thead th,
+[data-theme="dark"] .research-table th {
+  background: var(--c-panel-soft);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .tbl td,
+[data-theme="dark"] .compare-table td,
+[data-theme="dark"] .research-table td {
+  border-color: var(--c-line-soft);
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .tbl-wrap,
+[data-theme="dark"] .compare-table-wrap {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+}
+
+/* Sidebar */
+[data-theme="dark"] .term-toc,
+[data-theme="dark"] .term-related {
+  background: var(--c-panel);
+}
+
+[data-theme="dark"] .term-toc h4,
+[data-theme="dark"] .term-related h4 {
+  color: var(--c-ink);
+  border-bottom-color: var(--c-line-soft);
+}
+
+[data-theme="dark"] .term-toc a {
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .term-toc a:hover {
+  background: var(--c-panel-soft);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .related-card {
+  background: var(--c-panel-soft);
+  border-color: var(--c-line);
+}
+
+[data-theme="dark"] .related-card:hover {
+  background: var(--c-paper);
+}
+
+[data-theme="dark"] .related-card strong {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .related-card span {
+  color: var(--c-muted);
+}
+
+/* Search modal */
+[data-theme="dark"] .search-modal__inner {
+  background: var(--c-panel);
+  border-color: var(--c-line-strong);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .search-modal__inner input {
+  background: var(--c-paper-deep);
+  border-color: var(--c-line);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .search-modal__inner input:focus {
+  border-color: var(--c-shihqing);
+}
+
+[data-theme="dark"] .search-modal {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .search-modal__hint {
+  color: var(--c-muted);
+  border-top-color: var(--c-line-soft);
+}
+
+/* Footer */
+[data-theme="dark"] .footer {
+  background: var(--c-panel-soft);
+  border-top-color: var(--c-line);
+}
+
+/* Side card warning */
+[data-theme="dark"] .side-card--warning {
+  background: var(--c-wash-red);
+  border-color: var(--c-zhusha);
+}
+
+[data-theme="dark"] .side-card--warning h4 {
+  color: var(--c-zhusha);
+}
+
+/* Bar charts */
+[data-theme="dark"] .bar-track {
+  background: var(--c-panel-soft);
+}
+
+[data-theme="dark"] .bar-fill {
+  /* Keep colors */
+}
+
+[data-theme="dark"] .bar-label {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .bar-fill span {
+  color: var(--c-paper);
+}
+
+/* Trust grid */
+[data-theme="dark"] .trust-cell {
+  background: var(--c-panel-soft);
+}
+
+/* SVG-friendly adjustments */
+[data-theme="dark"] svg {
+  color: var(--c-ink);
+}
+
+/* Quote */
+[data-theme="dark"] .quote {
+  color: var(--c-ink);
+  border-left-color: var(--c-zhusha);
+}
+
+[data-theme="dark"] .quote cite {
+  color: var(--c-muted);
+}
+
+/* Line decorations */
+[data-theme="dark"] hr {
+  border-top-color: var(--c-line-soft);
+}
+
+/* Sidebar */
+[data-theme="dark"] .col-side .side-card {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+}
+
+/* Tables */
+[data-theme="dark"] table th,
+[data-theme="dark"] table td {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .research-pct {
+  background: var(--c-wash-yellow);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .research-pct--warn {
+  background: var(--c-wash-red);
+  color: var(--c-zhusha);
+}
+
+/* Code */
+[data-theme="dark"] code {
+  background: var(--c-paper-deep);
+  color: var(--c-shihqing);
+}
+
+[data-theme="dark"] pre {
+  background: var(--c-paper-deep);
+  border-left-color: var(--c-shihqing);
+}
+
+[data-theme="dark"] pre code {
+  color: var(--c-ink);
+}
+
+/* Giscus/Dark mode toggle button */
+.theme-toggle {
+  background: var(--c-panel-soft);
+  border: 1px solid var(--c-line);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--c-ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--c-panel);
+  border-color: var(--c-line-strong);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--c-wash-yellow);
+  border-color: var(--c-liujin);
+  color: var(--c-ink);
+}
+
+[data-theme="light"] .theme-toggle .theme-icon-dark,
+[data-theme="dark"] .theme-toggle .theme-icon-light {
+  display: none;
+}
+
+/* Print: always light */
+@media print {
+  :root, [data-theme="dark"] {
+    --c-paper: #F9F4DC;
+    --c-paper-deep: #F5F0E6;
+    --c-panel: #FFFFFF;
+    --c-panel-soft: #FAF6E6;
+    --c-ink: #0F1A20;
+    --c-ink-soft: #3B4F5C;
+    --c-muted: #777777;
+    --c-line-soft: #E9E4DA;
+    --c-line: #DDD6CA;
+    --c-line-strong: #AAA093;
+  }
+}
+
+/* Misconceptions / Timeline / Path in dark mode */
+[data-theme="dark"] .misconception-card {
+  background: linear-gradient(to right, var(--c-wash-red) 0%, var(--c-panel) 100%);
+  border-left-color: var(--c-zhusha);
+}
+
+[data-theme="dark"] .misconception-title {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .misconception-reality {
+  color: var(--c-ink-soft);
+}
+
+[data-theme="dark"] .timeline-row {
+  border-bottom-color: var(--c-line-soft);
+}
+
+[data-theme="dark"] .timeline-row-date {
+  color: var(--c-shihqing);
+}
+
+[data-theme="dark"] .timeline-row-content {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .path-step {
+  background: var(--c-panel);
+  border-color: var(--c-line);
+  border-left-color: var(--c-shihqing);
+}
+
+[data-theme="dark"] .path-step:hover {
+  background: var(--c-panel-soft);
+}
+
+[data-theme="dark"] .path-step-num {
+  background: var(--c-ink);
+  color: var(--c-paper);
+}
+
+[data-theme="dark"] .path-step-content strong {
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .path-step-content span {
+  color: var(--c-muted);
+}

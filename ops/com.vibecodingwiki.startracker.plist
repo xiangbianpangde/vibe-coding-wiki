@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.vibecodingwiki.startracker</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/xbpd/Projects/vibe-coding-wiki/ops/star-tracker.sh</string>
+        <string>daemon</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>VC_REPO</key>
+        <string>xbpd/vibe-coding-wiki</string>
+        <key>VC_TARGET</key>
+        <string>1000</string>
+        <!-- Add Personal Access Token here later for higher rate limit -->
+        <!-- <key>VC_TOKEN</key><string>ghp_xxx</string> -->
+    </dict>
+
+    <key>StartInterval</key>
+    <integer>300</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/xbpd/Projects/vibe-coding-wiki/ops/star-tracker.stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/xbpd/Projects/vibe-coding-wiki/ops/star-tracker.stderr.log</string>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

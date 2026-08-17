@@ -1,0 +1,366 @@
+[
+  {
+    "id": "vibe-coding",
+    "name": "Vibe Coding",
+    "zh": "Vibe Coding",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "karpathy",
+      "paradigm",
+      "origin"
+    ],
+    "shortDesc": "Karpathy 创造的术语：用自然语言描述意图，由 LLM 自动生成源码，\"忘了代码存在\"的开发风格。",
+    "longDesc": "<p>2025 年 2 月，OpenAI 联合创始人 Andrej Karpathy 在 X 平台创造了 <strong>vibe coding</strong> 这一术语，描述一种全新的软件开发风格——开发者用自然语言描述意图，LLM 自动生成源码，且开发者不深究代码本身的实现。</p>\n<p>核心特征：<strong>描述 → LLM 写代码 → 试运行 → 出错贴回 → 迭代</strong>。\"Accept All\"、不读 diff、不理解语法——这些是 vibe coding 的标志行为。</p>\n<p><strong>适用：</strong>一次性原型、个人工具、hacking 项目。<br>\n<strong>不适用：</strong>生产代码、需要长期维护的系统、安全敏感场景。</p>",
+    "related": [
+      "agentic-programming",
+      "vibe-engineering",
+      "agentic-engineering",
+      "yolo-mode"
+    ],
+    "source": "Karpathy X post, 2025-02-02",
+    "coinedBy": "Andrej Karpathy",
+    "coinedDate": "2025-02",
+    "version": "v1",
+    "examples": [
+      {
+        "code": "第一步：复述整个项目需求 → LLM 生成代码 → 试运行 → 把错误信息贴回 LLM → 迭代直到满意",
+        "desc": "Karpathy 描述的典型 vibe coding 流程"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
+        "cite": "Karpathy 2025-02 原文"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Vibe Coding 主页 - Simon Willison",
+        "url": "https://simonwillison.net/2025/Mar/19/vibe-coding/"
+      }
+    ]
+  },
+  {
+    "id": "agentic-programming",
+    "name": "Agentic Programming",
+    "zh": "智能体编程",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "fowler",
+      "paradigm",
+      "boundary"
+    ],
+    "shortDesc": "Martin Fowler 命名：用 LLM 写所有代码但仍审查代码、关注内部结构。需与 vibe coding 严格区分。",
+    "longDesc": "<p>软件工程大师 Martin Fowler 提出这个术语来与 <strong>vibe coding</strong> 划清边界。Agentic programming 是程序员用 LLM 写所有代码，但<strong>仍然关心并审查代码</strong>，关注内部结构、可维护性、设计。</p>\n<p><strong>判据（Fowler）：</strong>是否读 diff、是否审查代码、是否关注结构——这是 vibe coding 和 agentic programming 的决定性区别。</p>\n<p>Fowler 称之为 <strong>Semantic Diffusion（语义扩散）</strong>：这两个术语被广泛混淆，需要保持区分。</p>",
+    "related": [
+      "vibe-coding",
+      "vibe-engineering",
+      "agentic-engineering"
+    ],
+    "source": "Martin Fowler bliki, 2025",
+    "coinedBy": "Martin Fowler",
+    "coinedDate": "2025",
+    "examples": [
+      {
+        "code": "用 Claude Code + Spec Kit：先写 spec.md，让 agent 拆分任务，本人只负责关键架构决策",
+        "desc": "Fowler 描述的 agentic programming 实践"
+      }
+    ]
+  },
+  {
+    "id": "vibe-engineering",
+    "name": "Vibe Engineering",
+    "zh": "Vibe 工程",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "willison",
+      "paradigm",
+      "professional"
+    ],
+    "shortDesc": "Simon Willison 2025-10 提出的术语：vibe coding 的对立面，专业人士使用 LLM 同时保持问责。",
+    "longDesc": "<p>2025-10，Simon Willison 创造 <strong>vibe engineering</strong> 一词，描述 vibe coding 的<strong>对立面</strong>——\"seasoned professionals accelerate their work with LLMs while staying proudly and confidently accountable for the software they produce\"。</p>\n<p><strong>关键特征：</strong></p>\n<ul>\n<li>使用 coding agents（Claude Code、Codex CLI、Gemini CLI）</li>\n<li>自动化测试先行（test-first development）</li>\n<li>手动 QA + 代码审查</li>\n<li>规划架构 + 编写规范 + 设计 agentic loops</li>\n</ul>\n<p>Willison 用\"growing army of weird digital interns\"（不断壮大的奇怪数字实习生军团）来比喻 coding agents——他们会作弊，需要被管理。</p>",
+    "related": [
+      "vibe-coding",
+      "agentic-engineering",
+      "coding-agents"
+    ],
+    "source": "Simon Willison blog, 2025-10-07",
+    "coinedBy": "Simon Willison",
+    "coinedDate": "2025-10",
+    "examples": [
+      {
+        "code": "test-first + plan-mode + comprehensive review + research skills + coding agent",
+        "desc": "Willison 提出的 vibe engineering 实践清单"
+      }
+    ]
+  },
+  {
+    "id": "agentic-engineering",
+    "name": "Agentic Engineering",
+    "zh": "智能体工程",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "karpathy",
+      "paradigm",
+      "evolution"
+    ],
+    "shortDesc": "Karpathy 2026-02 提出的术语：vibe coding 的成熟形态，\"更像 engineering\"。",
+    "longDesc": "<p>2026-02，Karpathy 在 X 平台宣布他想让 <strong>vibe coding</strong> 这一术语<strong>退役</strong>（retire），取而代之的是 <strong>agentic engineering</strong>。</p>\n<p>背景：vibe coding 一度因使用门槛低被滥用，导致大量低质量代码。社区（Shimmin、Agarwal、Hunt 等）呼吁更严谨的工程实践，agentic engineering 应运而生。</p>\n<p><strong>核心思想：</strong>让 AI agent 干活的同时保持工程师的<strong>问责制</strong>。强调 spec-driven、guardrails、test-first、可验证的 acceptance criteria。</p>\n<p>趋势：行业从 vibe coding → vibe engineering → agentic engineering 演进，预计 2026 年底 agentic engineering 主导。</p>",
+    "related": [
+      "vibe-coding",
+      "vibe-engineering",
+      "cognitive-debt"
+    ],
+    "source": "Karpathy X post, 2026-02",
+    "coinedBy": "Andrej Karpathy",
+    "coinedDate": "2026-02",
+    "quotes": [
+      {
+        "text": "Vibe coding is passe. Agentic engineering is the term coming out on top.",
+        "cite": "Karpathy 2026-02 X post"
+      }
+    ]
+  },
+  {
+    "id": "ai-assisted",
+    "name": "AI-Assisted Software Development",
+    "zh": "AI 辅助软件开发",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "umbrella"
+    ],
+    "shortDesc": "广义术语，所有使用 AI 辅助软件开发活动的总称，vibe coding / agentic programming 都是其子集。",
+    "longDesc": "<p>最广义的伞形术语。所有使用 AI（特别是 LLM）辅助软件开发活动都可归于此，包括：</p>\n<ul>\n<li><strong>vibe coding</strong>（自然语言生成代码）</li>\n<li><strong>agentic programming</strong>（智能体编程）</li>\n<li><strong>AI pair programming</strong>（结对编程）</li>\n<li><strong>code completion</strong>（代码补全）</li>\n<li><strong>automated testing</strong>（自动化测试）</li>\n<li><strong>code review</strong>（代码审查）</li>\n</ul>",
+    "related": [
+      "vibe-coding",
+      "agentic-programming",
+      "pair-programming"
+    ]
+  },
+  {
+    "id": "pdd",
+    "name": "Prompt-Driven Development",
+    "zh": "提示驱动开发",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "english"
+    ],
+    "shortDesc": "以 prompt 为主要驱动力的开发风格。Karpathy 称 English 是\"最热门的新编程语言\"。",
+    "longDesc": "<p>Karpathy 2023 年提出：\"The hottest new programming language is English.\"</p>\n<p><strong>PDD</strong>（Prompt-Driven Development）将 prompt 视为<strong>规格说明</strong>而非<strong>编程语言</strong>。开发者的角色从\"写代码\"转变为\"写 prompt\"。</p>\n<p>PDD 与 SDD（Specification-Driven Development）的关系：SDD 是更严谨的 PDD 版本，spec.md 是更精确的 prompt。</p>",
+    "related": [
+      "sdd",
+      "spec-md",
+      "iterative-refinement"
+    ]
+  },
+  {
+    "id": "pair-programming",
+    "name": "AI Pair Programming",
+    "zh": "AI 结对编程",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "collaboration"
+    ],
+    "shortDesc": "AI 作为结对编程伙伴，与人类开发者协同工作。早期范式（2021 Copilot 起源）。",
+    "longDesc": "<p><strong>Pair Programming</strong>（结对编程）是 1999 年 Kent Beck 在极限编程中提出的实践——两位开发者共用一台工作站，一位写代码（Driver），一位审查（Navigator）。</p>\n<p>AI Pair Programming 用 AI 取代\"Navigator\"角色：</p>\n<ul>\n<li>实时代码补全（line completion）</li>\n<li>上下文感知的 suggestions</li>\n<li>多轮对话修改代码</li>\n<li>回滚（rollback）支持</li>\n</ul>\n<p>代表工具：GitHub Copilot（2021+）、Tabnine、Codeium、Cursor、Cody。</p>",
+    "related": [
+      "copilot",
+      "cursor",
+      "aider"
+    ],
+    "quotes": [
+      {
+        "text": "Pair programming is a social skill. The best pair programmers are those who can fluidly switch between driver and navigator roles.",
+        "cite": "Kent Beck, Extreme Programming Explained"
+      }
+    ]
+  },
+  {
+    "id": "software-for-one",
+    "name": "Software for One",
+    "zh": "为一人而作的软件",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "personalization"
+    ],
+    "shortDesc": "Kevin Roose 提出：只为一个用户写的、不可公开的个性化软件。vibe coding 时代的标志。",
+    "longDesc": "<p>NYT 专栏作者 Kevin Roose 创造：vibe coding 让\"为个人定制的软件\"成为大众级实践。</p>\n<p>与 <strong>传统商业软件</strong>的区别：</p>\n<ul>\n<li>不公开发布</li>\n<li>不为他人设计</li>\n<li>针对个人工作流优化</li>\n<li>无须考虑可扩展性</li>\n</ul>",
+    "related": [
+      "vibe-coding",
+      "personal-scenario"
+    ],
+    "examples": [
+      {
+        "code": "一个为我个人 python-flavored 习惯定制的脚本，一次性、不分享给任何人",
+        "desc": "software for one 心态"
+      }
+    ]
+  },
+  {
+    "id": "cognitive-debt",
+    "name": "Cognitive Debt",
+    "zh": "认知债",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "risk",
+      "hunt"
+    ],
+    "shortDesc": "Hunt 2026 提出的术语：AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债成为新负担。",
+    "longDesc": "<p>Andrew Hunt（《The Pragmatic Programmer》作者）2026 预测：随着 AI agent 普及，<strong>cognitive debt</strong> 将取代 <strong>technical debt</strong> 成为软件工程的主要负担。</p>\n<p><strong>Cognitive Debt 的具体表现：</strong></p>\n<ul>\n<li>上下文丢失：长对话后 agent 失去项目状态</li>\n<li>行为不可靠：相同 prompt 得到不同结果</li>\n<li>Prompt 考古：要挖出历史 prompt 才能理解现状</li>\n<li>agent 漂移：原本能做的功能突然做不了</li>\n</ul>\n<p><strong>Compounding Leverage</strong>（复利杠杆）是 Hunt 提出的对应正面概念：通过工程化 harness 获得复利收益。</p>",
+    "related": [
+      "tech-debt",
+      "context-engineering"
+    ],
+    "source": "Andrew Hunt, 2026 prediction",
+    "coinedBy": "Andrew Hunt",
+    "coinedDate": "2026",
+    "examples": [
+      {
+        "code": "症状：agent 突然不会做之前的任务 · 上下文丢失要重新填充 · 同一个 prompt 跑出不同结果",
+        "desc": "Hunt 提出的 cognitive debt 表现"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "In 2026, cognitive debt becomes the dominant engineering burden. Context loss, unreliable agent behavior, prompt archaeology.",
+        "cite": "Andrew Hunt 2026 prediction"
+      }
+    ]
+  },
+  {
+    "id": "emotioneering",
+    "name": "Emotioneering",
+    "zh": "情绪工程",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "critique"
+    ],
+    "shortDesc": "Shimmin 创造的对照词：嘲笑 vibe coding 不是 engineering 而是\"情绪工程\"。",
+    "longDesc": "<p>Shimmin 在 thenewstack.io 提出 <strong>emotioneering</strong>（情绪工程）作为 <strong>vibe coding</strong> 的对照词——强调该领域需要\"engineering, not emotioneering\"。</p>\n<p>这一术语体现了社区对 vibe coding 滥用的反思，推动了 vibe engineering、agentic engineering 的出现。</p>",
+    "related": [
+      "vibe-coding",
+      "vibe-engineering",
+      "agentic-engineering"
+    ]
+  },
+  {
+    "id": "orchestration-of-agents",
+    "name": "Orchestration of AI Agents",
+    "zh": "AI 智能体编排",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "role",
+      "manager"
+    ],
+    "shortDesc": "Agentic engineering 时代开发者的新角色：从\"写代码\"转为\"管理 AI 智能体\"。",
+    "longDesc": "<p>Korlepra 提出的术语：在 agentic engineering 时代，开发者的角色<strong>从\"写代码\"转为\"管理 AI agents\"</strong>——像管理者一样指挥 AI 团队。</p>\n<p>具体职责包括：</p>\n<ul>\n<li>编写 spec.md（规格）</li>\n<li>设计 agentic loop（智能体循环）</li>\n<li>规划 QA 流程</li>\n<li>代码审查（AI 写的代码）</li>\n<li>研究方法选型</li>\n</ul>",
+    "related": [
+      "agentic-engineering",
+      "vibe-engineering"
+    ]
+  },
+  {
+    "id": "multi-agent-parallelism",
+    "name": "Multi-Agent Parallelism",
+    "zh": "多智能体并行",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "parallel"
+    ],
+    "shortDesc": "多个 AI agents 同时工作，分头解决多个问题。Shimmin 用此方法一周内写出完整 Rust 编译器。",
+    "longDesc": "<p>Willison / Shimmin 提出：<strong>运行多个 agent 实例并行</strong>，每个处理一个问题。</p>\n<p>Shimmin 自述：他用多 agent 并行一周内写出了一个可工作的 Rust 编译器——这是单 agent 难以达到的速度。</p>\n<p>挑战：</p>\n<ul>\n<li>Context 隔离</li>\n<li>结果合并</li>\n<li>资源成本翻倍</li>\n<li>冲突检测</li>\n</ul>",
+    "related": [
+      "coding-agents"
+    ]
+  },
+  {
+    "id": "agentic-workflow",
+    "name": "Agentic Workflow",
+    "zh": "智能体工作流",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "workflow"
+    ],
+    "shortDesc": "Agarwal 提出的术语：多步骤的 AI 智能体执行流程，没有工程实践会\"以机器速度产生技术债\"。",
+    "longDesc": "<p>Agarwal 提出：<strong>agentic workflow</strong> 是多步骤 AI 智能体执行流程。但如果没有工程实践（spec、测试、guardrails），这些 workflow 会<strong>\"以机器速度产生技术债\"</strong>。</p>",
+    "related": [
+      "plan-verify-build",
+      "guardrails"
+    ]
+  },
+  {
+    "id": "cognitive-debt-vs-tech-debt",
+    "name": "Cognitive Debt vs. Technical Debt",
+    "zh": "认知债 vs. 技术债",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "comparison"
+    ],
+    "shortDesc": "Hunt 框架：2025 是技术债年，2026 转向认知债年。工程负担的类型正在迁移。",
+    "longDesc": "<p>Hunt 框架：</p>\n<ul>\n<li><strong>2025：</strong>technical debt 是主要工程负担——AI 写的代码难以维护</li>\n<li><strong>2026：</strong>cognitive debt 是主要负担——agent 行为不可靠、context 丢失</li>\n</ul>",
+    "related": [
+      "cognitive-debt",
+      "tech-debt"
+    ]
+  },
+  {
+    "id": "no-code",
+    "name": "No-Code Development Platform",
+    "zh": "无代码平台",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "low-code"
+    ],
+    "shortDesc": "与 vibe coding 平行的相邻范式：通过可视化拖拽而非代码构建应用。",
+    "longDesc": "<p><strong>No-Code</strong> 平台（如 Bubble、Webflow、Retool）允许用户通过<strong>可视化界面</strong>构建应用，无需写代码。</p>\n<p>与 <strong>vibe coding</strong> 的关系：相邻范式，都降低了软件开发的门槛，但实现路径不同——前者是<strong>可视化配置</strong>，后者是<strong>自然语言</strong>。</p>",
+    "related": [
+      "vibe-coding",
+      "lovable",
+      "replit-agent"
+    ]
+  },
+  {
+    "id": "machine-speed",
+    "name": "Machine Speed",
+    "zh": "机器速度",
+    "layer": "L1",
+    "category": "paradigm",
+    "tags": [
+      "paradigm",
+      "speed"
+    ],
+    "shortDesc": "AI agent 产生技术债的速度——比人工快数十倍。Agarwal 用以警示工程实践缺失。",
+    "longDesc": "<p>Agarwal 提出：没有工程实践的 AI agent workflow 会<strong>以机器速度产生技术债</strong>——比人工时代快数十倍。</p>\n<p>类比：\"machine speed debt\" 指 AI 加速产生的低质量代码累积。</p>",
+    "related": [
+      "tech-debt",
+      "cognitive-debt",
+      "guardrails"
+    ]
+  }
+]

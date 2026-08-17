@@ -1,0 +1,2212 @@
+{
+  "meta": {
+    "total": 178,
+    "byLayer": {
+      "L1": 16,
+      "L2": 20,
+      "L3": 53,
+      "L4": 28,
+      "L5": 14,
+      "L6": 17,
+      "L7": 16,
+      "L8": 14
+    },
+    "stats": {
+      "withExamples": 0,
+      "withQuotes": 5,
+      "withSeeAlso": 6,
+      "totalExamples": 0,
+      "totalQuotes": 5
+    },
+    "generated": "2026-08-17T12:04:12.635Z"
+  },
+  "summaries": [
+    {
+      "id": "vibe-coding",
+      "name": "Vibe Coding",
+      "zh": "Vibe Coding",
+      "layer": "L1",
+      "shortDesc": "Karpathy 创造的术语：用自然语言描述意图，由 LLM 自动生成源码，\"忘了代码存在\"的开发风格。",
+      "category": "paradigm",
+      "tags": [
+        "karpathy",
+        "paradigm",
+        "origin"
+      ]
+    },
+    {
+      "id": "agentic-programming",
+      "name": "Agentic Programming",
+      "zh": "智能体编程",
+      "layer": "L1",
+      "shortDesc": "Martin Fowler 命名：用 LLM 写所有代码但仍审查代码、关注内部结构。需与 vibe coding 严格区分。",
+      "category": "paradigm",
+      "tags": [
+        "fowler",
+        "paradigm",
+        "boundary"
+      ]
+    },
+    {
+      "id": "vibe-engineering",
+      "name": "Vibe Engineering",
+      "zh": "Vibe 工程",
+      "layer": "L1",
+      "shortDesc": "Simon Willison 2025-10 提出的术语：vibe coding 的对立面，专业人士使用 LLM 同时保持问责。",
+      "category": "paradigm",
+      "tags": [
+        "willison",
+        "paradigm",
+        "professional"
+      ]
+    },
+    {
+      "id": "agentic-engineering",
+      "name": "Agentic Engineering",
+      "zh": "智能体工程",
+      "layer": "L1",
+      "shortDesc": "Karpathy 2026-02 提出的术语：vibe coding 的成熟形态，\"更像 engineering\"。",
+      "category": "paradigm",
+      "tags": [
+        "karpathy",
+        "paradigm",
+        "evolution"
+      ]
+    },
+    {
+      "id": "ai-assisted",
+      "name": "AI-Assisted Software Development",
+      "zh": "AI 辅助软件开发",
+      "layer": "L1",
+      "shortDesc": "广义术语，所有使用 AI 辅助软件开发活动的总称，vibe coding / agentic programming 都是其子集。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "umbrella"
+      ]
+    },
+    {
+      "id": "pdd",
+      "name": "Prompt-Driven Development",
+      "zh": "提示驱动开发",
+      "layer": "L1",
+      "shortDesc": "以 prompt 为主要驱动力的开发风格。Karpathy 称 English 是\"最热门的新编程语言\"。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "english"
+      ]
+    },
+    {
+      "id": "pair-programming",
+      "name": "AI Pair Programming",
+      "zh": "AI 结对编程",
+      "layer": "L1",
+      "shortDesc": "AI 作为结对编程伙伴，与人类开发者协同工作。早期范式（2021 Copilot 起源）。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "software-for-one",
+      "name": "Software for One",
+      "zh": "为一人而作的软件",
+      "layer": "L1",
+      "shortDesc": "Kevin Roose 提出：只为一个用户写的、不可公开的个性化软件。vibe coding 时代的标志。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "personalization"
+      ]
+    },
+    {
+      "id": "cognitive-debt",
+      "name": "Cognitive Debt",
+      "zh": "认知债",
+      "layer": "L1",
+      "shortDesc": "Hunt 2026 提出的术语：AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债成为新负担。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "risk",
+        "hunt"
+      ]
+    },
+    {
+      "id": "emotioneering",
+      "name": "Emotioneering",
+      "zh": "情绪工程",
+      "layer": "L1",
+      "shortDesc": "Shimmin 创造的对照词：嘲笑 vibe coding 不是 engineering 而是\"情绪工程\"。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "critique"
+      ]
+    },
+    {
+      "id": "orchestration-of-agents",
+      "name": "Orchestration of AI Agents",
+      "zh": "AI 智能体编排",
+      "layer": "L1",
+      "shortDesc": "Agentic engineering 时代开发者的新角色：从\"写代码\"转为\"管理 AI 智能体\"。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "role",
+        "manager"
+      ]
+    },
+    {
+      "id": "multi-agent-parallelism",
+      "name": "Multi-Agent Parallelism",
+      "zh": "多智能体并行",
+      "layer": "L1",
+      "shortDesc": "多个 AI agents 同时工作，分头解决多个问题。Shimmin 用此方法一周内写出完整 Rust 编译器。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "parallel"
+      ]
+    },
+    {
+      "id": "agentic-workflow",
+      "name": "Agentic Workflow",
+      "zh": "智能体工作流",
+      "layer": "L1",
+      "shortDesc": "Agarwal 提出的术语：多步骤的 AI 智能体执行流程，没有工程实践会\"以机器速度产生技术债\"。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "workflow"
+      ]
+    },
+    {
+      "id": "cognitive-debt-vs-tech-debt",
+      "name": "Cognitive Debt vs. Technical Debt",
+      "zh": "认知债 vs. 技术债",
+      "layer": "L1",
+      "shortDesc": "Hunt 框架：2025 是技术债年，2026 转向认知债年。工程负担的类型正在迁移。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "comparison"
+      ]
+    },
+    {
+      "id": "no-code",
+      "name": "No-Code Development Platform",
+      "zh": "无代码平台",
+      "layer": "L1",
+      "shortDesc": "与 vibe coding 平行的相邻范式：通过可视化拖拽而非代码构建应用。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "low-code"
+      ]
+    },
+    {
+      "id": "machine-speed",
+      "name": "Machine Speed",
+      "zh": "机器速度",
+      "layer": "L1",
+      "shortDesc": "AI agent 产生技术债的速度——比人工快数十倍。Agarwal 用以警示工程实践缺失。",
+      "category": "paradigm",
+      "tags": [
+        "paradigm",
+        "speed"
+      ]
+    },
+    {
+      "id": "sdd",
+      "name": "Specification-Driven Development",
+      "zh": "规格驱动开发",
+      "layer": "L2",
+      "shortDesc": "以 spec.md 作为人、AI、测试、审查者之间共享契约的开发方法。GitHub Spec Kit 是工具链。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "github",
+        "spec-kit"
+      ]
+    },
+    {
+      "id": "spec-md",
+      "name": "Spec.md as Contract",
+      "zh": "Spec.md 作为契约",
+      "layer": "L2",
+      "shortDesc": "把 spec.md 当成唯一真相源（Single Source of Truth），所有 agent 都读同一份。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "contract"
+      ]
+    },
+    {
+      "id": "context-engineering",
+      "name": "Context Engineering",
+      "zh": "上下文工程",
+      "layer": "L2",
+      "shortDesc": "管理进入 LLM 上下文窗口的所有信息（指令、工具、历史、文件）的工程学科。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "anthropic",
+        "prompt"
+      ]
+    },
+    {
+      "id": "plan-verify-build",
+      "name": "Plan-Verify-Build Loop",
+      "zh": "规划-验证-构建循环",
+      "layer": "L2",
+      "shortDesc": "AI agent 的核心循环——规划、执行、验证三段式工作流。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "loop"
+      ]
+    },
+    {
+      "id": "iterative-refinement",
+      "name": "Iterative Refinement",
+      "zh": "迭代精炼",
+      "layer": "L2",
+      "shortDesc": "通过多轮 prompt 调整让代码逐步逼近目标。Karpathy 原始描述：把错误信息贴回 LLM。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "iteration"
+      ]
+    },
+    {
+      "id": "acceptance-criteria",
+      "name": "Acceptance Criteria",
+      "zh": "验收标准",
+      "layer": "L2",
+      "shortDesc": "事先约定的、可机械验证的\"完成标准\"。决定 vibe coding 何时停止。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "criteria"
+      ]
+    },
+    {
+      "id": "tdd-ai",
+      "name": "TDD with AI",
+      "zh": "AI 驱动的 TDD",
+      "layer": "L2",
+      "shortDesc": "先写测试再让 AI 写实现。Willison 指出这对 coding agent 特别有效。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "tdd"
+      ]
+    },
+    {
+      "id": "claude-md",
+      "name": "CLAUDE.md",
+      "zh": "CLAUDE.md",
+      "layer": "L2",
+      "shortDesc": "Claude Code 项目级持久指令文件。每次会话开始时自动加载。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "memory"
+      ]
+    },
+    {
+      "id": "auto-memory",
+      "name": "Auto Memory",
+      "zh": "自动记忆",
+      "layer": "L2",
+      "shortDesc": "Claude Code 为自己写的笔记，基于用户的修正和偏好。每个 git repo 独立存储。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "memory"
+      ]
+    },
+    {
+      "id": "compaction",
+      "name": "Compaction",
+      "zh": "上下文压缩",
+      "layer": "L2",
+      "shortDesc": "会话接近 context window 上限时自动摘要压缩。CLAUDE.md 与 auto memory 存活。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code"
+      ]
+    },
+    {
+      "id": "checkpoint",
+      "name": "Checkpoint",
+      "zh": "检查点",
+      "layer": "L2",
+      "shortDesc": "每个 prompt 时的文件快照，可回滚到任一检查点。Esc Esc 或 /rewind 触发。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "rollback"
+      ]
+    },
+    {
+      "id": "permission-mode",
+      "name": "Permission Mode",
+      "zh": "权限模式",
+      "layer": "L2",
+      "shortDesc": "Claude Code 的基础审批行为设置。通过 Shift+Tab 在 CLI 循环切换。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "safety"
+      ]
+    },
+    {
+      "id": "auto-mode",
+      "name": "Auto Mode",
+      "zh": "自动模式",
+      "layer": "L2",
+      "shortDesc": "后台分类器审查操作的权限模式。它看不到工具结果，因此免疫 prompt injection。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "safety"
+      ]
+    },
+    {
+      "id": "bare-mode",
+      "name": "Bare Mode",
+      "zh": "裸模式",
+      "layer": "L2",
+      "shortDesc": "Claude Code --bare 启动：不加载 hooks、skills、plugins、MCP、CLAUDE.md。用于 CI。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "ci"
+      ]
+    },
+    {
+      "id": "extended-thinking",
+      "name": "Extended Thinking",
+      "zh": "扩展思维",
+      "layer": "L2",
+      "shortDesc": "Claude 模型在响应前先做可见的逐步推理。可通过 effort level 调节。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "effort-level",
+      "name": "Effort Level",
+      "zh": "思维投入度",
+      "layer": "L2",
+      "shortDesc": "Claude 自适应推理的 token 预算设置。越高越深但越慢。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "output-style",
+      "name": "Output Style",
+      "zh": "输出风格",
+      "layer": "L2",
+      "shortDesc": "修改 Claude 系统提示以改变响应行为/语气/格式。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code"
+      ]
+    },
+    {
+      "id": "hooks",
+      "name": "Hooks",
+      "zh": "钩子",
+      "layer": "L2",
+      "shortDesc": "在 Claude Code 生命周期的特定点自动执行的处理器（shell/HTTP/MCP/LLM/子 agent）。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code",
+        "extension"
+      ]
+    },
+    {
+      "id": "bundled-skills",
+      "name": "Bundled Skills",
+      "zh": "打包技能",
+      "layer": "L2",
+      "shortDesc": "Claude Code 自带的 prompt 化 playbook，如 /batch、/code-review、/debug、/loop。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code"
+      ]
+    },
+    {
+      "id": "commands",
+      "name": "Commands (Slash Commands)",
+      "zh": "斜杠命令",
+      "layer": "L2",
+      "shortDesc": "通过 /name 调用的可复用指令。Claude Code 内置 + 用户可自定义。",
+      "category": "methodology",
+      "tags": [
+        "methodology",
+        "claude-code"
+      ]
+    },
+    {
+      "id": "llm",
+      "name": "Large Language Model (LLM)",
+      "zh": "大语言模型",
+      "layer": "L3",
+      "shortDesc": "基于 Transformer 的大规模语言模型。vibe coding 的引擎。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "transformer",
+      "name": "Transformer",
+      "zh": "Transformer 架构",
+      "layer": "L3",
+      "shortDesc": "使用注意力而非循环/卷积的神经网络架构。2017 年 Google 论文《Attention Is All You Need》。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "architecture"
+      ]
+    },
+    {
+      "id": "attention",
+      "name": "Attention Mechanism",
+      "zh": "注意力机制",
+      "layer": "L3",
+      "shortDesc": "神经网络中动态加权输入相关性的组件。Transformer 的核心。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "context-window",
+      "name": "Context Window",
+      "zh": "上下文窗口",
+      "layer": "L3",
+      "shortDesc": "LLM 单次推理可\"看到\"的最大 token 数。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "tokens",
+      "name": "Tokens",
+      "zh": "Token",
+      "layer": "L3",
+      "shortDesc": "模型把文本切分成最小处理单元的过程和单位。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "hallucination",
+      "name": "Hallucination",
+      "zh": "幻觉",
+      "layer": "L3",
+      "shortDesc": "LLM 在缺乏依据时生成看似合理但虚构的内容。vibe coding 的主要风险。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "risk",
+        "core"
+      ]
+    },
+    {
+      "id": "agent-loop",
+      "name": "Agent Loop",
+      "zh": "智能体循环",
+      "layer": "L3",
+      "shortDesc": "AI Agent \"思考-行动-观察\"循环。每轮重建 context。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "subagent",
+      "name": "Subagent",
+      "zh": "子智能体",
+      "layer": "L3",
+      "shortDesc": "由主 agent 派生的子 agent，负责专门子任务。有自己的 context window。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "agent"
+      ]
+    },
+    {
+      "id": "agent-teams",
+      "name": "Agent Teams",
+      "zh": "智能体团队",
+      "layer": "L3",
+      "shortDesc": "多个独立 Claude Code session 协同工作。每个有独立 context window。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "agent",
+        "experimental"
+      ]
+    },
+    {
+      "id": "tool-use",
+      "name": "Tool Use / Function Calling",
+      "zh": "工具调用 / 函数调用",
+      "layer": "L3",
+      "shortDesc": "让 LLM 调用外部函数（读文件、跑命令）的能力。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core"
+      ]
+    },
+    {
+      "id": "mcp",
+      "name": "MCP (Model Context Protocol)",
+      "zh": "模型上下文协议",
+      "layer": "L3",
+      "shortDesc": "连接 AI Agent 与外部数据源/工具的开放标准。AI 时代的 USB。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "protocol",
+        "anthropic"
+      ]
+    },
+    {
+      "id": "mcp-server",
+      "name": "MCP Server",
+      "zh": "MCP 服务器",
+      "layer": "L3",
+      "shortDesc": "为 Claude 提供工具/提示/资源的程序。可通过 claude mcp add 或 .mcp.json 配置。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "mcp"
+      ]
+    },
+    {
+      "id": "mcp-tool-search",
+      "name": "MCP Tool Search",
+      "zh": "MCP 工具搜索",
+      "layer": "L3",
+      "shortDesc": "MCP 工具 schema 按需加载机制。仅加载工具名，全 schema 在使用时拉取。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "mcp",
+        "context-saving"
+      ]
+    },
+    {
+      "id": "system-prompt",
+      "name": "System Prompt / System Message",
+      "zh": "系统提示",
+      "layer": "L3",
+      "shortDesc": "在对话开头给 LLM 的全局指令，影响后续所有交互。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "prompt"
+      ]
+    },
+    {
+      "id": "embedding",
+      "name": "Embedding",
+      "zh": "嵌入向量",
+      "layer": "L3",
+      "shortDesc": "文本/图像/音频的数值向量表示，编码语义信息。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag",
+        "core"
+      ]
+    },
+    {
+      "id": "rag",
+      "name": "RAG (Retrieval-Augmented Generation)",
+      "zh": "检索增强生成",
+      "layer": "L3",
+      "shortDesc": "从外部知识库检索相关文档，再让 LLM 基于检索结果生成回答。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "core",
+        "rag"
+      ]
+    },
+    {
+      "id": "vector-database",
+      "name": "Vector Database",
+      "zh": "向量数据库",
+      "layer": "L3",
+      "shortDesc": "存储和查询高维 embedding 向量的专用数据库。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag",
+        "database"
+      ]
+    },
+    {
+      "id": "cosine-similarity",
+      "name": "Cosine Similarity",
+      "zh": "余弦相似度",
+      "layer": "L3",
+      "shortDesc": "两个 embedding 向量夹角的余弦值，衡量语义相似度。RAG 检索最常用度量。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag",
+        "metric"
+      ]
+    },
+    {
+      "id": "chunking",
+      "name": "Chunking (RAG)",
+      "zh": "文档切片",
+      "layer": "L3",
+      "shortDesc": "把文档分成片段以便向量数据库索引。重叠（overlap）保证语义连贯。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag"
+      ]
+    },
+    {
+      "id": "reranker",
+      "name": "Reranker (Cross-Encoder)",
+      "zh": "重排序器",
+      "layer": "L3",
+      "shortDesc": "RAG 第二阶段：用 cross-encoder 联合打分 query + 候选文档，提升排序质量。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag"
+      ]
+    },
+    {
+      "id": "graph-rag",
+      "name": "GraphRAG",
+      "zh": "图谱 RAG",
+      "layer": "L3",
+      "shortDesc": "用知识图谱增强 RAG，捕捉实体间关系。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag",
+        "advanced"
+      ]
+    },
+    {
+      "id": "hyde",
+      "name": "HyDE (Hypothetical Document Embeddings)",
+      "zh": "假设文档嵌入",
+      "layer": "L3",
+      "shortDesc": "让 LLM 先生成假设性答案文档，再用其 embedding 检索真实文档。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "rag",
+        "advanced"
+      ]
+    },
+    {
+      "id": "prompt-caching",
+      "name": "Semantic Caching",
+      "zh": "语义缓存",
+      "layer": "L3",
+      "shortDesc": "缓存相似查询的 LLM 响应，降低成本和延迟。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "kv-cache",
+      "name": "KV Cache",
+      "zh": "KV 缓存",
+      "layer": "L3",
+      "shortDesc": "缓存已计算的 Key/Value 矩阵，避免重复注意力计算。LLM 推理核心优化。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "paged-attention",
+      "name": "PagedAttention (vLLM)",
+      "zh": "分页注意力",
+      "layer": "L3",
+      "shortDesc": "vLLM 的 KV cache 分页管理，显著提升吞吐量。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "serving"
+      ]
+    },
+    {
+      "id": "speculative-decoding",
+      "name": "Speculative Decoding",
+      "zh": "推测解码",
+      "layer": "L3",
+      "shortDesc": "用小模型先生成候选 token，大模型并行验证，加速推理。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "flash-attention",
+      "name": "FlashAttention",
+      "zh": "FlashAttention",
+      "layer": "L3",
+      "shortDesc": "通过 IO-aware 算法显著加速注意力计算并节省内存。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "mixture-of-experts",
+      "name": "Mixture of Experts (MoE)",
+      "zh": "混合专家",
+      "layer": "L3",
+      "shortDesc": "多个专家子网络 + 路由器动态激活部分参数。稀疏激活的大模型架构。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "architecture"
+      ]
+    },
+    {
+      "id": "router-gating",
+      "name": "Router / Gating",
+      "zh": "路由 / 门控",
+      "layer": "L3",
+      "shortDesc": "MoE 中决定哪个 expert 处理哪个 token 的网络。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "moe"
+      ]
+    },
+    {
+      "id": "mamba",
+      "name": "Mamba (SSM)",
+      "zh": "Mamba 状态空间模型",
+      "layer": "L3",
+      "shortDesc": "状态空间模型（SSM），Transformer 替代架构。线性复杂度处理长序列。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "architecture",
+        "emerging"
+      ]
+    },
+    {
+      "id": "rope",
+      "name": "RoPE (Rotary Position Embedding)",
+      "zh": "旋转位置编码",
+      "layer": "L3",
+      "shortDesc": "通过旋转矩阵编码位置信息。现代 LLM 的主流位置编码方案。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "architecture"
+      ]
+    },
+    {
+      "id": "alibi",
+      "name": "ALiBi",
+      "zh": "ALiBi 位置编码",
+      "layer": "L3",
+      "shortDesc": "通过线性偏置注意力分数编码相对位置。无额外参数的轻量方案。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "architecture"
+      ]
+    },
+    {
+      "id": "quantization",
+      "name": "Quantization (INT8/INT4/NF4)",
+      "zh": "量化",
+      "layer": "L3",
+      "shortDesc": "降低模型权重精度（FP16 → INT8/INT4/NF4）以减少内存和加速推理。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "awq",
+      "name": "AWQ",
+      "zh": "AWQ 量化",
+      "layer": "L3",
+      "shortDesc": "Activation-aware Weight Quantization：保护重要权重的低精度量化。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "gptq",
+      "name": "GPTQ",
+      "zh": "GPTQ 量化",
+      "layer": "L3",
+      "shortDesc": "逐层量化大模型，INT4 精度下保持高质量。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "optimization"
+      ]
+    },
+    {
+      "id": "distillation",
+      "name": "Distillation",
+      "zh": "蒸馏",
+      "layer": "L3",
+      "shortDesc": "用大模型的输出训练小模型，保留大部分能力但降低推理成本。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "frontier-model",
+      "name": "Frontier Model",
+      "zh": "前沿模型",
+      "layer": "L3",
+      "shortDesc": "在能力上达到\"前沿\"的 LLM。Anthropic / OpenAI / Google / xAI / DeepSeek / Meta 的旗舰。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "model"
+      ]
+    },
+    {
+      "id": "code-model",
+      "name": "Code Model",
+      "zh": "代码模型",
+      "layer": "L3",
+      "shortDesc": "专门在代码上微调或训练的 LLM。vibe coding 的引擎。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "model",
+        "code"
+      ]
+    },
+    {
+      "id": "fine-tuning",
+      "name": "Fine-Tuning",
+      "zh": "微调",
+      "layer": "L3",
+      "shortDesc": "在预训练模型基础上用领域数据继续训练。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "lora",
+      "name": "LoRA (Low-Rank Adaptation)",
+      "zh": "LoRA",
+      "layer": "L3",
+      "shortDesc": "参数高效微调：只更新小的低秩矩阵，大幅降低训练成本。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "qlora",
+      "name": "QLoRA",
+      "zh": "QLoRA",
+      "layer": "L3",
+      "shortDesc": "4-bit 量化 + LoRA：单 GPU 可微调 65B 模型。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "peft",
+      "name": "PEFT (Parameter-Efficient Fine-Tuning)",
+      "zh": "PEFT",
+      "layer": "L3",
+      "shortDesc": "参数高效微调的总称。LoRA / QLoRA / Prefix Tuning 都属此类。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "rlhf",
+      "name": "RLHF",
+      "zh": "人类反馈强化学习",
+      "layer": "L3",
+      "shortDesc": "用人类偏好数据训练 reward model，再用 RL 优化 LLM。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training",
+        "alignment"
+      ]
+    },
+    {
+      "id": "dpo",
+      "name": "DPO (Direct Preference Optimization)",
+      "zh": "DPO 直接偏好优化",
+      "layer": "L3",
+      "shortDesc": "无需 reward model，直接用偏好数据优化 LLM。比 RLHF 更简单稳定。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training",
+        "alignment"
+      ]
+    },
+    {
+      "id": "rlaif",
+      "name": "RLAIF",
+      "zh": "AI 反馈强化学习",
+      "layer": "L3",
+      "shortDesc": "用 AI 生成偏好标签替代人类。Anthropic Constitutional AI 用此。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training",
+        "alignment"
+      ]
+    },
+    {
+      "id": "orpo",
+      "name": "ORPO",
+      "zh": "ORPO",
+      "layer": "L3",
+      "shortDesc": "Odds Ratio Preference Optimization：SFT + DPO 一体化训练。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "ipo",
+      "name": "IPO (Identity Preference Optimization)",
+      "zh": "IPO",
+      "layer": "L3",
+      "shortDesc": "改进 DPO 避免过拟合的偏好优化方法。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "training"
+      ]
+    },
+    {
+      "id": "function-calling",
+      "name": "Function Calling",
+      "zh": "函数调用",
+      "layer": "L3",
+      "shortDesc": "LLM 输出 JSON 参数触发外部函数。OpenAI 2023 推出，主流 LLM 标准能力。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "api"
+      ]
+    },
+    {
+      "id": "structured-outputs",
+      "name": "Structured Outputs",
+      "zh": "结构化输出",
+      "layer": "L3",
+      "shortDesc": "LLM 输出严格遵循 JSON Schema。OpenAI 2024 推出 guaranteed adherence。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "api"
+      ]
+    },
+    {
+      "id": "constrained-decoding",
+      "name": "Constrained Decoding",
+      "zh": "约束解码",
+      "layer": "L3",
+      "shortDesc": "用 grammar/JSON schema 限制 LLM 输出格式。保证 100% schema 遵循。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "api"
+      ]
+    },
+    {
+      "id": "sampling",
+      "name": "Sampling (Temperature / Top-p / Top-k)",
+      "zh": "采样参数",
+      "layer": "L3",
+      "shortDesc": "控制 LLM 输出多样性的参数：temperature / top-p / top-k。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "inference"
+      ]
+    },
+    {
+      "id": "computer-use",
+      "name": "Computer Use",
+      "zh": "计算机使用",
+      "layer": "L3",
+      "shortDesc": "Anthropic Claude 操控桌面（鼠标、键盘、截图）的能力。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "agent",
+        "anthropic"
+      ]
+    },
+    {
+      "id": "browser-use",
+      "name": "Browser Use",
+      "zh": "浏览器使用",
+      "layer": "L3",
+      "shortDesc": "AI agent 操控浏览器的能力。Claude for Chrome / Anthropic SDK。",
+      "category": "tech",
+      "tags": [
+        "tech",
+        "agent",
+        "browser"
+      ]
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "zh": "Cursor",
+      "layer": "L4",
+      "shortDesc": "AI-first IDE，基于 VS Code fork。vibe coding 旗舰工具。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "ide"
+      ]
+    },
+    {
+      "id": "cursor-composer",
+      "name": "Cursor Composer",
+      "zh": "Cursor Composer",
+      "layer": "L4",
+      "shortDesc": "Cursor 的多文件编辑 + agent 编排功能。vibe coding 旗舰。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "cursor"
+      ]
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "zh": "Claude Code",
+      "layer": "L4",
+      "shortDesc": "Anthropic 推出的 CLI Agent，运行在终端。Karpathy 推荐。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "anthropic",
+        "cli"
+      ]
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "zh": "Windsurf",
+      "layer": "L4",
+      "shortDesc": "Codeium 推出的 AI IDE，与 Cursor 直接竞争。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "ide",
+        "codeium"
+      ]
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot",
+      "zh": "GitHub Copilot",
+      "layer": "L4",
+      "shortDesc": "最早普及的 AI 编程助手，2021 推出。采纳率最高的工具。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "github"
+      ]
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "zh": "Aider",
+      "layer": "L4",
+      "shortDesc": "终端里的 AI pair programmer，开源。多 LLM 后端。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "cli",
+        "open-source"
+      ]
+    },
+    {
+      "id": "replit-agent",
+      "name": "Replit Agent",
+      "zh": "Replit Agent",
+      "layer": "L4",
+      "shortDesc": "Replit 云端 IDE 内置的 agent。2025-07 曾删用户生产数据库。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "cloud-ide"
+      ]
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable",
+      "zh": "Lovable",
+      "layer": "L4",
+      "shortDesc": "瑞典 startup，专注前端 vibe coding。2025-05 出现 PII 泄漏事件。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "frontend",
+        "startup"
+      ]
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "zh": "Codeium",
+      "layer": "L4",
+      "shortDesc": "免费 AI 代码补全工具。Windsurf 母公司。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "completion"
+      ]
+    },
+    {
+      "id": "tabnine",
+      "name": "Tabnine",
+      "zh": "Tabnine",
+      "layer": "L4",
+      "shortDesc": "早期 AI 代码补全工具，主打本地部署与隐私。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "completion"
+      ]
+    },
+    {
+      "id": "cline",
+      "name": "Cline / Roo Code",
+      "zh": "Cline / Roo Code",
+      "layer": "L4",
+      "shortDesc": "VS Code 扩展，把 IDE 变成 agent 工作台。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "vscode"
+      ]
+    },
+    {
+      "id": "devin",
+      "name": "Devin (Cognition)",
+      "zh": "Devin",
+      "layer": "L4",
+      "shortDesc": "Cognition 推出的号称\"第一个 AI 软件工程师\"的独立 agent。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "autonomous-agent"
+      ]
+    },
+    {
+      "id": "v0",
+      "name": "v0 (Vercel)",
+      "zh": "v0",
+      "layer": "L4",
+      "shortDesc": "Vercel 推出的前端 vibe coding 平台。从 prompt 到 React 组件。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "frontend",
+        "vercel"
+      ]
+    },
+    {
+      "id": "coderabbit",
+      "name": "CodeRabbit",
+      "zh": "CodeRabbit",
+      "layer": "L4",
+      "shortDesc": "AI 代码审查 agent，对接 GitHub PR。研究显示安全漏洞显著升高。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "review"
+      ]
+    },
+    {
+      "id": "veracode",
+      "name": "Veracode",
+      "zh": "Veracode",
+      "layer": "L4",
+      "shortDesc": "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "security"
+      ]
+    },
+    {
+      "id": "spec-kit",
+      "name": "GitHub Spec Kit",
+      "zh": "Spec Kit",
+      "layer": "L4",
+      "shortDesc": "GitHub 推出的开源 SDD 工具链。Specify/Plan/Tasks 三阶段。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "github",
+        "sdd"
+      ]
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "zh": "Gemini CLI",
+      "layer": "L4",
+      "shortDesc": "Google 推出的 CLI Agent，类似 Claude Code。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "google",
+        "cli"
+      ]
+    },
+    {
+      "id": "codex-cli",
+      "name": "Codex CLI (OpenAI)",
+      "zh": "Codex CLI",
+      "layer": "L4",
+      "shortDesc": "OpenAI 推出的 CLI Agent。2025-04 发布。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "openai",
+        "cli"
+      ]
+    },
+    {
+      "id": "coding-agents",
+      "name": "Coding Agents",
+      "zh": "编程智能体",
+      "layer": "L4",
+      "shortDesc": "Willison 命名：可以迭代代码、主动测试和修改直到达成目标的工具。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "agent",
+        "willison"
+      ]
+    },
+    {
+      "id": "antigravity",
+      "name": "Google Antigravity",
+      "zh": "Google Antigravity",
+      "layer": "L4",
+      "shortDesc": "Google 推出的 AI IDE（2025）。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "google",
+        "ide"
+      ]
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "zh": "LangChain",
+      "layer": "L4",
+      "shortDesc": "LLM 应用编排框架。600+ 集成，LangGraph 用于有状态 agent。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "framework"
+      ]
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "zh": "LlamaIndex",
+      "layer": "L4",
+      "shortDesc": "专注 RAG pipeline。基于节点文档模型和查询引擎。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "framework",
+        "rag"
+      ]
+    },
+    {
+      "id": "dspy",
+      "name": "DSPy",
+      "zh": "DSPy",
+      "layer": "L4",
+      "shortDesc": "Stanford 提出的 LLM 程序优化框架。把 prompt 当可编译的代码。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "framework"
+      ]
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "zh": "Hugging Face",
+      "layer": "L4",
+      "shortDesc": "开源 ML 模型与数据集平台。Transformers 库的发源地。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "platform"
+      ]
+    },
+    {
+      "id": "mcp-tool-server",
+      "name": "MCP Tools & Servers",
+      "zh": "MCP 工具生态",
+      "layer": "L4",
+      "shortDesc": "数百个 MCP server 提供 Slack/Jira/数据库/浏览器等集成。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "mcp",
+        "ecosystem"
+      ]
+    },
+    {
+      "id": "orchids",
+      "name": "Orchids",
+      "zh": "Orchids",
+      "layer": "L4",
+      "shortDesc": "vibe coding 平台之一。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "platform"
+      ]
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "zh": "OpenClaw",
+      "layer": "L4",
+      "shortDesc": "AI agent 系统，包含 \"Pi coding harness\"。Mario Zechner 等创造 vibe slop 术语之地。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "ai-agent-system"
+      ]
+    },
+    {
+      "id": "superwhisper",
+      "name": "SuperWhisper",
+      "zh": "SuperWhisper",
+      "layer": "L4",
+      "shortDesc": "语音转文字工具，让用户能用语音与 LLM 对话。",
+      "category": "tool",
+      "tags": [
+        "tool",
+        "voice"
+      ]
+    },
+    {
+      "id": "guardrails",
+      "name": "Guardrails",
+      "zh": "护栏",
+      "layer": "L5",
+      "shortDesc": "自动化检查，专门捕捉 AI 易犯的错误，廉价运行、失败响亮。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "safety",
+        "core"
+      ]
+    },
+    {
+      "id": "mvp",
+      "name": "Mechanical Verification Pipeline",
+      "zh": "机械验证流水线",
+      "layer": "L5",
+      "shortDesc": "用机械手段（编译器、diff、测试套件）做裁判。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "verification"
+      ]
+    },
+    {
+      "id": "compiler-referee",
+      "name": "Compiler as Referee",
+      "zh": "编译器作为裁判",
+      "layer": "L5",
+      "shortDesc": "把编译器当作\"第一道审查者\"，所有 AI 代码必须先过编译。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "verification"
+      ]
+    },
+    {
+      "id": "test-referee",
+      "name": "Test Suite as Referee",
+      "zh": "测试套件作为裁判",
+      "layer": "L5",
+      "shortDesc": "把测试套件当作\"终审\"。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "verification"
+      ]
+    },
+    {
+      "id": "safety-net-testing",
+      "name": "Safety Net Testing",
+      "zh": "安全网测试",
+      "layer": "L5",
+      "shortDesc": "建立测试安全网——充分的测试让 AI 改动不破坏既有行为。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "testing"
+      ]
+    },
+    {
+      "id": "diff-review",
+      "name": "Diff Review",
+      "zh": "Diff 审查",
+      "layer": "L5",
+      "shortDesc": "在 vibe coding 流程中强制 AI 输出 diff 并人工 review。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "review"
+      ]
+    },
+    {
+      "id": "code-review",
+      "name": "Code Review",
+      "zh": "代码审查",
+      "layer": "L5",
+      "shortDesc": "代码审查实践。AI 时代需要 review AI 生成的代码。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "review"
+      ]
+    },
+    {
+      "id": "yolo-mode",
+      "name": "YOLO Mode",
+      "zh": "YOLO 模式",
+      "layer": "L5",
+      "shortDesc": "关闭所有审批，让 agent 不停下来问。风险极高。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "risk",
+        "core"
+      ]
+    },
+    {
+      "id": "responsible-vc",
+      "name": "Responsible Vibe Coding",
+      "zh": "负责任的 Vibe Coding",
+      "layer": "L5",
+      "shortDesc": "持续审查、不放任 YOLO 的 vibe coding 风格。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "balance"
+      ]
+    },
+    {
+      "id": "failure-mode",
+      "name": "Failure Mode Analysis",
+      "zh": "失败模式分析",
+      "layer": "L5",
+      "shortDesc": "分析 agent 可能失败的模式，针对性加防护。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "risk"
+      ]
+    },
+    {
+      "id": "spec-driven-prompting",
+      "name": "Spec-Driven Prompting",
+      "zh": "规格驱动提示",
+      "layer": "L5",
+      "shortDesc": "把 spec.md 内容作为 prompt 的核心。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "prompt"
+      ]
+    },
+    {
+      "id": "manifest-file",
+      "name": "CLAUDE.md / Manifest",
+      "zh": "CLAUDE.md / 清单文件",
+      "layer": "L5",
+      "shortDesc": "项目级持久指令文件。每会话开始加载。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "config"
+      ]
+    },
+    {
+      "id": "auto-mode-safety",
+      "name": "Auto Mode Safety",
+      "zh": "Auto Mode 安全",
+      "layer": "L5",
+      "shortDesc": "Claude Code Auto Mode 的安全设计：后台分类器看不到工具结果，免疫 prompt injection。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "safety"
+      ]
+    },
+    {
+      "id": "managed-settings",
+      "name": "Managed Settings",
+      "zh": "托管设置",
+      "layer": "L5",
+      "shortDesc": "组织级 Claude Code 设置。IT / DevOps 通过 admin console 强制。",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "tech-debt",
+      "name": "Technical Debt",
+      "zh": "技术债",
+      "layer": "L6",
+      "shortDesc": "代码中累积的长期维护负担。vibe coding 显著加剧。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "core"
+      ]
+    },
+    {
+      "id": "cognitive-debt-detail",
+      "name": "Cognitive Debt",
+      "zh": "认知债",
+      "layer": "L6",
+      "shortDesc": "AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债成为新负担。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "hunt",
+        "emerging"
+      ]
+    },
+    {
+      "id": "code-churn",
+      "name": "Code Churn",
+      "zh": "代码 churn",
+      "layer": "L6",
+      "shortDesc": "代码被修改/重写/删除的比率。vibe coding 显著推高。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "metric"
+      ]
+    },
+    {
+      "id": "code-duplication",
+      "name": "Code Duplication",
+      "zh": "代码重复",
+      "layer": "L6",
+      "shortDesc": "相同/相似代码段重复出现。vibe coding 增加约 4 倍。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "metric"
+      ]
+    },
+    {
+      "id": "vibe-slop",
+      "name": "Vibe Slop",
+      "zh": "Vibe 残渣",
+      "layer": "L6",
+      "shortDesc": "Mario Zechner 创造：vibe coding 产生的低质量、难维护代码。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "core",
+        "willison"
+      ]
+    },
+    {
+      "id": "vibe-hangover",
+      "name": "Vibe Coding Hangover",
+      "zh": "Vibe Coding 宿醉",
+      "layer": "L6",
+      "shortDesc": "Fast Company 2025-09 提出的术语：vibe 出来的代码在生产中逐渐暴露出问题的状态。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "fast-company"
+      ]
+    },
+    {
+      "id": "dev-hell",
+      "name": "Development Hell",
+      "zh": "开发地狱",
+      "layer": "L6",
+      "shortDesc": "因 vibe coding 制造的\"难以演进的系统\"困境。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "consequence"
+      ]
+    },
+    {
+      "id": "lethal-trifecta",
+      "name": "Lethal Trifecta",
+      "zh": "致命三要素",
+      "layer": "L6",
+      "shortDesc": "Simon Willison：三因子风险——私数据 + 不可信内容 + 外部通信。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "willison",
+        "security"
+      ]
+    },
+    {
+      "id": "vibe-valuation",
+      "name": "Vibe Valuation",
+      "zh": "Vibe 估值",
+      "layer": "L6",
+      "shortDesc": "AI 创业公司估值背离 ARR 等指标的潮流。The Economist 提出。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "analogy",
+        "finance"
+      ]
+    },
+    {
+      "id": "homogenization",
+      "name": "Homogenization of Software",
+      "zh": "软件同质化",
+      "layer": "L6",
+      "shortDesc": "LLM 倾向于选择主流/知名库，导致软件栈趋同。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "open-source"
+      ]
+    },
+    {
+      "id": "open-source-impact",
+      "name": "Vibe Coding Kills Open Source",
+      "zh": "Vibe Coding 杀死开源",
+      "layer": "L6",
+      "shortDesc": "2026-01 论文：vibe coding 削弱开源 maintainer 的用户参与回报。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "open-source",
+        "paper"
+      ]
+    },
+    {
+      "id": "eternal-september",
+      "name": "Eternal September",
+      "zh": "永恒九月",
+      "layer": "L6",
+      "shortDesc": "GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "community"
+      ]
+    },
+    {
+      "id": "prompt-injection",
+      "name": "Prompt Injection",
+      "zh": "提示注入",
+      "layer": "L6",
+      "shortDesc": "恶意内容被注入 LLM 输入流，操纵其行为。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "security",
+        "core"
+      ]
+    },
+    {
+      "id": "security",
+      "name": "AI Code Security",
+      "zh": "AI 代码安全",
+      "layer": "L6",
+      "shortDesc": "AI 生成代码的安全问题。Veracode 研究：3 年未改善。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "security"
+      ]
+    },
+    {
+      "id": "metr-rct",
+      "name": "METR RCT",
+      "zh": "METR 随机对照试验",
+      "layer": "L6",
+      "shortDesc": "METR 2025-07：16 名开发者 + 246 任务，AI 实际让完成时间 +19%（预测 -24%）。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "research",
+        "evidence"
+      ]
+    },
+    {
+      "id": "productivity-paradox",
+      "name": "Productivity Paradox",
+      "zh": "生产力悖论",
+      "layer": "L6",
+      "shortDesc": "AI 加速开发但开发者实际花费更多时间——METR 实证 + Stack Overflow 调试数据。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "evidence"
+      ]
+    },
+    {
+      "id": "so-survey-2025",
+      "name": "Stack Overflow 2025 AI Survey",
+      "zh": "Stack Overflow 2025 AI 调查",
+      "layer": "L6",
+      "shortDesc": "Stack Overflow 2025 开发者调查：84% 用 AI、51% 每天用、72% 不做 vibe coding。",
+      "category": "risk",
+      "tags": [
+        "risk",
+        "evidence",
+        "data"
+      ]
+    },
+    {
+      "id": "cot",
+      "name": "Chain-of-Thought (CoT)",
+      "zh": "思维链提示",
+      "layer": "L7",
+      "shortDesc": "让 LLM \"先思考再输出\"。适用于复杂任务。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "core"
+      ]
+    },
+    {
+      "id": "tot",
+      "name": "Tree-of-Thought (ToT)",
+      "zh": "思维树",
+      "layer": "L7",
+      "shortDesc": "让 LLM 探索多个推理路径并比较。复杂问题求解。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "react",
+      "name": "ReAct",
+      "zh": "ReAct",
+      "layer": "L7",
+      "shortDesc": "Reason + Act 循环：思维与工具调用交替的 agent 范式。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "agent"
+      ]
+    },
+    {
+      "id": "self-consistency",
+      "name": "Self-Consistency",
+      "zh": "自一致性",
+      "layer": "L7",
+      "shortDesc": "多次采样 + 多数投票，提升推理可靠性。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "reflection",
+      "name": "Reflexion",
+      "zh": "Reflexion",
+      "layer": "L7",
+      "shortDesc": "让 agent 反思自己的错误并改进下一步策略。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "agent"
+      ]
+    },
+    {
+      "id": "few-shot",
+      "name": "Few-Shot Prompting",
+      "zh": "少样本提示",
+      "layer": "L7",
+      "shortDesc": "在 prompt 中给 LLM 几个示例，让模型模仿。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "core"
+      ]
+    },
+    {
+      "id": "zero-shot",
+      "name": "Zero-Shot Learning",
+      "zh": "零样本学习",
+      "layer": "L7",
+      "shortDesc": "模型基于任务描述直接执行，无需示例。",
+      "category": "prompt",
+      "tags": [
+        "prompt"
+      ]
+    },
+    {
+      "id": "negative-prompting",
+      "name": "Negative Prompting",
+      "zh": "负向提示",
+      "layer": "L7",
+      "shortDesc": "明确告诉 LLM 不要做什么。",
+      "category": "prompt",
+      "tags": [
+        "prompt"
+      ]
+    },
+    {
+      "id": "decomposition",
+      "name": "Task Decomposition",
+      "zh": "任务分解",
+      "layer": "L7",
+      "shortDesc": "把大任务拆成小任务，逐个让 LLM 完成。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "core"
+      ]
+    },
+    {
+      "id": "self-review-prompting",
+      "name": "Self-Review Prompting",
+      "zh": "自检提示",
+      "layer": "L7",
+      "shortDesc": "让 LLM 先自查再输出。",
+      "category": "prompt",
+      "tags": [
+        "prompt"
+      ]
+    },
+    {
+      "id": "tool-description-engineering",
+      "name": "Tool Description Engineering",
+      "zh": "工具描述工程",
+      "layer": "L7",
+      "shortDesc": "为每个工具写清晰的 description，让 LLM 知道何时调用。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "agent"
+      ]
+    },
+    {
+      "id": "meta-prompting",
+      "name": "Meta-Prompting",
+      "zh": "元提示",
+      "layer": "L7",
+      "shortDesc": "用 LLM 优化自己的 prompt。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "advanced"
+      ]
+    },
+    {
+      "id": "thinking-budget",
+      "name": "Thinking Budget",
+      "zh": "思维预算",
+      "layer": "L7",
+      "shortDesc": "控制模型推理 token 的预算。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "prompt-injection-prompt",
+      "name": "Prompt Injection Defense",
+      "zh": "提示注入防御",
+      "layer": "L7",
+      "shortDesc": "通过 prompt 工程防御 prompt injection。",
+      "category": "prompt",
+      "tags": [
+        "prompt",
+        "security"
+      ]
+    },
+    {
+      "id": "system-message",
+      "name": "System Message / System Prompt",
+      "zh": "系统消息",
+      "layer": "L7",
+      "shortDesc": "会话开头的全局指令。",
+      "category": "prompt",
+      "tags": [
+        "prompt"
+      ]
+    },
+    {
+      "id": "multi-shot",
+      "name": "Multi-Shot / Many-Shot",
+      "zh": "多样本提示",
+      "layer": "L7",
+      "shortDesc": "用大量示例（数百）提升 LLM 表现。",
+      "category": "prompt",
+      "tags": [
+        "prompt"
+      ]
+    },
+    {
+      "id": "proto-scenario",
+      "name": "Throwaway Prototype",
+      "zh": "一次性原型",
+      "layer": "L8",
+      "shortDesc": "从 0 到可 demo 的应用，一晚上搞定。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "prototype"
+      ]
+    },
+    {
+      "id": "personal-scenario",
+      "name": "Software for One",
+      "zh": "个人工具",
+      "layer": "L8",
+      "shortDesc": "只为个人用，不进入团队。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "personal"
+      ]
+    },
+    {
+      "id": "production-scenario",
+      "name": "Production Maintenance",
+      "zh": "生产代码维护",
+      "layer": "L8",
+      "shortDesc": "修改既有系统、加 feature、修 bug。需要完全不同于 vibe coding 的工作流。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "production"
+      ]
+    },
+    {
+      "id": "refactor-scenario",
+      "name": "Large-Scale Refactoring",
+      "zh": "大型重构",
+      "layer": "L8",
+      "shortDesc": "跨文件、跨模块改动，不引入 regression。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "refactor"
+      ]
+    },
+    {
+      "id": "security-scenario",
+      "name": "Security-Sensitive Code",
+      "zh": "安全敏感代码",
+      "layer": "L8",
+      "shortDesc": "认证/授权/支付/加密/数据隐私。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "security"
+      ]
+    },
+    {
+      "id": "learning-scenario",
+      "name": "Learning & Exploration",
+      "zh": "学习与探索",
+      "layer": "L8",
+      "shortDesc": "学新技术 / 新语言 / 探索性编程。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "learning"
+      ]
+    },
+    {
+      "id": "team-scenario",
+      "name": "Team Collaboration",
+      "zh": "团队协作",
+      "layer": "L8",
+      "shortDesc": "多开发者共享代码、PR 流程。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "team"
+      ]
+    },
+    {
+      "id": "testing-scenario",
+      "name": "Test Writing",
+      "zh": "测试编写",
+      "layer": "L8",
+      "shortDesc": "为已有代码补测试。AI 写测试是相对安全的任务。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "testing"
+      ]
+    },
+    {
+      "id": "debug-scenario",
+      "name": "Debugging",
+      "zh": "调试排错",
+      "layer": "L8",
+      "shortDesc": "bug 复现 + 修复。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "debug"
+      ]
+    },
+    {
+      "id": "docs-scenario",
+      "name": "Documentation",
+      "zh": "文档注释",
+      "layer": "L8",
+      "shortDesc": "写 README / 生成 API 文档。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "docs"
+      ]
+    },
+    {
+      "id": "frontend-scenario",
+      "name": "Frontend Vibe Coding",
+      "zh": "前端 Vibe Coding",
+      "layer": "L8",
+      "shortDesc": "前端组件、页面、UI 设计的 vibe coding。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "frontend"
+      ]
+    },
+    {
+      "id": "data-scenario",
+      "name": "Data & Analytics",
+      "zh": "数据分析",
+      "layer": "L8",
+      "shortDesc": "用 LLM 做数据分析、可视化、SQL 生成。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "data"
+      ]
+    },
+    {
+      "id": "onboarding-scenario",
+      "name": "Onboarding to Codebases",
+      "zh": "代码库入门",
+      "layer": "L8",
+      "shortDesc": "用 AI agent 快速理解陌生代码库。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "onboarding"
+      ]
+    },
+    {
+      "id": "migration-scenario",
+      "name": "Framework Migration",
+      "zh": "框架迁移",
+      "layer": "L8",
+      "shortDesc": "用 AI 协助框架迁移（React→Vue、Python 2→3 等）。",
+      "category": "scenario",
+      "tags": [
+        "scenario",
+        "migration"
+      ]
+    }
+  ]
+}

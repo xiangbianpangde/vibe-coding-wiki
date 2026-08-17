@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>场景索引 · Vibe Coding Wiki</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#F9F4DC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vibe Coding Wiki · 专业术语知识库">
+  <meta property="og:description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
+  <meta property="og:site_name" content="Vibe Coding Wiki">
+  <meta property="og:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="twitter:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta name="twitter:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe Coding Wiki">
+  <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
+  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dark.css">
+<link rel="stylesheet" href="css/components.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vibe Coding Wiki",
+  "url": "https://vibe-coding-wiki.example.com",
+  "description": "Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vibe-coding-wiki.example.com/pages/glossary.html?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://vibe-coding-wiki.example.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "scenarios",
+      "item": "https://vibe-coding-wiki.example.com/pages/scenarios.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳至正文</a>
+
+<header class="topnav">
+  <div class="container topnav__inner">
+    <a class="topnav__brand" href="../index.html">
+      <span class="brand-mark">VC</span>
+      <span class="brand-text"><strong>Vibe Coding Wiki</strong><small>专业术语知识库 · 2025</small></span>
+    </a>
+    <nav class="topnav__links" role="navigation" aria-label="主导航">
+      <a href="../index.html">首页</a>
+      <a href="glossary.html">词条 A-Z</a>
+      <a href="layers.html">分层索引</a>
+      <a href="scenarios.html" class="active" aria-current="page">场景索引</a>
+      <a href="graph.html">关系图谱</a>
+      <a href="citations.html">来源</a>
+    </nav>
+    <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
+      <span>搜索术语</span><kbd>⌘K</kbd>
+    <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
+  <span class="theme-icon-light">☀️</span>
+  <span class="theme-icon-dark">🌙</span>
+</button>
+    </div>
+  </header>
+
+<section class="container" style="padding-top:48px;padding-bottom:32px;">
+  <h1 style="font-family:var(--font-title);font-size:2.6rem;font-weight:900;color:var(--c-ink);margin-bottom:8px;">10 类使用场景</h1>
+  <p style="color:var(--c-ink-soft);font-size:15px;max-width:680px;">这是用户最关心的维度——按"做什么"找术语。每个场景都标注 vibe 强度（★ 数）和推荐术语组合。</p>
+</section>
+
+<section class="container" style="padding-bottom:64px;">
+
+<div id="scenario-list"></div>
+
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div>
+      <strong>Vibe Coding Wiki</strong>
+      <p>非官方 · 教育用途 · 内容基于 Wikipedia / Martin Fowler / Simon Willison / GitHub Spec Kit 等公开来源整理</p>
+    </div>
+    <div class="footer__links">
+      <a href="../index.html">首页</a>
+      <a href="glossary.html">词条</a>
+      <a href="layers.html">分层</a>
+      <a href="graph.html">图谱</a>
+      <a href="citations.html">来源</a>
+    </div>
+  </div>
+</footer>
+
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="search-modal__inner" role="search">
+    <h2 id="search-modal-title" class="sr-only">搜索术语</h2>
+<input type="text" id="search-input" placeholder="搜索术语…" aria-label="搜索术语，输入后按 Enter 跳转到结果" autofocus>
+    <div id="search-results" class="search-results" role="listbox" aria-live="polite"></div>
+    <div class="search-modal__hint">↑↓ 选择 · Enter 打开 · Esc 关闭</div>
+  </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/theme.js"></script>
+<script src="../js/terms.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/app.js"></script>
+<script>
+// 渲染场景
+(function() {
+  const scenarios = window.VC_SCENARIOS || {};
+  const data = window.VC_TERMS || [];
+  const layers = window.VC_LAYERS || {};
+
+  const sceneMeta = {
+    proto:     { icon: '⚡', desc: '从 0 到可 demo 的应用，一晚上搞定。周末 hackathon 项目、内部工具、个人脚本。', risk: '低（不进入生产）', guardrail: '几乎无' },
+    personal:  { icon: '👤', desc: '只为个人用，不进入团队。Software for One 心态。', risk: '低（仅自己用）', guardrail: 'YOLO 可接受' },
+    production:{ icon: '🏭', desc: '修改既有系统、加 feature、修 bug、性能优化。需要完全不同于 vibe coding 的工作流。', risk: '高', guardrail: '全套' },
+    refactor:  { icon: '🔧', desc: '跨文件、跨模块改动，不引入 regression。AI 倾向"重写而不重构"。', risk: '中', guardrail: '强' },
+    security:  { icon: '🔒', desc: '认证 / 授权 / 支付 / 加密 / 数据隐私。需要专门的安全 review。', risk: '最高', guardrail: '极致' },
+    learning:  { icon: '📚', desc: '学新技术 / 新语言 / 探索性编程 / 教学示例。', risk: '低', guardrail: '弱' },
+    team:      { icon: '👥', desc: '多开发者共享代码、PR 流程。需要团队约定 prompt 风格、guardrails。', risk: '中', guardrail: '中' },
+    testing:   { icon: '🧪', desc: '为已有代码补测试。AI 写测试是相对安全的任务。', risk: '低', guardrail: '中' },
+    debug:     { icon: '🐞', desc: 'bug 复现 + 修复。AI 倾向"治标不治本"。', risk: '中', guardrail: '中' },
+    docs:      { icon: '📝', desc: '写 README / 生成 API 文档 / 代码注释。', risk: '低', guardrail: '弱' },
+  };
+
+  const container = document.getElementById('scenario-list');
+
+  container.innerHTML = Object.entries(scenarios).map(([key, s]) => {
+    const meta = sceneMeta[key];
+    const stars = '★'.repeat(s.vibe) + '☆'.repeat(5 - s.vibe);
+    const termBadges = s.terms.map(t => {
+      const found = data.find(d => d.name === t || d.zh === t);
+      const layer = found ? layers[found.layer] : null;
+      return layer ?
+        `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);"><span style="width:6px;height:6px;background:${layer.color};"></span>${t}</span>` :
+        `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);">${t}</span>`;
+    }).join('');
+
+    return `
+      <div id="${key}" class="scenario-card" style="border:1px solid var(--c-line);background:var(--c-panel);margin-bottom:24px;scroll-margin-top:90px;">
+        <div style="padding:24px 28px;border-bottom:1px solid var(--c-line-soft);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span style="font-size:32px;">${meta.icon}</span>
+            <h2 style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--c-ink);margin:0;">${s.name}</h2>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;">
+            <div>
+              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Vibe 强度</div>
+              <div style="font-size:18px;color:var(--c-zhusha);line-height:1;">${stars}</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">风险</div>
+              <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.risk}</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Guardrails</div>
+              <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.guardrail}</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:24px 28px;">
+          <p style="font-size:14px;line-height:1.7;color:var(--c-ink-soft);margin-bottom:18px;">${meta.desc}</p>
+          <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">推荐术语组合</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">${termBadges}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+})();
+</script>
+</body>
+</html>

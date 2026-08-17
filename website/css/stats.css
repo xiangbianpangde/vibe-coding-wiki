@@ -1,0 +1,329 @@
+/* Vibe Coding Wiki · Stats Dashboard */
+
+/* ============ KPI Grid ============ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+}
+
+.kpi-card {
+  padding: 28px 28px 24px;
+  background: var(--c-panel);
+  border-right: 1px solid var(--c-line-soft);
+  border-top: 4px solid var(--c-line-strong);
+}
+
+.kpi-card:last-child { border-right: none; }
+
+.kpi-card--accent { border-top-color: var(--c-zhuqing); }
+.kpi-card--warn { border-top-color: var(--c-zhusha); }
+
+.kpi-card__label {
+  font-family: var(--font-rounded);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.kpi-card__value {
+  font-family: var(--font-rounded);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.kpi-card--accent .kpi-card__value { color: var(--c-zhuqing); }
+.kpi-card--warn .kpi-card__value { color: var(--c-zhusha); }
+
+.kpi-card__unit {
+  font-size: 24px;
+  color: var(--c-muted);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.kpi-card__detail {
+  font-size: 13px;
+  color: var(--c-ink-soft);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.kpi-card__source {
+  font-family: var(--font-rounded);
+  font-size: 10px;
+  color: var(--c-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============ Stats Grid ============ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.stats-card {
+  padding: 28px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+}
+
+.stats-card--wide {
+  grid-column: 1 / -1;
+}
+
+.stats-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.stats-card > p {
+  font-size: 12px;
+  color: var(--c-muted);
+  margin-bottom: 20px;
+}
+
+/* ============ Bar Chart ============ */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.bar-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-ink);
+  font-weight: 600;
+}
+
+.bar-track {
+  height: 22px;
+  background: var(--c-paper-deep);
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  position: relative;
+  transition: width 0.5s var(--ease-out-quart);
+}
+
+.bar-fill span {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-rounded);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-paper);
+  white-space: nowrap;
+}
+
+/* ============ Trust Grid ============ */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.trust-cell {
+  padding: 20px 12px;
+  text-align: center;
+  background: var(--c-paper-deep);
+}
+
+.trust-cell__pct {
+  font-family: var(--font-rounded);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.trust-cell__label {
+  font-size: 11px;
+  color: var(--c-ink-soft);
+  font-weight: 600;
+}
+
+.trust-cell--high .trust-cell__pct { color: var(--c-zhuqing); }
+.trust-cell--mid .trust-cell__pct { color: var(--c-shihqing); }
+.trust-cell--low .trust-cell__pct { color: var(--c-liujin); }
+.trust-cell--distrust .trust-cell__pct { color: var(--c-zhusha); }
+
+.trust-cell--high { background: var(--c-wash-green); border-top: 3px solid var(--c-zhuqing); }
+.trust-cell--mid { background: var(--c-wash-blue); border-top: 3px solid var(--c-shihqing); }
+.trust-cell--low { background: var(--c-wash-yellow); border-top: 3px solid var(--c-liujin); }
+.trust-cell--distrust { background: var(--c-wash-red); border-top: 3px solid var(--c-zhusha); }
+
+/* ============ Pain List ============ */
+.pain-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pain-row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.pain-rank {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-ink);
+  color: var(--c-paper);
+  font-family: var(--font-rounded);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pain-text strong {
+  display: block;
+  font-size: 14px;
+  color: var(--c-ink);
+  font-family: var(--font-title);
+  margin-bottom: 4px;
+}
+
+/* ============ Research Table ============ */
+.research-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.research-table th, .research-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--c-line-soft);
+  text-align: left;
+}
+
+.research-table th {
+  background: var(--c-paper-deep);
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--c-ink);
+}
+
+.research-table tbody tr:last-child td { border-bottom: none; }
+
+.research-pct {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: var(--font-rounded);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--c-wash-yellow);
+  color: var(--c-ink);
+}
+
+.research-pct--warn {
+  background: var(--c-wash-red);
+  color: var(--c-zhusha);
+}
+
+/* ============ Agent Stats ============ */
+.agent-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.agent-stat {
+  padding: 20px 16px;
+  background: var(--c-paper-deep);
+  border-top: 3px solid var(--c-zhuqing);
+}
+
+.agent-stat--warn { border-top-color: var(--c-zhusha); background: var(--c-wash-red); }
+
+.agent-stat__pct {
+  font-family: var(--font-rounded);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.agent-stat--warn .agent-stat__pct { color: var(--c-zhusha); }
+
+.agent-stat__detail {
+  font-size: 11px;
+  color: var(--c-ink-soft);
+  line-height: 1.4;
+}
+
+/* ============ GitClear ============ */
+.gitclear-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gitclear-stat {
+  padding: 20px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-zhusha);
+}
+
+.gitclear-stat__value {
+  font-family: var(--font-rounded);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--c-zhusha);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.gitclear-stat__label {
+  font-size: 12px;
+  color: var(--c-ink-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-card:nth-child(2) { border-right: none; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .agent-stats { grid-template-columns: repeat(2, 1fr); }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi-card { border-right: none; border-bottom: 1px solid var(--c-line-soft); }
+  .kpi-card:last-child { border-bottom: none; }
+  .gitclear-grid { grid-template-columns: 1fr; }
+  .agent-stats { grid-template-columns: 1fr; }
+}

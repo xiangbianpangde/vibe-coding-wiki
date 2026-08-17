@@ -1,0 +1,483 @@
+[
+  {
+    "id": "sdd",
+    "name": "Specification-Driven Development",
+    "zh": "规格驱动开发",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "github",
+      "spec-kit"
+    ],
+    "shortDesc": "以 spec.md 作为人、AI、测试、审查者之间共享契约的开发方法。GitHub Spec Kit 是工具链。",
+    "longDesc": "<p><strong>SDD</strong>（Specification-Driven Development）以 <strong>spec.md</strong> 作为<strong>共享契约</strong>，让人、AI、测试、审查者都能达成共识。</p>\n<p><strong>GitHub Spec Kit</strong> 2025 推出，是微软/GitHub 官方 SDD 工具链，包含三阶段：</p>\n<ul>\n<li><strong>Specify</strong>：生成 spec.md</li>\n<li><strong>Plan</strong>：拆解为子任务</li>\n<li><strong>Tasks</strong>：每个任务独立执行</li>\n</ul>",
+    "related": [
+      "spec-md",
+      "pdd",
+      "plan-verify-build"
+    ],
+    "quotes": [
+      {
+        "text": "A good spec.md is not a prompt wrapper. It is the shared contract.",
+        "cite": "spec-coding.dev"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "GitHub Spec Kit",
+        "url": "https://github.github.io/spec-kit/"
+      },
+      {
+        "name": "Spec Coding Manifesto",
+        "url": "https://spec-coding.dev"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# spec.md 的最小可执行结构\n# 1. 用户故事\nAs a 注册用户\nI want 通过 GitHub OAuth 登录\nSo that 我不用记密码\n\n# 2. 验收标准（机器可验证）\n- [ ] GET /auth/github 跳转到 GitHub OAuth 页面\n- [ ] 回调 /auth/github/callback 用 code 换 token\n- [ ] 用户首次登录自动创建 DB 记录\n- [ ] 测试覆盖率 ≥ 80%\n- [ ] npx tsc --noEmit 通过\n\n# 3. 非目标（明确说不做什么）\n- 不做多因素认证\n- 不做密码重置流程\n\n# 4. 技术约束\n- 后端：Fastify + PostgreSQL\n- Token：HttpOnly cookie，1h 过期",
+        "desc": "spec.md 模板：4 段可验证结构"
+      }
+    ]
+  },
+  {
+    "id": "spec-md",
+    "name": "Spec.md as Contract",
+    "zh": "Spec.md 作为契约",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "contract"
+    ],
+    "shortDesc": "把 spec.md 当成唯一真相源（Single Source of Truth），所有 agent 都读同一份。",
+    "longDesc": "<p>\"A good spec.md is not a prompt wrapper. It is the <strong>shared contract</strong> that lets humans, AI agents, tests, and reviewers agree on what the change means.\"</p>\n<p><strong>实践要点：</strong></p>\n<ul>\n<li>用自然语言而非代码描述意图</li>\n<li>让未来的 reviewer 能理解\"为什么变更存在\"</li>\n<li>每个 agent 都读同一份 spec</li>\n</ul>",
+    "related": [
+      "sdd",
+      "pdd"
+    ]
+  },
+  {
+    "id": "context-engineering",
+    "name": "Context Engineering",
+    "zh": "上下文工程",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "anthropic",
+      "prompt"
+    ],
+    "shortDesc": "管理进入 LLM 上下文窗口的所有信息（指令、工具、历史、文件）的工程学科。",
+    "longDesc": "<p>管理进入 LLM 上下文窗口的所有信息——<strong>指令、工具定义、对话历史、文件读取、搜索结果、当前任务</strong>——的工程学科。</p>\n<p>核心引述：</p>\n<blockquote>\"The agent loop rebuilds context each turn. Instructions, tool definitions, conversation history, file reads, search results, and your current task — everything enters the same window, and the model predicts from all of it.\"</blockquote>\n<p>与 <strong>Prompt Engineering</strong> 的关系：</p>\n<ul>\n<li>Prompt Engineering：优化<strong>指令文本</strong></li>\n<li>Context Engineering：优化<strong>整个上下文窗口</strong></li>\n</ul>",
+    "related": [
+      "claude-md",
+      "auto-memory",
+      "compaction"
+    ],
+    "examples": [
+      {
+        "code": "// 实战技巧：\n// 1. 上下文压缩：每 10 轮总结一次关键信息\n// 2. 工具结果截断：长输出保留前 500 + 后 200 字符\n// 3. 上下文搜索：让 agent 主动搜索历史而非全量加载",
+        "desc": "Context engineering 三大实战技巧"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ]
+  },
+  {
+    "id": "plan-verify-build",
+    "name": "Plan-Verify-Build Loop",
+    "zh": "规划-验证-构建循环",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "loop"
+    ],
+    "shortDesc": "AI agent 的核心循环——规划、执行、验证三段式工作流。",
+    "longDesc": "<p>AI agent 的核心循环机制：</p>\n<pre>Plan   → 任务分解、子任务列表、依赖图\nVerify → 编译、测试、diff review、guardrail 检查\nBuild  → 写代码、运行命令、调用工具</pre>\n<p><strong>Claude Code</strong> 的 plan mode / build mode 即此模式的实践。</p>",
+    "related": [
+      "tdd-ai",
+      "acceptance-criteria"
+    ],
+    "quotes": [
+      {
+        "text": "Plan → Verify → Build, repeated. Trust the loop.",
+        "cite": "Claude Code Community"
+      }
+    ],
+    "examples": [
+      {
+        "code": "// Plan-Verify-Build 三段循环\nloop:\n  phase = plan     // 1. 把目标拆成可验证任务\n  if not verify(phase):    // 2. 机械化验证（编译、测试、lint）\n    revert_to_last_green()\n    refine_plan()\n    continue\n  phase = build    // 3. 执行最小变更\n  commit_if_green()\n\n// 关键：plan 阶段产出物必须可机械验证（\"添加登录页\"不可，\"添加登录页 + 路由 + 单元测试\"可）",
+        "desc": "Plan-Verify-Build 循环伪代码"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Plan mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ]
+  },
+  {
+    "id": "iterative-refinement",
+    "name": "Iterative Refinement",
+    "zh": "迭代精炼",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "iteration"
+    ],
+    "shortDesc": "通过多轮 prompt 调整让代码逐步逼近目标。Karpathy 原始描述：把错误信息贴回 LLM。",
+    "longDesc": "<p><strong>典型节奏：</strong></p>\n<ol>\n<li>第一轮：实现功能</li>\n<li>第二轮：fix bug（粘贴错误信息）</li>\n<li>第三轮：refactor / add feature</li>\n<li>...直至满足 acceptance criteria</li>\n</ol>",
+    "related": [
+      "acceptance-criteria",
+      "iterative-refinement"
+    ]
+  },
+  {
+    "id": "acceptance-criteria",
+    "name": "Acceptance Criteria",
+    "zh": "验收标准",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "criteria"
+    ],
+    "shortDesc": "事先约定的、可机械验证的\"完成标准\"。决定 vibe coding 何时停止。",
+    "longDesc": "<p>事先约定的、可机械验证的<strong>完成标准</strong>，让 agent 不再\"open-ended\"地猜意图。</p>\n<p><strong>最佳实践：</strong></p>\n<ul>\n<li>用 checklist 形式</li>\n<li>每条都应可被编译 / 测试 / 静态检查验证</li>\n<li>不写\"代码优雅\"这种主观标准</li>\n</ul>",
+    "related": [
+      "plan-verify-build",
+      "iterative-refinement"
+    ]
+  },
+  {
+    "id": "tdd-ai",
+    "name": "TDD with AI",
+    "zh": "AI 驱动的 TDD",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "tdd"
+    ],
+    "shortDesc": "先写测试再让 AI 写实现。Willison 指出这对 coding agent 特别有效。",
+    "longDesc": "<p><strong>Test-First Development</strong>（测试先行开发）与 AI agent 天然契合：</p>\n<blockquote>\"Test-first development is particularly effective with agents that can iterate in a loop.\"</blockquote>\n<p><strong>流程：</strong></p>\n<ol>\n<li>写失败的测试</li>\n<li>让 AI 写实现</li>\n<li>测试变绿</li>\n<li>Refactor</li>\n</ol>",
+    "related": [
+      "acceptance-criteria",
+      "safety-net-testing",
+      "safety-net-testing"
+    ]
+  },
+  {
+    "id": "claude-md",
+    "name": "CLAUDE.md",
+    "zh": "CLAUDE.md",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "memory"
+    ],
+    "shortDesc": "Claude Code 项目级持久指令文件。每次会话开始时自动加载。",
+    "longDesc": "<p>Claude Code 项目根目录的 <code>CLAUDE.md</code>——<strong>markdown 格式的持久指令</strong>，在每次会话开始时作为用户消息加载（系统提示之后）。</p>\n<p><strong>放置位置：</strong></p>\n<ul>\n<li>项目级：<code>./CLAUDE.md</code> 或 <code>./.claude/CLAUDE.md</code></li>\n<li>用户级：<code>~/.claude/CLAUDE.md</code></li>\n<li>组织级（managed policy）</li>\n</ul>\n<p>所有发现的 CLAUDE.md 会<strong>拼接</strong>而非覆盖，按作用域从大到小排序。</p>\n<p><strong>关键特性：</strong>项目根 CLAUDE.md 在 compaction 后<strong>会重新读取</strong>，而非丢失。</p>",
+    "related": [
+      "auto-memory",
+      "compaction",
+      "context-engineering"
+    ],
+    "examples": [
+      {
+        "code": "# 项目根 /CLAUDE.md\n\n# 项目规范\n- 使用 TypeScript strict mode\n- 测试覆盖率 > 80%\n- 所有 API 调用必须 wrap in try/catch\n\n# 不要\n- 不要修改 /tests/ 目录\n- 不要在 production 跑 npm test",
+        "desc": "CLAUDE.md 典型内容"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "CLAUDE.md gives Claude persistent instructions. Project CLAUDE.md survives compaction.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "auto-memory",
+    "name": "Auto Memory",
+    "zh": "自动记忆",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "memory"
+    ],
+    "shortDesc": "Claude Code 为自己写的笔记，基于用户的修正和偏好。每个 git repo 独立存储。",
+    "longDesc": "<p>Claude Code 自动维护的 <strong>MEMORY.md</strong> 索引——记录用户的偏好和修正。</p>\n<p><strong>存储位置：</strong><code>~/.claude/projects/&lt;repo-hash&gt;/memory/</code></p>\n<p><strong>关键特性：</strong></p>\n<ul>\n<li>同一仓库的所有 worktree 共享一个 auto memory 目录</li>\n<li>前 200 行或 25 KB 索引在每会话开始加载</li>\n<li>与 CLAUDE.md 互补（user 写 vs Claude 写）</li>\n</ul>",
+    "related": [
+      "claude-md",
+      "compaction"
+    ]
+  },
+  {
+    "id": "compaction",
+    "name": "Compaction",
+    "zh": "上下文压缩",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code"
+    ],
+    "shortDesc": "会话接近 context window 上限时自动摘要压缩。CLAUDE.md 与 auto memory 存活。",
+    "longDesc": "<p>当 context window 接近上限时自动触发的<strong>摘要压缩</strong>机制。</p>\n<p><strong>压缩顺序：</strong></p>\n<ol>\n<li>先清除旧的工具输出</li>\n<li>然后摘要对话</li>\n</ol>\n<p><strong>存活的内容：</strong>项目根 CLAUDE.md、auto memory（会从磁盘重读）。</p>\n<p><strong>手动触发：</strong><code>/compact [focus]</code></p>",
+    "related": [
+      "claude-md",
+      "auto-memory",
+      "context-window"
+    ],
+    "examples": [
+      {
+        "code": "# /compact focus on the API changes\n# 手动压缩，聚焦 API 变化\n# 旧工具输出清除 + 对话摘要",
+        "desc": "Claude Code 手动 compaction"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "When the conversation gets too long, summarize the old parts to make room for new.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "checkpoint",
+    "name": "Checkpoint",
+    "zh": "检查点",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "rollback"
+    ],
+    "shortDesc": "每个 prompt 时的文件快照，可回滚到任一检查点。Esc Esc 或 /rewind 触发。",
+    "longDesc": "<p>Claude Code 在<strong>每次 prompt 时</strong>对文件创建快照（checkpoint）——可用于回滚。</p>\n<p><strong>触发回滚：</strong></p>\n<ul>\n<li>按 <code>Esc</code> 两次</li>\n<li>运行 <code>/rewind</code></li>\n</ul>\n<p>可回滚：代码、对话、或两者。</p>\n<p><strong>重要：</strong>检查点与 git 独立——bash 工具的修改不通过检查点追踪。</p>",
+    "related": [
+      "claude-md",
+      "iterative-refinement"
+    ]
+  },
+  {
+    "id": "permission-mode",
+    "name": "Permission Mode",
+    "zh": "权限模式",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "safety"
+    ],
+    "shortDesc": "Claude Code 的基础审批行为设置。通过 Shift+Tab 在 CLI 循环切换。",
+    "longDesc": "<p>Claude Code 的<strong>权限模式</strong>决定工具调用的审批行为：</p>\n<ul>\n<li><strong>Default</strong>：每次危险操作前询问</li>\n<li><strong>Auto Accept</strong>：自动接受所有</li>\n<li><strong>Plan Mode</strong>：先规划不执行</li>\n<li><strong>Bypass Permissions</strong>：跳过所有权限</li>\n</ul>\n<p><strong>Auto Mode</strong> 是新模式：另一个分类器模型在后台审查操作，多数无需审批。</p>",
+    "related": [
+      "auto-mode",
+      "yolo-mode",
+      "guardrails"
+    ]
+  },
+  {
+    "id": "auto-mode",
+    "name": "Auto Mode",
+    "zh": "自动模式",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "safety"
+    ],
+    "shortDesc": "后台分类器审查操作的权限模式。它看不到工具结果，因此免疫 prompt injection。",
+    "longDesc": "<p>Claude Code 的<strong>Auto Mode</strong>：</p>\n<ul>\n<li>另一个分类器模型在后台审查每个动作</li>\n<li>多数操作无需审批 prompt</li>\n<li>显式 ask 规则仍会触发审批</li>\n</ul>\n<p><strong>关键安全特性：</strong>分类器<strong>看不到工具结果</strong>——因此无法被 prompt injection 影响。</p>\n<p><strong>防御范围：</strong>scope escalation、untrusted infrastructure、prompt injection。</p>",
+    "related": [
+      "permission-mode",
+      "prompt-injection",
+      "guardrails"
+    ],
+    "examples": [
+      {
+        "code": "// 合规保证：分类器看不到工具结果\n// 攻击向量：网页包含 \"ignore previous instructions\"\n// 分类器仅基于工具调用本身（命令、参数）判断\n// 不受工具输出影响",
+        "desc": "Auto Mode 安全设计"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Auto Mode: aggressive convenience, fast, with safety mechanisms behind the scenes.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "bare-mode",
+    "name": "Bare Mode",
+    "zh": "裸模式",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "ci"
+    ],
+    "shortDesc": "Claude Code --bare 启动：不加载 hooks、skills、plugins、MCP、CLAUDE.md。用于 CI。",
+    "longDesc": "<p>用 <code>--bare</code> 标志启动 Claude Code，<strong>不加载</strong>：</p>\n<ul>\n<li>hooks</li>\n<li>skills</li>\n<li>plugins</li>\n<li>MCP servers</li>\n<li>auto memory</li>\n<li>CLAUDE.md</li>\n</ul>\n<p><strong>用途：</strong>CI 环境和脚本化调用——保证每台机器结果一致。</p>",
+    "related": [
+      "claude-md",
+      "hooks",
+      "mcp"
+    ]
+  },
+  {
+    "id": "extended-thinking",
+    "name": "Extended Thinking",
+    "zh": "扩展思维",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "reasoning"
+    ],
+    "shortDesc": "Claude 模型在响应前先做可见的逐步推理。可通过 effort level 调节。",
+    "longDesc": "<p>Claude 3.7+ 引入的<strong>可见逐步推理</strong>——模型在响应前展示其思考过程。</p>\n<p><strong>配置：</strong></p>\n<ul>\n<li><strong>Effort Level</strong>：控制思维 token 预算（高 effort = 更深推理）</li>\n<li><strong>MAX_THINKING_TOKENS</strong>：固定预算模型的上限</li>\n</ul>\n<p><strong>支持模型：</strong>Opus 4.6+ / Sonnet 4.6+</p>\n<p>终端显示为灰色斜体文字。</p>",
+    "related": [
+      "effort-level",
+      "cot"
+    ],
+    "examples": [
+      {
+        "code": "const response = await anthropic.messages.create({\n  model: \"claude-sonnet-4.5\",\n  max_tokens: 16000,\n  thinking: { type: \"enabled\", budget_tokens: 5000 },\n  messages: [{ role: \"user\", content: prompt }]\n});",
+        "desc": "Claude Extended Thinking API"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Extended thinking gives Claude enhanced reasoning transparency before responding.",
+        "cite": "Anthropic"
+      }
+    ]
+  },
+  {
+    "id": "effort-level",
+    "name": "Effort Level",
+    "zh": "思维投入度",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "reasoning"
+    ],
+    "shortDesc": "Claude 自适应推理的 token 预算设置。越高越深但越慢。",
+    "longDesc": "<p>控制 Claude <strong>自适应推理</strong>在每轮使用的<strong>思维预算</strong>。</p>\n<ul>\n<li><strong>低 effort</strong>：快速、便宜</li>\n<li><strong>高 effort</strong>：更多 thinking tokens、更深推理</li>\n</ul>\n<p><strong>支持：</strong>Claude Opus 4.6+、Sonnet 4.6+。</p>",
+    "related": [
+      "extended-thinking",
+      "thinking-budget"
+    ],
+    "examples": [
+      {
+        "code": "// Low effort: 快速回答，节省成本\nclaude --effort low \"What is 2+2?\"\n\n// High effort: 深度推理，适合复杂问题\nclaude --effort high \"Debug this race condition\"",
+        "desc": "Claude Code effort level CLI"
+      }
+    ]
+  },
+  {
+    "id": "output-style",
+    "name": "Output Style",
+    "zh": "输出风格",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code"
+    ],
+    "shortDesc": "修改 Claude 系统提示以改变响应行为/语气/格式。",
+    "longDesc": "<p>配置 Claude Code 输出风格的<strong>系统提示修改器</strong>。</p>\n<p><strong>与 CLAUDE.md 的区别：</strong></p>\n<ul>\n<li><strong>Output Style</strong>：修改系统提示，关闭工程特定部分</li>\n<li><strong>CLAUDE.md</strong>：作为系统提示后的<strong>用户消息</strong>追加</li>\n</ul>\n<p><strong>内置风格：</strong>Default / Proactive / Explanatory / Learning</p>",
+    "related": [
+      "claude-md",
+      "system-prompt"
+    ]
+  },
+  {
+    "id": "hooks",
+    "name": "Hooks",
+    "zh": "钩子",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code",
+      "extension"
+    ],
+    "shortDesc": "在 Claude Code 生命周期的特定点自动执行的处理器（shell/HTTP/MCP/LLM/子 agent）。",
+    "longDesc": "<p>用户定义的<strong>生命周期处理器</strong>——在特定点自动执行。</p>\n<p><strong>触发点：</strong>工具运行前、文件编辑后、会话开始等</p>\n<p><strong>处理器类型：</strong></p>\n<ul>\n<li>shell 命令</li>\n<li>HTTP 端点</li>\n<li>MCP 工具</li>\n<li>LLM prompt</li>\n<li>子 agent</li>\n</ul>\n<p><strong>确定性：</strong>在固定生命周期点触发——而非模型自主决定。</p>\n<p>配置三层：Hook event / Matcher / Hook handler</p>",
+    "related": [
+      "mcp",
+      "permission-mode"
+    ],
+    "examples": [
+      {
+        "code": "// .claude/settings.json\n{\n  \"hooks\": {\n    \"PreToolUse\": [{\n      \"matcher\": \"Bash\",\n      \"hooks\": [{\"type\": \"shell\", \"command\": \"echo\"}]\n    }]\n  }\n}",
+        "desc": "Claude Code Hook 配置"
+      }
+    ]
+  },
+  {
+    "id": "bundled-skills",
+    "name": "Bundled Skills",
+    "zh": "打包技能",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code"
+    ],
+    "shortDesc": "Claude Code 自带的 prompt 化 playbook，如 /batch、/code-review、/debug、/loop。",
+    "longDesc": "<p>Claude Code 自带的<strong>prompt 化 playbook</strong>，如：</p>\n<ul>\n<li><code>/batch</code>：批量执行</li>\n<li><code>/code-review</code>：代码审查</li>\n<li><code>/debug</code>：调试</li>\n<li><code>/loop</code>：循环执行</li>\n</ul>\n<p><strong>与内置命令的区别：</strong></p>\n<ul>\n<li><strong>Built-in commands</strong>：固定逻辑</li>\n<li><strong>Bundled skills</strong>：详细 prompt，agent 自主编排</li>\n</ul>\n<p>可以派生子 agent、读文件、适应代码库。</p>",
+    "related": [
+      "subagent",
+      "commands"
+    ],
+    "examples": [
+      {
+        "code": "> /code-review  # 调起 code-review skill\n> /batch  # 批量执行\n> /loop 5m  # 每 5 分钟循环",
+        "desc": "Claude Code 内置 skills"
+      }
+    ]
+  },
+  {
+    "id": "commands",
+    "name": "Commands (Slash Commands)",
+    "zh": "斜杠命令",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "methodology",
+      "claude-code"
+    ],
+    "shortDesc": "通过 /name 调用的可复用指令。Claude Code 内置 + 用户可自定义。",
+    "longDesc": "<p>通过 <code>/name</code> 调用的<strong>可复用指令</strong>。</p>\n<p><strong>内置：</strong><code>/clear</code>、<code>/model</code>、<code>/compact</code></p>\n<p><strong>自定义：</strong>放在 <code>.claude/commands/</code></p>\n<p><strong>通过插件安装</strong></p>\n<p>对于多步骤命令，推荐使用 Skills 打包。</p>",
+    "related": [
+      "bundled-skills",
+      "claude-md"
+    ]
+  }
+]

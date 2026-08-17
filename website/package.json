@@ -1,0 +1,25 @@
+{
+  "name": "vibe-coding-wiki",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Vibe Coding Wiki — testing infrastructure",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run tests/unit",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "serve": "python3 -m http.server 8765",
+    "build:sitemap": "node scripts/build-sitemap.cjs",
+    "rebuild:terms": "node scripts/rebuild-terms.cjs",
+    "enrich:priority-1": "node scripts/enrich-priority-1.cjs",
+    "enrich:priority-2": "node scripts/enrich-priority-2.cjs",
+    "fix:orphan-related": "node scripts/fix-orphan-related.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "happy-dom": "^15.11.0",
+    "vitest": "^2.1.8"
+  }
+}

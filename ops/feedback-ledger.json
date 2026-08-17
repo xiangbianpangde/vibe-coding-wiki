@@ -1,0 +1,87 @@
+{
+  "version": "1.0",
+  "target_stars": 1000,
+  "started_at": "2026-08-17T12:30:00Z",
+  "feedback_log": [
+    {
+      "round": 1,
+      "sent_at": "2026-08-17T12:32:00Z",
+      "to": ["01a00f1c", "01a00fb1-0116"],
+      "channel": "intercom",
+      "title": "v2.1 审计 · 不通过 · 6 个 CRITICAL 问题",
+      "problems_identified": [
+        {"id": "P1", "severity": "critical", "title": "examples 字段完全不渲染", "owner": "01a00f1c"},
+        {"id": "P2", "severity": "critical", "title": "data.js 运行崩溃 minCount undefined", "owner": "01a00f1c"},
+        {"id": "P3", "severity": "critical", "title": "graph.html mermaid 不渲染", "owner": "01a00f1c"},
+        {"id": "P4", "severity": "critical", "title": "项目不是 git 仓库，无法上 GitHub", "owner": "01a00f1c"},
+        {"id": "P5", "severity": "high", "title": "暗色主题卡牌对比度 1.07", "owner": "01a00f1c"},
+        {"id": "P6", "severity": "high", "title": "缺 og:image / twitter:image", "owner": "01a00f1c"}
+      ],
+      "ops_tools_delivered": [
+        {"path": "ops/star-tracker.sh", "purpose": "GitHub star cron 监控"},
+        {"path": "ops/star-report.py", "purpose": "每日 star 报告"},
+        {"path": "ops/com.vibecodingwiki.startracker.plist", "purpose": "macOS launchd daemon"},
+        {"path": "ops/git-github-bootstrap.sh", "purpose": "git+GitHub 一键引导"}
+      ],
+      "verification_status": "pending",
+      "expected_fix_eta": "TBD"
+    }
+  ],
+  "project_state_audit": {
+    "data_quality": {
+      "total_terms": 178,
+      "with_examples": 52,
+      "with_quotes": 53,
+      "with_seealso": 16,
+      "examples_rendered_to_ui": 0,
+      "bug": "term.js 不渲染 examples"
+    },
+    "frontend": {
+      "routes_200_ok": 14,
+      "dark_theme": "shipped but low card contrast",
+      "components_lib": "shipped (vc-card, vc-btn, vc-tag)",
+      "mobile_hamburger": "shipped",
+      "auto_gen_sections": "shipped (misconceptions, timeline, learning path)"
+    },
+    "seo": {
+      "favicon": true,
+      "og_basic": true,
+      "og_image": false,
+      "twitter_card": true,
+      "twitter_image": false,
+      "sitemap_xml": "186 URLs",
+      "robots_txt": true,
+      "json_ld": ["WebSite", "BreadcrumbList", "DefinedTermSet"],
+      "canonical": true,
+      "bug": "all use example.com placeholder"
+    },
+    "bugs_found": [
+      {"bug": "examples not rendered", "severity": "critical", "file": "js/term.js"},
+      {"bug": "data.js crashes on minCount", "severity": "critical", "file": "js/data.js"},
+      {"bug": "mermaid graph not rendering", "severity": "critical", "file": "pages/graph.html"},
+      {"bug": "graph.html shows raw source", "severity": "critical", "file": "pages/graph.html"},
+      {"bug": "VC_LAYERS undefined in glossary/layers/scenarios", "severity": "high", "file": "js/data.js"},
+      {"bug": "dark card contrast 1.07", "severity": "high", "file": "css/dark.css"},
+      {"bug": "og:image missing", "severity": "medium", "file": "index.html, term.html"},
+      {"bug": "search uses .desc not .shortDesc", "severity": "low", "file": "js/search-engine.js"},
+      {"bug": "terms-index.json meta stale", "severity": "low", "file": "data/terms-index.json"},
+      {"bug": "not a git repo, no README/LICENSE", "severity": "blocker-for-stars", "file": "repo root"}
+    ],
+    "deliverables_to_subagents": {
+      "01a00f1c": [
+        "修复 examples 渲染（term.js）",
+        "修复 data.js minCount bug",
+        "修复 mermaid 渲染（graph.html）",
+        "git init + GitHub repo + Pages 部署",
+        "暗色主题卡牌对比度调整",
+        "生成 og:image 卡片图"
+      ],
+      "01a00fb1-0116": [
+        "协助验证 examples 渲染修复",
+        "继续扩充词条覆盖率（目标 70%）",
+        "优先扩充 L3/L4 层词条 examples",
+        "seeAlso 数据真实权威"
+      ]
+    }
+  }
+}

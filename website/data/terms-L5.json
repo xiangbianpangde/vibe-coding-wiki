@@ -1,0 +1,297 @@
+[
+  {
+    "id": "guardrails",
+    "name": "Guardrails",
+    "zh": "护栏",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "safety",
+      "core"
+    ],
+    "shortDesc": "自动化检查，专门捕捉 AI 易犯的错误，廉价运行、失败响亮。",
+    "longDesc": "<p><strong>Guardrails</strong>：自动化检查，专门捕捉 AI 易犯的错误，廉价运行、失败响亮。</p>\n<blockquote>\"Not gates. Not roadblocks. Not a six-person review board for every PR. Guardrails are automated checks that catch the specific kinds of mistakes AI tends to make, run cheaply on every change, and fail loud enough that nobody — human or AI — can ignore them.\"</blockquote>\n<p><strong>典型 guardrails：</strong></p>\n<ul>\n<li>编译 / 类型检查</li>\n<li>Lint</li>\n<li>单元 / 集成测试</li>\n<li>安全扫描（Semgrep / Snyk）</li>\n<li>依赖审计</li>\n<li>Diff size 阈值</li>\n</ul>",
+    "related": [
+      "mvp",
+      "yolo-mode",
+      "responsible-vc"
+    ],
+    "examples": [
+      {
+        "code": "// .github/workflows/ai-code-check.yml\n- name: TypeScript check\n  run: npx tsc --noEmit\n- name: Lint\n  run: npx eslint .\n- name: Tests\n  run: npm test\n- name: Security audit\n  run: npm audit --audit-level high\n// 任何一步失败 → AI 生成的 PR 拒绝 merge",
+        "desc": "Guardrails CI/CD 实际配置"
+      },
+      {
+        "code": "// pre-commit hook：本地兜底，CI 之前的最后一道防线\n// .husky/pre-commit\nnpx lint-staged             # 只 lint staged 文件\nnpx tsc --noEmit            # 类型检查\nnpm run test:changed        # 只跑被影响文件的测试\n\n// package.json\n\"lint-staged\": {\n  \"*.{ts,tsx}\": [\"eslint --fix\", \"prettier --write\"],\n  \"*.{ts,tsx,json,md}\": [\"prettier --write\"]\n}",
+        "desc": "本地 pre-commit guardrail（Husky + lint-staged）"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Guardrails are automated checks, not gates, not roadblocks.",
+        "cite": "nazarboyko.com"
+      }
+    ]
+  },
+  {
+    "id": "mvp",
+    "name": "Mechanical Verification Pipeline",
+    "zh": "机械验证流水线",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "verification"
+    ],
+    "shortDesc": "用机械手段（编译器、diff、测试套件）做裁判。",
+    "longDesc": "<p>用<strong>机械手段</strong>（编译器、diff、测试套件）做裁判，让 AI 代码被客观验证。</p>\n<blockquote>\"The reliable approach for a developer reviewing AI-generated code is a mechanical verification pipeline in which the compiler, the diff, and the test suite act as the referee, because a loop that runs unattended also makes mistakes unattended.\"</blockquote>\n<p><strong>验证金字塔：</strong></p>\n<ol>\n<li>编译器 / 类型检查（最快）</li>\n<li>Lint / 静态分析</li>\n<li>单元测试</li>\n<li>集成测试 / E2E</li>\n<li>安全扫描</li>\n<li>Code review（人）</li>\n</ol>",
+    "related": [
+      "guardrails",
+      "compiler-referee",
+      "test-referee"
+    ],
+    "examples": [
+      {
+        "code": "// 验证金字塔：\nunit_test(pure_function)  // 毫秒\nintegration_test(component)  // 秒\ncompiler_check(type_safety)  // 毫秒\nstatik_analysis(lint, format)  // 毫秒\nhuman_review(code_clarity)  // 分钟 → 小时",
+        "desc": "机械验证金字塔"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The compiler, the diff, and the test suite act as the referee.",
+        "cite": "nazarboyko.com"
+      }
+    ]
+  },
+  {
+    "id": "compiler-referee",
+    "name": "Compiler as Referee",
+    "zh": "编译器作为裁判",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "verification"
+    ],
+    "shortDesc": "把编译器当作\"第一道审查者\"，所有 AI 代码必须先过编译。",
+    "longDesc": "<p>把<strong>编译器</strong>当作\"第一道审查者\"——所有 AI 代码必须先过编译。</p>",
+    "related": [
+      "mvp",
+      "test-referee"
+    ]
+  },
+  {
+    "id": "test-referee",
+    "name": "Test Suite as Referee",
+    "zh": "测试套件作为裁判",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "verification"
+    ],
+    "shortDesc": "把测试套件当作\"终审\"。",
+    "longDesc": "<p>把<strong>测试套件</strong>当作\"终审\"——所有改动必须不破坏既有测试 + 满足新测试。</p>",
+    "related": [
+      "mvp",
+      "compiler-referee",
+      "safety-net-testing"
+    ]
+  },
+  {
+    "id": "safety-net-testing",
+    "name": "Safety Net Testing",
+    "zh": "安全网测试",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "testing"
+    ],
+    "shortDesc": "建立测试安全网——充分的测试让 AI 改动不破坏既有行为。",
+    "longDesc": "<p>建立<strong>测试安全网</strong>——充分的单元 / 集成 / E2E 测试——让 AI 改动不破坏既有行为。</p>\n<p><strong>最佳实践：</strong></p>\n<ul>\n<li>在 vibe coding 前<strong>先写好测试</strong></li>\n<li>测试覆盖率 > 80% 是底线</li>\n<li>测试要\"先红后绿\"——AI 让它变绿</li>\n</ul>",
+    "related": [
+      "tdd-ai",
+      "mvp"
+    ],
+    "quotes": [
+      {
+        "text": "Coverage > 80% is the floor. Tests make AI changes safe.",
+        "cite": "engineering best practice"
+      }
+    ]
+  },
+  {
+    "id": "diff-review",
+    "name": "Diff Review",
+    "zh": "Diff 审查",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "review"
+    ],
+    "shortDesc": "在 vibe coding 流程中强制 AI 输出 diff 并人工 review。",
+    "longDesc": "<p>在 vibe coding 流程中<strong>强制 AI 输出 diff 并人工 review</strong>。</p>\n<p><strong>关键术语：</strong></p>\n<ul>\n<li><strong>\"Accept All\" without reading diffs</strong>：Karpathy 原话提到的反模式</li>\n<li><strong>PR Review</strong>：把 AI commit 走标准 PR 流程</li>\n</ul>",
+    "related": [
+      "code-review",
+      "iterative-refinement"
+    ]
+  },
+  {
+    "id": "code-review",
+    "name": "Code Review",
+    "zh": "代码审查",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "review"
+    ],
+    "shortDesc": "代码审查实践。AI 时代需要 review AI 生成的代码。",
+    "longDesc": "<p><strong>代码审查</strong>是工程实践的核心。在 AI 时代：</p>\n<ul>\n<li>Review <strong>AI 生成的代码</strong>更关键</li>\n<li>需要建立<strong>审查文化</strong></li>\n<li>与 lint / 自动化测试互补</li>\n</ul>",
+    "related": [
+      "diff-review",
+      "coderabbit"
+    ]
+  },
+  {
+    "id": "yolo-mode",
+    "name": "YOLO Mode",
+    "zh": "YOLO 模式",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "risk",
+      "core"
+    ],
+    "shortDesc": "关闭所有审批，让 agent 不停下来问。风险极高。",
+    "longDesc": "<p><strong>YOLO Mode</strong>：关闭所有审批提示，让 agent 编辑文件、跑命令、安装东西都<strong>不停下来问</strong>。</p>\n<p><strong>典型场景：</strong>设任务 → 吃饭 → 回来 → 任务完成。</p>\n<p><strong>风险：</strong></p>\n<ul>\n<li>删库（Replit 事件）</li>\n<li>装错依赖</li>\n<li>写错文件路径</li>\n<li>把 secrets commit 到 git</li>\n</ul>",
+    "related": [
+      "responsible-vc",
+      "guardrails"
+    ],
+    "examples": [
+      {
+        "code": "// YOLO Mode 最高风险：\n> Let the agent do whatever it wants\n// 风险事件：\n// - Replit Agent 删生产数据库\n// - Lovable 泄漏 PII\n// - Agent 装错依赖污染环境",
+        "desc": "YOLO Mode 风险场景"
+      }
+    ]
+  },
+  {
+    "id": "responsible-vc",
+    "name": "Responsible Vibe Coding",
+    "zh": "负责任的 Vibe Coding",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "balance"
+    ],
+    "shortDesc": "持续审查、不放任 YOLO 的 vibe coding 风格。",
+    "longDesc": "<p><strong>Responsible Vibe Coding</strong>：持续审查、不放任 YOLO 的 vibe coding 风格。</p>\n<p><strong>与 YOLO 对比：</strong></p>\n<table>\n<tr><th>维度</th><th>YOLO Mode</th><th>Responsible VC</th></tr>\n<tr><td>用户审查</td><td>无</td><td>持续</td></tr>\n<tr><td>适用场景</td><td>一次性 demo</td><td>生产</td></tr>\n<tr><td>风险</td><td>极高</td><td>可控</td></tr>\n</table>",
+    "related": [
+      "yolo-mode",
+      "guardrails",
+      "vibe-engineering"
+    ],
+    "quotes": [
+      {
+        "text": "It is absolutely possible to do vibe coding responsibly. The opposite of YOLO is not \"no agent\"—it is engaged review.",
+        "cite": "community"
+      }
+    ]
+  },
+  {
+    "id": "failure-mode",
+    "name": "Failure Mode Analysis",
+    "zh": "失败模式分析",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "risk"
+    ],
+    "shortDesc": "分析 agent 可能失败的模式，针对性加防护。",
+    "longDesc": "<p>分析 agent 可能失败的模式，针对性加防护。</p>\n<p><strong>典型失败模式：</strong></p>\n<ul>\n<li>幻觉 API / 库</li>\n<li>改坏无关代码（non-determinism）</li>\n<li>删错文件</li>\n<li>装错依赖</li>\n<li>把测试也改了（让假绿）</li>\n</ul>",
+    "related": [
+      "guardrails",
+      "hallucination"
+    ]
+  },
+  {
+    "id": "spec-driven-prompting",
+    "name": "Spec-Driven Prompting",
+    "zh": "规格驱动提示",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "prompt"
+    ],
+    "shortDesc": "把 spec.md 内容作为 prompt 的核心。",
+    "longDesc": "<p>把 <strong>spec.md 内容</strong>作为 prompt 的核心——prompt 不再是\"想法\"而是\"规格\"。</p>",
+    "related": [
+      "spec-md",
+      "sdd"
+    ]
+  },
+  {
+    "id": "manifest-file",
+    "name": "CLAUDE.md / Manifest",
+    "zh": "CLAUDE.md / 清单文件",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "config"
+    ],
+    "shortDesc": "项目级持久指令文件。每会话开始加载。",
+    "longDesc": "<p>项目级<strong>持久指令文件</strong>——每会话开始加载。</p>\n<p><strong>代表：</strong>CLAUDE.md / .cursorrules / GEMINI.md / AGENTS.md</p>",
+    "related": [
+      "claude-md",
+      "context-engineering"
+    ]
+  },
+  {
+    "id": "auto-mode-safety",
+    "name": "Auto Mode Safety",
+    "zh": "Auto Mode 安全",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "safety"
+    ],
+    "shortDesc": "Claude Code Auto Mode 的安全设计：后台分类器看不到工具结果，免疫 prompt injection。",
+    "longDesc": "<p>Claude Code <strong>Auto Mode</strong> 的安全设计：</p>\n<ul>\n<li>后台分类器审查每个动作</li>\n<li>分类器<strong>看不到工具结果</strong>→ 免疫 prompt injection</li>\n<li>防御 scope escalation、untrusted infrastructure</li>\n</ul>",
+    "related": [
+      "auto-mode",
+      "prompt-injection"
+    ],
+    "quotes": [
+      {
+        "text": "The classifier never sees tool results, so injected instructions cannot influence its decisions.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "managed-settings",
+    "name": "Managed Settings",
+    "zh": "托管设置",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "enterprise"
+    ],
+    "shortDesc": "组织级 Claude Code 设置。IT / DevOps 通过 admin console 强制。",
+    "longDesc": "<p>组织级 Claude Code 设置。</p>\n<p><strong>机制：</strong>IT / DevOps 通过 admin console 或 OS 级路径部署。</p>\n<p><strong>特性：</strong>用户和项目设置<strong>无法覆盖</strong>。</p>\n<p><strong>用途：</strong>安全策略、合规要求、标准化工具链。</p>",
+    "related": [
+      "permission-mode"
+    ]
+  }
+]

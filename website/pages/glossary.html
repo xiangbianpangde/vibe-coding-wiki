@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>词条 A-Z · Vibe Coding Wiki</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#F9F4DC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vibe Coding Wiki · 专业术语知识库">
+  <meta property="og:description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
+  <meta property="og:site_name" content="Vibe Coding Wiki">
+  <meta property="og:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="twitter:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta name="twitter:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe Coding Wiki">
+  <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
+  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dark.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="../css/glossary.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vibe Coding Wiki",
+  "url": "https://vibe-coding-wiki.example.com",
+  "description": "Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vibe-coding-wiki.example.com/pages/glossary.html?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://vibe-coding-wiki.example.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "glossary",
+      "item": "https://vibe-coding-wiki.example.com/pages/glossary.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳至正文</a>
+
+<header class="topnav">
+  <div class="container topnav__inner">
+    <a class="topnav__brand" href="../index.html">
+      <span class="brand-mark">VC</span>
+      <span class="brand-text"><strong>Vibe Coding Wiki</strong><small>专业术语知识库 · 2025</small></span>
+    </a>
+    <nav class="topnav__links" role="navigation" aria-label="主导航">
+      <a href="../index.html">首页</a>
+      <a href="glossary.html" class="active" aria-current="page">词条 A-Z</a>
+      <a href="layers.html">分层索引</a>
+      <a href="scenarios.html">场景索引</a>
+      <a href="graph.html">关系图谱</a>
+      <a href="compare.html">对比</a>
+      <a href="stats.html">数据</a>
+      <a href="citations.html">来源</a>
+    </nav>
+    <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
+      <span>搜索术语</span><kbd>⌘K</kbd>
+    <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
+  <span class="theme-icon-light">☀️</span>
+  <span class="theme-icon-dark">🌙</span>
+</button>
+    </div>
+  </header>
+
+<section class="container" style="padding-top:48px;padding-bottom:24px;">
+  <h1 style="font-family:var(--font-title);font-size:2.6rem;font-weight:900;color:var(--c-ink);margin-bottom:8px;">词条 A-Z</h1>
+  <p style="color:var(--c-ink-soft);font-size:15px;">按英文字母排序的术语索引。<strong>178+ 词条</strong>，每个可点击进入完整详情页。</p>
+
+  <div id="filter-bar" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;"></div>
+  <div id="term-count" style="margin-top:14px;font-family:var(--font-rounded);font-size:12px;color:var(--c-muted);letter-spacing:0.04em;"></div>
+</section>
+
+<section class="container" style="padding-bottom:64px;">
+  <div id="term-list"></div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div>
+      <strong>Vibe Coding Wiki</strong>
+      <p>非官方 · 教育用途 · v2.0 · 内容基于 Wikipedia / Martin Fowler / Simon Willison / Claude Code Docs 等公开来源整理</p>
+    </div>
+    <div class="footer__links">
+      <a href="../index.html">首页</a>
+      <a href="layers.html">分层</a>
+      <a href="scenarios.html">场景</a>
+      <a href="graph.html">图谱</a>
+      <a href="compare.html">对比</a>
+      <a href="citations.html">来源</a>
+    </div>
+  </div>
+</footer>
+
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="search-modal__inner" role="search">
+    <h2 id="search-modal-title" class="sr-only">搜索术语</h2>
+<input type="text" id="search-input" placeholder="搜索术语…" aria-label="搜索术语，输入后按 Enter 跳转到结果" autofocus>
+    <div id="search-results" class="search-results" role="listbox" aria-live="polite"></div>
+    <div class="search-modal__hint">↑↓ 选择 · Enter 打开 · Esc 关闭</div>
+  </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/theme.js"></script>
+<script src="../js/terms.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/app.js"></script>
+<script>
+// 渲染 A-Z 词条
+(function() {
+  const data = window.VC_TERMS || [];
+  const layers = window.VC_LAYERS || {};
+  const filterBar = document.getElementById('filter-bar');
+  const termList = document.getElementById('term-list');
+  const termCount = document.getElementById('term-count');
+
+  // URL 参数支持
+  const params = new URLSearchParams(location.search);
+  const urlTag = params.get('tag');
+  const urlLayer = params.get('layer');
+
+  let currentLayer = urlLayer || 'all';
+
+  // Filter chips
+  const layerChips = [{ id: 'all', name: '全部', color: '#111' }]
+    .concat(Object.entries(layers).map(([k, v]) => ({ id: k, name: v.name, color: v.color })));
+  filterBar.innerHTML = layerChips.map(c =>
+    `<button data-layer="${c.id}" class="layer-chip" style="padding:8px 14px;border:1px solid ${currentLayer===c.id?c.color:'var(--c-line)'};background:${currentLayer===c.id?c.color:'var(--c-panel)'};color:${currentLayer===c.id?'var(--c-paper)':'var(--c-ink)'};font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.02em;font-family:var(--font-body);transition:all 0.15s;">${c.name}</button>`
+  ).join('');
+
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    currentLayer = btn.dataset.layer;
+    filterBar.querySelectorAll('button').forEach(b => {
+      const c = layerChips.find(x => x.id === b.dataset.layer);
+      const on = b.dataset.layer === currentLayer;
+      b.style.background = on ? c.color : 'var(--c-panel)';
+      b.style.color = on ? 'var(--c-paper)' : 'var(--c-ink)';
+      b.style.borderColor = on ? c.color : 'var(--c-line)';
+    });
+    render();
+  });
+
+  function render() {
+    const items = data.filter(x => {
+      if (currentLayer !== 'all' && x.layer !== currentLayer) return false;
+      if (urlTag && !(x.tags || []).includes(urlTag)) return false;
+      return true;
+    });
+    termCount.textContent = `共 ${items.length} 条词条` + (urlTag ? ` · 标签 #${urlTag}` : '');
+
+    // 分组按字母
+    const grouped = {};
+    items.forEach(item => {
+      const letter = (item.name[0] || '').toUpperCase();
+      if (!grouped[letter]) grouped[letter] = [];
+      grouped[letter].push(item);
+    });
+
+    const letters = Object.keys(grouped).sort();
+    termList.innerHTML = letters.map(letter => `
+      <div style="margin-bottom:32px;">
+        <div style="font-family:var(--font-rounded);font-weight:700;font-size:14px;color:var(--c-shihqing);letter-spacing:0.06em;border-bottom:1px solid var(--c-line);padding-bottom:8px;margin-bottom:12px;">${letter}</div>
+        <div class="term-cards-grid">
+          ${grouped[letter].map(t => {
+            const layer = layers[t.layer] || { color: '#777', name: t.layer };
+            return `
+            <a id="${t.id}" href="../term.html?id=${t.id}" class="term-card" style="border-left:3px solid ${layer.color};">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
+                <strong style="font-family:var(--font-title);font-size:16px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
+                <span class="layer-badge" style="background:${layer.color};">${layer.name}</span>
+              </div>
+              <div style="font-size:12px;color:var(--c-muted);font-family:var(--font-mono);margin-bottom:8px;">${t.name}</div>
+              <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
+            </a>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

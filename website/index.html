@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding Wiki · 专业术语知识库</title>
+<meta name="description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#F9F4DC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vibe Coding Wiki · 专业术语知识库">
+  <meta property="og:description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
+  <meta property="og:site_name" content="Vibe Coding Wiki">
+  <meta property="og:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="twitter:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta name="twitter:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe Coding Wiki">
+  <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
+  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta name="robots" content="index,follow">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dark.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/home.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vibe Coding Wiki",
+  "url": "https://vibe-coding-wiki.example.com",
+  "description": "Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vibe-coding-wiki.example.com/pages/glossary.html?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://vibe-coding-wiki.example.com"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳至正文</a>
+
+<!-- ============ TOP NAV ============ -->
+<header class="topnav">
+  <div class="container topnav__inner">
+    <a class="topnav__brand" href="index.html">
+      <span class="brand-mark">VC</span>
+      <span class="brand-text">
+        <strong>Vibe Coding Wiki</strong>
+        <small>专业术语知识库 · 2025</small>
+      </span>
+    </a>
+    <nav class="topnav__links" role="navigation" aria-label="主导航">
+      <a href="index.html" class="active" aria-current="page">首页</a>
+      <a href="pages/glossary.html">词条 A-Z</a>
+      <a href="pages/layers.html">分层索引</a>
+      <a href="pages/scenarios.html">场景索引</a>
+      <a href="pages/graph.html">关系图谱</a>
+      <a href="pages/compare.html">对比</a>
+      <a href="pages/stats.html">数据</a>
+      <a href="pages/citations.html">来源</a>
+    </nav>
+    <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+      <span>搜索术语</span>
+      <kbd>⌘K</kbd>
+    <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
+  <span class="theme-icon-light">☀️</span>
+  <span class="theme-icon-dark">🌙</span>
+</button>
+    </div>
+  </header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="container hero__inner">
+    <div class="hero__chip">
+      <span class="dot"></span> Knowledge Base · v2.0 · 2025-08-17
+    </div>
+    <h1 class="hero__title">
+      Vibe Coding 与 AI 编程的<br>
+      <span class="gradient">专业术语 Wiki</span>
+    </h1>
+    <p class="hero__subtitle">
+      从 Karpathy 创造的"vibe coding"出发，覆盖 <strong>178+ 核心术语</strong>、<strong>8 大层级</strong>、<strong>14 类使用场景</strong>、<strong>3 大实证研究</strong>。
+      为开发者、团队、企业决策者提供可工程化的术语参考。
+    </p>
+
+    <div class="hero__metrics">
+      <div class="metric">
+        <div class="metric__value">178+</div>
+        <div class="metric__label">核心词条</div>
+      </div>
+      <div class="metric">
+        <div class="metric__value">8</div>
+        <div class="metric__label">层级</div>
+      </div>
+      <div class="metric">
+        <div class="metric__value">14</div>
+        <div class="metric__label">使用场景</div>
+      </div>
+      <div class="metric">
+        <div class="metric__value">30+</div>
+        <div class="metric__label">权威来源</div>
+      </div>
+    </div>
+
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="pages/glossary.html">浏览全部词条 →</a>
+      <a class="btn btn--ghost" href="pages/compare.html">查看范式对比</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 范式演进 ============ -->
+<section class="container section">
+  <h2 class="section-h2">范式演进：vibe coding 不止一种</h2>
+  <p class="section-lede">从 2025-02 的 Karpathy 创造，到 2026-02 的 agentic engineering 取代，<strong>vibe coding 是一个谱系</strong>，不是单一范式。</p>
+
+  <div class="evolution-track">
+    <a href="term.html?id=vibe-coding" class="evo-card evo-card--early">
+      <div class="evo-card__date">2025-02</div>
+      <div class="evo-card__title">Vibe Coding</div>
+      <div class="evo-card__author">Karpathy</div>
+      <div class="evo-card__quote">"Forget that the code exists"</div>
+    </a>
+    <div class="evo-arrow">→</div>
+    <a href="term.html?id=responsible-vc" class="evo-card">
+      <div class="evo-card__date">2025-04</div>
+      <div class="evo-card__title">Responsible VC</div>
+      <div class="evo-card__author">Community</div>
+      <div class="evo-card__quote">持续审查，不放任 YOLO</div>
+    </a>
+    <div class="evo-arrow">→</div>
+    <a href="term.html?id=vibe-engineering" class="evo-card">
+      <div class="evo-card__date">2025-10</div>
+      <div class="evo-card__title">Vibe Engineering</div>
+      <div class="evo-card__author">Willison</div>
+      <div class="evo-card__quote">"Stay accountable"</div>
+    </a>
+    <div class="evo-arrow">→</div>
+    <a href="term.html?id=agentic-engineering" class="evo-card evo-card--now">
+      <div class="evo-card__date">2026-02</div>
+      <div class="evo-card__title">Agentic Engineering</div>
+      <div class="evo-card__author">Karpathy</div>
+      <div class="evo-card__quote">"Vibe coding is passé"</div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ TWO COLUMNS ============ -->
+<section class="container two-col">
+
+  <main class="col-main" id="main-content" tabindex="-1">
+    <h2 class="section-h2">知识地图</h2>
+    <p class="section-lede">按"层级"和"使用场景"两个维度组织。每个术语都标注了出处、研究笔记、可点击进入详情。</p>
+
+    <h3 class="block-h3">按层级浏览</h3>
+    <div class="layer-grid">
+      <a class="layer-card layer-card--L1" href="pages/layers.html#L1">
+        <div class="layer-card__num">L1</div>
+        <div class="layer-card__title">范式层</div>
+        <div class="layer-card__desc">Vibe Coding / Agentic Engineering / Cognitive Debt</div>
+        <div class="layer-card__count">16 词条</div>
+      </a>
+      <a class="layer-card layer-card--L2" href="pages/layers.html#L2">
+        <div class="layer-card__num">L2</div>
+        <div class="layer-card__title">方法论层</div>
+        <div class="layer-card__desc">SDD / Context Engineering / Compaction / Hooks</div>
+        <div class="layer-card__count">20 词条</div>
+      </a>
+      <a class="layer-card layer-card--L3" href="pages/layers.html#L3">
+        <div class="layer-card__num">L3</div>
+        <div class="layer-card__title">技术概念层</div>
+        <div class="layer-card__desc">LLM / Agent Loop / MCP / RAG / Quantization</div>
+        <div class="layer-card__count">53 词条</div>
+      </a>
+      <a class="layer-card layer-card--L4" href="pages/layers.html#L4">
+        <div class="layer-card__num">L4</div>
+        <div class="layer-card__title">工具平台层</div>
+        <div class="layer-card__desc">Cursor / Claude Code / LangChain / LlamaIndex</div>
+        <div class="layer-card__count">28 词条</div>
+      </a>
+      <a class="layer-card layer-card--L5" href="pages/layers.html#L5">
+        <div class="layer-card__num">L5</div>
+        <div class="layer-card__title">质量治理层</div>
+        <div class="layer-card__desc">Guardrails / YOLO Mode / Auto Mode / Hooks</div>
+        <div class="layer-card__count">14 词条</div>
+      </a>
+      <a class="layer-card layer-card--L6" href="pages/layers.html#L6">
+        <div class="layer-card__num">L6</div>
+        <div class="layer-card__title">风险度量层</div>
+        <div class="layer-card__desc">Technical Debt / Vibe Slop / Lethal Trifecta</div>
+        <div class="layer-card__count">17 词条</div>
+      </a>
+      <a class="layer-card layer-card--L7" href="pages/layers.html#L7">
+        <div class="layer-card__num">L7</div>
+        <div class="layer-card__title">Prompt Engineering</div>
+        <div class="layer-card__desc">Few-Shot / CoT / ReAct / Self-Consistency</div>
+        <div class="layer-card__count">16 词条</div>
+      </a>
+      <a class="layer-card layer-card--L8" href="pages/layers.html#L8">
+        <div class="layer-card__num">L8</div>
+        <div class="layer-card__title">场景层</div>
+        <div class="layer-card__desc">原型 / 生产 / 安全 / 学习 / 14 类场景</div>
+        <div class="layer-card__count">14 场景</div>
+      </a>
+    </div>
+
+    <h3 class="block-h3">按使用场景浏览</h3>
+    <div class="scenario-strip">
+      <a class="scenario-chip" href="pages/scenarios.html#proto-scenario"><span class="ic">⚡</span>一次性原型</a>
+      <a class="scenario-chip" href="pages/scenarios.html#personal-scenario"><span class="ic">👤</span>个人工具</a>
+      <a class="scenario-chip" href="pages/scenarios.html#production-scenario"><span class="ic">🏭</span>生产维护</a>
+      <a class="scenario-chip" href="pages/scenarios.html#refactor-scenario"><span class="ic">🔧</span>大型重构</a>
+      <a class="scenario-chip" href="pages/scenarios.html#security-scenario"><span class="ic">🔒</span>安全敏感</a>
+      <a class="scenario-chip" href="pages/scenarios.html#learning-scenario"><span class="ic">📚</span>学习探索</a>
+      <a class="scenario-chip" href="pages/scenarios.html#team-scenario"><span class="ic">👥</span>团队协作</a>
+      <a class="scenario-chip" href="pages/scenarios.html#testing-scenario"><span class="ic">🧪</span>测试编写</a>
+      <a class="scenario-chip" href="pages/scenarios.html#debug-scenario"><span class="ic">🐞</span>调试排错</a>
+      <a class="scenario-chip" href="pages/scenarios.html#docs-scenario"><span class="ic">📝</span>文档注释</a>
+      <a class="scenario-chip" href="pages/scenarios.html#frontend-scenario"><span class="ic">🎨</span>前端 Vibe</a>
+      <a class="scenario-chip" href="pages/scenarios.html#data-scenario"><span class="ic">📊</span>数据分析</a>
+      <a class="scenario-chip" href="pages/scenarios.html#onboarding-scenario"><span class="ic">🚪</span>代码库入门</a>
+      <a class="scenario-chip" href="pages/scenarios.html#migration-scenario"><span class="ic">🔀</span>框架迁移</a>
+    </div>
+  </main>
+
+  <aside class="col-side">
+    <div class="side-card">
+      <h4>核心定义</h4>
+      <blockquote class="quote">
+        "There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+        <cite>— Andrej Karpathy, 2025-02-02</cite>
+      </blockquote>
+    </div>
+
+    <div class="side-card side-card--warning">
+      <h4>⚠️ 重要边界</h4>
+      <p><strong>Vibe Coding ≠ Agentic Programming</strong></p>
+      <p>Fowler：前者"忘了代码存在"，后者"用 LLM 写代码但仍审查"。Willison：vibe coding 与 agentic engineering 是对立面。</p>
+      <a href="pages/compare.html">查看详细对比 →</a>
+    </div>
+
+    <div class="side-card">
+      <h4>📊 实证数据</h4>
+      <ul class="kv">
+        <li><strong>METR (2025-07)</strong><span>AI 实际让任务 +19% 时间（预测 -24%）</span></li>
+        <li><strong>CodeRabbit (2025-12)</strong><span>AI co-authored 代码安全漏洞 ×2.74</span></li>
+        <li><strong>Veracode (2025-10)</strong><span>LLM 生成代码安全 3 年未改善</span></li>
+        <li><strong>SO 2025</strong><span>84% 用 AI / 51% 每天 / 72% 不做 vibe</span></li>
+      </ul>
+      <a href="pages/stats.html">查看完整数据 →</a>
+    </div>
+
+    <div class="side-card side-card--link">
+      <h4>🚀 快速开始</h4>
+      <ol class="start-list">
+        <li><a href="pages/glossary.html">按 A-Z 查词条</a></li>
+        <li><a href="pages/layers.html">按 8 大层级查</a></li>
+        <li><a href="pages/scenarios.html">按使用场景查</a></li>
+        <li><a href="pages/graph.html">看术语关系图</a></li>
+        <li><a href="pages/compare.html">5 范式对比</a></li>
+      </ol>
+    </div>
+  </aside>
+
+</section>
+
+<!-- ============ 标签云 ============ -->
+<section class="container section">
+  <h2 class="section-h2">热门标签云</h2>
+  <p class="section-lede">点击标签过滤词条。字号反映该标签下词条数量。</p>
+
+  <div class="tag-cloud" id="tag-cloud"></div>
+</section>
+
+<!-- ============ 核心术语 ============ -->
+<section class="container section">
+  <h2 class="section-h2">核心术语速览</h2>
+  <p class="section-lede">最具区分度的 9 个术语。每个都可点击查看完整详情。</p>
+
+  <div class="concept-grid">
+    <a href="term.html?id=vibe-coding" class="concept-card">
+      <header><span class="badge badge--core">范式</span><h3>Vibe Coding</h3></header>
+      <p>Karpathy 2025-02 创造：用自然语言描述意图，由 LLM 自动生成源码，"忘了代码存在"的开发风格。</p>
+    </a>
+
+    <a href="term.html?id=agentic-engineering" class="concept-card">
+      <header><span class="badge badge--core">范式</span><h3>Agentic Engineering</h3></header>
+      <p>Karpathy 2026-02 提出取代 vibe coding 的术语。"vibe coding is passé"。</p>
+    </a>
+
+    <a href="term.html?id=vibe-engineering" class="concept-card">
+      <header><span class="badge badge--core">范式</span><h3>Vibe Engineering</h3></header>
+      <p>Willison 2025-10 创造：vibe coding 的对立面，专业人士问责式 AI 开发。</p>
+    </a>
+
+    <a href="term.html?id=sdd" class="concept-card">
+      <header><span class="badge badge--method">方法</span><h3>SDD</h3></header>
+      <p>以 spec.md 作为人、AI、测试、审查者之间共享契约的开发方法。GitHub Spec Kit 是工具链。</p>
+    </a>
+
+    <a href="term.html?id=context-engineering" class="concept-card">
+      <header><span class="badge badge--method">方法</span><h3>Context Engineering</h3></header>
+      <p>管理进入 LLM 上下文窗口的所有信息的工程学科。比 Prompt Engineering 范围更广。</p>
+    </a>
+
+    <a href="term.html?id=mcp" class="concept-card">
+      <header><span class="badge badge--tech">技术</span><h3>MCP</h3></header>
+      <p>Model Context Protocol：连接 AI Agent 与外部工具/数据源的开放标准，AI 时代的 USB。</p>
+    </a>
+
+    <a href="term.html?id=guardrails" class="concept-card">
+      <header><span class="badge badge--quality">质量</span><h3>Guardrails</h3></header>
+      <p>自动化检查，专门捕捉 AI 易犯的错误，廉价运行、失败响亮。</p>
+    </a>
+
+    <a href="term.html?id=lethal-trifecta" class="concept-card">
+      <header><span class="badge badge--risk">风险</span><h3>Lethal Trifecta</h3></header>
+      <p>Simon Willison：三因子风险——私数据 + 不可信内容 + 外部通信。三个全占 = 致命。</p>
+    </a>
+
+    <a href="term.html?id=cognitive-debt" class="concept-card">
+      <header><span class="badge badge--risk">风险</span><h3>Cognitive Debt</h3></header>
+      <p>Hunt 2026 提出的术语：AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债。</p>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 时间线 ============ -->
+<section class="container section">
+  <h2 class="section-h2">关键事件时间线</h2>
+
+  <div class="timeline">
+    <div class="timeline__item">
+      <div class="timeline__date">2023</div>
+      <div class="timeline__content">
+        <strong>Karpathy:</strong> "The hottest new programming language is English." — 预言 vibe coding 基础
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-02</div>
+      <div class="timeline__content">
+        <strong>Karpathy 创造术语 "vibe coding"</strong> — "forget that the code even exists"
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-05</div>
+      <div class="timeline__content">
+        <strong>Lovable PII 泄漏事件</strong> — 170/1645 web 应用暴露个人信息
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-07</div>
+      <div class="timeline__content">
+        <strong>Replit agent 删生产数据库</strong> + <strong>METR RCT</strong>：AI 实际让任务 +19% 时间
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-08</div>
+      <div class="timeline__content">
+        <strong>Claude Code 官方词汇表</strong>发布（30+ 术语：Hook / Checkpoint / Compaction / Agentic Harness）
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-10</div>
+      <div class="timeline__content">
+        <strong>Willison 创造 "vibe engineering"</strong> — vibe coding 的对立面
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025-12</div>
+      <div class="timeline__content">
+        <strong>CodeRabbit 研究</strong>：AI co-authored 代码安全漏洞 ×2.74
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2025 WotY</div>
+      <div class="timeline__content">
+        <strong>Collins Word of the Year 2025</strong> — "vibe coding" 入选
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2026-01</div>
+      <div class="timeline__content">
+        <strong>"Vibe Coding Kills Open Source"</strong> 论文发表
+      </div>
+    </div>
+    <div class="timeline__item">
+      <div class="timeline__date">2026-02</div>
+      <div class="timeline__content">
+        <strong>Karpathy 创造 "agentic engineering"</strong> — 让 vibe coding 退役
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div>
+      <strong>Vibe Coding Wiki</strong>
+      <p>非官方 · 教育用途 · v2.0 · 内容基于 Wikipedia / Martin Fowler / Simon Willison / GitHub Spec Kit / Claude Code Docs / Stack Overflow 等公开来源整理</p>
+    </div>
+    <div class="footer__links">
+      <a href="pages/glossary.html">词条</a>
+      <a href="pages/layers.html">分层</a>
+      <a href="pages/scenarios.html">场景</a>
+      <a href="pages/graph.html">图谱</a>
+      <a href="pages/compare.html">对比</a>
+      <a href="pages/stats.html">数据</a>
+      <a href="pages/citations.html">来源</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SEARCH MODAL ============ -->
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="search-modal__inner" role="search">
+    <h2 id="search-modal-title" class="sr-only">搜索术语</h2>
+<input type="text" id="search-input" placeholder="搜索术语（中文 / 英文 / 缩写）…" aria-label="搜索术语，输入后按 Enter 跳转到结果" autofocus>
+    <div id="search-results" class="search-results" role="listbox" aria-live="polite"></div>
+    <div class="search-modal__hint">↑↓ 选择 · Enter 打开 · Esc 关闭</div>
+  </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/terms.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search-engine.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

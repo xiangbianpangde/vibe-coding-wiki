@@ -1,0 +1,271 @@
+[
+  {
+    "id": "proto-scenario",
+    "name": "Throwaway Prototype",
+    "zh": "一次性原型",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "prototype"
+    ],
+    "shortDesc": "从 0 到可 demo 的应用，一晚上搞定。",
+    "longDesc": "<p><strong>一次性原型</strong>：从 0 到可 demo 的应用，一晚上搞定。</p>\n<p><strong>推荐组合：</strong>Vibe Coding / Cursor Composer / Lovable / Iterative Refinement</p>\n<p><strong>风险：</strong>低（不进入生产）</p>",
+    "related": [
+      "vibe-coding",
+      "cursor-composer"
+    ],
+    "examples": [
+      {
+        "code": "// 周末项目：建一个 markdown 预览器\n// 1. 打开 Cursor\n// 2. Cmd+I 输入需求\n// 3. 接受所有建议\n// 4. 试运行，贴错误\n// 5. 周日下午 5 点：完成 demo\n// 风险：低（不进入生产）",
+        "desc": "一次性原型 vibe coding 流程"
+      }
+    ]
+  },
+  {
+    "id": "personal-scenario",
+    "name": "Software for One",
+    "zh": "个人工具",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "personal"
+    ],
+    "shortDesc": "只为个人用，不进入团队。",
+    "longDesc": "<p><strong>个人工具</strong>：只为个人用，不进入团队。Software for One 心态。</p>\n<p><strong>推荐组合：</strong>Vibe Coding / YOLO Mode（可接受）/ Few-Shot</p>\n<p><strong>风险：</strong>低（仅自己用）</p>",
+    "related": [
+      "software-for-one",
+      "yolo-mode"
+    ]
+  },
+  {
+    "id": "production-scenario",
+    "name": "Production Maintenance",
+    "zh": "生产代码维护",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "production"
+    ],
+    "shortDesc": "修改既有系统、加 feature、修 bug。需要完全不同于 vibe coding 的工作流。",
+    "longDesc": "<p><strong>生产代码维护</strong>：修改既有系统、加 feature、修 bug、性能优化。</p>\n<p><strong>推荐组合：</strong>Agentic Programming（非 vibe coding）/ MVP / Guardrails / SDD / Code Review / Compiler as Referee</p>\n<p><strong>风险：</strong>高</p>\n<p><strong>Stack Overflow 2025：</strong>76% 开发者不在生产用 AI；69% 不用于项目规划。</p>",
+    "related": [
+      "agentic-programming",
+      "guardrails",
+      "sdd"
+    ],
+    "examples": [
+      {
+        "code": "// production 维护正确做法：\n// 1. 写测试（test-first）\n// 2. 让 agent 写实现直到测试通过\n// 3. Code review\n// 4. CI 跑 guardrails（lint + test + security audit）\n// 5. Merge\n// 建议工具：Claude Code + Spec Kit + CodeRabbit",
+        "desc": "production 维护流程"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "76% of developers do not use AI for deployment/monitoring. 69% do not use AI for project planning.",
+        "cite": "Stack Overflow 2025"
+      }
+    ]
+  },
+  {
+    "id": "refactor-scenario",
+    "name": "Large-Scale Refactoring",
+    "zh": "大型重构",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "refactor"
+    ],
+    "shortDesc": "跨文件、跨模块改动，不引入 regression。",
+    "longDesc": "<p><strong>大型重构</strong>：跨文件、跨模块改动，不引入 regression。</p>\n<p><strong>推荐组合：</strong>Subagent（任务拆分）/ Plan-Verify-Build / Context Engineering / Safety Net Testing / TDD with AI</p>\n<p><strong>风险：</strong>中（AI 倾向\"重写而不重构\"）</p>",
+    "related": [
+      "subagent",
+      "plan-verify-build"
+    ]
+  },
+  {
+    "id": "security-scenario",
+    "name": "Security-Sensitive Code",
+    "zh": "安全敏感代码",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "security"
+    ],
+    "shortDesc": "认证/授权/支付/加密/数据隐私。",
+    "longDesc": "<p><strong>安全敏感代码</strong>：认证 / 授权 / 支付 / 加密 / 数据隐私。</p>\n<p><strong>推荐组合：</strong><strong>禁止 Vibe Coding / YOLO Mode</strong> / Lethal Trifecta 检查 / Veracode / Snyk / Prompt Injection 防护</p>\n<p><strong>风险：</strong>最高</p>\n<p><strong>CodeRabbit：</strong>AI co-authored 代码安全漏洞 ×2.74。</p>",
+    "related": [
+      "lethal-trifecta",
+      "veracode"
+    ],
+    "examples": [
+      {
+        "code": "// 安全敏感代码的工作流：\n// 1. 禁止 Vibe Coding\n// 2. 禁止 YOLO Mode\n// 3. 启用 Claude Code Auto Mode\n// 4. 人工 review 每一行\n// 5. 跑 Snyk + Veracode + penetration test\n// 6. 部署前 Lethal Trifecta 检查清单",
+        "desc": "安全敏感代码流程"
+      }
+    ]
+  },
+  {
+    "id": "learning-scenario",
+    "name": "Learning & Exploration",
+    "zh": "学习与探索",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "learning"
+    ],
+    "shortDesc": "学新技术 / 新语言 / 探索性编程。",
+    "longDesc": "<p><strong>学习探索</strong>：学新技术 / 新语言 / 探索性编程 / 教学示例。</p>\n<p><strong>推荐组合：</strong>Vibe Coding / Few-Shot / Chain-of-Thought</p>\n<p><strong>风险：</strong>低</p>",
+    "related": [
+      "vibe-coding",
+      "few-shot"
+    ]
+  },
+  {
+    "id": "team-scenario",
+    "name": "Team Collaboration",
+    "zh": "团队协作",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "team"
+    ],
+    "shortDesc": "多开发者共享代码、PR 流程。",
+    "longDesc": "<p><strong>团队协作</strong>：多开发者共享代码、PR 流程。</p>\n<p><strong>推荐组合：</strong>Copilot / Cursor（团队版）/ CodeRabbit / Spec.md as Contract / Diff Review</p>\n<p><strong>风险：</strong>中</p>",
+    "related": [
+      "copilot",
+      "code-review"
+    ],
+    "quotes": [
+      {
+        "text": "Agent teams are experimental and disabled by default. Each teammate has its own context.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "testing-scenario",
+    "name": "Test Writing",
+    "zh": "测试编写",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "testing"
+    ],
+    "shortDesc": "为已有代码补测试。AI 写测试是相对安全的任务。",
+    "longDesc": "<p><strong>测试编写</strong>：为已有代码补测试。</p>\n<p><strong>推荐组合：</strong>TDD with AI / Safety Net Testing / Test Suite as Referee</p>\n<p><strong>风险：</strong>低（AI 写测试是相对安全的任务）</p>",
+    "related": [
+      "tdd-ai",
+      "safety-net-testing"
+    ]
+  },
+  {
+    "id": "debug-scenario",
+    "name": "Debugging",
+    "zh": "调试排错",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "debug"
+    ],
+    "shortDesc": "bug 复现 + 修复。",
+    "longDesc": "<p><strong>调试排错</strong>：bug 复现 + 修复。</p>\n<p><strong>推荐组合：</strong>Iterative Refinement（贴错误信息）/ Failure Mode Analysis / Acceptance Criteria</p>\n<p><strong>风险：</strong>中（AI 倾向\"治标不治本\"）</p>\n<p><strong>Stack Overflow 2025：</strong>45% 报告\"调试 AI 代码更耗时\"</p>",
+    "related": [
+      "iterative-refinement",
+      "failure-mode"
+    ]
+  },
+  {
+    "id": "docs-scenario",
+    "name": "Documentation",
+    "zh": "文档注释",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "docs"
+    ],
+    "shortDesc": "写 README / 生成 API 文档。",
+    "longDesc": "<p><strong>文档注释</strong>：写 README / 生成 API 文档 / 代码注释。</p>\n<p><strong>推荐组合：</strong>Few-Shot Prompting（输出格式）/ Spec.md as Contract</p>\n<p><strong>风险：</strong>低</p>",
+    "related": [
+      "few-shot",
+      "spec-md"
+    ]
+  },
+  {
+    "id": "frontend-scenario",
+    "name": "Frontend Vibe Coding",
+    "zh": "前端 Vibe Coding",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "frontend"
+    ],
+    "shortDesc": "前端组件、页面、UI 设计的 vibe coding。",
+    "longDesc": "<p><strong>前端 Vibe Coding</strong>：前端组件、页面、UI 设计。</p>\n<p><strong>推荐工具：</strong>Lovable / v0 / Cursor Composer</p>\n<p><strong>优势：</strong>AI 擅长视觉组件、响应式布局、Tailwind / CSS。</p>\n<p><strong>风险：</strong>中（无障碍、设计系统一致性）</p>",
+    "related": [
+      "lovable",
+      "v0"
+    ]
+  },
+  {
+    "id": "data-scenario",
+    "name": "Data & Analytics",
+    "zh": "数据分析",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "data"
+    ],
+    "shortDesc": "用 LLM 做数据分析、可视化、SQL 生成。",
+    "longDesc": "<p><strong>数据分析</strong>：用 LLM 做数据分析、可视化、SQL 生成。</p>\n<p><strong>工具：</strong>Code Interpreter / LLM SQL / Notebook agents</p>",
+    "related": [
+      "computer-use",
+      "rag"
+    ]
+  },
+  {
+    "id": "onboarding-scenario",
+    "name": "Onboarding to Codebases",
+    "zh": "代码库入门",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "onboarding"
+    ],
+    "shortDesc": "用 AI agent 快速理解陌生代码库。",
+    "longDesc": "<p><strong>代码库入门</strong>：用 AI agent 快速理解陌生代码库。</p>\n<p><strong>实践：</strong>让 Claude Code / Cursor 解释模块、画架构图、生成 README。</p>",
+    "related": [
+      "context-engineering",
+      "claude-code"
+    ]
+  },
+  {
+    "id": "migration-scenario",
+    "name": "Framework Migration",
+    "zh": "框架迁移",
+    "layer": "L8",
+    "category": "scenario",
+    "tags": [
+      "scenario",
+      "migration"
+    ],
+    "shortDesc": "用 AI 协助框架迁移（React→Vue、Python 2→3 等）。",
+    "longDesc": "<p><strong>框架迁移</strong>：用 AI 协助框架迁移（React→Vue、Python 2→3 等）。</p>\n<p><strong>组合：</strong>Subagent + Plan-Verify-Build + Safety Net Testing</p>",
+    "related": [
+      "subagent",
+      "refactor-scenario"
+    ]
+  }
+]

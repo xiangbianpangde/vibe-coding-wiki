@@ -1,0 +1,40 @@
+/* Vibe Coding Wiki · Glossary Page */
+
+.term-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--c-line);
+  background: var(--c-line);
+}
+
+.term-card {
+  background: var(--c-panel);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.15s var(--ease-out-quart);
+  border-left-width: 3px !important;
+  border-left-style: solid !important;
+}
+
+.term-card:hover {
+  background: var(--c-paper-deep);
+  transform: translateX(2px);
+}
+
+.layer-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-family: var(--font-rounded);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .term-cards-grid { grid-template-columns: 1fr; }
+}

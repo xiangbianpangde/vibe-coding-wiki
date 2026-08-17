@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关系图谱 · Vibe Coding Wiki</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#F9F4DC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vibe Coding Wiki · 专业术语知识库">
+  <meta property="og:description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
+  <meta property="og:site_name" content="Vibe Coding Wiki">
+  <meta property="og:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="twitter:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta name="twitter:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe Coding Wiki">
+  <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
+  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dark.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .mermaid-wrap {
+    background: #FFFFFF;
+    border: 1px solid var(--c-line);
+    padding: 16px;
+    overflow-x: auto;
+  }
+  .mermaid {
+    font-family: var(--font-body) !important;
+    text-align: center;
+  }
+  .mermaid svg { max-width: 100%; height: auto; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vibe Coding Wiki",
+  "url": "https://vibe-coding-wiki.example.com",
+  "description": "Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://vibe-coding-wiki.example.com/pages/glossary.html?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://vibe-coding-wiki.example.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "graph",
+      "item": "https://vibe-coding-wiki.example.com/pages/graph.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳至正文</a>
+
+<header class="topnav">
+  <div class="container topnav__inner">
+    <a class="topnav__brand" href="../index.html">
+      <span class="brand-mark">VC</span>
+      <span class="brand-text"><strong>Vibe Coding Wiki</strong><small>专业术语知识库 · 2025</small></span>
+    </a>
+    <nav class="topnav__links" role="navigation" aria-label="主导航">
+      <a href="../index.html">首页</a>
+      <a href="glossary.html">词条 A-Z</a>
+      <a href="layers.html">分层索引</a>
+      <a href="scenarios.html">场景索引</a>
+      <a href="graph.html" class="active" aria-current="page">关系图谱</a>
+      <a href="citations.html">来源</a>
+    </nav>
+    <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
+      <span>搜索术语</span><kbd>⌘K</kbd>
+    <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
+  <span class="theme-icon-light">☀️</span>
+  <span class="theme-icon-dark">🌙</span>
+</button>
+    </div>
+  </header>
+
+<section class="container" style="padding-top:48px;padding-bottom:32px;">
+  <h1 style="font-family:var(--font-title);font-size:2.6rem;font-weight:900;color:var(--c-ink);margin-bottom:8px;">术语关系图谱</h1>
+  <p style="color:var(--c-ink-soft);font-size:15px;max-width:680px;">用 mermaid 渲染的可视化关系图。颜色对应 8 大层级（中国色），实线为"组成/因果"关系，虚线为"边界/邻近"关系。</p>
+
+  <div style="margin-top:20px;display:flex;gap:16px;flex-wrap:wrap;">
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#2B3A4F;"></span>L1 范式</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#4F84FF;"></span>L2 方法</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#00A86B;"></span>L3 技术</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#2E5D8C;"></span>L4 工具</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#D4AF37;"></span>L5 质量</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#F43E06;"></span>L6 风险</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ink-soft);"><span style="width:10px;height:10px;background:#3B4F5C;"></span>L7 Prompt</span>
+  </div>
+</section>
+
+<section class="container" style="padding-bottom:64px;">
+
+<div class="mermaid-wrap" style="text-align:center;overflow-x:auto;background:#FFFFFF;padding:24px;">
+<pre class="mermaid" style="text-align:center;">
+%%{init: {'flowchart': {'curve': 'basis', 'htmlLabels': true, 'nodeSpacing': 25, 'rankSpacing': 35, 'padding': 10}, 'themeVariables': {'fontSize': '12px'}}}%%
+graph TB
+  subgraph L1Layer["L1 范式层"]
+    VC["Vibe Coding"]:::L1
+    AP["Agentic Programming"]:::L1
+  end
+
+  subgraph L2Layer["L2 方法论层"]
+    SDD["SDD"]:::L2
+    CE["Context Eng."]:::L2
+    IR["Iterative Refinement"]:::L2
+  end
+
+  subgraph L3Layer["L3 技术层"]
+    LLM["LLM"]:::L3
+    MCP["MCP"]:::L3
+  end
+
+  subgraph L4Layer["L4 工具层"]
+    CUR["Cursor"]:::L4
+    CC["Claude Code"]:::L4
+  end
+
+  subgraph L5Layer["L5 质量层"]
+    GR["Guardrails"]:::L5
+    YOLO["YOLO Mode"]:::L5
+  end
+
+  subgraph L6Layer["L6 风险层"]
+    VS["Vibe Slop"]:::L6
+    LT["Lethal Trifecta"]:::L6
+  end
+
+  VC -. "边界" .-> AP
+  VC --> IR
+  SDD --> IR
+  CE --> LLM
+  VC ==> CUR
+  VC ==> CC
+  GR -. "反义" .-> YOLO
+  VC -. "风险" .-> VS
+  VC -. "可触发" .-> LT
+
+  classDef L1 fill:#2B3A4F,stroke:#1a2535,color:#fff,stroke-width:1px
+  classDef L2 fill:#4F84FF,stroke:#2c5cb5,color:#fff,stroke-width:1px
+  classDef L3 fill:#00A86B,stroke:#00754a,color:#fff,stroke-width:1px
+  classDef L4 fill:#2E5D8C,stroke:#1a3a5f,color:#fff,stroke-width:1px
+  classDef L5 fill:#D4AF37,stroke:#a0841e,color:#fff,stroke-width:1px
+  classDef L6 fill:#F43E06,stroke:#b32c04,color:#fff,stroke-width:1px
+  style L1Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  style L2Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  style L3Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  style L4Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  style L5Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  style L6Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
+  </pre>
+</div>
+
+<div style="margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+  <div style="padding:24px;background:var(--c-panel);border:1px solid var(--c-line-soft);">
+    <h4 style="font-family:var(--font-title);font-size:15px;font-weight:700;color:var(--c-ink);margin-bottom:10px;">一、边界关系（重要）</h4>
+    <p style="font-size:13px;line-height:1.7;color:var(--c-ink-soft);">Vibe Coding 与 Agentic Programming 是常被混淆的两个范式。Fowler 强调：前者"忘了代码存在"，后者"审查代码"。</p>
+  </div>
+
+  <div style="padding:24px;background:var(--c-panel);border:1px solid var(--c-line-soft);">
+    <h4 style="font-family:var(--font-title);font-size:15px;font-weight:700;color:var(--c-ink);margin-bottom:10px;">二、因果链</h4>
+    <p style="font-size:13px;line-height:1.7;color:var(--c-ink-soft);">频繁 Vibe Coding → Technical Debt 累积 → Vibe Slop → Vibe Coding Hangover。Guardrails 是阻断链。</p>
+  </div>
+
+  <div style="padding:24px;background:var(--c-panel);border:1px solid var(--c-line-soft);">
+    <h4 style="font-family:var(--font-title);font-size:15px;font-weight:700;color:var(--c-ink);margin-bottom:10px;">三、关键决定点</h4>
+    <p style="font-size:13px;line-height:1.7;color:var(--c-ink-soft);">"是否审查代码"是 Vibe vs Agentic 的决定点。"是否每次审批"是 YOLO vs Responsible 的决定点。</p>
+  </div>
+
+</div>
+
+<!-- 详细因果链 -->
+<div style="margin-top:40px;">
+  <h2 style="font-family:var(--font-title);font-size:1.6rem;font-weight:700;color:var(--c-ink);margin-bottom:20px;">关键因果链</h2>
+
+  <div style="background:var(--c-panel);border:1px solid var(--c-line);padding:24px;margin-bottom:16px;">
+    <h4 style="font-family:var(--font-title);font-size:14px;font-weight:700;color:var(--c-zhusha);margin-bottom:12px;">⚠ Vibe Coding → Development Hell</h4>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--c-ink);">
+      <span style="padding:6px 12px;background:var(--c-wash-red);border:1px solid var(--c-zhusha);">频繁 Vibe Coding</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-red);border:1px solid var(--c-zhusha);">缺乏 Refactor + Spec</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-red);border:1px solid var(--c-zhusha);">Technical Debt 累积</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-red);border:1px solid var(--c-zhusha);">Code Churn ↑ / Dup  ↑</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-red);border:1px solid var(--c-zhusha);font-weight:700;">Vibe Hangover</span>
+    </div>
+    <p style="font-size:13px;color:var(--c-ink-soft);margin-top:12px;line-height:1.6;">反向阻断：用 Guardrails + SDD + Mechanical Verification Pipeline 切断链路。</p>
+  </div>
+
+  <div style="background:var(--c-panel);border:1px solid var(--c-line);padding:24px;margin-bottom:16px;">
+    <h4 style="font-family:var(--font-title);font-size:14px;font-weight:700;color:var(--c-zhuqing);margin-bottom:12px;">✓ Context Engineering → Hallucination ↓</h4>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--c-ink);">
+      <span style="padding:6px 12px;background:var(--c-wash-green);border:1px solid var(--c-zhuqing);">Context Engineering</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-green);border:1px solid var(--c-zhuqing);">只注入相关 / 校验过的内容</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-green);border:1px solid var(--c-zhuqing);">LLM 注意力集中</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-green);border:1px solid var(--c-zhuqing);font-weight:700;">Hallucination 显著减少</span>
+    </div>
+  </div>
+
+  <div style="background:var(--c-panel);border:1px solid var(--c-line);padding:24px;">
+    <h4 style="font-family:var(--font-title);font-size:14px;font-weight:700;color:var(--c-shihqing);margin-bottom:12px;">⚙ SDD → Agent Loop 效率 ↑</h4>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--c-ink);">
+      <span style="padding:6px 12px;background:var(--c-wash-blue);border:1px solid var(--c-shihqing);">Spec.md 清晰</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-blue);border:1px solid var(--c-shihqing);">Plan 阶段输出高质量任务清单</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-blue);border:1px solid var(--c-shihqing);">Verify 阶段验收标准明确</span>
+      <span>→</span>
+      <span style="padding:6px 12px;background:var(--c-wash-blue);border:1px solid var(--c-shihqing);font-weight:700;">Build 阶段少返工</span>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div>
+      <strong>Vibe Coding Wiki</strong>
+      <p>非官方 · 教育用途 · 内容基于 Wikipedia / Martin Fowler / Simon Willison / GitHub Spec Kit 等公开来源整理</p>
+    </div>
+    <div class="footer__links">
+      <a href="../index.html">首页</a>
+      <a href="glossary.html">词条</a>
+      <a href="layers.html">分层</a>
+      <a href="scenarios.html">场景</a>
+      <a href="citations.html">来源</a>
+    </div>
+  </div>
+</footer>
+
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="search-modal__inner" role="search">
+    <h2 id="search-modal-title" class="sr-only">搜索术语</h2>
+<input type="text" id="search-input" placeholder="搜索术语…" aria-label="搜索术语，输入后按 Enter 跳转到结果" autofocus>
+    <div id="search-results" class="search-results" role="listbox" aria-live="polite"></div>
+    <div class="search-modal__hint">↑↓ 选择 · Enter 打开 · Esc 关闭</div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  // 确保 mermaid 加载后初始化（处理 CDN 加载顺序问题）
+  function initMermaid() {
+    if (typeof mermaid === 'undefined') {
+      // CDN 未加载， fallback
+      document.querySelectorAll('.mermaid').forEach((el, i) => {
+        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;">' + el.textContent + '</pre>';
+      });
+      return;
+    }
+    try {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        securityLevel: 'loose',
+        themeVariables: {
+          primaryColor: '#FAF6E6',
+          primaryTextColor: '#0F1A20',
+          primaryBorderColor: '#AAA093',
+          lineColor: '#4B4B4B',
+          secondaryColor: '#F8DF72',
+          tertiaryColor: '#D8E3E7',
+          fontFamily: '"Avenir Next", "PingFang SC", sans-serif',
+          fontSize: '13px',
+        },
+        flowchart: { curve: 'basis', padding: 8, nodeSpacing: 20, rankSpacing: 25, htmlLabels: true }
+      });
+    } catch (e) {
+      console.error('Mermaid init failed:', e);
+    }
+  }
+
+  // 多次尝试以处理 CDN 加载时序
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(initMermaid, 200));
+  } else {
+    setTimeout(initMermaid, 200);
+  }
+  // 备用：DOMContentLoaded 后再次尝试
+  window.addEventListener('load', initMermaid);
+</script>
+</body>
+</html>

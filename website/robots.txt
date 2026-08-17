@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /term.html?*preview=
+
+Sitemap: https://vibe-coding-wiki.example.com/sitemap.xml

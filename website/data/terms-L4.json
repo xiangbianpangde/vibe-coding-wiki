@@ -1,0 +1,711 @@
+[
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "zh": "Cursor",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "ide"
+    ],
+    "shortDesc": "AI-first IDE，基于 VS Code fork。vibe coding 旗舰工具。",
+    "longDesc": "<p>Cursor 是基于 <strong>VS Code fork</strong> 的 AI-first IDE。</p>\n<p><strong>核心功能：</strong></p>\n<ul>\n<li><strong>Tab</strong>：类 Copilot 行内补全</li>\n<li><strong>Chat (@code)</strong>：对话式交互</li>\n<li><strong>Composer</strong>：多文件编辑 + agent 编排</li>\n<li><strong>Apply / Edit</strong>：跨文件批量编辑</li>\n<li><strong>Agent Mode</strong>：自主 agent</li>\n</ul>\n<p><strong>模型：</strong>Claude / GPT / Gemini 多模型支持</p>",
+    "related": [
+      "cursor-composer",
+      "windsurf",
+      "claude-code"
+    ],
+    "examples": [
+      {
+        "code": "Cmd+I → 输入 \"Add error handling to all API calls\" → Cursor Composer\n跨文件批量修改 → diff 显示 → AI 自动写测试",
+        "desc": "Cursor Composer 体验"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Cursor is the AI-first IDE that became the gold standard for vibe coding.",
+        "cite": "社区共识"
+      }
+    ]
+  },
+  {
+    "id": "cursor-composer",
+    "name": "Cursor Composer",
+    "zh": "Cursor Composer",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "cursor"
+    ],
+    "shortDesc": "Cursor 的多文件编辑 + agent 编排功能。vibe coding 旗舰。",
+    "longDesc": "<p>Cursor 的核心差异化功能——<strong>多文件编辑 + agent 编排</strong>。</p>\n<p>特点：</p>\n<ul>\n<li>自然语言描述意图</li>\n<li>自动跨文件修改</li>\n<li>diff 实时显示</li>\n<li>可中断、可重定向</li>\n</ul>",
+    "related": [
+      "cursor",
+      "agent-loop"
+    ]
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "zh": "Claude Code",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "anthropic",
+      "cli"
+    ],
+    "shortDesc": "Anthropic 推出的 CLI Agent，运行在终端。Karpathy 推荐。",
+    "longDesc": "<p>2025-02 Anthropic 推出的 <strong>CLI Agent</strong>。</p>\n<p><strong>核心功能：</strong></p>\n<ul>\n<li>直接编辑本地文件系统</li>\n<li>运行 shell 命令</li>\n<li>子 agent 派发（Task 工具）</li>\n<li>Plan mode / Build mode</li>\n<li>/init / /specify 等斜杠命令</li>\n<li>MCP 原生支持</li>\n</ul>\n<p><strong>Agentic Harness</strong>：Claude Code 是 harness，Claude 是模型。</p>",
+    "related": [
+      "cursor",
+      "aider",
+      "mcp"
+    ],
+    "examples": [
+      {
+        "code": "$ claude\n> /init  # 初始化 CLAUDE.md\n> Add a login page using JWT\n> [agent edits 5 files, runs tests, fixes bug]\n> /commit",
+        "desc": "Claude Code 典型会话"
+      },
+      {
+        "code": "$ claude --bare  # 不加载 CLAUDE.md, hooks, plugins\n                  # 用于 CI 脚本化调用",
+        "desc": "Claude Code Bare Mode"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code Docs",
+        "url": "https://docs.claude.com/en/docs/claude-code"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Claude Code is agentic because it has tools that let it act, not just advise.",
+        "cite": "Claude Code Docs"
+      },
+      {
+        "text": "The agentic loop: gather context, take action, verify results, repeat.",
+        "cite": "Claude Code Docs"
+      }
+    ]
+  },
+  {
+    "id": "windsurf",
+    "name": "Windsurf",
+    "zh": "Windsurf",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "ide",
+      "codeium"
+    ],
+    "shortDesc": "Codeium 推出的 AI IDE，与 Cursor 直接竞争。",
+    "longDesc": "<p>Codeium 推出的 AI IDE，<strong>与 Cursor 直接竞争</strong>。</p>\n<p><strong>核心功能：</strong></p>\n<ul>\n<li><strong>Flows</strong>：多步骤 agent 工作流</li>\n<li><strong>Cascade</strong>：类似 Composer 的多文件编辑</li>\n<li><strong>Supercomplete</strong>：上下文感知的补全</li>\n</ul>",
+    "related": [
+      "cursor",
+      "codeium"
+    ]
+  },
+  {
+    "id": "copilot",
+    "name": "GitHub Copilot",
+    "zh": "GitHub Copilot",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "github"
+    ],
+    "shortDesc": "最早普及的 AI 编程助手，2021 推出。采纳率最高的工具。",
+    "longDesc": "<p>2021 推出，<strong>最早普及</strong>的 AI 编程助手。</p>\n<p><strong>产品线：</strong></p>\n<ul>\n<li><strong>Copilot</strong>：行内补全</li>\n<li><strong>Copilot Chat</strong>：对话式</li>\n<li><strong>Copilot Workspace</strong>：agent 工作区</li>\n<li><strong>Copilot for PRs</strong>：PR 摘要</li>\n</ul>\n<p><strong>Stack Overflow 2025</strong>：68% 开发者使用</p>",
+    "related": [
+      "cursor",
+      "pair-programming"
+    ]
+  },
+  {
+    "id": "aider",
+    "name": "Aider",
+    "zh": "Aider",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "cli",
+      "open-source"
+    ],
+    "shortDesc": "终端里的 AI pair programmer，开源。多 LLM 后端。",
+    "longDesc": "<p>终端里的 AI pair programmer，<strong>开源</strong>。</p>\n<p><strong>核心功能：</strong></p>\n<ul>\n<li>直接修改 git repo 中的文件</li>\n<li>自动 commit message</li>\n<li>多种 LLM 后端（Claude / GPT / DeepSeek / 本地）</li>\n<li><strong>Repo map</strong>：把整个仓库结构注入 context</li>\n</ul>",
+    "related": [
+      "claude-code",
+      "cursor"
+    ],
+    "examples": [
+      {
+        "code": "$ aider --model claude-sonnet-4.5\n> Add tests for the auth module.\nAider: Adding tests... [commits to git]",
+        "desc": "Aider 终端使用"
+      },
+      {
+        "code": "$ aider --model claude-sonnet-4-5\n> Add tests for the auth module.\nAider: Adding tests... [commits to git]",
+        "desc": "Aider 终端使用（已存在）"
+      },
+      {
+        "code": "# Aider 自动化 + 多文件编辑\n$ aider --model claude-sonnet-4-5 \\\n        --edit-format diff \\\n        --auto-test \\\n        --test-cmd \"npm test\" \\\n        src/auth.ts src/middleware/auth.ts\n\n# Aider 会：\n# 1. 读 2 个文件 + repo map\n# 2. 生成 unified diff\n# 3. 写入 → 跑 npm test\n# 4. 失败自动回滚（--auto-test 模式）",
+        "desc": "Aider 多文件编辑 + 自动测试回滚"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Aider GitHub",
+        "url": "https://github.com/Aider-AI/aider"
+      }
+    ]
+  },
+  {
+    "id": "replit-agent",
+    "name": "Replit Agent",
+    "zh": "Replit Agent",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "cloud-ide"
+    ],
+    "shortDesc": "Replit 云端 IDE 内置的 agent。2025-07 曾删用户生产数据库。",
+    "longDesc": "<p>Replit 云端 IDE 内置的 agent。</p>\n<p><strong>风险事件：</strong>2025-07 AI agent <strong>删除了用户生产数据库</strong>，尽管明确指示\"不要修改\"。</p>\n<p><strong>教训：</strong>YOLO 模式的代价。</p>",
+    "related": [
+      "yolo-mode",
+      "lovable",
+      "vibe-coding"
+    ],
+    "examples": [
+      {
+        "code": "// 风险案例：2025-07\n\"Add a stage column to the production database\"\n// Agent 删除了 production database 表！\n// 即使明确说\"不要修改生产数据\"",
+        "desc": "Replit Agent 删库事件"
+      }
+    ]
+  },
+  {
+    "id": "lovable",
+    "name": "Lovable",
+    "zh": "Lovable",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "frontend",
+      "startup"
+    ],
+    "shortDesc": "瑞典 startup，专注前端 vibe coding。2025-05 出现 PII 泄漏事件。",
+    "longDesc": "<p>瑞典 startup，<strong>专注前端 vibe coding</strong>。</p>\n<p><strong>风险事件：</strong>2025-05 170/1645 web 应用存在<strong>泄露个人信息</strong>的漏洞。</p>",
+    "related": [
+      "vibe-coding",
+      "security"
+    ],
+    "examples": [
+      {
+        "code": "// 风险案例：2025-05\n170/1645 Lovable web 应用\n泄露 PII（个人可识别信息）",
+        "desc": "Lovable PII 泄漏事件"
+      }
+    ]
+  },
+  {
+    "id": "codeium",
+    "name": "Codeium",
+    "zh": "Codeium",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "completion"
+    ],
+    "shortDesc": "免费 AI 代码补全工具。Windsurf 母公司。",
+    "longDesc": "<p>免费 AI 代码补全工具，<strong>Windsurf 母公司</strong>。</p>\n<p><strong>特点：</strong>免费、个人版可用、支持 70+ 语言。</p>",
+    "related": [
+      "windsurf",
+      "tabnine"
+    ],
+    "examples": [
+      {
+        "code": "// 免费替代 Copilot 的好选择\n// Windsurf 内置，支持 70+ 语言",
+        "desc": "Codeium 价值主张"
+      }
+    ]
+  },
+  {
+    "id": "tabnine",
+    "name": "Tabnine",
+    "zh": "Tabnine",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "completion"
+    ],
+    "shortDesc": "早期 AI 代码补全工具，主打本地部署与隐私。",
+    "longDesc": "<p>早期 AI 代码补全工具，主打<strong>本地部署</strong>与<strong>隐私</strong>。</p>",
+    "related": [
+      "copilot",
+      "codeium"
+    ]
+  },
+  {
+    "id": "cline",
+    "name": "Cline / Roo Code",
+    "zh": "Cline / Roo Code",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "vscode"
+    ],
+    "shortDesc": "VS Code 扩展，把 IDE 变成 agent 工作台。",
+    "longDesc": "<p>VS Code 扩展，把 IDE 变成 <strong>agent 工作台</strong>。</p>\n<p><strong>核心功能：</strong></p>\n<ul>\n<li>直接执行命令</li>\n<li>MCP 支持</li>\n<li>多 model 后端</li>\n</ul>",
+    "related": [
+      "cursor",
+      "claude-code"
+    ]
+  },
+  {
+    "id": "devin",
+    "name": "Devin (Cognition)",
+    "zh": "Devin",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "autonomous-agent"
+    ],
+    "shortDesc": "Cognition 推出的号称\"第一个 AI 软件工程师\"的独立 agent。",
+    "longDesc": "<p>Cognition 2024 推出的号称<strong>\"第一个 AI 软件工程师\"</strong>的独立 agent。</p>\n<p><strong>争议：</strong>演示视频被发现有加速剪辑；实际能力被质疑。</p>",
+    "related": [
+      "claude-code",
+      "agent-loop"
+    ]
+  },
+  {
+    "id": "v0",
+    "name": "v0 (Vercel)",
+    "zh": "v0",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "frontend",
+      "vercel"
+    ],
+    "shortDesc": "Vercel 推出的前端 vibe coding 平台。从 prompt 到 React 组件。",
+    "longDesc": "<p>Vercel 推出的<strong>前端 vibe coding 平台</strong>。</p>\n<p>从 prompt 到 <strong>React + Tailwind 组件</strong>。</p>",
+    "related": [
+      "lovable",
+      "frontend-scenario"
+    ]
+  },
+  {
+    "id": "coderabbit",
+    "name": "CodeRabbit",
+    "zh": "CodeRabbit",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "review"
+    ],
+    "shortDesc": "AI 代码审查 agent，对接 GitHub PR。研究显示安全漏洞显著升高。",
+    "longDesc": "<p>AI 代码审查 agent，对接 GitHub PR。</p>\n<p><strong>2025-12 研究：</strong>470 个开源 PR 分析，AI co-authored 代码<strong>重大问题</strong>多 1.7×，<strong>配置错误</strong>多 75%，<strong>安全漏洞</strong>多 2.74×。</p>",
+    "related": [
+      "veracode",
+      "guardrails"
+    ],
+    "quotes": [
+      {
+        "text": "AI co-authored code had 1.7x more major issues and 2.74x more security vulnerabilities.",
+        "cite": "CodeRabbit 2025-12"
+      }
+    ]
+  },
+  {
+    "id": "veracode",
+    "name": "Veracode",
+    "zh": "Veracode",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "security"
+    ],
+    "shortDesc": "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
+    "longDesc": "<p>安全扫描平台。</p>\n<p><strong>2025-10 研究：</strong>LLM 生成代码安全性<strong>3 年未改善</strong>；大模型不比小模型更安全。</p>",
+    "related": [
+      "security"
+    ],
+    "quotes": [
+      {
+        "text": "LLM-generated code security has not improved over 3 years. Larger models are no more secure than small ones.",
+        "cite": "Veracode 2025-10"
+      }
+    ]
+  },
+  {
+    "id": "spec-kit",
+    "name": "GitHub Spec Kit",
+    "zh": "Spec Kit",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "github",
+      "sdd"
+    ],
+    "shortDesc": "GitHub 推出的开源 SDD 工具链。Specify/Plan/Tasks 三阶段。",
+    "longDesc": "<p>GitHub 2025 推出的<strong>SDD 开源工具链</strong>。</p>\n<p><strong>三阶段：</strong></p>\n<ul>\n<li><strong>Specify</strong>：生成 spec.md</li>\n<li><strong>Plan</strong>：拆解任务</li>\n<li><strong>Tasks</strong>：独立执行</li>\n</ul>\n<p><strong>命令：</strong><code>/speckit.specify</code>、<code>/speckit.plan</code>、<code>/speckit.tasks</code></p>",
+    "related": [
+      "sdd",
+      "spec-md",
+      "claude-code"
+    ],
+    "quotes": [
+      {
+        "text": "Specify what to build, plan how to build it, then break it into tasks.",
+        "cite": "GitHub Spec Kit"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "GitHub Spec Kit Repo",
+        "url": "https://github.com/github/spec-kit"
+      },
+      {
+        "name": "Spec Kit 文档",
+        "url": "https://github.github.io/spec-kit/"
+      },
+      {
+        "name": "Spec Kit 介绍博客",
+        "url": "https://github.blog/developer-skills/github/how-to-use-spec-kit-with-your-ai-assistant/"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# GitHub Spec Kit 典型流程\n$ specify init my-project      # 初始化 spec/ 目录\n$ specify spec \"添加 OAuth 登录\" # 生成 spec.md（含 user story + acceptance criteria）\n$ specify plan                   # 生成 plan.md（技术决策 + 架构）\n$ specify tasks                  # 生成 tasks.md（可勾选 checklist）\n$ implement                      # 按 tasks.md 顺序实现",
+        "desc": "Spec Kit 四阶段 CLI 流程"
+      }
+    ]
+  },
+  {
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "zh": "Gemini CLI",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "google",
+      "cli"
+    ],
+    "shortDesc": "Google 推出的 CLI Agent，类似 Claude Code。",
+    "longDesc": "<p>Google 2025-06 推出的 <strong>CLI Agent</strong>。</p>",
+    "related": [
+      "claude-code",
+      "codex-cli"
+    ]
+  },
+  {
+    "id": "codex-cli",
+    "name": "Codex CLI (OpenAI)",
+    "zh": "Codex CLI",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "openai",
+      "cli"
+    ],
+    "shortDesc": "OpenAI 推出的 CLI Agent。2025-04 发布。",
+    "longDesc": "<p>OpenAI 2025-04 推出的 <strong>CLI Agent</strong>。</p>\n<p>Willison 将 Claude Code / Codex CLI / Gemini CLI 并列为三大 <strong>coding agent</strong>。</p>",
+    "related": [
+      "claude-code",
+      "gemini-cli"
+    ]
+  },
+  {
+    "id": "coding-agents",
+    "name": "Coding Agents",
+    "zh": "编程智能体",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "agent",
+      "willison"
+    ],
+    "shortDesc": "Willison 命名：可以迭代代码、主动测试和修改直到达成目标的工具。",
+    "longDesc": "<p>Simon Willison 命名的<strong>工具类别</strong>——\"can iterate on code, actively testing and modifying it until it achieves a specified goal\"。</p>\n<p><strong>代表：</strong>Claude Code（2025-02）/ Codex CLI（2025-04）/ Gemini CLI（2025-06）</p>",
+    "related": [
+      "claude-code",
+      "vibe-engineering"
+    ]
+  },
+  {
+    "id": "antigravity",
+    "name": "Google Antigravity",
+    "zh": "Google Antigravity",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "google",
+      "ide"
+    ],
+    "shortDesc": "Google 推出的 AI IDE（2025）。",
+    "longDesc": "<p>Google 2025 推出的 AI IDE。</p>",
+    "related": [
+      "cursor",
+      "windsurf"
+    ]
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "zh": "LangChain",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "framework"
+    ],
+    "shortDesc": "LLM 应用编排框架。600+ 集成，LangGraph 用于有状态 agent。",
+    "longDesc": "<p><strong>LangChain</strong>：LLM 应用编排框架。</p>\n<p><strong>组件：</strong></p>\n<ul>\n<li><strong>langchain-core</strong>：基础抽象</li>\n<li><strong>LangGraph</strong>：有状态 agent（langchain-core==1.3.2）</li>\n<li><strong>LangSmith</strong>：可观测性</li>\n</ul>\n<p><strong>统计：</strong>600+ 集成</p>",
+    "related": [
+      "llamaindex",
+      "dspy"
+    ],
+    "quotes": [
+      {
+        "text": "LangChain orchestrates complex workflows with 600+ integrations.",
+        "cite": "LangChain 2025"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "LangChain 官网",
+        "url": "https://langchain.com"
+      },
+      {
+        "name": "LangChain Docs",
+        "url": "https://python.langchain.com/docs/introduction/"
+      },
+      {
+        "name": "LangGraph Repo",
+        "url": "https://github.com/langchain-ai/langgraph"
+      }
+    ],
+    "examples": [
+      {
+        "code": "// LCEL (LangChain Expression Language) — pipe 风格链式调用\nimport { ChatPromptTemplate } from \"@langchain/core/prompts\";\nimport { ChatAnthropic } from \"@langchain/anthropic\";\nimport { StringOutputParser } from \"@langchain/core/output_parsers\";\n\nconst prompt = ChatPromptTemplate.fromMessages([\n  [\"system\", \"你是一个严谨的技术编辑，回答基于以下上下文：\\n{context}\"],\n  [\"human\", \"{question}\"],\n]);\n\nconst model = new ChatAnthropic({ model: \"claude-sonnet-4-5\", temperature: 0 });\nconst parser = new StringOutputParser();\n\nconst chain = prompt.pipe(model).pipe(parser);   // <-- LCEL 管道\nconst answer = await chain.invoke({ context: docs, question: q });",
+        "desc": "LangChain LCEL 链式调用（pipe 语法）"
+      },
+      {
+        "code": "// LangGraph：状态化 agent 循环\nimport { StateGraph, MessagesAnnotation, ToolNode } from \"@langchain/langgraph\";\nimport { tool } from \"@langchain/core/tools\";\n\nconst search = tool(async ({ q }) => webSearch(q), {\n  name: \"search\", description: \"搜索网页\",\n});\n\nconst graph = new StateGraph(MessagesAnnotation)\n  .addNode(\"agent\", callModelWithTools)\n  .addNode(\"tools\", new ToolNode([search]))\n  .addEdge(\"__start__\", \"agent\")\n  .addConditionalEdges(\"agent\", shouldContinue)   // has tool calls?\n  .addEdge(\"tools\", \"agent\");                     // loop back\n\nexport const app = graph.compile();   // → 可部署的 agent",
+        "desc": "LangGraph 状态图：tool-use 循环"
+      }
+    ]
+  },
+  {
+    "id": "llamaindex",
+    "name": "LlamaIndex",
+    "zh": "LlamaIndex",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "framework",
+      "rag"
+    ],
+    "shortDesc": "专注 RAG pipeline。基于节点文档模型和查询引擎。",
+    "longDesc": "<p><strong>LlamaIndex</strong>：专注 <strong>RAG pipeline</strong>。</p>\n<p><strong>核心抽象：</strong></p>\n<ul>\n<li>Node（文档节点）</li>\n<li>Query Engine（查询引擎）</li>\n<li>Index（索引）</li>\n<li>Retriever（检索器）</li>\n</ul>",
+    "related": [
+      "langchain",
+      "rag"
+    ],
+    "seeAlso": [
+      {
+        "name": "LlamaIndex 官网",
+        "url": "https://llamaindex.ai"
+      },
+      {
+        "name": "LlamaIndex Docs",
+        "url": "https://docs.llamaindex.ai/en/stable/"
+      },
+      {
+        "name": "LlamaIndex GitHub",
+        "url": "https://github.com/run-llama/llama_index"
+      }
+    ],
+    "examples": [
+      {
+        "code": "from llama_index.core import VectorStoreIndex, SimpleDirectoryReader\nfrom llama_index.llms.anthropic import Anthropic\n\n# 1. 加载 docs/ 目录下所有文档\ndocuments = SimpleDirectoryReader(\"docs\").load_data()\n\n# 2. 构建向量索引（自动 embedding + chunking）\nindex = VectorStoreIndex.from_documents(documents)\n\n# 3. 接入 Claude 作为生成端\nllm = Anthropic(model=\"claude-sonnet-4-5\")\nquery_engine = index.as_query_engine(llm=llm, similarity_top_k=5)\n\n# 4. RAG 查询\nresponse = query_engine.query(\"项目的部署流程是什么？\")\nprint(response)   # → 基于 docs/ 的答案 + 引用块",
+        "desc": "LlamaIndex 4 步搭建 RAG"
+      },
+      {
+        "code": "from llama_index.core import SummaryIndex\n\n# 摘要索引：不走 embedding，全文 LLM 阅读\nsummary_index = SummaryIndex.from_documents(documents)\nsummary_engine = summary_index.as_query_engine(\n    response_mode=\"tree_summarize\"\n)\nprint(summary_engine.query(\"总结这 200 篇文档的主要观点\"))",
+        "desc": "SummaryIndex：长文档摘要"
+      }
+    ]
+  },
+  {
+    "id": "dspy",
+    "name": "DSPy",
+    "zh": "DSPy",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "framework"
+    ],
+    "shortDesc": "Stanford 提出的 LLM 程序优化框架。把 prompt 当可编译的代码。",
+    "longDesc": "<p><strong>DSPy</strong>：Stanford 提出的 <strong>LLM 程序优化</strong>框架。</p>\n<p><strong>核心思想：</strong>把 prompt 当<strong>可编译的代码</strong>——自动优化 prompt 与模型权重。</p>",
+    "related": [
+      "langchain",
+      "llamaindex"
+    ],
+    "quotes": [
+      {
+        "text": "DSPy: programming—not prompting—foundation models.",
+        "cite": "Stanford NLP Group"
+      }
+    ],
+    "examples": [
+      {
+        "code": "import dspy\nfrom dspy.teleprompt import BootstrapFewShot\n\n# 1. 签名（输入/输出 schema，不是 prompt）\nclass GenerateAnswer(dspy.Signature):\n    \"\"\"基于上下文回答问题。\"\"\"\n    context = dspy.InputField()\n    question = dspy.InputField()\n    answer = dspy.OutputField()\n\n# 2. 模块（可优化的单元）\nclass RAG(dspy.Module):\n    def __init__(self):\n        super().__init__()\n        self.retrieve = dspy.Retrieve(k=5)\n        self.generate = dspy.ChainOfThought(GenerateAnswer)\n    def forward(self, question):\n        ctx = self.retrieve(question).passages\n        return self.generate(context=ctx, question=question)\n\n# 3. 优化器：用训练集自动调 prompt\noptimizer = BootstrapFewShot(metric=answer_exact_match, max_bootstrapped_demos=4)\ncompiled = optimizer.compile(RAG(), trainset=trainset)",
+        "desc": "DSPy 编程式 prompt 优化"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "DSPy 官网",
+        "url": "https://dspy.ai"
+      },
+      {
+        "name": "DSPy GitHub",
+        "url": "https://github.com/stanfordnlp/dspy"
+      },
+      {
+        "name": "DSPy 论文 (Khattab et al. 2023)",
+        "url": "https://arxiv.org/abs/2310.03714"
+      }
+    ]
+  },
+  {
+    "id": "huggingface",
+    "name": "Hugging Face",
+    "zh": "Hugging Face",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "platform"
+    ],
+    "shortDesc": "开源 ML 模型与数据集平台。Transformers 库的发源地。",
+    "longDesc": "<p><strong>Hugging Face</strong>：开源 ML 模型与数据集平台。</p>\n<p><strong>产品：</strong></p>\n<ul>\n<li><strong>Transformers</strong>：模型库</li>\n<li><strong>Datasets</strong>：数据集库</li>\n<li><strong>Hub</strong>：模型托管</li>\n<li><strong>Inference Endpoints</strong>：托管推理</li>\n</ul>",
+    "related": [
+      "llm"
+    ],
+    "quotes": [
+      {
+        "text": "The AI community building the future.",
+        "cite": "Hugging Face 标语"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# transformers pipeline — 最简推理\nfrom transformers import pipeline\n\n# 1. 三行搞定一个任务\nclassifier = pipeline(\"text-classification\", model=\"distilbert-base-uncased-finetuned-sst-2-english\")\nresult = classifier(\"I love this movie!\")\n# → [{'label': 'POSITIVE', 'score': 0.9998}]\n\n# 2. 生成任务\ngenerator = pipeline(\"text-generation\", model=\"Qwen/Qwen2.5-1.5B-Instruct\")\nprint(generator(\"写一句关于春天的诗：\", max_new_tokens=50))\n\n# 3. 推理优化（量化）\nfrom transformers import AutoModelForCausalLM\nimport torch\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"Qwen/Qwen2.5-7B-Instruct\",\n    torch_dtype=torch.bfloat16,   # 半精度\n    device_map=\"auto\",            # 自动 GPU 分配\n)",
+        "desc": "transformers pipeline + 量化加载"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Hugging Face 官网",
+        "url": "https://huggingface.co"
+      },
+      {
+        "name": "transformers 文档",
+        "url": "https://huggingface.co/docs/transformers/index"
+      },
+      {
+        "name": "HuggingFace Hub",
+        "url": "https://huggingface.co/docs/hub/index"
+      }
+    ]
+  },
+  {
+    "id": "mcp-tool-server",
+    "name": "MCP Tools & Servers",
+    "zh": "MCP 工具生态",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "mcp",
+      "ecosystem"
+    ],
+    "shortDesc": "数百个 MCP server 提供 Slack/Jira/数据库/浏览器等集成。",
+    "longDesc": "<p>通过 MCP 协议，Claude Code 可以连接<strong>数百个外部工具</strong>和数据源。</p>\n<p><strong>类别：</strong></p>\n<ul>\n<li><strong>通信</strong>：Slack / Discord / Telegram / iMessage</li>\n<li><strong>协作</strong>：Jira / Linear / Notion</li>\n<li><strong>数据库</strong>：PostgreSQL / MongoDB / Redis</li>\n<li><strong>浏览器</strong>：Browser-Use / Computer Use</li>\n<li><strong>其他</strong>：文件系统 / GitHub / Sentry</li>\n</ul>",
+    "related": [
+      "mcp",
+      "claude-code"
+    ]
+  },
+  {
+    "id": "orchids",
+    "name": "Orchids",
+    "zh": "Orchids",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "platform"
+    ],
+    "shortDesc": "vibe coding 平台之一。",
+    "longDesc": "<p>vibe coding 平台之一。</p>",
+    "related": [
+      "lovable",
+      "v0"
+    ]
+  },
+  {
+    "id": "openclaw",
+    "name": "OpenClaw",
+    "zh": "OpenClaw",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "ai-agent-system"
+    ],
+    "shortDesc": "AI agent 系统，包含 \"Pi coding harness\"。Mario Zechner 等创造 vibe slop 术语之地。",
+    "longDesc": "<p><strong>OpenClaw</strong>：AI agent 系统，包含 <code>Pi coding harness</code>。</p>\n<p><strong>关键人物：</strong>Mario Zechner 与 Armin Ronacher 在此项目工作中创造了 <strong>vibe slop</strong> 一词。</p>",
+    "related": [
+      "vibe-slop",
+      "agent-loop"
+    ]
+  },
+  {
+    "id": "superwhisper",
+    "name": "SuperWhisper",
+    "zh": "SuperWhisper",
+    "layer": "L4",
+    "category": "tool",
+    "tags": [
+      "tool",
+      "voice"
+    ],
+    "shortDesc": "语音转文字工具，让用户能用语音与 LLM 对话。",
+    "longDesc": "<p>语音转文字工具，让用户能用<strong>语音与 LLM 对话</strong>。</p>\n<p>vibe coding 时代新交互模式。</p>",
+    "related": [
+      "cursor"
+    ]
+  }
+]

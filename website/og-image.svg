@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- 定义 -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F9F4DC"/>
+      <stop offset="100%" stop-color="#FAF6E6"/>
+    </linearGradient>
+    <style>
+      .title { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 900; }
+      .body { font-family: 'Avenir Next', 'PingFang SC', sans-serif; }
+      .num { font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- 暖纸背景 -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- 中国色 8 大层级装饰条 (右侧色带) -->
+  <g transform="translate(0, 60)">
+    <rect x="60"   y="0"  width="6" height="510" fill="#2B3A4F"/>
+    <rect x="72"   y="0"  width="6" height="510" fill="#4F84FF"/>
+    <rect x="84"   y="0"  width="6" height="510" fill="#00A86B"/>
+    <rect x="96"   y="0"  width="6" height="510" fill="#2E5D8C"/>
+    <rect x="108"  y="0"  width="6" height="510" fill="#D4AF37"/>
+    <rect x="120"  y="0"  width="6" height="510" fill="#F43E06"/>
+    <rect x="132"  y="0"  width="6" height="510" fill="#3B4F5C"/>
+    <rect x="144"  y="0"  width="6" height="510" fill="#D9A594"/>
+  </g>
+
+  <!-- Logo / Brand mark -->
+  <g transform="translate(80, 110)">
+    <rect width="92" height="92" fill="#0F1A20"/>
+    <text x="46" y="65" font-family="Noto Serif SC, serif" font-size="48" font-weight="900" fill="#F9F4DC" text-anchor="middle">VC</text>
+  </g>
+
+  <!-- Brand name -->
+  <g transform="translate(80, 220)">
+    <text font-family="Noto Serif SC, serif" font-size="60" font-weight="900" fill="#0F1A20">Vibe Coding</text>
+    <text x="0" y="58" font-family="Noto Serif SC, serif" font-size="48" font-weight="500" fill="#0F1A20">专业术语 Wiki</text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(80, 380)">
+    <text font-family="PingFang SC, Avenir Next, sans-serif" font-size="26" fill="#3B4F5C">从 Karpathy 创造的"vibe coding"出发</text>
+    <text x="0" y="36" font-family="PingFang SC, Avenir Next, sans-serif" font-size="26" fill="#3B4F5C">178+ 核心术语 · 8 大层级 · 14 类场景</text>
+  </g>
+
+  <!-- 右侧装饰：8 大层级卡 -->
+  <g transform="translate(700, 130)">
+    <text font-family="M PLUS Rounded 1c, sans-serif" font-size="16" font-weight="700" fill="#777" letter-spacing="2">8 LAYERS</text>
+    <g transform="translate(0, 30)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L1</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">范式层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#2B3A4F"/>
+    </g>
+    <g transform="translate(0, 88)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L2</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">方法论层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#4F84FF"/>
+    </g>
+    <g transform="translate(0, 146)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L3</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">技术概念层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#00A86B"/>
+    </g>
+    <g transform="translate(0, 204)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L4</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">工具平台层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#2E5D8C"/>
+    </g>
+    <g transform="translate(0, 262)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L5</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">质量治理层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#D4AF37"/>
+    </g>
+    <g transform="translate(0, 320)">
+      <rect width="420" height="48" fill="#FFFFFF" stroke="#DDD6CA"/>
+      <text x="20" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="20" font-weight="600" fill="#0F1A20">L6</text>
+      <text x="60" y="32" font-family="PingFang SC, Avenir Next, sans-serif" font-size="18" fill="#0F1A20">风险度量层</text>
+      <rect x="0" y="0" width="6" height="48" fill="#F43E06"/>
+    </g>
+  </g>
+
+  <!-- 底部品牌 -->
+  <g transform="translate(80, 580)">
+    <text font-family="M PLUS Rounded 1c, sans-serif" font-size="14" font-weight="700" fill="#777" letter-spacing="2">v2.1 · 2025-08-17 · KARTHY 2025-02</text>
+  </g>
+</svg>

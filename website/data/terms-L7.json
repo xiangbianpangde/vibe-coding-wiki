@@ -1,0 +1,314 @@
+[
+  {
+    "id": "cot",
+    "name": "Chain-of-Thought (CoT)",
+    "zh": "思维链提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "core"
+    ],
+    "shortDesc": "让 LLM \"先思考再输出\"。适用于复杂任务。",
+    "longDesc": "<p><strong>Chain-of-Thought</strong>：让 LLM <strong>\"先思考再输出\"</strong>，给出推理过程。</p>\n<p><strong>vibe coding 用法：</strong></p>\n<blockquote>\"在写代码前先分析问题，列出 3 个可能的实现方案，逐一比较，再选择最佳方案写代码。\"</blockquote>\n<p><strong>变体：</strong>Self-Consistency / Tree-of-Thought / ReAct</p>",
+    "related": [
+      "tot",
+      "react",
+      "self-consistency"
+    ],
+    "examples": [
+      {
+        "code": "\"请先分析这个问题：\n1. 列出 3 个可能的实现方案\n2. 逐一比较优缺点\n3. 选择最佳方案\n4. 用代码实现\"",
+        "desc": "Chain-of-Thought 实际用法"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Chain-of-thought prompting is a way to elicit reasoning from a model.",
+        "cite": "Wei et al. 2022"
+      }
+    ]
+  },
+  {
+    "id": "tot",
+    "name": "Tree-of-Thought (ToT)",
+    "zh": "思维树",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "reasoning"
+    ],
+    "shortDesc": "让 LLM 探索多个推理路径并比较。复杂问题求解。",
+    "longDesc": "<p><strong>Tree-of-Thought</strong>：让 LLM <strong>探索多个推理路径</strong>并比较——CoT 的扩展。</p>",
+    "related": [
+      "cot",
+      "react"
+    ]
+  },
+  {
+    "id": "react",
+    "name": "ReAct",
+    "zh": "ReAct",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "agent"
+    ],
+    "shortDesc": "Reason + Act 循环：思维与工具调用交替的 agent 范式。",
+    "longDesc": "<p><strong>ReAct</strong>（Reasoning + Acting）：<strong>思维与工具调用交替</strong>的 agent 范式。</p>\n<pre>Thought: ... \nAction: tool_name(args)\nObservation: ...\nThought: ...\nAction: ...\nObservation: ... (重复直到完成)</pre>",
+    "related": [
+      "cot",
+      "agent-loop"
+    ],
+    "examples": [
+      {
+        "code": "Thought: 用户问产品库存，需要查数据库\nAction: query_database(\"SELECT stock FROM products WHERE id=?\")\nObservation: 42\nThought: 库存是 42，应该回答用户\nAction: respond(\"库存是 42 个\")\nFinal Answer: 库存是 42 个",
+        "desc": "ReAct 实际轨迹"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "ReAct: Synergizing Reasoning and Acting in Language Models.",
+        "cite": "Yao et al. 2022"
+      }
+    ]
+  },
+  {
+    "id": "self-consistency",
+    "name": "Self-Consistency",
+    "zh": "自一致性",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "reasoning"
+    ],
+    "shortDesc": "多次采样 + 多数投票，提升推理可靠性。",
+    "longDesc": "<p><strong>Self-Consistency</strong>：<strong>多次采样 + 多数投票</strong>，提升推理可靠性。</p>\n<p>CoT 的扩展——生成多条推理路径，选最一致的答案。</p>",
+    "related": [
+      "cot",
+      "reflection"
+    ]
+  },
+  {
+    "id": "reflection",
+    "name": "Reflexion",
+    "zh": "Reflexion",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "agent"
+    ],
+    "shortDesc": "让 agent 反思自己的错误并改进下一步策略。",
+    "longDesc": "<p><strong>Reflexion</strong>：让 agent <strong>反思自己的错误</strong>并改进下一步策略。</p>\n<p><strong>流程：</strong></p>\n<ol>\n<li>执行任务</li>\n<li>评估结果</li>\n<li>反思错误</li>\n<li>写入记忆</li>\n<li>下次用</li>\n</ol>",
+    "related": [
+      "react",
+      "self-consistency"
+    ]
+  },
+  {
+    "id": "few-shot",
+    "name": "Few-Shot Prompting",
+    "zh": "少样本提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "core"
+    ],
+    "shortDesc": "在 prompt 中给 LLM 几个示例，让模型模仿。",
+    "longDesc": "<p><strong>Few-Shot Prompting</strong>：在 prompt 中提供<strong>几个示例</strong>让 LLM 学会输出格式。</p>\n<p><strong>vibe coding 例子：</strong></p>\n<pre>\n示例 1：\n- Input: \"Add a button\"\n- Output: 写一个 &lt;button onClick={handler}&gt; 组件\n示例 2：\n- Input: \"Add a form\"\n- Output: 写一个 &lt;form onSubmit={handler}&gt; 组件\n现在请按同样风格为 Input: \"Add a modal\" 输出代码\n</pre>",
+    "related": [
+      "zero-shot",
+      "cot"
+    ],
+    "examples": [
+      {
+        "code": "示例 1：\n输入：\"Add button\" → 输出 ReactButton 组件\n示例 2：\n输入：\"Add form\" → 输出 ReactForm 组件\n现在：\n输入：\"Add modal\"\n输出：",
+        "desc": "Few-Shot Prompting 用法"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Few-shot learning: giving the model a few examples of the task you're trying to solve.",
+        "cite": "Brown et al. 2020 GPT-3 paper"
+      }
+    ]
+  },
+  {
+    "id": "zero-shot",
+    "name": "Zero-Shot Learning",
+    "zh": "零样本学习",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt"
+    ],
+    "shortDesc": "模型基于任务描述直接执行，无需示例。",
+    "longDesc": "<p><strong>Zero-Shot</strong>：模型基于<strong>任务描述</strong>直接执行，无需示例。</p>\n<p>现代 LLM 的基础能力——但复杂任务仍需 few-shot 或 CoT。</p>",
+    "related": [
+      "few-shot"
+    ]
+  },
+  {
+    "id": "negative-prompting",
+    "name": "Negative Prompting",
+    "zh": "负向提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt"
+    ],
+    "shortDesc": "明确告诉 LLM 不要做什么。",
+    "longDesc": "<p><strong>Negative Prompting</strong>：明确告诉 LLM <strong>不要做什么</strong>。</p>\n<p><strong>例子：</strong></p>\n<ul>\n<li>\"不要用 jQuery\"</li>\n<li>\"不要修改 tests/ 目录\"</li>\n<li>\"不要用 eval\"</li>\n</ul>",
+    "related": [
+      "system-prompt"
+    ],
+    "examples": [
+      {
+        "code": "\"用 Vue 3 写一个计数器组件\n不要使用 Options API\n不要修改 tests 目录\n不要使用 eval()\n不要 emoji\"",
+        "desc": "Negative Prompting 实际示例"
+      }
+    ]
+  },
+  {
+    "id": "decomposition",
+    "name": "Task Decomposition",
+    "zh": "任务分解",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "core"
+    ],
+    "shortDesc": "把大任务拆成小任务，逐个让 LLM 完成。",
+    "longDesc": "<p><strong>Task Decomposition</strong>：把<strong>大任务拆成小任务</strong>，逐个让 LLM 完成。</p>\n<p><strong>vibe coding 实践：</strong></p>\n<ul>\n<li>让 LLM 先列任务清单</li>\n<li>每个子任务独立 prompt</li>\n<li>最后汇总</li>\n</ul>",
+    "related": [
+      "subagent",
+      "plan-verify-build"
+    ],
+    "examples": [
+      {
+        "code": "我需要建一个用户认证系统。\n请把它拆成 5-8 个具体子任务，每个任务 1-2 小时。\n输出 JSON 数组。",
+        "desc": "Task Decomposition 用法"
+      }
+    ]
+  },
+  {
+    "id": "self-review-prompting",
+    "name": "Self-Review Prompting",
+    "zh": "自检提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt"
+    ],
+    "shortDesc": "让 LLM 先自查再输出。",
+    "longDesc": "<p><strong>Self-Review Prompting</strong>：让 LLM <strong>先自查再输出</strong>。</p>\n<p><strong>模板：</strong></p>\n<blockquote>\"请先列出你这个方案可能的 3 个 bug，再写代码。\"</blockquote>",
+    "related": [
+      "reflection",
+      "cot"
+    ]
+  },
+  {
+    "id": "tool-description-engineering",
+    "name": "Tool Description Engineering",
+    "zh": "工具描述工程",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "agent"
+    ],
+    "shortDesc": "为每个工具写清晰的 description，让 LLM 知道何时调用。",
+    "longDesc": "<p>为每个工具写<strong>清晰的 description</strong>，让 LLM 知道何时调用。</p>\n<p><strong>最佳实践：</strong></p>\n<ul>\n<li>一句话说清工具干什么</li>\n<li>列举何时使用 vs 不使用</li>\n<li>给参数命名清晰的 schema</li>\n</ul>",
+    "related": [
+      "tool-use",
+      "mcp"
+    ]
+  },
+  {
+    "id": "meta-prompting",
+    "name": "Meta-Prompting",
+    "zh": "元提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "advanced"
+    ],
+    "shortDesc": "用 LLM 优化自己的 prompt。",
+    "longDesc": "<p><strong>Meta-Prompting</strong>：用 LLM 优化自己的 prompt。</p>\n<p><strong>应用：</strong>DSPy / PromptWizard / 自动 prompt 工程。</p>",
+    "related": [
+      "dspy",
+      "self-review-prompting"
+    ]
+  },
+  {
+    "id": "thinking-budget",
+    "name": "Thinking Budget",
+    "zh": "思维预算",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "reasoning"
+    ],
+    "shortDesc": "控制模型推理 token 的预算。",
+    "longDesc": "<p><strong>Thinking Budget</strong>：控制模型推理 token 的预算。</p>\n<p><strong>配置：</strong>通过 <code>MAX_THINKING_TOKENS</code> 或 <strong>effort level</strong> 设置。</p>",
+    "related": [
+      "effort-level",
+      "extended-thinking"
+    ]
+  },
+  {
+    "id": "prompt-injection-prompt",
+    "name": "Prompt Injection Defense",
+    "zh": "提示注入防御",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt",
+      "security"
+    ],
+    "shortDesc": "通过 prompt 工程防御 prompt injection。",
+    "longDesc": "<p>通过 prompt 工程防御 prompt injection：</p>\n<ul>\n<li>隔离 untrusted content</li>\n<li>明确指令优先级</li>\n<li>输出 schema 限制</li>\n<li>人 review 高风险输出</li>\n</ul>",
+    "related": [
+      "prompt-injection",
+      "lethal-trifecta"
+    ]
+  },
+  {
+    "id": "system-message",
+    "name": "System Message / System Prompt",
+    "zh": "系统消息",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt"
+    ],
+    "shortDesc": "会话开头的全局指令。",
+    "longDesc": "<p>会话开头的<strong>全局指令</strong>。详见 <a href=\"#system-prompt\">system-prompt</a>。</p>",
+    "related": [
+      "system-prompt"
+    ]
+  },
+  {
+    "id": "multi-shot",
+    "name": "Multi-Shot / Many-Shot",
+    "zh": "多样本提示",
+    "layer": "L7",
+    "category": "prompt",
+    "tags": [
+      "prompt"
+    ],
+    "shortDesc": "用大量示例（数百）提升 LLM 表现。",
+    "longDesc": "<p><strong>Multi-Shot</strong>：用<strong>大量示例</strong>（数百）提升 LLM 表现——few-shot 的规模化。</p>\n<p>2024+ 的研究发现，许多 LLM 在 hundreds of shots 下表现接近 fine-tuning。</p>",
+    "related": [
+      "few-shot"
+    ]
+  }
+]
