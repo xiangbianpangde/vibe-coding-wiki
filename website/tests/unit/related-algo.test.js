@@ -17,14 +17,16 @@ beforeAll(() => {
     const items = JSON.parse(readFileSync(join(DATA_DIR, `terms-${l}.json`), 'utf8'));
     allTerms.push(...items);
   }
-  // data.js exposes VC_RELATED_ALGO via window. Load it.
+  // Round 1: VC_RELATED_ALGO now lives in terms-loader.js
   const win = new Window({ url: 'http://localhost/' });
+  // Stub location.pathname (terms-loader uses it)
+  Object.defineProperty(win, 'location', { value: { pathname: '/' }, writable: false });
   globalThis.window = win;
   globalThis.document = win.document;
   globalThis.VC_TERMS = allTerms;
-  win.VC_TERMS = allTerms;          // data.js references window.VC_TERMS
-  const dataSrc = readFileSync(join(__dirname, '..', '..', 'js', 'data.js'), 'utf8');
-  new Function(dataSrc).call(globalThis);
+  win.VC_TERMS = allTerms;
+  const loaderSrc = readFileSync(join(__dirname, '..', '..', 'js', 'terms-loader.js'), 'utf8');
+  new Function(loaderSrc).call(globalThis);
   VC_RELATED_ALGO = globalThis.window.VC_RELATED_ALGO;
 });
 

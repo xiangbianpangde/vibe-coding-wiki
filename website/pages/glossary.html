@@ -135,88 +135,101 @@
 
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
-<script src="../js/terms.js"></script>
+<script src="../js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
 <script src="../js/data.js"></script>
+<script>
+  // Round 1 fallback: if async loader fails, use sync terms.js
+  setTimeout(() => {
+    if (!window.VC_TERMS || window.VC_TERMS.length === 0) {
+      console.warn('[Round 1 fallback] Loading sync terms.js');
+      var s = document.createElement('script');
+      s.src = '../js/terms.js';
+      document.head.appendChild(s);
+    }
+  }, 5000);
+</script>
 <script src="../js/search.js"></script>
 <script src="../js/app.js"></script>
 <script>
-// 渲染 A-Z 词条
-(function() {
-  const data = window.VC_TERMS || [];
-  const layers = window.VC_LAYERS || {};
-  const filterBar = document.getElementById('filter-bar');
-  const termList = document.getElementById('term-list');
-  const termCount = document.getElementById('term-count');
-
-  // URL 参数支持
-  const params = new URLSearchParams(location.search);
-  const urlTag = params.get('tag');
-  const urlLayer = params.get('layer');
-
-  let currentLayer = urlLayer || 'all';
-
-  // Filter chips
-  const layerChips = [{ id: 'all', name: '全部', color: '#111' }]
-    .concat(Object.entries(layers).map(([k, v]) => ({ id: k, name: v.name, color: v.color })));
-  filterBar.innerHTML = layerChips.map(c =>
-    `<button data-layer="${c.id}" class="layer-chip" style="padding:8px 14px;border:1px solid ${currentLayer===c.id?c.color:'var(--c-line)'};background:${currentLayer===c.id?c.color:'var(--c-panel)'};color:${currentLayer===c.id?'var(--c-paper)':'var(--c-ink)'};font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.02em;font-family:var(--font-body);transition:all 0.15s;">${c.name}</button>`
-  ).join('');
-
-  filterBar.addEventListener('click', e => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    currentLayer = btn.dataset.layer;
-    filterBar.querySelectorAll('button').forEach(b => {
-      const c = layerChips.find(x => x.id === b.dataset.layer);
-      const on = b.dataset.layer === currentLayer;
-      b.style.background = on ? c.color : 'var(--c-panel)';
-      b.style.color = on ? 'var(--c-paper)' : 'var(--c-ink)';
-      b.style.borderColor = on ? c.color : 'var(--c-line)';
-    });
-    render();
+  // Round 1: wait for async terms load
+  VC_WHEN_TERMS_READY(function() {
+      const data = window.VC_TERMS || [];
+      const layers = window.VC_LAYERS || {};
+      if (!data.length) return; // wait for VC_WHEN_TERMS_READY
+      const filterBar = document.getElementById('filter-bar');
+      const termList = document.getElementById('term-list');
+      const termCount = document.getElementById('term-count');
+    
+      // URL 参数支持
+      const params = new URLSearchParams(location.search);
+      const urlTag = params.get('tag');
+      const urlLayer = params.get('layer');
+    
+      let currentLayer = urlLayer || 'all';
+    
+      // Filter chips
+      const layerChips = [{ id: 'all', name: '全部', color: '#111' }]
+        .concat(Object.entries(layers).map(([k, v]) => ({ id: k, name: v.name, color: v.color })));
+      filterBar.innerHTML = layerChips.map(c =>
+        `<button data-layer="${c.id}" class="layer-chip" style="padding:8px 14px;border:1px solid ${currentLayer===c.id?c.color:'var(--c-line)'};background:${currentLayer===c.id?c.color:'var(--c-panel)'};color:${currentLayer===c.id?'var(--c-paper)':'var(--c-ink)'};font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.02em;font-family:var(--font-body);transition:all 0.15s;">${c.name}</button>`
+      ).join('');
+    
+      filterBar.addEventListener('click', e => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        currentLayer = btn.dataset.layer;
+        filterBar.querySelectorAll('button').forEach(b => {
+          const c = layerChips.find(x => x.id === b.dataset.layer);
+          const on = b.dataset.layer === currentLayer;
+          b.style.background = on ? c.color : 'var(--c-panel)';
+          b.style.color = on ? 'var(--c-paper)' : 'var(--c-ink)';
+          b.style.borderColor = on ? c.color : 'var(--c-line)';
+        });
+        render();
+      });
+    
+      function render() {
+        const items = data.filter(x => {
+          if (currentLayer !== 'all' && x.layer !== currentLayer) return false;
+          if (urlTag && !(x.tags || []).includes(urlTag)) return false;
+          return true;
+        });
+        termCount.textContent = `共 ${items.length} 条词条` + (urlTag ? ` · 标签 #${urlTag}` : '');
+    
+        // 分组按字母
+        const grouped = {};
+        items.forEach(item => {
+          const letter = (item.name[0] || '').toUpperCase();
+          if (!grouped[letter]) grouped[letter] = [];
+          grouped[letter].push(item);
+        });
+    
+        const letters = Object.keys(grouped).sort();
+        termList.innerHTML = letters.map(letter => `
+          <div style="margin-bottom:32px;">
+            <div style="font-family:var(--font-rounded);font-weight:700;font-size:14px;color:var(--c-shihqing);letter-spacing:0.06em;border-bottom:1px solid var(--c-line);padding-bottom:8px;margin-bottom:12px;">${letter}</div>
+            <div class="term-cards-grid">
+              ${grouped[letter].map(t => {
+                const layer = layers[t.layer] || { color: '#777', name: t.layer };
+                return `
+                <a id="${t.id}" href="../term.html?id=${t.id}" class="term-card" style="border-left:3px solid ${layer.color};">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
+                    <strong style="font-family:var(--font-title);font-size:16px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
+                    <span class="layer-badge" style="background:${layer.color};">${layer.name}</span>
+                  </div>
+                  <div style="font-size:12px;color:var(--c-muted);font-family:var(--font-mono);margin-bottom:8px;">${t.name}</div>
+                  <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
+                </a>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+    
+      render();
+    
   });
-
-  function render() {
-    const items = data.filter(x => {
-      if (currentLayer !== 'all' && x.layer !== currentLayer) return false;
-      if (urlTag && !(x.tags || []).includes(urlTag)) return false;
-      return true;
-    });
-    termCount.textContent = `共 ${items.length} 条词条` + (urlTag ? ` · 标签 #${urlTag}` : '');
-
-    // 分组按字母
-    const grouped = {};
-    items.forEach(item => {
-      const letter = (item.name[0] || '').toUpperCase();
-      if (!grouped[letter]) grouped[letter] = [];
-      grouped[letter].push(item);
-    });
-
-    const letters = Object.keys(grouped).sort();
-    termList.innerHTML = letters.map(letter => `
-      <div style="margin-bottom:32px;">
-        <div style="font-family:var(--font-rounded);font-weight:700;font-size:14px;color:var(--c-shihqing);letter-spacing:0.06em;border-bottom:1px solid var(--c-line);padding-bottom:8px;margin-bottom:12px;">${letter}</div>
-        <div class="term-cards-grid">
-          ${grouped[letter].map(t => {
-            const layer = layers[t.layer] || { color: '#777', name: t.layer };
-            return `
-            <a id="${t.id}" href="../term.html?id=${t.id}" class="term-card" style="border-left:3px solid ${layer.color};">
-              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
-                <strong style="font-family:var(--font-title);font-size:16px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
-                <span class="layer-badge" style="background:${layer.color};">${layer.name}</span>
-              </div>
-              <div style="font-size:12px;color:var(--c-muted);font-family:var(--font-mono);margin-bottom:8px;">${t.name}</div>
-              <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
-            </a>
-            `;
-          }).join('')}
-        </div>
-      </div>
-    `).join('');
-  }
-
-  render();
-})();
 </script>
 </body>
 </html>

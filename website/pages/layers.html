@@ -216,36 +216,48 @@
 
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
-<script src="../js/terms.js"></script>
+<script src="../js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
 <script src="../js/data.js"></script>
+<script>
+  // Round 1 fallback: if async loader fails, use sync terms.js
+  setTimeout(() => {
+    if (!window.VC_TERMS || window.VC_TERMS.length === 0) {
+      console.warn('[Round 1 fallback] Loading sync terms.js');
+      var s = document.createElement('script');
+      s.src = '../js/terms.js';
+      document.head.appendChild(s);
+    }
+  }, 5000);
+</script>
 <script src="../js/search.js"></script>
 <script src="../js/app.js"></script>
 <script>
-// 渲染各层词条
-(function() {
-  const data = window.VC_TERMS || [];
-  const layers = window.VC_LAYERS || {};
-
-  document.querySelectorAll('.layer-section').forEach(section => {
-    const id = section.id; // L1, L2...
-    const items = data.filter(x => x.layer === id);
-    const grid = section.querySelector('.layer-detail-grid');
-    if (!items.length) {
-      grid.innerHTML = '<p style="color:var(--c-muted);font-size:13px;">本层暂无独立词条，详见场景页。</p>';
-      return;
-    }
-    grid.style.cssText = 'display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--c-line);background:var(--c-line);';
-    grid.innerHTML = items.map(t => `
-      <a href="../term.html?id=${t.id}" style="background:var(--c-panel);padding:18px 20px;text-decoration:none;color:inherit;display:block;transition:background 0.15s;" onmouseover="this.style.background='var(--c-paper-deep)'" onmouseout="this.style.background='var(--c-panel)'">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
-          <strong style="font-family:var(--font-title);font-size:15px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--c-muted);">${t.name}</span>
-        </div>
-        <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
-      </a>
-    `).join('');
+  // Round 1: wait for async terms load
+  VC_WHEN_TERMS_READY(function() {
+      const data = window.VC_TERMS || [];
+      const layers = window.VC_LAYERS || {};
+    
+      document.querySelectorAll('.layer-section').forEach(section => {
+        const id = section.id; // L1, L2...
+        const items = data.filter(x => x.layer === id);
+        const grid = section.querySelector('.layer-detail-grid');
+        if (!items.length) {
+          grid.innerHTML = '<p style="color:var(--c-muted);font-size:13px;">本层暂无独立词条，详见场景页。</p>';
+          return;
+        }
+        grid.style.cssText = 'display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--c-line);background:var(--c-line);';
+        grid.innerHTML = items.map(t => `
+          <a href="../term.html?id=${t.id}" style="background:var(--c-panel);padding:18px 20px;text-decoration:none;color:inherit;display:block;transition:background 0.15s;" onmouseover="this.style.background='var(--c-paper-deep)'" onmouseout="this.style.background='var(--c-panel)'">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
+              <strong style="font-family:var(--font-title);font-size:15px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--c-muted);">${t.name}</span>
+            </div>
+            <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
+          </a>
+        `).join('');
+      });
+    
   });
-})();
 </script>
 </body>
 </html>

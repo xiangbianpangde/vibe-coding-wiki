@@ -238,10 +238,50 @@
 
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
-<script src="js/terms.js"></script>
+<script src="js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
+<script src="js/data.js"></script>
+<!-- Round 1 v2.2: narrow to single layer once we know which term to show.
+     Must run AFTER the loader script tag is parsed so we can mutate its data-layers. -->
+<script>
+(function() {
+  var params = new URLSearchParams(location.search);
+  var id = params.get('id') || location.hash.replace('#', '');
+  var script = document.querySelector('script[data-layers]');
+  if (script && id) {
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '../data/terms-index.json', false);
+      xhr.send();
+      if (xhr.status === 200) {
+        var idx = JSON.parse(xhr.responseText);
+        var summary = idx.summaries.find(function(s) { return s.id === id; });
+        if (summary) {
+          script.dataset.layers = summary.layer;
+          document.documentElement.dataset.termLayer = summary.layer;
+          // Re-trigger loader to fetch only the single layer
+          if (window.VC_DATA_LOADER) window.VC_DATA_LOADER.loadFromScriptTag();
+        }
+      }
+    } catch (e) {
+      console.warn('[Round 1] index pre-read failed:', e);
+    }
+  }
+})();
+</script>
 <script src="js/term.js"></script>
 <script src="js/search-engine.js"></script>
 <script src="js/search.js"></script>
 <script src="js/app.js"></script>
+<script>
+  // Round 1 fallback: if async loader fails, fall back to sync terms.js
+  setTimeout(function() {
+    if (!window.VC_TERMS || window.VC_TERMS.length === 0) {
+      console.warn('[Round 1 fallback] Loading sync terms.js');
+      var s = document.createElement('script');
+      s.src = 'js/terms.js';
+      document.head.appendChild(s);
+    }
+  }, 5000);
+</script>
 </body>
 </html>

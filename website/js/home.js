@@ -1,9 +1,9 @@
 // Vibe Coding Wiki · 首页标签云
+// Round 1 (v2.2): waits for VC_TERMS via VC_WHEN_TERMS_READY
 
-(function() {
+function buildHomeTagCloud() {
   'use strict';
 
-  // 统计所有 tag 频率
   const tagCounts = {};
   (window.VC_TERMS || []).forEach(t => {
     (t.tags || []).forEach(tag => {
@@ -13,14 +13,16 @@
 
   const tags = Object.entries(tagCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 50); // 取前 50
+    .slice(0, 50);
+
+  if (tags.length === 0) return;
 
   const max = Math.max(...tags.map(([, c]) => c));
   const min = Math.min(...tags.map(([, c]) => c));
 
   function size(count) {
     const ratio = (count - min) / Math.max(1, max - min);
-    return 12 + ratio * 16; // 12-28px
+    return 12 + ratio * 16;
   }
 
   function color(count) {
@@ -40,5 +42,10 @@
       <span class="tag-chip__count">${count}</span>
     </a>
   `).join('');
+}
 
-})();
+if (window.VC_WHEN_TERMS_READY) {
+  window.VC_WHEN_TERMS_READY(buildHomeTagCloud);
+} else {
+  buildHomeTagCloud();
+}

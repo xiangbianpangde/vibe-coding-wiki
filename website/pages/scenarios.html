@@ -130,74 +130,86 @@
 
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
-<script src="../js/terms.js"></script>
+<script src="../js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
 <script src="../js/data.js"></script>
+<script>
+  // Round 1 fallback: if async loader fails, use sync terms.js
+  setTimeout(() => {
+    if (!window.VC_TERMS || window.VC_TERMS.length === 0) {
+      console.warn('[Round 1 fallback] Loading sync terms.js');
+      var s = document.createElement('script');
+      s.src = '../js/terms.js';
+      document.head.appendChild(s);
+    }
+  }, 5000);
+</script>
 <script src="../js/search.js"></script>
 <script src="../js/app.js"></script>
 <script>
-// 渲染场景
-(function() {
-  const scenarios = window.VC_SCENARIOS || {};
-  const data = window.VC_TERMS || [];
-  const layers = window.VC_LAYERS || {};
-
-  const sceneMeta = {
-    proto:     { icon: '⚡', desc: '从 0 到可 demo 的应用，一晚上搞定。周末 hackathon 项目、内部工具、个人脚本。', risk: '低（不进入生产）', guardrail: '几乎无' },
-    personal:  { icon: '👤', desc: '只为个人用，不进入团队。Software for One 心态。', risk: '低（仅自己用）', guardrail: 'YOLO 可接受' },
-    production:{ icon: '🏭', desc: '修改既有系统、加 feature、修 bug、性能优化。需要完全不同于 vibe coding 的工作流。', risk: '高', guardrail: '全套' },
-    refactor:  { icon: '🔧', desc: '跨文件、跨模块改动，不引入 regression。AI 倾向"重写而不重构"。', risk: '中', guardrail: '强' },
-    security:  { icon: '🔒', desc: '认证 / 授权 / 支付 / 加密 / 数据隐私。需要专门的安全 review。', risk: '最高', guardrail: '极致' },
-    learning:  { icon: '📚', desc: '学新技术 / 新语言 / 探索性编程 / 教学示例。', risk: '低', guardrail: '弱' },
-    team:      { icon: '👥', desc: '多开发者共享代码、PR 流程。需要团队约定 prompt 风格、guardrails。', risk: '中', guardrail: '中' },
-    testing:   { icon: '🧪', desc: '为已有代码补测试。AI 写测试是相对安全的任务。', risk: '低', guardrail: '中' },
-    debug:     { icon: '🐞', desc: 'bug 复现 + 修复。AI 倾向"治标不治本"。', risk: '中', guardrail: '中' },
-    docs:      { icon: '📝', desc: '写 README / 生成 API 文档 / 代码注释。', risk: '低', guardrail: '弱' },
-  };
-
-  const container = document.getElementById('scenario-list');
-
-  container.innerHTML = Object.entries(scenarios).map(([key, s]) => {
-    const meta = sceneMeta[key];
-    const stars = '★'.repeat(s.vibe) + '☆'.repeat(5 - s.vibe);
-    const termBadges = s.terms.map(t => {
-      const found = data.find(d => d.name === t || d.zh === t);
-      const layer = found ? layers[found.layer] : null;
-      return layer ?
-        `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);"><span style="width:6px;height:6px;background:${layer.color};"></span>${t}</span>` :
-        `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);">${t}</span>`;
-    }).join('');
-
-    return `
-      <div id="${key}" class="scenario-card" style="border:1px solid var(--c-line);background:var(--c-panel);margin-bottom:24px;scroll-margin-top:90px;">
-        <div style="padding:24px 28px;border-bottom:1px solid var(--c-line-soft);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:16px;">
-            <span style="font-size:32px;">${meta.icon}</span>
-            <h2 style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--c-ink);margin:0;">${s.name}</h2>
+  // Round 1: wait for async terms load
+  VC_WHEN_TERMS_READY(function() {
+      const scenarios = window.VC_SCENARIOS || {};
+      const data = window.VC_TERMS || [];
+      const layers = window.VC_LAYERS || {};
+    
+      const sceneMeta = {
+        proto:     { icon: '⚡', desc: '从 0 到可 demo 的应用，一晚上搞定。周末 hackathon 项目、内部工具、个人脚本。', risk: '低（不进入生产）', guardrail: '几乎无' },
+        personal:  { icon: '👤', desc: '只为个人用，不进入团队。Software for One 心态。', risk: '低（仅自己用）', guardrail: 'YOLO 可接受' },
+        production:{ icon: '🏭', desc: '修改既有系统、加 feature、修 bug、性能优化。需要完全不同于 vibe coding 的工作流。', risk: '高', guardrail: '全套' },
+        refactor:  { icon: '🔧', desc: '跨文件、跨模块改动，不引入 regression。AI 倾向"重写而不重构"。', risk: '中', guardrail: '强' },
+        security:  { icon: '🔒', desc: '认证 / 授权 / 支付 / 加密 / 数据隐私。需要专门的安全 review。', risk: '最高', guardrail: '极致' },
+        learning:  { icon: '📚', desc: '学新技术 / 新语言 / 探索性编程 / 教学示例。', risk: '低', guardrail: '弱' },
+        team:      { icon: '👥', desc: '多开发者共享代码、PR 流程。需要团队约定 prompt 风格、guardrails。', risk: '中', guardrail: '中' },
+        testing:   { icon: '🧪', desc: '为已有代码补测试。AI 写测试是相对安全的任务。', risk: '低', guardrail: '中' },
+        debug:     { icon: '🐞', desc: 'bug 复现 + 修复。AI 倾向"治标不治本"。', risk: '中', guardrail: '中' },
+        docs:      { icon: '📝', desc: '写 README / 生成 API 文档 / 代码注释。', risk: '低', guardrail: '弱' },
+      };
+    
+      const container = document.getElementById('scenario-list');
+    
+      container.innerHTML = Object.entries(scenarios).map(([key, s]) => {
+        const meta = sceneMeta[key];
+        const stars = '★'.repeat(s.vibe) + '☆'.repeat(5 - s.vibe);
+        const termBadges = s.terms.map(t => {
+          const found = data.find(d => d.name === t || d.zh === t);
+          const layer = found ? layers[found.layer] : null;
+          return layer ?
+            `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);"><span style="width:6px;height:6px;background:${layer.color};"></span>${t}</span>` :
+            `<span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--c-panel);border:1px solid var(--c-line);font-size:13px;color:var(--c-ink);">${t}</span>`;
+        }).join('');
+    
+        return `
+          <div id="${key}" class="scenario-card" style="border:1px solid var(--c-line);background:var(--c-panel);margin-bottom:24px;scroll-margin-top:90px;">
+            <div style="padding:24px 28px;border-bottom:1px solid var(--c-line-soft);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:center;gap:16px;">
+                <span style="font-size:32px;">${meta.icon}</span>
+                <h2 style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--c-ink);margin:0;">${s.name}</h2>
+              </div>
+              <div style="display:flex;align-items:center;gap:20px;">
+                <div>
+                  <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Vibe 强度</div>
+                  <div style="font-size:18px;color:var(--c-zhusha);line-height:1;">${stars}</div>
+                </div>
+                <div>
+                  <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">风险</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.risk}</div>
+                </div>
+                <div>
+                  <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Guardrails</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.guardrail}</div>
+                </div>
+              </div>
+            </div>
+            <div style="padding:24px 28px;">
+              <p style="font-size:14px;line-height:1.7;color:var(--c-ink-soft);margin-bottom:18px;">${meta.desc}</p>
+              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">推荐术语组合</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">${termBadges}</div>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:20px;">
-            <div>
-              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Vibe 强度</div>
-              <div style="font-size:18px;color:var(--c-zhusha);line-height:1;">${stars}</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">风险</div>
-              <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.risk}</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Guardrails</div>
-              <div style="font-size:13px;font-weight:600;color:var(--c-ink);">${meta.guardrail}</div>
-            </div>
-          </div>
-        </div>
-        <div style="padding:24px 28px;">
-          <p style="font-size:14px;line-height:1.7;color:var(--c-ink-soft);margin-bottom:18px;">${meta.desc}</p>
-          <div style="font-family:var(--font-rounded);font-size:10px;color:var(--c-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">推荐术语组合</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">${termBadges}</div>
-        </div>
-      </div>
-    `;
-  }).join('');
-})();
+        `;
+      }).join('');
+    
+  });
 </script>
 </body>
 </html>

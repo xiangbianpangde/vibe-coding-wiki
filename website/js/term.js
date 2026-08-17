@@ -1,6 +1,7 @@
 // Vibe Coding Wiki · 词条详情页逻辑
+// Round 1 (v2.2): waits for VC_TERMS via VC_WHEN_TERMS_READY
 
-(function() {
+function initTermPage() {
   'use strict';
 
   // 只在详情页运行
@@ -387,5 +388,12 @@
       </a>
     `;
   }).join('');
+}
 
-})();
+// Wait for VC_TERMS (loaded async by terms-loader.js), then run.
+if (window.VC_WHEN_TERMS_READY) {
+  window.VC_WHEN_TERMS_READY(initTermPage);
+} else {
+  // Fallback: terms-loader.js not loaded, try to run immediately
+  initTermPage();
+}

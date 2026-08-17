@@ -451,13 +451,25 @@
   </div>
 </div>
 
+<!-- Round 1 v2.2: async terms loading (replaces terms.js) -->
 <script src="js/nav.js"></script>
 <script src="js/theme.js"></script>
-<script src="js/terms.js"></script>
+<script src="js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
 <script src="js/data.js"></script>
 <script src="js/search-engine.js"></script>
 <script src="js/search.js"></script>
 <script src="js/app.js"></script>
 <script src="js/home.js"></script>
+<script>
+  // Fallback: if async loading fails or times out, fall back to terms.js
+  setTimeout(() => {
+    if (!window.VC_TERMS || window.VC_TERMS.length === 0) {
+      console.warn('[Round 1 fallback] Loading sync terms.js');
+      var s = document.createElement('script');
+      s.src = 'js/terms.js';
+      document.head.appendChild(s);
+    }
+  }, 5000);
+</script>
 </body>
 </html>
