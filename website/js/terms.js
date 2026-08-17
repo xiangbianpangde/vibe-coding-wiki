@@ -719,6 +719,12 @@ window.VC_TERMS = [
 <li>Context Engineering：优化<strong>整个上下文窗口</strong></li>
 </ul>`,
     related: ["claude-md","auto-memory","compaction"],
+    quotes: [
+      {
+        "text": "The art of providing the right context, at the right time, in the right format, to an LLM.",
+        "cite": "Anthropic engineering"
+      }
+    ],
     seeAlso: [
       {
         "name": "Anthropic: Building effective agents",
@@ -785,6 +791,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>...直至满足 acceptance criteria</li>
 </ol>`,
     related: ["acceptance-criteria","iterative-refinement"],
+    quotes: [
+      {
+        "text": "Iterative refinement: each round of feedback makes the output sharper. The model's first attempt is rarely the best.",
+        "cite": "community"
+      }
+    ],
     seeAlso: [
       {
         "name": "Anthropic: Building effective agents",
@@ -1132,6 +1144,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>支持：</strong>Claude Opus 4.6+、Sonnet 4.6+。</p>`,
     related: ["extended-thinking","thinking-budget"],
+    quotes: [
+      {
+        "text": "Effort level: Claude adjusts reasoning depth based on the task's complexity.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Effort",
+        "url": "https://docs.claude.com/en/docs/claude-code/effort"
+      }
+    ],
     examples: [
       {
         "code": "// Low effort: 快速回答，节省成本\nclaude --effort low \"What is 2+2?\"\n\n// High effort: 深度推理，适合复杂问题\nclaude --effort high \"Debug this race condition\"",
@@ -1177,6 +1201,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>确定性：</strong>在固定生命周期点触发——而非模型自主决定。</p>
 <p>配置三层：Hook event / Matcher / Hook handler</p>`,
     related: ["mcp","permission-mode"],
+    quotes: [
+      {
+        "text": "Hooks are automated triggers that run before/after tool calls. They enforce guardrails without slowing the agent.",
+        "cite": "community"
+      }
+    ],
     seeAlso: [
       {
         "name": "Claude Code: Hooks",
@@ -1216,6 +1246,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p>可以派生子 agent、读文件、适应代码库。</p>`,
     related: ["subagent","commands"],
+    quotes: [
+      {
+        "text": "Bundled skills: package reusable prompts as files Claude Code auto-loads.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Skills",
+        "url": "https://docs.claude.com/en/docs/claude-code/skills"
+      }
+    ],
     examples: [
       {
         "code": "> /code-review  # 调起 code-review skill\n> /batch  # 批量执行\n> /loop 5m  # 每 5 分钟循环",
@@ -2059,6 +2101,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>代表实现：</strong>Microsoft GraphRAG / Neo4j + LLM</p>`,
     related: ["rag","hyde"],
+    quotes: [
+      {
+        "text": "GraphRAG: knowledge graphs beat vector RAG on cross-chunk relational queries.",
+        "cite": "Microsoft Research, 2024"
+      }
+    ],
     seeAlso: [
       {
         "name": "Microsoft GraphRAG",
@@ -2067,6 +2115,10 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "GraphRAG 论文",
         "url": "https://arxiv.org/abs/2404.16130"
+      },
+      {
+        "name": "Microsoft GraphRAG GitHub",
+        "url": "https://github.com/microsoft/graphrag"
       }
     ],
     examples: [
@@ -2161,6 +2213,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>支持 continuous batching</li>
 </ul>`,
     related: ["kv-cache"],
+    quotes: [
+      {
+        "text": "PagedAttention: borrow OS virtual memory ideas to manage LLM KV cache. 2-4x throughput.",
+        "cite": "Kwon et al. SOSP 2023"
+      }
+    ],
     seeAlso: [
       {
         "name": "PagedAttention 论文 (Kwon et al. 2023)",
@@ -2190,6 +2248,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>适用：</strong>相同分布的小模型 + 大模型对（如 7B + 70B）。</p>
 <p><strong>加速比：</strong>2-3x 典型，输出质量不变。</p>`,
     related: ["kv-cache","flash-attention"],
+    quotes: [
+      {
+        "text": "Speculative decoding: small model drafts, big model verifies. Same output, 2-3x faster.",
+        "cite": "Leviathan et al. 2022"
+      }
+    ],
     seeAlso: [
       {
         "name": "Speculative Decoding 论文",
@@ -2215,6 +2279,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>原理：</strong>减少 GPU HBM ↔ SRAM 之间的 IO——attention 是 memory-bound。</p>
 <p><strong>版本：</strong>FlashAttention 1 / 2 / 3</p>`,
     related: ["attention","kv-cache"],
+    quotes: [
+      {
+        "text": "Flash Attention: IO-aware exact attention. 2-4x wall-clock speedup, 5-10x memory reduction.",
+        "cite": "Dao et al. NeurIPS 2022"
+      }
+    ],
     seeAlso: [
       {
         "name": "Flash Attention 论文 (Dao et al. 2022)",
@@ -2223,6 +2293,10 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Flash Attention GitHub",
         "url": "https://github.com/Dao-AILab/flash-attention"
+      },
+      {
+        "name": "Flash Attention 3 论文",
+        "url": "https://arxiv.org/abs/2407.08608"
       }
     ],
     examples: [
@@ -2377,6 +2451,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>权衡：</strong>精度下降 vs 内存 / 速度提升</p>
 <p><strong>代表实现：</strong>bitsandbytes / GPTQ / AWQ / SmoothQuant</p>`,
     related: ["awq","gptq"],
+    quotes: [
+      {
+        "text": "Quantization: trade 1-3% accuracy for 2-4x memory reduction. 4-bit is the sweet spot for inference.",
+        "cite": "Dettmers et al."
+      }
+    ],
     seeAlso: [
       {
         "name": "bitsandbytes",
@@ -2385,6 +2465,14 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "HuggingFace: Quantization",
         "url": "https://huggingface.co/docs/transformers/quantization"
+      },
+      {
+        "name": "bitsandbytes 文档",
+        "url": "https://huggingface.co/docs/bitsandbytes"
+      },
+      {
+        "name": "AWQ 论文",
+        "url": "https://arxiv.org/abs/2306.00978"
       }
     ],
     examples: [
@@ -3100,6 +3188,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Repo map</strong>：把整个仓库结构注入 context</li>
 </ul>`,
     related: ["claude-code","cursor"],
+    quotes: [
+      {
+        "text": "Aider: AI pair programming in your terminal. Auto-commits to git.",
+        "cite": "Aider docs"
+      }
+    ],
     seeAlso: [
       {
         "name": "Aider GitHub",
@@ -3617,6 +3711,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Retriever（检索器）</li>
 </ul>`,
     related: ["langchain","rag"],
+    quotes: [
+      {
+        "text": "LlamaIndex: data framework for LLM applications. RAG, agents, workflows.",
+        "cite": "LlamaIndex docs"
+      }
+    ],
     seeAlso: [
       {
         "name": "LlamaIndex 官网",
@@ -3629,6 +3729,10 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "LlamaIndex GitHub",
         "url": "https://github.com/run-llama/llama_index"
+      },
+      {
+        "name": "LlamaIndex Docs",
+        "url": "https://docs.llamaindex.ai"
       }
     ],
     examples: [
@@ -4766,6 +4870,16 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Wei et al. 2022"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Wei et al. 2022 CoT 论文",
+        "url": "https://arxiv.org/abs/2201.11903"
+      },
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      }
+    ],
     examples: [
       {
         "code": "\"请先分析这个问题：\n1. 列出 3 个可能的实现方案\n2. 逐一比较优缺点\n3. 选择最佳方案\n4. 用代码实现\"",
@@ -4804,6 +4918,16 @@ Observation: ... (重复直到完成)</pre>`,
       {
         "text": "ReAct: Synergizing Reasoning and Acting in Language Models.",
         "cite": "Yao et al. 2022"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Yao et al. ReAct 论文",
+        "url": "https://arxiv.org/abs/2210.03629"
+      },
+      {
+        "name": "LangChain ReAct",
+        "url": "https://python.langchain.com/docs/how_to/agent_react/"
       }
     ],
     examples: [
@@ -4868,6 +4992,16 @@ Observation: ... (重复直到完成)</pre>`,
       {
         "text": "Few-shot learning: giving the model a few examples of the task you're trying to solve.",
         "cite": "Brown et al. 2020 GPT-3 paper"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Brown et al. 2020 GPT-3 论文",
+        "url": "https://arxiv.org/abs/2005.14165"
+      },
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
       }
     ],
     examples: [

@@ -246,6 +246,12 @@
         "name": "Aider GitHub",
         "url": "https://github.com/Aider-AI/aider"
       }
+    ],
+    "quotes": [
+      {
+        "text": "Aider: AI pair programming in your terminal. Auto-commits to git.",
+        "cite": "Aider docs"
+      }
     ]
   },
   {
@@ -824,6 +830,10 @@
       {
         "name": "LlamaIndex GitHub",
         "url": "https://github.com/run-llama/llama_index"
+      },
+      {
+        "name": "LlamaIndex Docs",
+        "url": "https://docs.llamaindex.ai"
       }
     ],
     "examples": [
@@ -834,6 +844,12 @@
       {
         "code": "from llama_index.core import SummaryIndex\n\n# 摘要索引：不走 embedding，全文 LLM 阅读\nsummary_index = SummaryIndex.from_documents(documents)\nsummary_engine = summary_index.as_query_engine(\n    response_mode=\"tree_summarize\"\n)\nprint(summary_engine.query(\"总结这 200 篇文档的主要观点\"))",
         "desc": "SummaryIndex：长文档摘要"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "LlamaIndex: data framework for LLM applications. RAG, agents, workflows.",
+        "cite": "LlamaIndex docs"
       }
     ]
   },

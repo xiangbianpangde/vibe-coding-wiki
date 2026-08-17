@@ -27,6 +27,16 @@
         "text": "Chain-of-thought prompting is a way to elicit reasoning from a model.",
         "cite": "Wei et al. 2022"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Wei et al. 2022 CoT 论文",
+        "url": "https://arxiv.org/abs/2201.11903"
+      },
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      }
     ]
   },
   {
@@ -72,6 +82,16 @@
       {
         "text": "ReAct: Synergizing Reasoning and Acting in Language Models.",
         "cite": "Yao et al. 2022"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Yao et al. ReAct 论文",
+        "url": "https://arxiv.org/abs/2210.03629"
+      },
+      {
+        "name": "LangChain ReAct",
+        "url": "https://python.langchain.com/docs/how_to/agent_react/"
       }
     ]
   },
@@ -135,6 +155,16 @@
       {
         "text": "Few-shot learning: giving the model a few examples of the task you're trying to solve.",
         "cite": "Brown et al. 2020 GPT-3 paper"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Brown et al. 2020 GPT-3 论文",
+        "url": "https://arxiv.org/abs/2005.14165"
+      },
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
       }
     ]
   },

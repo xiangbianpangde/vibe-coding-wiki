@@ -108,6 +108,12 @@
         "name": "Anthropic: Building effective agents",
         "url": "https://www.anthropic.com/research/building-effective-agents"
       }
+    ],
+    "quotes": [
+      {
+        "text": "The art of providing the right context, at the right time, in the right format, to an LLM.",
+        "cite": "Anthropic engineering"
+      }
     ]
   },
   {
@@ -179,6 +185,12 @@
       {
         "code": "# Iterative Refinement: 多轮 prompt 优化\n# Round 1: 粗 prompt\nprompt1 = \"Write a sorting function\"\n\n# Round 2: 加约束\nprompt2 = \"Write a sorting function in Python. Handle empty list. Stable sort.\"\n\n# Round 3: 加测试\nprompt3 = prompt2 + \"Must pass these tests: sort([])==[], sort([3,1])==[1,3]\"\n\n# Round 4: 加边界\nprompt4 = prompt3 + \"Handle negative numbers, floats, and duplicates\"\n\n# 每次迭代：跑测试 → 找失败 → 加约束 → 再 prompt\n# 关键：把\"成功标准\"明确化",
         "desc": "Iterative refinement 4 轮 prompt 优化"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Iterative refinement: each round of feedback makes the output sharper. The model's first attempt is rarely the best.",
+        "cite": "community"
       }
     ]
   },
@@ -519,6 +531,18 @@
         "code": "// Low effort: 快速回答，节省成本\nclaude --effort low \"What is 2+2?\"\n\n// High effort: 深度推理，适合复杂问题\nclaude --effort high \"Debug this race condition\"",
         "desc": "Claude Code effort level CLI"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Effort",
+        "url": "https://docs.claude.com/en/docs/claude-code/effort"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Effort level: Claude adjusts reasoning depth based on the task's complexity.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {
@@ -570,6 +594,12 @@
         "name": "Husky Git hooks",
         "url": "https://typicode.github.io/husky/"
       }
+    ],
+    "quotes": [
+      {
+        "text": "Hooks are automated triggers that run before/after tool calls. They enforce guardrails without slowing the agent.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -592,6 +622,18 @@
       {
         "code": "> /code-review  # 调起 code-review skill\n> /batch  # 批量执行\n> /loop 5m  # 每 5 分钟循环",
         "desc": "Claude Code 内置 skills"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Skills",
+        "url": "https://docs.claude.com/en/docs/claude-code/skills"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Bundled skills: package reusable prompts as files Claude Code auto-loads.",
+        "cite": "Claude Code Docs"
       }
     ]
   },
