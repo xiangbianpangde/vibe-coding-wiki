@@ -1,8 +1,8 @@
 // Wave 3f enrichment — 12 L1/L3 terms, seeAlso + quotes push
-const fs = require('fs');
-const path = require('path');
+// Refactored to use shared lib/enrich-lib.cjs (deduplicated boilerplate)
+// Original ENRICH data preserved — merge+dedupe logic now in lib.
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const { applyEnrich } = require('./lib/enrich-lib.cjs');
 
 const ENRICH = {
   // ============ L1 paradigm ============
@@ -172,38 +172,7 @@ const ENRICH = {
       { name: 'Claude Code: Memory', url: 'https://docs.claude.com/en/docs/claude-code/memory' },
     ],
   },
-};
+};;
 
-// Apply
-const layers = ['L1','L2','L3','L4','L5','L6','L7','L8'];
-let added = { examples: 0, seeAlso: 0, quotes: 0, terms: 0 };
-
-for (const l of layers) {
-  const fp = path.join(DATA_DIR, `terms-${l}.json`);
-  const items = JSON.parse(fs.readFileSync(fp, 'utf8'));
-  let fileModified = false;
-  for (const item of items) {
-    const e = ENRICH[item.id];
-    if (!e) continue;
-    let termChanged = false;
-    if (e.examples) {
-      const existing = Array.isArray(item.examples) ? item.examples : [];
-      const newOnes = e.examples.filter(n => !existing.some(x => x.code === n.code));
-      if (newOnes.length) { item.examples = [...existing, ...newOnes]; added.examples += newOnes.length; termChanged = true; }
-    }
-    if (e.seeAlso) {
-      const existing = Array.isArray(item.seeAlso) ? item.seeAlso : [];
-      const newOnes = e.seeAlso.filter(n => !existing.some(x => x.url === n.url));
-      if (newOnes.length) { item.seeAlso = [...existing, ...newOnes]; added.seeAlso += newOnes.length; termChanged = true; }
-    }
-    if (e.quotes) {
-      const existing = Array.isArray(item.quotes) ? item.quotes : [];
-      const newOnes = e.quotes.filter(n => !existing.some(x => x.text === n.text));
-      if (newOnes.length) { item.quotes = [...existing, ...newOnes]; added.quotes += newOnes.length; termChanged = true; }
-    }
-    if (termChanged) { added.terms++; fileModified = true; }
-  }
-  if (fileModified) fs.writeFileSync(fp, JSON.stringify(items, null, 2));
-}
-
+const added = applyEnrich(ENRICH);
 console.log(`[enrich-priority-8] Added: ${added.examples} examples, ${added.seeAlso} seeAlso, ${added.quotes} quotes across ${added.terms} terms`);

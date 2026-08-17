@@ -1,10 +1,8 @@
 // Wave 2 enrichment — Task 1, batch 2
-// Targets: plan-verify-build, sdd, computer-use, browser-use
-// Skipped (not in DB): langgraph, anthropic-harmony, claude-code-extended-thinking
-const fs = require('fs');
-const path = require('path');
+// Refactored to use shared lib/enrich-lib.cjs (deduplicated boilerplate)
+// Original ENRICH data preserved — merge+dedupe logic now in lib.
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const { applyEnrich } = require('./lib/enrich-lib.cjs');
 
 const ENRICH = {
   // ====== L2 方法论 ======
@@ -146,50 +144,7 @@ print(result)   # → 标题 + 评论数
       { name: "Anthropic Claude for Chrome", url: "https://www.anthropic.com/news/claude-for-chrome" },
     ],
   },
-};
+};;
 
-// Apply
-const layers = ['L1','L2','L3','L4','L5','L6','L7','L8'];
-let added = { examples: 0, seeAlso: 0, quotes: 0, terms: 0 };
-
-for (const l of layers) {
-  const fp = path.join(DATA_DIR, `terms-${l}.json`);
-  const items = JSON.parse(fs.readFileSync(fp, 'utf8'));
-  let fileModified = false;
-  for (const item of items) {
-    const e = ENRICH[item.id];
-    if (!e) continue;
-    if (e.examples) {
-      const existing = Array.isArray(item.examples) ? item.examples : [];
-      const newOnes = e.examples.filter(n => !existing.some(x => x.code === n.code));
-      if (newOnes.length) {
-        item.examples = [...existing, ...newOnes];
-        added.examples += newOnes.length;
-        fileModified = true;
-      }
-    }
-    if (e.seeAlso) {
-      const existing = Array.isArray(item.seeAlso) ? item.seeAlso : [];
-      const newOnes = e.seeAlso.filter(n => !existing.some(x => x.url === n.url));
-      if (newOnes.length) {
-        item.seeAlso = [...existing, ...newOnes];
-        added.seeAlso += newOnes.length;
-        fileModified = true;
-      }
-    }
-    if (e.quotes) {
-      const existing = Array.isArray(item.quotes) ? item.quotes : [];
-      const newOnes = e.quotes.filter(n => !existing.some(x => x.text === n.text));
-      if (newOnes.length) {
-        item.quotes = [...existing, ...newOnes];
-        added.quotes += newOnes.length;
-        fileModified = true;
-      }
-    }
-    if (fileModified) added.terms++;
-  }
-  if (fileModified) fs.writeFileSync(fp, JSON.stringify(items, null, 2));
-}
-
+const added = applyEnrich(ENRICH);
 console.log(`[enrich-priority-2] Added: ${added.examples} examples, ${added.seeAlso} seeAlso, ${added.quotes} quotes across ${added.terms} terms`);
-console.log(`[enrich-priority-2] Skipped (not in DB): langgraph, anthropic-harmony, claude-code-extended-thinking`);

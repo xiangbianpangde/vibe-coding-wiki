@@ -1,9 +1,8 @@
 // First-wave enrichment for priority terms (Task 1, batch 1)
-// Quality bar: executable + first-party sources only
-const fs = require('fs');
-const path = require('path');
+// Refactored to use shared lib/enrich-lib.cjs (deduplicated boilerplate)
+// Original ENRICH data preserved — merge+dedupe logic now in lib.
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const { applyEnrich } = require('./lib/enrich-lib.cjs');
 
 const ENRICH = {
   // ============ L4 工具 ============
@@ -282,42 +281,7 @@ npm run test:changed        # 只跑被影响文件的测试
       },
     ],
   },
-};
+};;
 
-// Apply
-const layers = ['L1','L2','L3','L4','L5','L6','L7','L8'];
-let added = { examples: 0, seeAlso: 0, terms: 0 };
-
-for (const l of layers) {
-  const fp = path.join(DATA_DIR, `terms-${l}.json`);
-  const items = JSON.parse(fs.readFileSync(fp, 'utf8'));
-  let modified = false;
-  for (const item of items) {
-    const e = ENRICH[item.id];
-    if (!e) continue;
-    if (e.examples) {
-      // Merge: replace if currently empty, else append (avoid exact duplicate)
-      const existing = Array.isArray(item.examples) ? item.examples : [];
-      const newOnes = e.examples.filter(n => !existing.some(x => x.code === n.code));
-      item.examples = [...existing, ...newOnes];
-      added.examples += newOnes.length;
-      modified = true;
-    }
-    if (e.seeAlso) {
-      const existing = Array.isArray(item.seeAlso) ? item.seeAlso : [];
-      const newOnes = e.seeAlso.filter(n => !existing.some(x => x.url === n.url));
-      item.seeAlso = [...existing, ...newOnes];
-      added.seeAlso += newOnes.length;
-      modified = true;
-    }
-    if (modified) added.terms++;
-    modified = false;
-  }
-  if (Object.keys(ENRICH).some(id => items.some(it => it.id === id))) {
-    // Only write if any of our target ids live in this layer
-    const hasTarget = items.some(it => ENRICH[it.id]);
-    if (hasTarget) fs.writeFileSync(fp, JSON.stringify(items, null, 2));
-  }
-}
-
-console.log(`[enrich-priority-1] Added: ${added.examples} examples, ${added.seeAlso} seeAlso across ${added.terms} terms`);
+const added = applyEnrich(ENRICH);
+console.log(`[enrich-priority-1] Added: ${added.examples} examples, ${added.seeAlso} seeAlso, ${added.quotes} quotes across ${added.terms} terms`);
