@@ -202,6 +202,18 @@
         "code": "\"用 Vue 3 写一个计数器组件\n不要使用 Options API\n不要修改 tests 目录\n不要使用 eval()\n不要 emoji\"",
         "desc": "Negative Prompting 实际示例"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Negative prompting: tell the model what NOT to do. Useful for safety constraints and style.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -224,6 +236,18 @@
       {
         "code": "我需要建一个用户认证系统。\n请把它拆成 5-8 个具体子任务，每个任务 1-2 小时。\n输出 JSON 数组。",
         "desc": "Task Decomposition 用法"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Least-to-Most Prompting (Zhou et al. 2022)",
+        "url": "https://arxiv.org/abs/2205.10625"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Decomposition: break complex tasks into smaller subtasks. The model handles each better than the whole.",
+        "cite": "community"
       }
     ]
   },

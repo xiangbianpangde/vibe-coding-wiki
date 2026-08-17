@@ -551,6 +551,12 @@
         "text": "AI co-authored code had 1.7x more major issues and 2.74x more security vulnerabilities.",
         "cite": "CodeRabbit 2025-12"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "CodeRabbit 官网",
+        "url": "https://www.coderabbit.ai"
+      }
     ]
   },
   {
@@ -572,6 +578,12 @@
       {
         "text": "LLM-generated code security has not improved over 3 years. Larger models are no more secure than small ones.",
         "cite": "Veracode 2025-10"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Veracode: 2025 GenAI Code Security Report",
+        "url": "https://www.veracode.com/blog/2025-genai-code-security-report/"
       }
     ]
   },

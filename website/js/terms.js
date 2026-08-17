@@ -2083,6 +2083,16 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ol>
 <p><strong>代表：</strong>Cohere Rerank 3 / BGE Reranker / ColBERT</p>`,
     related: ["rag","cosine-similarity"],
+    seeAlso: [
+      {
+        "name": "Cohere Rerank 文档",
+        "url": "https://docs.cohere.com/docs/rerank-2"
+      },
+      {
+        "name": "Sentence-BERT Cross-Encoder",
+        "url": "https://www.sbert.net/examples/applications/cross-encoder/README.html"
+      }
+    ],
   },
   {
     id: "graph-rag",
@@ -2139,6 +2149,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>HyDE</strong>：让 LLM 先生成<strong>假设性答案文档</strong>，再用其 embedding 检索真实文档。</p>
 <p><strong>直觉：</strong>假设答案的 embedding 与真实答案更接近，比 query embedding 检索更准。</p>`,
     related: ["rag","embedding"],
+    seeAlso: [
+      {
+        "name": "HyDE 论文 (Gao et al. 2022)",
+        "url": "https://arxiv.org/abs/2212.10496"
+      }
+    ],
   },
   {
     id: "prompt-caching",
@@ -2157,6 +2173,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>未命中 → 调 LLM</li>
 </ol>`,
     related: ["embedding","kv-cache"],
+    seeAlso: [
+      {
+        "name": "Anthropic: Prompt Caching",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+      }
+    ],
   },
   {
     id: "kv-cache",
@@ -2664,6 +2686,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>PEFT</strong>：Parameter-Efficient Fine-Tuning 的总称。</p>
 <p><strong>代表方法：</strong>LoRA / QLoRA / Prefix Tuning / Prompt Tuning / Adapter</p>`,
     related: ["lora","qlora"],
+    seeAlso: [
+      {
+        "name": "HuggingFace PEFT",
+        "url": "https://huggingface.co/docs/peft/index"
+      }
+    ],
   },
   {
     id: "rlhf",
@@ -2737,6 +2765,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>RLAIF</strong>（RL from AI Feedback）：用<strong>AI 生成偏好标签</strong>替代人类。</p>
 <p><strong>代表：</strong>Anthropic Constitutional AI</p>`,
     related: ["rlhf","dpo"],
+    seeAlso: [
+      {
+        "name": "RLAIF 论文 (Lee et al. 2023)",
+        "url": "https://arxiv.org/abs/2309.00267"
+      }
+    ],
   },
   {
     id: "orpo",
@@ -2748,6 +2782,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Odds Ratio Preference Optimization：SFT + DPO 一体化训练。",
     longDesc: "<p><strong>ORPO</strong>：SFT + DPO 一体化的偏好优化方法。</p>",
     related: ["dpo","ipo"],
+    seeAlso: [
+      {
+        "name": "ORPO 论文 (Hong et al. 2024)",
+        "url": "https://arxiv.org/abs/2403.07691"
+      }
+    ],
   },
   {
     id: "ipo",
@@ -2759,6 +2799,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "改进 DPO 避免过拟合的偏好优化方法。",
     longDesc: "<p><strong>IPO</strong>：改进 DPO 避免<strong>过拟合</strong>的偏好优化方法。</p>",
     related: ["dpo","orpo"],
+    seeAlso: [
+      {
+        "name": "IPO 论文 (Azar et al. 2023)",
+        "url": "https://arxiv.org/abs/2310.12036"
+      }
+    ],
   },
   {
     id: "function-calling",
@@ -2853,6 +2899,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>原理：</strong>在 token 选择时屏蔽不符合 grammar 的 token。</p>
 <p><strong>优势：</strong>100% 遵循 schema，无需后处理。</p>`,
     related: ["structured-outputs","function-calling"],
+    seeAlso: [
+      {
+        "name": "Outlines 库",
+        "url": "https://github.com/outlines-dev/outlines"
+      }
+    ],
   },
   {
     id: "sampling",
@@ -2871,6 +2923,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Beam Search</strong>：保留 top-K 序列</li>
 </ul>`,
     related: ["llm"],
+    seeAlso: [
+      {
+        "name": "HuggingFace: Generation 策略",
+        "url": "https://huggingface.co/docs/transformers/generation_strategies"
+      }
+    ],
   },
   {
     id: "computer-use",
@@ -3475,6 +3533,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "CodeRabbit 2025-12"
       }
     ],
+    seeAlso: [
+      {
+        "name": "CodeRabbit 官网",
+        "url": "https://www.coderabbit.ai"
+      }
+    ],
   },
   {
     id: "veracode",
@@ -3491,6 +3555,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "LLM-generated code security has not improved over 3 years. Larger models are no more secure than small ones.",
         "cite": "Veracode 2025-10"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Veracode: 2025 GenAI Code Security Report",
+        "url": "https://www.veracode.com/blog/2025-genai-code-security-report/"
       }
     ],
   },
@@ -4289,6 +4359,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>项目级<strong>持久指令文件</strong>——每会话开始加载。</p>
 <p><strong>代表：</strong>CLAUDE.md / .cursorrules / GEMINI.md / AGENTS.md</p>`,
     related: ["claude-md","context-engineering"],
+    quotes: [
+      {
+        "text": "A manifest file is the contract between your project and the AI: dependencies, scripts, version constraints.",
+        "cite": "community"
+      }
+    ],
     seeAlso: [
       {
         "name": "npm package.json 文档",
@@ -4343,6 +4419,12 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>特性：</strong>用户和项目设置<strong>无法覆盖</strong>。</p>
 <p><strong>用途：</strong>安全策略、合规要求、标准化工具链。</p>`,
     related: ["permission-mode"],
+    quotes: [
+      {
+        "text": "Managed settings: IT pushes Claude Code config to all engineers via MDM. One config, one team.",
+        "cite": "Claude Code Docs"
+      }
+    ],
     seeAlso: [
       {
         "name": "Claude Code: Settings",
@@ -5039,6 +5121,18 @@ Observation: ... (重复直到完成)</pre>`,
 <li>"不要用 eval"</li>
 </ul>`,
     related: ["system-prompt"],
+    quotes: [
+      {
+        "text": "Negative prompting: tell the model what NOT to do. Useful for safety constraints and style.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      }
+    ],
     examples: [
       {
         "code": "\"用 Vue 3 写一个计数器组件\n不要使用 Options API\n不要修改 tests 目录\n不要使用 eval()\n不要 emoji\"",
@@ -5062,6 +5156,18 @@ Observation: ... (重复直到完成)</pre>`,
 <li>最后汇总</li>
 </ul>`,
     related: ["subagent","plan-verify-build"],
+    quotes: [
+      {
+        "text": "Decomposition: break complex tasks into smaller subtasks. The model handles each better than the whole.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Least-to-Most Prompting (Zhou et al. 2022)",
+        "url": "https://arxiv.org/abs/2205.10625"
+      }
+    ],
     examples: [
       {
         "code": "我需要建一个用户认证系统。\n请把它拆成 5-8 个具体子任务，每个任务 1-2 小时。\n输出 JSON 数组。",
@@ -5177,6 +5283,12 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>推荐组合：</strong>Vibe Coding / Cursor Composer / Lovable / Iterative Refinement</p>
 <p><strong>风险：</strong>低（不进入生产）</p>`,
     related: ["vibe-coding","cursor-composer"],
+    quotes: [
+      {
+        "text": "Prototype scenarios: build fast, validate, throw away. The code is disposable.",
+        "cite": "community"
+      }
+    ],
     examples: [
       {
         "code": "// 周末项目：建一个 markdown 预览器\n// 1. 打开 Cursor\n// 2. Cmd+I 输入需求\n// 3. 接受所有建议\n// 4. 试运行，贴错误\n// 5. 周日下午 5 点：完成 demo\n// 风险：低（不进入生产）",
@@ -5249,6 +5361,18 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>风险：</strong>最高</p>
 <p><strong>CodeRabbit：</strong>AI co-authored 代码安全漏洞 ×2.74。</p>`,
     related: ["lethal-trifecta","veracode"],
+    quotes: [
+      {
+        "text": "Security-sensitive work: never use AI agents without guardrails. The lethal trifecta is real.",
+        "cite": "Simon Willison"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Simon Willison: Lethal Trifecta",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+      }
+    ],
     examples: [
       {
         "code": "// 安全敏感代码的工作流：\n// 1. 禁止 Vibe Coding\n// 2. 禁止 YOLO Mode\n// 3. 启用 Claude Code Auto Mode\n// 4. 人工 review 每一行\n// 5. 跑 Snyk + Veracode + penetration test\n// 6. 部署前 Lethal Trifecta 检查清单",

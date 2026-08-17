@@ -777,6 +777,16 @@
     "related": [
       "rag",
       "cosine-similarity"
+    ],
+    "seeAlso": [
+      {
+        "name": "Cohere Rerank 文档",
+        "url": "https://docs.cohere.com/docs/rerank-2"
+      },
+      {
+        "name": "Sentence-BERT Cross-Encoder",
+        "url": "https://www.sbert.net/examples/applications/cross-encoder/README.html"
+      }
     ]
   },
   {
@@ -839,6 +849,12 @@
     "related": [
       "rag",
       "embedding"
+    ],
+    "seeAlso": [
+      {
+        "name": "HyDE 论文 (Gao et al. 2022)",
+        "url": "https://arxiv.org/abs/2212.10496"
+      }
     ]
   },
   {
@@ -856,6 +872,12 @@
     "related": [
       "embedding",
       "kv-cache"
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Prompt Caching",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+      }
     ]
   },
   {
@@ -1412,6 +1434,12 @@
     "related": [
       "lora",
       "qlora"
+    ],
+    "seeAlso": [
+      {
+        "name": "HuggingFace PEFT",
+        "url": "https://huggingface.co/docs/peft/index"
+      }
     ]
   },
   {
@@ -1499,6 +1527,12 @@
     "related": [
       "rlhf",
       "dpo"
+    ],
+    "seeAlso": [
+      {
+        "name": "RLAIF 论文 (Lee et al. 2023)",
+        "url": "https://arxiv.org/abs/2309.00267"
+      }
     ]
   },
   {
@@ -1516,6 +1550,12 @@
     "related": [
       "dpo",
       "ipo"
+    ],
+    "seeAlso": [
+      {
+        "name": "ORPO 论文 (Hong et al. 2024)",
+        "url": "https://arxiv.org/abs/2403.07691"
+      }
     ]
   },
   {
@@ -1533,6 +1573,12 @@
     "related": [
       "dpo",
       "orpo"
+    ],
+    "seeAlso": [
+      {
+        "name": "IPO 论文 (Azar et al. 2023)",
+        "url": "https://arxiv.org/abs/2310.12036"
+      }
     ]
   },
   {
@@ -1632,6 +1678,12 @@
     "related": [
       "structured-outputs",
       "function-calling"
+    ],
+    "seeAlso": [
+      {
+        "name": "Outlines 库",
+        "url": "https://github.com/outlines-dev/outlines"
+      }
     ]
   },
   {
@@ -1648,6 +1700,12 @@
     "longDesc": "<p>控制 LLM 输出多样性的<strong>采样参数</strong>：</p>\n<ul>\n<li><strong>Temperature</strong>：0=确定，1=标准，>1=更随机</li>\n<li><strong>Top-p (Nucleus Sampling)</strong>：累积概率阈值</li>\n<li><strong>Top-k</strong>：候选 token 数</li>\n<li><strong>Greedy Decoding</strong>：temperature=0 等价</li>\n<li><strong>Beam Search</strong>：保留 top-K 序列</li>\n</ul>",
     "related": [
       "llm"
+    ],
+    "seeAlso": [
+      {
+        "name": "HuggingFace: Generation 策略",
+        "url": "https://huggingface.co/docs/transformers/generation_strategies"
+      }
     ]
   },
   {

@@ -433,6 +433,12 @@
         "name": "npm package.json 文档",
         "url": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json"
       }
+    ],
+    "quotes": [
+      {
+        "text": "A manifest file is the contract between your project and the AI: dependencies, scripts, version constraints.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -489,6 +495,12 @@
       {
         "name": "Claude Code: Settings",
         "url": "https://docs.claude.com/en/docs/claude-code/settings"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Managed settings: IT pushes Claude Code config to all engineers via MDM. One config, one team.",
+        "cite": "Claude Code Docs"
       }
     ]
   }

@@ -20,6 +20,12 @@
         "code": "// 周末项目：建一个 markdown 预览器\n// 1. 打开 Cursor\n// 2. Cmd+I 输入需求\n// 3. 接受所有建议\n// 4. 试运行，贴错误\n// 5. 周日下午 5 点：完成 demo\n// 风险：低（不进入生产）",
         "desc": "一次性原型 vibe coding 流程"
       }
+    ],
+    "quotes": [
+      {
+        "text": "Prototype scenarios: build fast, validate, throw away. The code is disposable.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -106,6 +112,18 @@
       {
         "code": "// 安全敏感代码的工作流：\n// 1. 禁止 Vibe Coding\n// 2. 禁止 YOLO Mode\n// 3. 启用 Claude Code Auto Mode\n// 4. 人工 review 每一行\n// 5. 跑 Snyk + Veracode + penetration test\n// 6. 部署前 Lethal Trifecta 检查清单",
         "desc": "安全敏感代码流程"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Lethal Trifecta",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Security-sensitive work: never use AI agents without guardrails. The lethal trifecta is real.",
+        "cite": "Simon Willison"
       }
     ]
   },
