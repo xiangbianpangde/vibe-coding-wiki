@@ -14,7 +14,7 @@
     <key>EnvironmentVariables</key>
     <dict>
         <key>VC_REPO</key>
-        <string>xbpd/vibe-coding-wiki</string>
+        <string>xiangbianpangde/vibe-coding-wiki</string>
         <key>VC_TARGET</key>
         <string>1000</string>
         <!-- Add Personal Access Token here later for higher rate limit -->

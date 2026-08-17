@@ -192,6 +192,20 @@ npm run test:e2e            # 需要先 npx playwright install chromium
   - `data-integrity` job：data integrity 守门
 - `.github/workflows/deploy.yml` — 自动部署到 GH Pages
 
+## 🗺️ Roadmap
+
+| 阶段 | 状态 | 描述 |
+|---|---|---|
+| **v2.1** | ✅ 已上线 | 178 词条 · 8 层级 · 14 场景 · GitHub Pages 部署 |
+| **v2.1.1** | ✅ 已上线 | 暗色对比度 · og:image · TOC discoverability · 数据完整性修复 |
+| **Wave 1-3** | ✅ 已完成 | 79 词条内容扩充（examples 49% / quotes 60% / seeAlso 57%） |
+| **Round 1** | 🟡 进行中 | async loading — terms.js (200KB) → 按 layer 异步加载，预期首屏 <60KB |
+| **Wave 4** | ⏸️ 等待 | Round 1 KEEP 后启动，推 examples / quotes / seeAlso 到 70%+ |
+| **Round 2** | ⏸️ 计划 | Service Worker 离线缓存 — 重复访问加载瞬时化 |
+| **Round 3+** | 💭 探索 | SVG sprite 化 / data.js 合并 / SSR / 术语版本历史 |
+
+**1k star 进度**：⭐ 0 / 1000（`launchd` daemon 每 5 分钟查一次，达标自动庆祝）
+
 ## 🤝 贡献
 
 欢迎贡献！请：

@@ -25,3 +25,6 @@ build/
 
 autoresearch/
 .pw-browsers/
+
+# Build artifacts
+_site/
