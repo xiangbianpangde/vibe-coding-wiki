@@ -1118,6 +1118,28 @@
     "longDesc": "<p>MoE 中的<strong>路由器</strong>——决定哪个 expert 处理哪个 token。</p>\n<p><strong>训练挑战：</strong>负载均衡（避免总路由到少数 experts）。</p>",
     "related": [
       "mixture-of-experts"
+    ],
+    "examples": [
+      {
+        "code": "# Router/Gating: 动态选择 expert 或模型\n# MoE 中的 gating network:\nclass Router(torch.nn.Module):\n    def __init__(self, d_model, num_experts):\n        super().__init__()\n        self.gate = torch.nn.Linear(d_model, num_experts)\n\n    def forward(self, x):\n        logits = self.gate(x)\n        # top-k routing\n        top_k_vals, top_k_idx = logits.topk(2, dim=-1)\n        return top_k_vals, top_k_idx\n\n# 多模型 routing (e.g., 简单问题用小模型，复杂用大模型)\ndef route_query(query):\n    if is_simple(query):\n        return \"gpt-4o-mini\"      # 便宜\n    elif is_moderate(query):\n        return \"claude-sonnet-4-5\" # 中等\n    else:\n        return \"claude-opus-4-6\"   # 强但贵\n\n# 实战：FrugalGPT / RouteLLM 等 router 模型",
+        "desc": "Router/Gating 两种用法（MoE + 多模型）"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "FrugalGPT 论文",
+        "url": "https://arxiv.org/abs/2305.05176"
+      },
+      {
+        "name": "Switch Transformer",
+        "url": "https://arxiv.org/abs/2101.03961"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Routing: route each query to the cheapest model that can handle it.",
+        "cite": "FrugalGPT, 2023"
+      }
     ]
   },
   {
@@ -1209,6 +1231,24 @@
     "related": [
       "rope",
       "transformer"
+    ],
+    "examples": [
+      {
+        "code": "# ALiBi: Attention with Linear Biases\n# 替代 rope/absolute position encoding\n# 原理：给 attention score 加线性距离 bias\n\nimport torch\nimport torch.nn.functional as F\n\ndef alibi_attention(Q, K, alibi_bias):\n    # Q, K: (batch, heads, seq, d_k)\n    # alibi_bias: (batch, heads, seq, seq) — 预计算\n    scores = (Q @ K.transpose(-2, -1)) / (Q.size(-1) ** 0.5)\n    scores = scores + alibi_bias   # 加线性 bias\n    return F.softmax(scores, dim=-1)\n\n# 生成 alibi bias\ndef get_alibi_bias(n_heads, seq_len):\n    slopes = torch.tensor([2 ** -((i + 1) * 8 / n_heads) for i in range(n_heads)])\n    # distance matrix\n    pos = torch.arange(seq_len)\n    distance = (pos.unsqueeze(0) - pos.unsqueeze(1)).abs().float()  # (seq, seq)\n    alibi = -slopes.view(-1, 1, 1) * distance.view(1, seq_len, seq_len)\n    return alibi.unsqueeze(0)   # (1, heads, seq, seq)\n\n# 优势：\n# - 无需训练位置参数（省参数）\n# - 天然支持更长 context（外推性好）\n# - 计算便宜",
+        "desc": "ALiBi 注意力 bias PyTorch 实现"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "ALiBi 论文 (Press et al. 2022)",
+        "url": "https://arxiv.org/abs/2108.12409"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "ALiBi: a simple, parameter-free positional encoding with strong length extrapolation.",
+        "cite": "Press et al. 2022"
+      }
     ]
   },
   {
@@ -1273,6 +1313,28 @@
     "related": [
       "quantization",
       "gptq"
+    ],
+    "examples": [
+      {
+        "code": "# AWQ: Activation-aware Weight Quantization\n# 关键洞察：不是所有 weight 都同等重要\n# 1% salient weights → 保留高精度 (FP16)\n# 99% 其他 → INT4\n\n# 安装:\n$ pip install autoawq\n\nfrom awq import AutoAWQForCausalLM\nfrom transformers import AutoTokenizer\n\nmodel_path = \"Qwen/Qwen2.5-7B-Instruct\"\nquant_path = \"qwen2.5-7b-awq-4bit\"\n\n# 量化\nmodel = AutoAWQForCausalLM.from_pretrained(model_path)\ntokenizer = AutoTokenizer.from_pretrained(model_path)\nquant_config = { \"zero_point\": True, \"q_group_size\": 128, \"w_bit\": 4 }\nmodel.quantize(tokenizer, quant_config=quant_config)\nmodel.save_quantized(quant_path)\n\n# 加载量化模型\nfrom awq import AutoAWQForCausalLM\nmodel = AutoAWQForCausalLM.from_quantized(quant_path)\n\n# 优势：\n# - 4-bit 推理速度接近 FP16\n# - 质量损失最小（vs GPTQ）\n# - 适合 LLM 服务部署",
+        "desc": "AWQ 4-bit 量化完整 pipeline"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "AWQ 论文",
+        "url": "https://arxiv.org/abs/2306.00978"
+      },
+      {
+        "name": "AutoAWQ GitHub",
+        "url": "https://github.com/casper-hansen/AutoAWQ"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "AWQ: 4-bit quantization that preserves quality by protecting salient weights.",
+        "cite": "Lin et al. 2023"
+      }
     ]
   },
   {
@@ -1290,6 +1352,28 @@
     "related": [
       "awq",
       "quantization"
+    ],
+    "examples": [
+      {
+        "code": "# GPTQ: GPT 风格的训练后量化\n# 逐层量化：每层最小化重建误差\n# 一次性量化整个模型\n\n# 安装:\n$ pip install auto-gptq\n\nfrom auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig\n\nmodel_path = \"meta-llama/Llama-3-8B\"\nquant_path = \"llama-3-8b-gptq-4bit\"\n\n# 量化\nquantize_config = BaseQuantizeConfig(\n    bits=4,\n    group_size=128,\n    desc_act=True,       # activation-aware\n)\n\nmodel = AutoGPTQForCausalLM.from_pretrained(model_path, quantize_config)\ntokenizer = AutoTokenizer.from_pretrained(model_path)\n\n# 校准（用 128 个样本）\nexamples = [...]   # 代表性数据集\nmodel.quantize(examples, batch_size=1, use_triton=False)\n\nmodel.save_quantized(quant_path)\n\n# 推理：\nfrom auto_gptq import AutoGPTQForCausalLM\nmodel = AutoGPTQForCausalLM.from_quantized(quant_path, device=\"cuda:0\")",
+        "desc": "GPTQ 4-bit 量化 + 校准"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "GPTQ 论文 (Frantar et al. 2022)",
+        "url": "https://arxiv.org/abs/2210.17323"
+      },
+      {
+        "name": "AutoGPTQ GitHub",
+        "url": "https://github.com/AutoGPTQ/AutoGPTQ"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "GPTQ: O(N) layer-wise quantization using second-order information.",
+        "cite": "Frantar et al. 2022"
+      }
     ]
   },
   {
@@ -1329,6 +1413,28 @@
     "longDesc": "<p>在能力上达到<strong>\"前沿\"</strong>的 LLM。</p>\n<p><strong>代表：</strong></p>\n<ul>\n<li><strong>Anthropic</strong>：Claude Opus 4.6 / Sonnet 4.6 / Haiku 4.5</li>\n<li><strong>OpenAI</strong>：GPT-5 / GPT-5.2 / o3 / o4-mini</li>\n<li><strong>Google</strong>：Gemini 3 Pro / 2.5 Pro</li>\n<li><strong>xAI</strong>：Grok 4</li>\n<li><strong>DeepSeek</strong>：V3.2 / R1</li>\n<li><strong>Meta</strong>：Llama 4</li>\n<li><strong>Alibaba</strong>：Qwen 3</li>\n</ul>",
     "related": [
       "llm"
+    ],
+    "examples": [
+      {
+        "code": "# Frontier Model: 最先进的 LLM\n# 2026 frontier 模型列表：\n\nfrontier_models = {\n    \"Anthropic\": [\n        {\"name\": \"Claude Opus 4.6\", \"context\": \"1M\", \"strength\": \"reasoning + coding\"},\n        {\"name\": \"Claude Sonnet 4.5\", \"context\": \"1M\", \"strength\": \"balanced\"},\n    ],\n    \"OpenAI\": [\n        {\"name\": \"GPT-5\", \"context\": \"256K\", \"strength\": \"multimodal\"},\n        {\"name\": \"GPT-4o\", \"context\": \"128K\", \"strength\": \"speed\"},\n    ],\n    \"Google\": [\n        {\"name\": \"Gemini 2.5 Pro\", \"context\": \"2M\", \"strength\": \"long context\"},\n    ],\n    \"Meta\": [\n        {\"name\": \"Llama 4 405B\", \"context\": \"128K\", \"strength\": \"open source\"},\n    ],\n    \"DeepSeek\": [\n        {\"name\": \"DeepSeek V3\", \"context\": \"64K\", \"strength\": \"cost efficiency\"},\n    ],\n}\n\n# 选择 frontier model 考虑：\n# 1. 任务类型 (code / chat / multimodal)\n# 2. context 长度需求\n# 3. cost (input/output tokens)\n# 4. 速度 (latency)\n# 5. 数据 residency (cloud vs self-hosted)",
+        "desc": "Frontier model 选择决策树 + 2026 列表"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Stanford CRFM: Frontier Model Definition",
+        "url": "https://crfm.stanford.edu"
+      },
+      {
+        "name": "Anthropic Models",
+        "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Frontier model: the most capable AI system at the time, often with broad capabilities.",
+        "cite": "Stanford CRFM"
+      }
     ]
   },
   {
@@ -1347,6 +1453,28 @@
     "related": [
       "llm",
       "frontier-model"
+    ],
+    "examples": [
+      {
+        "code": "# Code Model: 专门为代码训练/微调的 LLM\n# 优势 vs general LLM：\n# - FIM (fill-in-middle) 能力强\n# - 多语言代码理解\n# - repository-level context (SWE-bench)\n\n# 2026 code models:\ncode_models = {\n    \"OpenAI\": [\"GPT-5-Codex\", \"codex-cli\"],\n    \"Anthropic\": [\"Claude Sonnet 4.5 (code专用系统提示)\"],\n    \"DeepSeek\": [\"DeepSeek-Coder-V2\"],\n    \"Qwen\": [\"Qwen2.5-Coder-32B-Instruct\"],\n    \"Mistral\": [\"Codestral 22B\"],\n    \"Meta\": [\"Code Llama 70B\"],\n}\n\n# 评测基准：\n# - HumanEval: 164 Python problems\n# - MBPP: 1k Python problems\n# - SWE-bench: 真实 GitHub issue 修复\n# - LiveCodeBench: 竞赛级编程\n\n# 实测 leader (2026):\n# 1. Claude Sonnet 4.5: SWE-bench 60%+\n# 2. GPT-5-Codex: SWE-bench 55%+\n# 3. Qwen2.5-Coder: HumanEval 90%+",
+        "desc": "Code model 评测 + 2026 leaderboard"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Qwen2.5-Coder",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/"
+      },
+      {
+        "name": "SWE-bench Leaderboard",
+        "url": "https://www.swebench.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Code models: specialized LLMs trained on code repositories. Outperform general models on programming tasks.",
+        "cite": "community"
+      }
     ]
   },
   {

@@ -406,6 +406,24 @@
     "related": [
       "claude-md",
       "iterative-refinement"
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Checkpoint: agent 状态快照\n# 当 agent 执行长任务时，定期保存状态：\n# - 已修改的文件列表\n# - 当前 todo 进度\n# - 关键决策历史\n\n# 用法：\n$ claude \"Refactor the auth module\"\n# Claude 自动：\n# 1. 创建初始 checkpoint\n# 2. 每 5 步保存\n# 3. 出错时回退到上一个 checkpoint\n# 4. 完成后清理\n\n# 手动触发：\n# /checkpoint → 立即保存当前状态\n# /rewind → 回退到上一个 checkpoint",
+        "desc": "Claude Code checkpoint 工作流"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Checkpoints",
+        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Checkpoints let you rewind long-running agent tasks without losing progress.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {
@@ -425,6 +443,24 @@
       "auto-mode",
       "yolo-mode",
       "guardrails"
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Permission Mode: 控制 agent 权限\n# 3 种模式：\n# 1. default: 每次破坏性操作前 prompt\n# 2. acceptEdits: 自动批准文件编辑（保留 prompt 给系统命令）\n# 3. bypassPermissions: 全自动（仅 sandbox 内安全）\n\n# 配置：~/.claude/settings.json 或 .claude/settings.local.json\n{\n  \"permissions\": {\n    \"mode\": \"acceptEdits\",\n    \"allow\": [\"Bash(npm test)\", \"Read(**/*.ts)\"],\n    \"deny\": [\"Bash(rm -rf *)\"]\n  }\n}\n\n# CLI flag:\n$ claude --permission-mode bypassPermissions\n\n# 团队规范：\n# - 个人项目: default\n# - 内部工具: acceptEdits\n# - 生产: default + 严格 deny list",
+        "desc": "Claude Code permission mode 3 种配置"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Permissions",
+        "url": "https://docs.claude.com/en/docs/claude-code/permissions"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Permission mode determines which tools Claude can invoke without confirmation.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {
@@ -485,6 +521,24 @@
       "claude-md",
       "hooks",
       "mcp"
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Bare Mode: 极简配置模式\n# 不加载任何 custom commands / hooks / agents\n# 纯净 Claude Code 环境\n\n# 用途：\n# 1. 调试 — 排除 custom 配置干扰\n# 2. 一致性 — 不同机器上相同行为\n# 3. CI — 自动化环境\n\n# CLI:\n$ claude --bare\n\n# 环境变量:\n$ CLAUDE_CODE_BARE_MODE=1 claude\n\n# vs default:\n# - 没有 user-level commands/agents\n# - 没有 hooks 触发\n# - 只用 core Claude Code 功能\n# - settings.json 只读 project-level",
+        "desc": "Claude Code bare mode 调试/一致性场景"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Bare Mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Bare mode: vanilla Claude Code without project customizations.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {
@@ -578,6 +632,24 @@
     "related": [
       "claude-md",
       "system-prompt"
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Output Style: 控制输出格式\n# 4 种内置风格：\n# - default: 标准格式（解释 + 代码）\n# - explanatory: 详细教学风格（教学时用）\n# - concise: 极简风格（节省 token）\n# - structured: 结构化（表格 + 列表）\n\n# CLI:\n$ claude --output-style concise\n\n# 团队规范示例：\n{\n  \"output_style\": \"structured\",\n  \"preferences\": {\n    \"include_examples\": true,\n    \"include_citations\": true\n  }\n}\n\n# 应用场景：\n# - 学习: explanatory\n# - 写代码: default\n# - 大量生成: concise\n# - 报告 / 文档: structured",
+        "desc": "Claude Code 4 种 output style + 选择指南"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Output Styles",
+        "url": "https://docs.claude.com/en/docs/claude-code/output-styles"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Output style shapes how Claude communicates — verbose or terse, prose or tables.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {

@@ -1034,6 +1034,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p>可回滚：代码、对话、或两者。</p>
 <p><strong>重要：</strong>检查点与 git 独立——bash 工具的修改不通过检查点追踪。</p>`,
     related: ["claude-md","iterative-refinement"],
+    quotes: [
+      {
+        "text": "Checkpoints let you rewind long-running agent tasks without losing progress.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Checkpoints",
+        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Claude Code Checkpoint: agent 状态快照\n# 当 agent 执行长任务时，定期保存状态：\n# - 已修改的文件列表\n# - 当前 todo 进度\n# - 关键决策历史\n\n# 用法：\n$ claude \"Refactor the auth module\"\n# Claude 自动：\n# 1. 创建初始 checkpoint\n# 2. 每 5 步保存\n# 3. 出错时回退到上一个 checkpoint\n# 4. 完成后清理\n\n# 手动触发：\n# /checkpoint → 立即保存当前状态\n# /rewind → 回退到上一个 checkpoint",
+        "desc": "Claude Code checkpoint 工作流"
+      }
+    ],
   },
   {
     id: "permission-mode",
@@ -1052,6 +1070,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>Auto Mode</strong> 是新模式：另一个分类器模型在后台审查操作，多数无需审批。</p>`,
     related: ["auto-mode","yolo-mode","guardrails"],
+    quotes: [
+      {
+        "text": "Permission mode determines which tools Claude can invoke without confirmation.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Permissions",
+        "url": "https://docs.claude.com/en/docs/claude-code/permissions"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Claude Code Permission Mode: 控制 agent 权限\n# 3 种模式：\n# 1. default: 每次破坏性操作前 prompt\n# 2. acceptEdits: 自动批准文件编辑（保留 prompt 给系统命令）\n# 3. bypassPermissions: 全自动（仅 sandbox 内安全）\n\n# 配置：~/.claude/settings.json 或 .claude/settings.local.json\n{\n  \"permissions\": {\n    \"mode\": \"acceptEdits\",\n    \"allow\": [\"Bash(npm test)\", \"Read(**/*.ts)\"],\n    \"deny\": [\"Bash(rm -rf *)\"]\n  }\n}\n\n# CLI flag:\n$ claude --permission-mode bypassPermissions\n\n# 团队规范：\n# - 个人项目: default\n# - 内部工具: acceptEdits\n# - 生产: default + 严格 deny list",
+        "desc": "Claude Code permission mode 3 种配置"
+      }
+    ],
   },
   {
     id: "auto-mode",
@@ -1112,6 +1148,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>用途：</strong>CI 环境和脚本化调用——保证每台机器结果一致。</p>`,
     related: ["claude-md","hooks","mcp"],
+    quotes: [
+      {
+        "text": "Bare mode: vanilla Claude Code without project customizations.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Bare Mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Claude Code Bare Mode: 极简配置模式\n# 不加载任何 custom commands / hooks / agents\n# 纯净 Claude Code 环境\n\n# 用途：\n# 1. 调试 — 排除 custom 配置干扰\n# 2. 一致性 — 不同机器上相同行为\n# 3. CI — 自动化环境\n\n# CLI:\n$ claude --bare\n\n# 环境变量:\n$ CLAUDE_CODE_BARE_MODE=1 claude\n\n# vs default:\n# - 没有 user-level commands/agents\n# - 没有 hooks 触发\n# - 只用 core Claude Code 功能\n# - settings.json 只读 project-level",
+        "desc": "Claude Code bare mode 调试/一致性场景"
+      }
+    ],
   },
   {
     id: "extended-thinking",
@@ -1203,6 +1257,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>内置风格：</strong>Default / Proactive / Explanatory / Learning</p>`,
     related: ["claude-md","system-prompt"],
+    quotes: [
+      {
+        "text": "Output style shapes how Claude communicates — verbose or terse, prose or tables.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Output Styles",
+        "url": "https://docs.claude.com/en/docs/claude-code/output-styles"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Claude Code Output Style: 控制输出格式\n# 4 种内置风格：\n# - default: 标准格式（解释 + 代码）\n# - explanatory: 详细教学风格（教学时用）\n# - concise: 极简风格（节省 token）\n# - structured: 结构化（表格 + 列表）\n\n# CLI:\n$ claude --output-style concise\n\n# 团队规范示例：\n{\n  \"output_style\": \"structured\",\n  \"preferences\": {\n    \"include_examples\": true,\n    \"include_citations\": true\n  }\n}\n\n# 应用场景：\n# - 学习: explanatory\n# - 写代码: default\n# - 大量生成: concise\n# - 报告 / 文档: structured",
+        "desc": "Claude Code 4 种 output style + 选择指南"
+      }
+    ],
   },
   {
     id: "hooks",
@@ -2434,6 +2506,28 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>MoE 中的<strong>路由器</strong>——决定哪个 expert 处理哪个 token。</p>
 <p><strong>训练挑战：</strong>负载均衡（避免总路由到少数 experts）。</p>`,
     related: ["mixture-of-experts"],
+    quotes: [
+      {
+        "text": "Routing: route each query to the cheapest model that can handle it.",
+        "cite": "FrugalGPT, 2023"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "FrugalGPT 论文",
+        "url": "https://arxiv.org/abs/2305.05176"
+      },
+      {
+        "name": "Switch Transformer",
+        "url": "https://arxiv.org/abs/2101.03961"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Router/Gating: 动态选择 expert 或模型\n# MoE 中的 gating network:\nclass Router(torch.nn.Module):\n    def __init__(self, d_model, num_experts):\n        super().__init__()\n        self.gate = torch.nn.Linear(d_model, num_experts)\n\n    def forward(self, x):\n        logits = self.gate(x)\n        # top-k routing\n        top_k_vals, top_k_idx = logits.topk(2, dim=-1)\n        return top_k_vals, top_k_idx\n\n# 多模型 routing (e.g., 简单问题用小模型，复杂用大模型)\ndef route_query(query):\n    if is_simple(query):\n        return \"gpt-4o-mini\"      # 便宜\n    elif is_moderate(query):\n        return \"claude-sonnet-4-5\" # 中等\n    else:\n        return \"claude-opus-4-6\"   # 强但贵\n\n# 实战：FrugalGPT / RouteLLM 等 router 模型",
+        "desc": "Router/Gating 两种用法（MoE + 多模型）"
+      }
+    ],
   },
   {
     id: "mamba",
@@ -2519,6 +2613,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>优势：</strong>无额外参数；外推到更长序列。</p>
 <p><strong>用户：</strong>MPT / BLOOM</p>`,
     related: ["rope","transformer"],
+    quotes: [
+      {
+        "text": "ALiBi: a simple, parameter-free positional encoding with strong length extrapolation.",
+        "cite": "Press et al. 2022"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "ALiBi 论文 (Press et al. 2022)",
+        "url": "https://arxiv.org/abs/2108.12409"
+      }
+    ],
+    examples: [
+      {
+        "code": "# ALiBi: Attention with Linear Biases\n# 替代 rope/absolute position encoding\n# 原理：给 attention score 加线性距离 bias\n\nimport torch\nimport torch.nn.functional as F\n\ndef alibi_attention(Q, K, alibi_bias):\n    # Q, K: (batch, heads, seq, d_k)\n    # alibi_bias: (batch, heads, seq, seq) — 预计算\n    scores = (Q @ K.transpose(-2, -1)) / (Q.size(-1) ** 0.5)\n    scores = scores + alibi_bias   # 加线性 bias\n    return F.softmax(scores, dim=-1)\n\n# 生成 alibi bias\ndef get_alibi_bias(n_heads, seq_len):\n    slopes = torch.tensor([2 ** -((i + 1) * 8 / n_heads) for i in range(n_heads)])\n    # distance matrix\n    pos = torch.arange(seq_len)\n    distance = (pos.unsqueeze(0) - pos.unsqueeze(1)).abs().float()  # (seq, seq)\n    alibi = -slopes.view(-1, 1, 1) * distance.view(1, seq_len, seq_len)\n    return alibi.unsqueeze(0)   # (1, heads, seq, seq)\n\n# 优势：\n# - 无需训练位置参数（省参数）\n# - 天然支持更长 context（外推性好）\n# - 计算便宜",
+        "desc": "ALiBi 注意力 bias PyTorch 实现"
+      }
+    ],
   },
   {
     id: "quantization",
@@ -2574,6 +2686,28 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Activation-aware Weight Quantization：保护重要权重的低精度量化。",
     longDesc: "<p><strong>AWQ</strong>（Activation-aware Weight Quantization）：通过分析激活值分布保护<strong>重要权重</strong>，实现低精度量化且精度损失小。</p>",
     related: ["quantization","gptq"],
+    quotes: [
+      {
+        "text": "AWQ: 4-bit quantization that preserves quality by protecting salient weights.",
+        "cite": "Lin et al. 2023"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "AWQ 论文",
+        "url": "https://arxiv.org/abs/2306.00978"
+      },
+      {
+        "name": "AutoAWQ GitHub",
+        "url": "https://github.com/casper-hansen/AutoAWQ"
+      }
+    ],
+    examples: [
+      {
+        "code": "# AWQ: Activation-aware Weight Quantization\n# 关键洞察：不是所有 weight 都同等重要\n# 1% salient weights → 保留高精度 (FP16)\n# 99% 其他 → INT4\n\n# 安装:\n$ pip install autoawq\n\nfrom awq import AutoAWQForCausalLM\nfrom transformers import AutoTokenizer\n\nmodel_path = \"Qwen/Qwen2.5-7B-Instruct\"\nquant_path = \"qwen2.5-7b-awq-4bit\"\n\n# 量化\nmodel = AutoAWQForCausalLM.from_pretrained(model_path)\ntokenizer = AutoTokenizer.from_pretrained(model_path)\nquant_config = { \"zero_point\": True, \"q_group_size\": 128, \"w_bit\": 4 }\nmodel.quantize(tokenizer, quant_config=quant_config)\nmodel.save_quantized(quant_path)\n\n# 加载量化模型\nfrom awq import AutoAWQForCausalLM\nmodel = AutoAWQForCausalLM.from_quantized(quant_path)\n\n# 优势：\n# - 4-bit 推理速度接近 FP16\n# - 质量损失最小（vs GPTQ）\n# - 适合 LLM 服务部署",
+        "desc": "AWQ 4-bit 量化完整 pipeline"
+      }
+    ],
   },
   {
     id: "gptq",
@@ -2586,6 +2720,28 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>GPTQ</strong>：逐层量化大模型，INT4 精度下保持高质量。</p>
 <p><strong>原理：</strong>二阶信息最小化量化误差。</p>`,
     related: ["awq","quantization"],
+    quotes: [
+      {
+        "text": "GPTQ: O(N) layer-wise quantization using second-order information.",
+        "cite": "Frantar et al. 2022"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "GPTQ 论文 (Frantar et al. 2022)",
+        "url": "https://arxiv.org/abs/2210.17323"
+      },
+      {
+        "name": "AutoGPTQ GitHub",
+        "url": "https://github.com/AutoGPTQ/AutoGPTQ"
+      }
+    ],
+    examples: [
+      {
+        "code": "# GPTQ: GPT 风格的训练后量化\n# 逐层量化：每层最小化重建误差\n# 一次性量化整个模型\n\n# 安装:\n$ pip install auto-gptq\n\nfrom auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig\n\nmodel_path = \"meta-llama/Llama-3-8B\"\nquant_path = \"llama-3-8b-gptq-4bit\"\n\n# 量化\nquantize_config = BaseQuantizeConfig(\n    bits=4,\n    group_size=128,\n    desc_act=True,       # activation-aware\n)\n\nmodel = AutoGPTQForCausalLM.from_pretrained(model_path, quantize_config)\ntokenizer = AutoTokenizer.from_pretrained(model_path)\n\n# 校准（用 128 个样本）\nexamples = [...]   # 代表性数据集\nmodel.quantize(examples, batch_size=1, use_triton=False)\n\nmodel.save_quantized(quant_path)\n\n# 推理：\nfrom auto_gptq import AutoGPTQForCausalLM\nmodel = AutoGPTQForCausalLM.from_quantized(quant_path, device=\"cuda:0\")",
+        "desc": "GPTQ 4-bit 量化 + 校准"
+      }
+    ],
   },
   {
     id: "distillation",
@@ -2625,6 +2781,28 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Alibaba</strong>：Qwen 3</li>
 </ul>`,
     related: ["llm"],
+    quotes: [
+      {
+        "text": "Frontier model: the most capable AI system at the time, often with broad capabilities.",
+        "cite": "Stanford CRFM"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Stanford CRFM: Frontier Model Definition",
+        "url": "https://crfm.stanford.edu"
+      },
+      {
+        "name": "Anthropic Models",
+        "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Frontier Model: 最先进的 LLM\n# 2026 frontier 模型列表：\n\nfrontier_models = {\n    \"Anthropic\": [\n        {\"name\": \"Claude Opus 4.6\", \"context\": \"1M\", \"strength\": \"reasoning + coding\"},\n        {\"name\": \"Claude Sonnet 4.5\", \"context\": \"1M\", \"strength\": \"balanced\"},\n    ],\n    \"OpenAI\": [\n        {\"name\": \"GPT-5\", \"context\": \"256K\", \"strength\": \"multimodal\"},\n        {\"name\": \"GPT-4o\", \"context\": \"128K\", \"strength\": \"speed\"},\n    ],\n    \"Google\": [\n        {\"name\": \"Gemini 2.5 Pro\", \"context\": \"2M\", \"strength\": \"long context\"},\n    ],\n    \"Meta\": [\n        {\"name\": \"Llama 4 405B\", \"context\": \"128K\", \"strength\": \"open source\"},\n    ],\n    \"DeepSeek\": [\n        {\"name\": \"DeepSeek V3\", \"context\": \"64K\", \"strength\": \"cost efficiency\"},\n    ],\n}\n\n# 选择 frontier model 考虑：\n# 1. 任务类型 (code / chat / multimodal)\n# 2. context 长度需求\n# 3. cost (input/output tokens)\n# 4. 速度 (latency)\n# 5. 数据 residency (cloud vs self-hosted)",
+        "desc": "Frontier model 选择决策树 + 2026 列表"
+      }
+    ],
   },
   {
     id: "code-model",
@@ -2645,6 +2823,28 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Codex CLI</strong>（OpenAI 2025+）</li>
 </ul>`,
     related: ["llm","frontier-model"],
+    quotes: [
+      {
+        "text": "Code models: specialized LLMs trained on code repositories. Outperform general models on programming tasks.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Qwen2.5-Coder",
+        "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/"
+      },
+      {
+        "name": "SWE-bench Leaderboard",
+        "url": "https://www.swebench.com"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Code Model: 专门为代码训练/微调的 LLM\n# 优势 vs general LLM：\n# - FIM (fill-in-middle) 能力强\n# - 多语言代码理解\n# - repository-level context (SWE-bench)\n\n# 2026 code models:\ncode_models = {\n    \"OpenAI\": [\"GPT-5-Codex\", \"codex-cli\"],\n    \"Anthropic\": [\"Claude Sonnet 4.5 (code专用系统提示)\"],\n    \"DeepSeek\": [\"DeepSeek-Coder-V2\"],\n    \"Qwen\": [\"Qwen2.5-Coder-32B-Instruct\"],\n    \"Mistral\": [\"Codestral 22B\"],\n    \"Meta\": [\"Code Llama 70B\"],\n}\n\n# 评测基准：\n# - HumanEval: 164 Python problems\n# - MBPP: 1k Python problems\n# - SWE-bench: 真实 GitHub issue 修复\n# - LiveCodeBench: 竞赛级编程\n\n# 实测 leader (2026):\n# 1. Claude Sonnet 4.5: SWE-bench 60%+\n# 2. GPT-5-Codex: SWE-bench 55%+\n# 3. Qwen2.5-Coder: HumanEval 90%+",
+        "desc": "Code model 评测 + 2026 leaderboard"
+      }
+    ],
   },
   {
     id: "fine-tuning",
