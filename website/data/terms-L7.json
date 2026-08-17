@@ -110,6 +110,12 @@
     "related": [
       "cot",
       "reflection"
+    ],
+    "examples": [
+      {
+        "code": "# Self-Consistency: 多次采样 + 多数投票\n# 单次 LLM 输出可能错，投票降低随机性\n\nfrom collections import Counter\n\ndef self_consistent_answer(prompt, model, n_samples=5):\n    answers = [model.generate(prompt, temperature=0.7) for _ in range(n_samples)]\n    # 多数投票\n    most_common = Counter(answers).most_common(1)[0][0]\n    return most_common\n\n# 适用：\n# - 数学推理（GSM8K +17.9%）\n# - 常识推理\n# - 代码生成（同一问题多种实现）\n\n# 代价：n x 推理成本",
+        "desc": "Self-consistency 投票机制"
+      }
     ]
   },
   {

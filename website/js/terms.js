@@ -621,6 +621,12 @@ window.VC_TERMS = [
         "url": "https://www.huntthought.com/2026/cognitive-debt"
       }
     ],
+    examples: [
+      {
+        "code": "# Machine Speed: AI 修改代码的速度远超人类 review\n# 实测：人类 review ~200 行代码/小时\n# AI 生成 ~2000 行代码/小时\n# → review bottleneck 放大 10x\n\n# 后果（无 guardrails）：\n# - tech debt 积累速度 = 人类时代的 10x\n# - review 跟不上，AI 错改未被发现\n\n# 解法：\n# 1. 强类型系统（编译时捕获 ~70% 错误）\n# 2. 自动测试（CI 跑全套，5 分钟内）\n# 3. 限制 AI 单次 PR 大小（<500 行）\n# 4. spec.md 先行 → 减少 review 模糊地带",
+        "desc": "Machine speed 含义 + 实测数据 + guardrails"
+      }
+    ],
   },
 
   // ============ L2 · 方法论层 (20 个) ============
@@ -846,6 +852,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://github.github.io/spec-kit/"
       }
     ],
+    examples: [
+      {
+        "code": "# Acceptance Criteria: spec 的机器可验证版本\n## User Story: 作为用户，我想重置密码，以便忘记密码时能恢复账号\n\n# 验收标准（每条都是可测的）：\n- [ ] 点击\"忘记密码\"链接，5 秒内跳转到 /reset\n- [ ] 输入邮箱，60 秒内收到重置邮件\n- [ ] 重置链接 24h 后失效\n- [ ] 重置后，旧 session 全部失效\n- [ ] npx tsc --noEmit 通过\n- [ ] 3 个 e2e 测试覆盖（点击、邮件、失效）\n\n# 非目标（明确不做）：\n- 不做短信验证码\n- 不做多因素认证",
+        "desc": "Acceptance Criteria 完整样例"
+      }
+    ],
   },
   {
     id: "tdd-ai",
@@ -879,6 +891,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Kent Beck: TDD by Example",
         "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+      }
+    ],
+    examples: [
+      {
+        "code": "# TDD with AI: 测试先于代码\n# 1. 写失败的测试（spec 形式）\ndef test_calculate_discount():\n    assert calculate_discount(100, \"regular\") == 100\n    assert calculate_discount(100, \"gold\") == 80\n\n# 2. 跑测试：FAIL（AI 还没写实现）\n$ pytest test_discount.py\n# FAILED test_discount.py::test_calculate_discount - NameError\n\n# 3. prompt AI:\n# \"实现 calculate_discount(price, tier):\n#  - regular: 无折扣\n#  - silver: 10%\n#  - gold: 20%\n#  - platinum: 30%\n#  通过 test_calculate_discount 中的测试\"\n\n# 4. AI 写代码 → 重跑测试 → PASS",
+        "desc": "TDD with AI 工作流"
       }
     ],
   },
@@ -950,6 +968,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Claude Code: Memory",
         "url": "https://docs.claude.com/en/docs/claude-code/memory"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Claude Code Auto Memory: 跨 session 持久化\n# ~/.claude/memory/CLAUDE.md 跨会话保留\n# 项目级：.claude/memory/\n\n# 自动记忆的内容：\n# - 用户偏好（\"always use 2-space indent\"）\n# - 项目约定（\"API errors return RFC 7807\"）\n# - 关键决策（\"chose Postgres over MongoDB for JSONB\"）\n\n# 触发：每个 session 末尾自动 append\n# 加载：每个 session 开始时自动 prepend",
+        "desc": "Claude Code auto memory 用法"
       }
     ],
   },
@@ -1289,6 +1313,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://docs.claude.com/en/docs/claude-code/slash-commands"
       }
     ],
+    examples: [
+      {
+        "code": "# Claude Code Custom Commands: 把常用 prompt 模板化\n# .claude/commands/test.md:\n\"\"\"\n跑以下测试并报告：\n- pytest tests/ -v\n- npx vitest run\n- coverage < 80% 时列出未覆盖文件\n\n只报告失败项，不要解释成功项。\n\"\"\"\n\n# 用法：在 Claude Code 中输入 /test\n# 自动执行上面的 prompt\n\n# 类似 /deploy, /review-pr, /refactor",
+        "desc": "Claude Code custom commands 模板"
+      }
+    ],
   },
 
   // ============ L3 · 技术概念层 (53 个) ============
@@ -1443,6 +1473,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Google Gemini 2.5 Pro 2M",
         "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Context Window: LLM 一次能\"看\"多少 token\n# 2026 标准：\n# - Claude Opus 4.6: 1M tokens (~750K 英文单词)\n# - Gemini 2.5 Pro: 2M tokens\n# - GPT-4o: 128K (默认)\n\n# 1 token ≈ 0.75 英文单词 ≈ 1.5 中文字符\n# 1M tokens ≈:\n# - 750K 英文单词 (~3000 页)\n# - 50 万汉字\n\n# 应用：\n# - 长文档 RAG（chunk + 检索 + 注入）\n# - 全 codebase 分析（claude --add-dir + context）\n# - 长对话（自动 compaction）",
+        "desc": "Context window 实测数据 + 实际应用"
       }
     ],
   },
@@ -1613,6 +1649,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://www.anthropic.com/research/building-effective-agents"
       }
     ],
+    examples: [
+      {
+        "code": "# Claude Code Subagent: 隔离 context 的子 agent\n# .claude/agents/security-reviewer.md:\n---\nname: security-reviewer\ndescription: Reviews code for security vulnerabilities. Use proactively after code changes.\ntools: Read, Grep, Glob\n---\n\nYou are a security reviewer. When invoked:\n1. Scan changed files for OWASP Top Top\n2. Check for: SQL injection, XSS, hardcoded secrets, eval()\n3. Output findings as: file:line + severity + fix\n4. DO NOT modify files — only report\n---\n\n# 用法：\n$ claude \"review recent changes for security\"\n# Claude 自动调用 security-reviewer subagent",
+        "desc": "Claude Code subagent 配置"
+      }
+    ],
   },
   {
     id: "agent-teams",
@@ -1684,6 +1726,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "OpenAI Function Calling",
         "url": "https://platform.openai.com/docs/guides/function-calling"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Tool Use: LLM 调外部 API 的协议\n# Anthropic 标准：\nmessages = client.messages.create(\n    model=\"claude-sonnet-4-5\",\n    tools=[\n        {\n            \"name\": \"get_weather\",\n            \"description\": \"Get current weather for a city. Use when user asks about weather.\",\n            \"input_schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"city\": {\"type\": \"string\"},\n                    \"unit\": {\"type\": \"string\", \"enum\": [\"celsius\", \"fahrenheit\"]}\n                },\n                \"required\": [\"city\"]\n            }\n        }\n    ],\n    messages=[{\"role\": \"user\", \"content\": \"What's the weather in Tokyo?\"}]\n)\n\n# Claude 决定是否调用、调用哪个、用什么参数\n# response.stop_reason == \"tool_use\" → 处理调用",
+        "desc": "Anthropic tool use 标准用法"
       }
     ],
   },
@@ -2093,6 +2141,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://www.sbert.net/examples/applications/cross-encoder/README.html"
       }
     ],
+    examples: [
+      {
+        "code": "# Reranker: 把 vector search 的 top-K 结果按相关性重排\n# Stage 1: Vector search (fast, ~10ms)\n# Stage 2: Rerank top-20 with cross-encoder (slow but accurate, ~200ms)\n# Stage 3: 选 top-5 注入 prompt\n\nfrom sentence_transformers import CrossEncoder\n\nreranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')\n\n# Vector search 返回 20 个候选\ncandidates = vector_store.search(query, top_k=20)\n\n# Cross-encoder 打分\npairs = [[query, doc.text] for doc in candidates]\nscores = reranker.predict(pairs)  # shape: (20,)\n\n# 重排并取 top-5\ntop_5 = [candidates[i] for i in scores.argsort()[-5:][::-1]]\n\n# 性能提升：RAG 准确率 +15-30% (vs 纯 vector search)",
+        "desc": "Reranker 2-stage retrieval pipeline"
+      }
+    ],
   },
   {
     id: "graph-rag",
@@ -2153,6 +2207,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "HyDE 论文 (Gao et al. 2022)",
         "url": "https://arxiv.org/abs/2212.10496"
+      }
+    ],
+    examples: [
+      {
+        "code": "# HyDE: Hypothetical Document Embeddings\n# 假设文档 embedding 比问题 embedding 更接近真实文档\n# 1. LLM 生成\"假设性答案\"（不需要正确，只需相关）\n# 2. Embedding 假设答案\n# 3. 用假设答案的 embedding 做 vector search\n\nfrom openai import OpenAI\n\nclient = OpenAI()\n\ndef hyde_search(query, vector_store, k=5):\n    # 1. 生成假设答案\n    hypothetical = client.chat.completions.create(\n        model=\"gpt-4o-mini\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"Write a short answer to the question.\"},\n            {\"role\": \"user\", \"content\": query},\n        ],\n    ).choices[0].message.content\n\n    # 2. Embed 假设答案\n    query_emb = client.embeddings.create(\n        model=\"text-embedding-3-small\",\n        input=hypothetical,\n    ).data[0].embedding\n\n    # 3. Vector search\n    return vector_store.search(query_emb, top_k=k)\n\n# 实测：zero-shot retrieval 准确率显著提升（特别是短问题）",
+        "desc": "HyDE 完整 Python 实现"
       }
     ],
   },
@@ -2538,6 +2598,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>蒸馏</strong>：用大模型（teacher）的输出训练小模型（student），保留大部分能力但降低推理成本。</p>
 <p><strong>代表：</strong>DeepSeek R1 蒸馏到 Qwen / Llama 系列。</p>`,
     related: ["quantization","fine-tuning"],
+    examples: [
+      {
+        "code": "# Knowledge Distillation: 大模型知识转移到小模型\n# Teacher: 7B 模型\n# Student: 1.5B 模型\n# 目标: student 模仿 teacher 的 soft logits\n\nimport torch.nn.functional as F\n\ndef distillation_loss(student_logits, teacher_logits, temperature=3.0):\n    \"\"\"\n    Higher temperature = softer distribution = more knowledge transfer\n    \"\"\"\n    soft_student = F.log_softmax(student_logits / temperature, dim=-1)\n    soft_teacher = F.softmax(teacher_logits / temperature, dim=-1)\n    return F.kl_div(soft_student, soft_teacher, reduction='batchmean') * (temperature ** 2)\n\n# 总损失 = α * distillation + (1-α) * hard_target\nloss = 0.7 * distillation_loss(s_logits, t_logits) + 0.3 * F.cross_entropy(s_logits, labels)\n\n# 效果：DistilBERT 保留 97% 性能，60% 体积，60% 速度",
+        "desc": "Distillation loss 公式 + 实战数据"
+      }
+    ],
   },
   {
     id: "frontier-model",
@@ -2647,6 +2713,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://huggingface.co/docs/peft/conceptual_guides/lora"
       }
     ],
+    examples: [
+      {
+        "code": "# LoRA: 低秩适配微调\n# 标准 fine-tuning 更新所有 W 矩阵 (e.g., 7B params)\n# LoRA: 冻结 W，添加低秩旁路 W' = A @ B\n#   A: (d × r), B: (r × d), r << d\n#   参数量: r × 2d vs d × ×\n# 7B model + r=16: 训练 0.1% 参数\n\nfrom peft import LoraConfig, get_peft_model\n\nconfig = LoraConfig(\n    r=16,                   # rank\n    lora_alpha=32,          # scaling\n    target_modules=[\"q_proj\", \"v_proj\"],   # 只在 attention 层加 LoRA\n    lora_dropout=0.05,\n    bias=\"none\",\n    task_type=\"CAUSAL_LM\"\n)\n\nmodel = get_peft_model(base_model, config)\nmodel.print_trainable_parameters()\n# trainable params: 4,194,304 || all params: 7,000,000,000 || 0.06%",
+        "desc": "LoRA 标准用法 + 参数量对比"
+      }
+    ],
   },
   {
     id: "qlora",
@@ -2674,6 +2746,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://github.com/TimDettmers/bitsandbytes"
       }
     ],
+    examples: [
+      {
+        "code": "# QLoRA: 4-bit base + LoRA adapter\n# 1. 把 base model 量化到 4-bit (NF4)\n# 2. 添加 LoRA adapter (bf16)\n# 3. 只训练 LoRA 参数\n\nfrom transformers import BitsAndBytesConfig\nfrom peft import LoraConfig, prepare_model_for_kbit_training\n\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_quant_type=\"nf4\",\n    bnb_4bit_compute_dtype=\"bfloat16\",\n    bnb_4bit_use_double_quant=True,\n)\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"meta-llama/Llama-3-70b\",\n    quantization_config=bnb_config,\n    device_map=\"auto\",\n)\nmodel = prepare_model_for_kbit_training(model)\n\n# 加 LoRA\nlora_config = LoraConfig(r=64, lora_alpha=16, target_modules=\"all-linear\")\nmodel = get_peft_model(model, lora_config)\n\n# 效果：65B model 单 48GB GPU 可训练，95%+ 质量",
+        "desc": "QLoRA 完整 pipeline"
+      }
+    ],
   },
   {
     id: "peft",
@@ -2690,6 +2768,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "HuggingFace PEFT",
         "url": "https://huggingface.co/docs/peft/index"
+      }
+    ],
+    examples: [
+      {
+        "code": "# PEFT: Parameter-Efficient Fine-Tuning\n# HuggingFace 库统一多种参数高效微调方法\n\nfrom peft import (\n    LoraConfig, get_peft_model,           # LoRA / QLoRA\n    PromptTuningConfig,                   # Prompt Tuning\n    PrefixTuningConfig,                   # Prefix Tuning\n    IA3Config,                            # IA^3\n)\n\n# 1. LoRA (most popular)\nlora = LoraConfig(r=16, lora_alpha=32, target_modules=[\"q_proj\"])\nmodel = get_peft_model(base_model, lora)\n\n# 2. Prompt Tuning (smallest, <1k params)\nprompt_config = PromptTuningConfig(\n    num_virtual_tokens=20,\n    prompt_tuning_init=\"TEXT\",\n    prompt_tuning_init_text=\"Classify if this text is positive:\",\n)\n\n# 3. IA^3 (multiplies activations, similar params to LoRA)\nia3 = IA3Config(target_modules=[\"q_proj\", \"v_proj\"])",
+        "desc": "PEFT 库支持的 4 种主要方法"
       }
     ],
   },
@@ -2725,6 +2809,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems"
       }
     ],
+    examples: [
+      {
+        "code": "# RLHF: Reinforcement Learning from Human Feedback\n# 三阶段：\n# 1. SFT: 在 instruction-response 数据上 supervised fine-tune\n# 2. Reward Model: 人类对多个 output 排序，训练 reward model\n# 3. PPO: 用 reward model 作 reward signal，policy gradient 训练\n\n# 关键问题：\n# - reward hacking（model 学会 exploit RM 而非真改进）\n# - 人类标注不一致\n# - 计算昂贵（每次 PPO step 需 RM inference）\n\n# 替代方案：\n# - DPO: 直接 preference learning，无需 RM\n# - RLAIF: AI 替代人类标注\n# - KTO: Kahneman-Tversky 优化",
+        "desc": "RLHF 3 阶段 pipeline"
+      }
+    ],
   },
   {
     id: "dpo",
@@ -2753,6 +2843,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://huggingface.co/docs/trl/main/en/dpo_trainer"
       }
     ],
+    examples: [
+      {
+        "code": "# DPO: Direct Preference Optimization\n# 不需要 reward model，直接用偏好对 (chosen, rejected) 优化\n\nfrom trl import DPOTrainer, DPOConfig\n\nconfig = DPOConfig(\n    beta=0.1,                  # KL 约束强度\n    learning_rate=1e-6,\n    batch_size=4,\n)\n\ntrainer = DPOTrainer(\n    model=base_model,\n    ref_model=None,            # 用 peft 模式共享 base\n    args=config,\n    train_dataset=preference_dataset,  # {prompt, chosen, rejected}\n    tokenizer=tokenizer,\n)\ntrainer.train()\n\n# 优势 vs RLHF：\n# - 单阶段训练\n# - 无需 RM\n# - 更稳定（无 reward hacking）\n# - 论文: 75% 人类偏好 vs SFT baseline",
+        "desc": "DPO trainer HuggingFace TRL"
+      }
+    ],
   },
   {
     id: "rlaif",
@@ -2769,6 +2865,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "RLAIF 论文 (Lee et al. 2023)",
         "url": "https://arxiv.org/abs/2309.00267"
+      }
+    ],
+    examples: [
+      {
+        "code": "# RLAIF: Reinforcement Learning from AI Feedback\n# Anthropic Constitutional AI 的核心\n# 用 AI 替代人类标注 preference，扩展性更强\n\n# 流程：\n# 1. 让 LLM 根据\"宪法\"（一组原则）评价两个 output\n# 2. 用 AI 偏好训练 RM\n# 3. PPO 训练 policy\n\n# 优势：\n# - 便宜（无需人类标注）\n# - 可扩展（按宪法原则规模化）\n# - 一致性高\n\n# 宪法原则示例：\n# \"Choose the response that is least harmful, racist, sexist, or socially biased.\"\n# \"Avoid responses that encourage illegal or dangerous activity.\"",
+        "desc": "RLAIF Constitutional AI 流程"
       }
     ],
   },
@@ -2905,6 +3007,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://github.com/outlines-dev/outlines"
       }
     ],
+    examples: [
+      {
+        "code": "# Constrained Decoding: 强制 LLM 输出符合 schema\n# 用 Outlines / Guidance 等库实现\n\nimport outlines\n\n@outlines.prompt\ndef generate_user():\n    \"\"\"Generate a user profile as JSON.\"\"\"\n\ngenerator = outlines.generate.json(\n    model,\n    UserProfile,   # Pydantic model\n)\n\n# 输出严格匹配 schema\nuser = generator(\"Alice is 30, lives in Tokyo, likes coding\")\n\n# 优势：\n# - 无需 retry\n# - 100% schema 兼容\n# - token-level 约束（vs response-level 校验）\n\n# 应用：\n# - 结构化输出 (OpenAI JSON mode 类似)\n# - 代码生成（必须匹配语法）\n# - SQL 生成（必须有效）",
+        "desc": "Outlines 库 constrained decoding"
+      }
+    ],
   },
   {
     id: "sampling",
@@ -2927,6 +3035,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "HuggingFace: Generation 策略",
         "url": "https://huggingface.co/docs/transformers/generation_strategies"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Sampling 策略对比\n# 1. Greedy: 永远选概率最高的 token\n# - 优点: 确定、可复现\n# - 缺点: 容易重复、单调\n# - 适用: factual QA\n\n# 2. Top-K: 从概率最高的 K 个 token 中采样\n# K=40 是 OpenAI 默认\n# 优点: 限制离谱 token\n# 缺点: K 固定，分布稀疏时浪费\n\n# 3. Top-p (nucleus): 累积概率 ≥ p 的最小 token 集合\n# p=0.9 通常效果好\n# 优点: 自适应集合大小\n# 缺点: 计算稍慢\n\n# 4. Temperature: logits / temp 再 softmax\n# temp=0 → greedy, temp=1 → 标准, temp=2 → 更有创意\n\n# 实战：\n# 创意写作: temp=1.0, top_p=0.9\n# 代码生成: temp=0.2, top_p=0.95\n# 翻译: temp=0.3, top_k=40",
+        "desc": "4 种 sampling 策略对比 + 实战参数"
       }
     ],
   },
@@ -4245,6 +4359,10 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "code": "// YOLO Mode 最高风险：\n> Let the agent do whatever it wants\n// 风险事件：\n// - Replit Agent 删生产数据库\n// - Lovable 泄漏 PII\n// - Agent 装错依赖污染环境",
         "desc": "YOLO Mode 风险场景"
+      },
+      {
+        "code": "# YOLO Mode: deploy and pray\n# 适用场景：\n# ✓ 一次性原型\n# ✓ 个人工具\n# ✓ 内部 demo（接受 1 周内回滚）\n# ✗ 生产\n# ✗ 涉及金钱/医疗/法律\n\n# Claude Code /auto mode = YOLO 默认\n# 但保留：\n# - 5 秒延迟才执行破坏性命令\n# - git commit 自动 backup\n\n# 反例（YOLO 不适用）：\n# - 在线支付系统\n# - 医疗数据处理\n# - 多用户协作平台",
+        "desc": "YOLO mode 适用 vs 不适用场景"
       }
     ],
   },
@@ -5030,6 +5148,12 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>Self-Consistency</strong>：<strong>多次采样 + 多数投票</strong>，提升推理可靠性。</p>
 <p>CoT 的扩展——生成多条推理路径，选最一致的答案。</p>`,
     related: ["cot","reflection"],
+    examples: [
+      {
+        "code": "# Self-Consistency: 多次采样 + 多数投票\n# 单次 LLM 输出可能错，投票降低随机性\n\nfrom collections import Counter\n\ndef self_consistent_answer(prompt, model, n_samples=5):\n    answers = [model.generate(prompt, temperature=0.7) for _ in range(n_samples)]\n    # 多数投票\n    most_common = Counter(answers).most_common(1)[0][0]\n    return most_common\n\n# 适用：\n# - 数学推理（GSM8K +17.9%）\n# - 常识推理\n# - 代码生成（同一问题多种实现）\n\n# 代价：n x 推理成本",
+        "desc": "Self-consistency 投票机制"
+      }
+    ],
   },
   {
     id: "reflection",

@@ -287,6 +287,10 @@
       {
         "code": "// YOLO Mode 最高风险：\n> Let the agent do whatever it wants\n// 风险事件：\n// - Replit Agent 删生产数据库\n// - Lovable 泄漏 PII\n// - Agent 装错依赖污染环境",
         "desc": "YOLO Mode 风险场景"
+      },
+      {
+        "code": "# YOLO Mode: deploy and pray\n# 适用场景：\n# ✓ 一次性原型\n# ✓ 个人工具\n# ✓ 内部 demo（接受 1 周内回滚）\n# ✗ 生产\n# ✗ 涉及金钱/医疗/法律\n\n# Claude Code /auto mode = YOLO 默认\n# 但保留：\n# - 5 秒延迟才执行破坏性命令\n# - git commit 自动 backup\n\n# 反例（YOLO 不适用）：\n# - 在线支付系统\n# - 医疗数据处理\n# - 多用户协作平台",
+        "desc": "YOLO mode 适用 vs 不适用场景"
       }
     ],
     "seeAlso": [

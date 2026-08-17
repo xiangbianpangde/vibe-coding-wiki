@@ -655,6 +655,12 @@
         "text": "Agentic workflows without engineering practices produce tech debt at machine speed.",
         "cite": "Agarwal"
       }
+    ],
+    "examples": [
+      {
+        "code": "# Machine Speed: AI 修改代码的速度远超人类 review\n# 实测：人类 review ~200 行代码/小时\n# AI 生成 ~2000 行代码/小时\n# → review bottleneck 放大 10x\n\n# 后果（无 guardrails）：\n# - tech debt 积累速度 = 人类时代的 10x\n# - review 跟不上，AI 错改未被发现\n\n# 解法：\n# 1. 强类型系统（编译时捕获 ~70% 错误）\n# 2. 自动测试（CI 跑全套，5 分钟内）\n# 3. 限制 AI 单次 PR 大小（<500 行）\n# 4. spec.md 先行 → 减少 review 模糊地带",
+        "desc": "Machine speed 含义 + 实测数据 + guardrails"
+      }
     ]
   }
 ]

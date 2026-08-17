@@ -225,6 +225,12 @@
         "text": "Acceptance criteria are the machine-checkable spec that makes a user story testable.",
         "cite": "BDD community"
       }
+    ],
+    "examples": [
+      {
+        "code": "# Acceptance Criteria: spec 的机器可验证版本\n## User Story: 作为用户，我想重置密码，以便忘记密码时能恢复账号\n\n# 验收标准（每条都是可测的）：\n- [ ] 点击\"忘记密码\"链接，5 秒内跳转到 /reset\n- [ ] 输入邮箱，60 秒内收到重置邮件\n- [ ] 重置链接 24h 后失效\n- [ ] 重置后，旧 session 全部失效\n- [ ] npx tsc --noEmit 通过\n- [ ] 3 个 e2e 测试覆盖（点击、邮件、失效）\n\n# 非目标（明确不做）：\n- 不做短信验证码\n- 不做多因素认证",
+        "desc": "Acceptance Criteria 完整样例"
+      }
     ]
   },
   {
@@ -258,6 +264,12 @@
       {
         "text": "TDD with AI: write the test first, let AI make it pass, then refactor. The test is the spec.",
         "cite": "community"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# TDD with AI: 测试先于代码\n# 1. 写失败的测试（spec 形式）\ndef test_calculate_discount():\n    assert calculate_discount(100, \"regular\") == 100\n    assert calculate_discount(100, \"gold\") == 80\n\n# 2. 跑测试：FAIL（AI 还没写实现）\n$ pytest test_discount.py\n# FAILED test_discount.py::test_calculate_discount - NameError\n\n# 3. prompt AI:\n# \"实现 calculate_discount(price, tier):\n#  - regular: 无折扣\n#  - silver: 10%\n#  - gold: 20%\n#  - platinum: 30%\n#  通过 test_calculate_discount 中的测试\"\n\n# 4. AI 写代码 → 重跑测试 → PASS",
+        "desc": "TDD with AI 工作流"
       }
     ]
   },
@@ -329,6 +341,12 @@
       {
         "text": "Auto memory: Claude automatically recalls relevant context across sessions.",
         "cite": "Claude Code Docs"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Auto Memory: 跨 session 持久化\n# ~/.claude/memory/CLAUDE.md 跨会话保留\n# 项目级：.claude/memory/\n\n# 自动记忆的内容：\n# - 用户偏好（\"always use 2-space indent\"）\n# - 项目约定（\"API errors return RFC 7807\"）\n# - 关键决策（\"chose Postgres over MongoDB for JSONB\"）\n\n# 触发：每个 session 末尾自动 append\n# 加载：每个 session 开始时自动 prepend",
+        "desc": "Claude Code auto memory 用法"
       }
     ]
   },
@@ -661,6 +679,12 @@
       {
         "name": "Claude Code: Slash commands",
         "url": "https://docs.claude.com/en/docs/claude-code/slash-commands"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Custom Commands: 把常用 prompt 模板化\n# .claude/commands/test.md:\n\"\"\"\n跑以下测试并报告：\n- pytest tests/ -v\n- npx vitest run\n- coverage < 80% 时列出未覆盖文件\n\n只报告失败项，不要解释成功项。\n\"\"\"\n\n# 用法：在 Claude Code 中输入 /test\n# 自动执行上面的 prompt\n\n# 类似 /deploy, /review-pr, /refactor",
+        "desc": "Claude Code custom commands 模板"
       }
     ]
   }
