@@ -32,12 +32,24 @@
       {
         "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
         "cite": "Karpathy 2025-02 原文"
+      },
+      {
+        "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
+        "cite": "Andrej Karpathy, 2025-02-02"
       }
     ],
     "seeAlso": [
       {
         "name": "Vibe Coding 主页 - Simon Willison",
         "url": "https://simonwillison.net/2025/Mar/19/vibe-coding/"
+      },
+      {
+        "name": "Karpathy 原始推文",
+        "url": "https://twitter.com/karpathy/status/1886192184808149383"
+      },
+      {
+        "name": "Simon Willison: Vibe Coding 词条",
+        "url": "https://simonwillison.net/tags/vibe-coding/"
       }
     ]
   },
@@ -223,6 +235,18 @@
       "sdd",
       "spec-md",
       "iterative-refinement"
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison tags",
+        "url": "https://simonwillison.net/tags/prompt-driven-development/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Prompt-Driven Development: let the prompt be the spec.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -246,6 +270,20 @@
       {
         "text": "Pair programming is a social skill. The best pair programmers are those who can fluidly switch between driver and navigator roles.",
         "cite": "Kent Beck, Extreme Programming Explained"
+      },
+      {
+        "text": "Pair programming with AI: AI writes, human reviews. The compiler, tests, and human judgment are the referees.",
+        "cite": "community"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: Pair Programming",
+        "url": "https://martinfowler.com/articles/onPairProgramming.html"
+      },
+      {
+        "name": "Kent Beck: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
       }
     ]
   },
@@ -269,6 +307,22 @@
       {
         "code": "一个为我个人 python-flavored 习惯定制的脚本，一次性、不分享给任何人",
         "desc": "software for one 心态"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Software for one",
+        "url": "https://simonwillison.net/tags/software-for-one/"
+      },
+      {
+        "name": "Lovable 官网",
+        "url": "https://lovable.dev"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Software for one: write code that solves YOUR specific problem, even if no one else needs it.",
+        "cite": "community"
       }
     ]
   },
@@ -335,6 +389,18 @@
       "vibe-coding",
       "vibe-engineering",
       "agentic-engineering"
+    ],
+    "seeAlso": [
+      {
+        "name": "Don Norman: Emotional Design",
+        "url": "https://www.jnd.org/dn.ms/EmotionalDesign.html"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "AI in design: using models to evoke specific emotions through UX patterns.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -491,6 +557,22 @@
       "vibe-coding",
       "lovable",
       "replit-agent"
+    ],
+    "seeAlso": [
+      {
+        "name": "Lovable 官网",
+        "url": "https://lovable.dev"
+      },
+      {
+        "name": "v0 官网",
+        "url": "https://v0.dev"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "No-code tools lower the floor of who can build software, but raise the question of what to build.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -509,6 +591,18 @@
       "tech-debt",
       "cognitive-debt",
       "guardrails"
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrew Hunt: Cognitive Debt",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Agentic workflows without engineering practices produce tech debt at machine speed.",
+        "cite": "Agarwal"
+      }
     ]
   }
 ]

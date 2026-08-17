@@ -24,12 +24,24 @@ window.VC_TERMS = [
       {
         "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
         "cite": "Karpathy 2025-02 原文"
+      },
+      {
+        "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
+        "cite": "Andrej Karpathy, 2025-02-02"
       }
     ],
     seeAlso: [
       {
         "name": "Vibe Coding 主页 - Simon Willison",
         "url": "https://simonwillison.net/2025/Mar/19/vibe-coding/"
+      },
+      {
+        "name": "Karpathy 原始推文",
+        "url": "https://twitter.com/karpathy/status/1886192184808149383"
+      },
+      {
+        "name": "Simon Willison: Vibe Coding 词条",
+        "url": "https://simonwillison.net/tags/vibe-coding/"
       }
     ],
     examples: [
@@ -208,6 +220,18 @@ window.VC_TERMS = [
 <p><strong>PDD</strong>（Prompt-Driven Development）将 prompt 视为<strong>规格说明</strong>而非<strong>编程语言</strong>。开发者的角色从"写代码"转变为"写 prompt"。</p>
 <p>PDD 与 SDD（Specification-Driven Development）的关系：SDD 是更严谨的 PDD 版本，spec.md 是更精确的 prompt。</p>`,
     related: ["sdd","spec-md","iterative-refinement"],
+    quotes: [
+      {
+        "text": "Prompt-Driven Development: let the prompt be the spec.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Simon Willison tags",
+        "url": "https://simonwillison.net/tags/prompt-driven-development/"
+      }
+    ],
   },
   {
     id: "pair-programming",
@@ -231,6 +255,20 @@ window.VC_TERMS = [
       {
         "text": "Pair programming is a social skill. The best pair programmers are those who can fluidly switch between driver and navigator roles.",
         "cite": "Kent Beck, Extreme Programming Explained"
+      },
+      {
+        "text": "Pair programming with AI: AI writes, human reviews. The compiler, tests, and human judgment are the referees.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Martin Fowler: Pair Programming",
+        "url": "https://martinfowler.com/articles/onPairProgramming.html"
+      },
+      {
+        "name": "Kent Beck: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
       }
     ],
   },
@@ -251,6 +289,22 @@ window.VC_TERMS = [
 <li>无须考虑可扩展性</li>
 </ul>`,
     related: ["vibe-coding","personal-scenario"],
+    quotes: [
+      {
+        "text": "Software for one: write code that solves YOUR specific problem, even if no one else needs it.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Simon Willison: Software for one",
+        "url": "https://simonwillison.net/tags/software-for-one/"
+      },
+      {
+        "name": "Lovable 官网",
+        "url": "https://lovable.dev"
+      }
+    ],
     examples: [
       {
         "code": "一个为我个人 python-flavored 习惯定制的脚本，一次性、不分享给任何人",
@@ -317,6 +371,18 @@ window.VC_TERMS = [
     longDesc: `<p>Shimmin 在 thenewstack.io 提出 <strong>emotioneering</strong>（情绪工程）作为 <strong>vibe coding</strong> 的对照词——强调该领域需要"engineering, not emotioneering"。</p>
 <p>这一术语体现了社区对 vibe coding 滥用的反思，推动了 vibe engineering、agentic engineering 的出现。</p>`,
     related: ["vibe-coding","vibe-engineering","agentic-engineering"],
+    quotes: [
+      {
+        "text": "AI in design: using models to evoke specific emotions through UX patterns.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Don Norman: Emotional Design",
+        "url": "https://www.jnd.org/dn.ms/EmotionalDesign.html"
+      }
+    ],
   },
   {
     id: "orchestration-of-agents",
@@ -463,6 +529,22 @@ window.VC_TERMS = [
     longDesc: `<p><strong>No-Code</strong> 平台（如 Bubble、Webflow、Retool）允许用户通过<strong>可视化界面</strong>构建应用，无需写代码。</p>
 <p>与 <strong>vibe coding</strong> 的关系：相邻范式，都降低了软件开发的门槛，但实现路径不同——前者是<strong>可视化配置</strong>，后者是<strong>自然语言</strong>。</p>`,
     related: ["vibe-coding","lovable","replit-agent"],
+    quotes: [
+      {
+        "text": "No-code tools lower the floor of who can build software, but raise the question of what to build.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Lovable 官网",
+        "url": "https://lovable.dev"
+      },
+      {
+        "name": "v0 官网",
+        "url": "https://v0.dev"
+      }
+    ],
   },
   {
     id: "machine-speed",
@@ -475,6 +557,18 @@ window.VC_TERMS = [
     longDesc: `<p>Agarwal 提出：没有工程实践的 AI agent workflow 会<strong>以机器速度产生技术债</strong>——比人工时代快数十倍。</p>
 <p>类比："machine speed debt" 指 AI 加速产生的低质量代码累积。</p>`,
     related: ["tech-debt","cognitive-debt","guardrails"],
+    quotes: [
+      {
+        "text": "Agentic workflows without engineering practices produce tech debt at machine speed.",
+        "cite": "Agarwal"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Andrew Hunt: Cognitive Debt",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      }
+    ],
   },
 
   // ============ L2 · 方法论层 (20 个) ============
@@ -660,6 +754,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>不写"代码优雅"这种主观标准</li>
 </ul>`,
     related: ["plan-verify-build","iterative-refinement"],
+    quotes: [
+      {
+        "text": "Acceptance criteria are the machine-checkable spec that makes a user story testable.",
+        "cite": "BDD community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Martin Fowler: BDD",
+        "url": "https://martinfowler.com/bliki/GivenWhenThen.html"
+      },
+      {
+        "name": "GitHub Spec Kit",
+        "url": "https://github.github.io/spec-kit/"
+      }
+    ],
   },
   {
     id: "tdd-ai",
@@ -754,6 +864,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>与 CLAUDE.md 互补（user 写 vs Claude 写）</li>
 </ul>`,
     related: ["claude-md","compaction"],
+    quotes: [
+      {
+        "text": "Auto memory: Claude automatically recalls relevant context across sessions.",
+        "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Memory",
+        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+      }
+    ],
   },
   {
     id: "compaction",
@@ -1075,6 +1197,22 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>基于 Transformer 架构的大规模语言模型，通过<strong>预测下一个 token</strong>训练。</p>
 <p><strong>代表：</strong>Claude Opus 4.6 / Sonnet 4.6 / Haiku 4.5；GPT-5 / GPT-5.2；Gemini 3 Pro；DeepSeek V3.2；Qwen 3；Llama 4。</p>`,
     related: ["transformer","frontier-model","context-window"],
+    quotes: [
+      {
+        "text": "An LLM is a function from text to text, trained on the entire internet.",
+        "cite": "Andrej Karpathy"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Andrej Karpathy: Intro to LLMs",
+        "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+      },
+      {
+        "name": "OpenAI: LLM 介绍",
+        "url": "https://platform.openai.com/docs/introduction"
+      }
+    ],
     examples: [
       {
         "code": "const response = await openai.chat.completions.create({\n  model: \"claude-sonnet-4.5\",\n  messages: [{ role: \"user\", content: prompt }]\n});",
@@ -1189,6 +1327,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "In 2026, 1M tokens is the standard. Claude Opus 4.6 ships 1M. Gemini 2.5 Pro goes to 2M. Even GPT stays behind at 128K default.",
         "cite": "tokenmix.ai 2026 分析"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Anthropic: Context Windows",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+      },
+      {
+        "name": "Google Gemini 2.5 Pro 2M",
+        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
       }
     ],
   },
@@ -1343,6 +1491,20 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Subagents run within a single session and report only to the parent.",
         "cite": "Claude Code Docs"
+      },
+      {
+        "text": "Subagents are a key tool for getting good results out of a coding agent.",
+        "cite": "Simon Willison"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Subagents",
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
       }
     ],
   },
@@ -1406,6 +1568,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Function calling is the primitive that turns LLMs into agents.",
         "cite": "OpenAI, 2023"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Anthropic Tool Use",
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+      },
+      {
+        "name": "OpenAI Function Calling",
+        "url": "https://platform.openai.com/docs/guides/function-calling"
       }
     ],
   },

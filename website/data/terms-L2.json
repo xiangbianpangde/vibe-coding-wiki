@@ -185,6 +185,22 @@
     "related": [
       "plan-verify-build",
       "iterative-refinement"
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: BDD",
+        "url": "https://martinfowler.com/bliki/GivenWhenThen.html"
+      },
+      {
+        "name": "GitHub Spec Kit",
+        "url": "https://github.github.io/spec-kit/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Acceptance criteria are the machine-checkable spec that makes a user story testable.",
+        "cite": "BDD community"
+      }
     ]
   },
   {
@@ -278,6 +294,18 @@
     "related": [
       "claude-md",
       "compaction"
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Memory",
+        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Auto memory: Claude automatically recalls relevant context across sessions.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {

@@ -21,6 +21,22 @@
         "code": "const response = await openai.chat.completions.create({\n  model: \"claude-sonnet-4.5\",\n  messages: [{ role: \"user\", content: prompt }]\n});",
         "desc": "LLM API 调用"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrej Karpathy: Intro to LLMs",
+        "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+      },
+      {
+        "name": "OpenAI: LLM 介绍",
+        "url": "https://platform.openai.com/docs/introduction"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "An LLM is a function from text to text, trained on the entire internet.",
+        "cite": "Andrej Karpathy"
+      }
     ]
   },
   {
@@ -125,6 +141,16 @@
       {
         "text": "In 2026, 1M tokens is the standard. Claude Opus 4.6 ships 1M. Gemini 2.5 Pro goes to 2M. Even GPT stays behind at 128K default.",
         "cite": "tokenmix.ai 2026 分析"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Context Windows",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+      },
+      {
+        "name": "Google Gemini 2.5 Pro 2M",
+        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
       }
     ]
   },
@@ -271,6 +297,20 @@
       {
         "text": "Subagents run within a single session and report only to the parent.",
         "cite": "Claude Code Docs"
+      },
+      {
+        "text": "Subagents are a key tool for getting good results out of a coding agent.",
+        "cite": "Simon Willison"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Subagents",
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
       }
     ]
   },
@@ -334,6 +374,16 @@
       {
         "text": "Function calling is the primitive that turns LLMs into agents.",
         "cite": "OpenAI, 2023"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic Tool Use",
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+      },
+      {
+        "name": "OpenAI Function Calling",
+        "url": "https://platform.openai.com/docs/guides/function-calling"
       }
     ]
   },
