@@ -31,7 +31,7 @@
     "quotes": [
       {
         "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
-        "cite": "Karpathy 2025-02 原文"
+        "cite": "Karpathy 2025-02（中文意译）"
       },
       {
         "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
@@ -75,7 +75,7 @@
     ],
     "source": "Martin Fowler bliki, 2025",
     "coinedBy": "Martin Fowler",
-    "coinedDate": "2025",
+    "coinedDate": "2026-05",
     "examples": [
       {
         "code": "用 Claude Code + Spec Kit：先写 spec.md，让 agent 拆分任务，本人只负责关键架构决策",
@@ -159,7 +159,7 @@
       "evolution"
     ],
     "shortDesc": "Karpathy 2026-02 提出的术语：vibe coding 的成熟形态，\"更像 engineering\"。",
-    "longDesc": "<p>2026-02，Karpathy 在 X 平台宣布他想让 <strong>vibe coding</strong> 这一术语<strong>退役</strong>（retire），取而代之的是 <strong>agentic engineering</strong>。</p>\n<p>背景：vibe coding 一度因使用门槛低被滥用，导致大量低质量代码。社区（Shimmin、Agarwal、Hunt 等）呼吁更严谨的工程实践，agentic engineering 应运而生。</p>\n<p><strong>核心思想：</strong>让 AI agent 干活的同时保持工程师的<strong>问责制</strong>。强调 spec-driven、guardrails、test-first、可验证的 acceptance criteria。</p>\n<p>趋势：行业从 vibe coding → vibe engineering → agentic engineering 演进，预计 2026 年底 agentic engineering 主导。</p>",
+    "longDesc": "<p>2026-02，Karpathy 在 X 平台宣布他想让 <strong>vibe coding</strong> 这一术语<strong>退役</strong>（retire），取而代之的是 <strong>agentic engineering</strong>。</p>\n<p>背景：vibe coding 一度因使用门槛低被滥用，导致大量低质量代码。社区（Shimmin、Agarwal、Hunt 等）呼吁更严谨的工程实践，agentic engineering 应运而生。</p>\n<p><strong>核心思想：</strong>让 AI agent 干活的同时保持工程师的<strong>问责制</strong>。强调 spec-driven、guardrails、test-first、可验证的 acceptance criteria。</p>\n<p>趋势：行业从 vibe coding → vibe engineering → agentic engineering 演进，。</p>",
     "related": [
       "vibe-coding",
       "vibe-engineering",
@@ -183,7 +183,7 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/"
+        "url": "https://simonwillison.net/2026/Mar/15/agentic-engineering/"
       },
       {
         "name": "Martin Fowler: AI-Assisted Engineering",

@@ -25,7 +25,7 @@ window.VC_TERMS = [
     quotes: [
       {
         "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
-        "cite": "Karpathy 2025-02 原文"
+        "cite": "Karpathy 2025-02（中文意译）"
       },
       {
         "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
@@ -70,7 +70,7 @@ window.VC_TERMS = [
     related: ["vibe-coding","vibe-engineering","agentic-engineering"],
     source: "Martin Fowler bliki, 2025",
     coinedBy: "Martin Fowler",
-    coinedDate: "2025",
+    coinedDate: "2026-05",
     quotes: [
       {
         "text": "Agentic programming uses LLMs as autonomous agents that plan, execute, and iterate on real software tasks.",
@@ -151,7 +151,7 @@ window.VC_TERMS = [
     longDesc: `<p>2026-02，Karpathy 在 X 平台宣布他想让 <strong>vibe coding</strong> 这一术语<strong>退役</strong>（retire），取而代之的是 <strong>agentic engineering</strong>。</p>
 <p>背景：vibe coding 一度因使用门槛低被滥用，导致大量低质量代码。社区（Shimmin、Agarwal、Hunt 等）呼吁更严谨的工程实践，agentic engineering 应运而生。</p>
 <p><strong>核心思想：</strong>让 AI agent 干活的同时保持工程师的<strong>问责制</strong>。强调 spec-driven、guardrails、test-first、可验证的 acceptance criteria。</p>
-<p>趋势：行业从 vibe coding → vibe engineering → agentic engineering 演进，预计 2026 年底 agentic engineering 主导。</p>`,
+<p>趋势：行业从 vibe coding → vibe engineering → agentic engineering 演进，。</p>`,
     enShortDesc: "Agentic Engineering (Karpathy 2026-02): the mature form of vibe coding, \"more like engineering\".",
     enLongDesc: "<p>2026-02, Karpathy announced he wants to retire <strong>vibe coding</strong> and replace it with <strong>agentic engineering</strong>.</p><p>Core idea: <strong>let AI agents work while engineers stay accountable</strong>. Emphasizes spec-driven, guardrails, test-first, verifiable acceptance criteria.",
     related: ["vibe-coding","vibe-engineering","cognitive-debt"],
@@ -167,7 +167,7 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/"
+        "url": "https://simonwillison.net/2026/Mar/15/agentic-engineering/"
       },
       {
         "name": "Martin Fowler: AI-Assisted Engineering",
@@ -5156,7 +5156,7 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Vibe Coding Kills Open Source",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       }
     ],
     examples: [
@@ -5285,7 +5285,7 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Vibe Coding Kills Open Source 论文",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       },
       {
         "name": "GitClear Code Quality Report 2024",
@@ -5322,7 +5322,7 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Koren et al. 2026-01 论文",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       },
       {
         "name": "Vibe Coding Kills Open Source",
@@ -5417,7 +5417,7 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["risk","security"],
     shortDesc: "AI 生成代码的安全问题。Veracode 研究：3 年未改善。",
     longDesc: `<p>AI 生成代码的<strong>安全问题</strong>。</p>
-<p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 3 年未改善；大模型不比小模型更安全。</p>
+<p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 security pass rate 在 2023-2025 期间维持在 45-55%；大模型不比小模型更安全。</p>
 <p><strong>CodeRabbit 2025-12：</strong>AI co-authored 代码<strong>安全漏洞</strong>多 2.74 倍。</p>`,
     enShortDesc: "AI-generated code security issues. Veracode research: no improvement over 3 years.",
     enLongDesc: "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>",

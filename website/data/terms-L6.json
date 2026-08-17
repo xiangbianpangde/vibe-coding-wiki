@@ -160,7 +160,7 @@
       },
       {
         "name": "Vibe Coding Kills Open Source",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       }
     ],
     "enShortDesc": "Mario Zechner's term: low-quality, hard-to-maintain code produced by vibe coding.",
@@ -295,7 +295,7 @@
     "seeAlso": [
       {
         "name": "Vibe Coding Kills Open Source 论文",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       },
       {
         "name": "GitClear Code Quality Report 2024",
@@ -336,7 +336,7 @@
     "seeAlso": [
       {
         "name": "Koren et al. 2026-01 论文",
-        "url": "https://arxiv.org/abs/2601.12345"
+        "url": "https://arxiv.org/abs/2601.15494"
       },
       {
         "name": "Vibe Coding Kills Open Source",
@@ -429,7 +429,7 @@
       "security"
     ],
     "shortDesc": "AI 生成代码的安全问题。Veracode 研究：3 年未改善。",
-    "longDesc": "<p>AI 生成代码的<strong>安全问题</strong>。</p>\n<p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 3 年未改善；大模型不比小模型更安全。</p>\n<p><strong>CodeRabbit 2025-12：</strong>AI co-authored 代码<strong>安全漏洞</strong>多 2.74 倍。</p>",
+    "longDesc": "<p>AI 生成代码的<strong>安全问题</strong>。</p>\n<p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 security pass rate 在 2023-2025 期间维持在 45-55%；大模型不比小模型更安全。</p>\n<p><strong>CodeRabbit 2025-12：</strong>AI co-authored 代码<strong>安全漏洞</strong>多 2.74 倍。</p>",
     "related": [
       "veracode",
       "prompt-injection"

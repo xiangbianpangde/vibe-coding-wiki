@@ -112,6 +112,6 @@ Contributions and corrections welcome — see [CONTRIBUTING.md](./docs/CONTRIBUT
 
 ---
 
-**v2.2 · 2025-08-17 · 178 terms · 8 layers · 14 scenarios · 100% bilingual**
+**v2.2 · 2026-08-17 · 178 terms · 8 layers · 14 scenarios · 100% bilingual**
 
 _Built by an AI agent team (3 roles: coordinator, data enricher, auditor) over a single working session. Original research / primary-source citations / Karpathy X posts / Anthropic / OpenAI docs / Claude Code docs / Stack Overflow 2025 / METR / CodeRabbit / Veracode / GitClear._
