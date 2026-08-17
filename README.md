@@ -71,9 +71,9 @@ vibe-coding-wiki/
 | L8 场景 | 14 | 一次性原型 / 生产维护 / 安全敏感 |
 
 **富内容覆盖**：
-- 52 词条有代码示例
-- 53 词条有直接引文
-- 16 词条有外部链接
+- 87 词条有代码示例
+- 106 词条有直接引文
+- 101 词条有外部链接
 - 178 词条全部自动生成「相关词条」「演进时间线」「学习路径」
 
 ## 🎨 设计系统
@@ -156,6 +156,41 @@ node website/scripts/rebuild-terms.js
 # 3. 重建 sitemap（如果新词条）
 node website/scripts/build-sitemap.js
 ```
+
+## 🧪 测试
+
+```bash
+cd website
+npm install                 # 首次安装依赖
+
+# 单元测试（fast，~1s） — vitest + happy-dom
+npm run test:unit
+
+# E2E 测试（~2min） — playwright chromium
+npm run test:e2e            # 需要先 npx playwright install chromium
+```
+
+**测试覆盖**：
+- `tests/unit/data.test.js` — 178 词条完整性（字段、layer、related 引用、分布）
+- `tests/unit/search.test.js` — 搜索算法（"vibe" ≥ 3 结果、大小写、id 前缀、空白处理）
+- `tests/unit/related-algo.test.js` — VC_RELATED_ALGO（5-8 结果、无 orphan 引用、无 self-ref）
+- `tests/e2e/term-detail.spec.js` — 参数化访问 178 词条详情页 + TOC 动态性
+- `tests/e2e/search.spec.js` — ⌘K 弹窗、搜索结果、Enter 跳转、Escape 关闭
+- `tests/e2e/theme.spec.js` — light/dark 切换 + localStorage 持久化
+- `tests/e2e/mobile.spec.js` — < 768px 汉堡菜单 + aria-expanded
+- `tests/e2e/home.spec.js` — 首页渲染 + og:image meta
+
+**本地 e2e 限制**：playwright chromium 下载需联网。本地装不上时：
+- ✅ **方案 A**（推荐）：推 PR 触发 `.github/workflows/test.yml` 在 GitHub Actions 跑
+- ✅ **方案 B**：用 `agent_browser` 手动验证关键路径（首页/详情页/搜索/主题/移动端）
+
+## 🔄 CI
+
+- `.github/workflows/test.yml` — PR/push 到 main 触发
+  - `unit` job：vitest 24+ 测试
+  - `e2e` job：playwright（chromium with deps）+ static server
+  - `data-integrity` job：data integrity 守门
+- `.github/workflows/deploy.yml` — 自动部署到 GH Pages
 
 ## 🤝 贡献
 
