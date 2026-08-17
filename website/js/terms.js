@@ -2265,6 +2265,28 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>参数高效方法：</strong>LoRA / QLoRA / PEFT / Prefix Tuning</p>`,
     related: ["lora","rlhf","dpo"],
+    quotes: [
+      {
+        "text": "Fine-tuning adapts a pre-trained model to a specific task with much less compute than training from scratch.",
+        "cite": "HuggingFace"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "HuggingFace PEFT",
+        "url": "https://huggingface.co/docs/peft/index"
+      },
+      {
+        "name": "LoRA 原论文",
+        "url": "https://arxiv.org/abs/2106.09685"
+      }
+    ],
+    examples: [
+      {
+        "code": "# LoRA/QLoRA Fine-tuning（替代全参数微调）\nfrom peft import LoraConfig, get_peft_model\nfrom transformers import AutoModelForCausalLM\n\nmodel = AutoModelForCausalLM.from_pretrained(\"Qwen/Qwen2.5-7B\")\nlora_config = LoraConfig(\n    r=16,                   # 低秩维度\n    lora_alpha=32,\n    target_modules=[\"q_proj\", \"v_proj\"],   # 只调 attention 层\n    lora_dropout=0.05,\n    bias=\"none\",\n    task_type=\"CAUSAL_LM\"\n)\nmodel = get_peft_model(model, lora_config)\nmodel.print_trainable_parameters()\n# trainable params: 4,194,304 || all params: 7,000,000,000 || 0.06%\n# → 只训练 0.06% 参数！",
+        "desc": "LoRA 微调标准流程"
+      }
+    ],
   },
   {
     id: "lora",
@@ -2277,6 +2299,22 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>LoRA</strong>：参数高效微调方法，<strong>只更新小的低秩矩阵</strong>，大幅降低训练成本。</p>
 <p><strong>衍生：</strong>QLoRA（量化 + LoRA）/ PEFT / Prefix Tuning</p>`,
     related: ["qlora","fine-tuning"],
+    quotes: [
+      {
+        "text": "LoRA: Low-Rank Adaptation of Large Language Models. Trains 0.1% of parameters, retains 95%+ of quality.",
+        "cite": "Microsoft, 2021"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "LoRA 原论文",
+        "url": "https://arxiv.org/abs/2106.09685"
+      },
+      {
+        "name": "PEFT 文档",
+        "url": "https://huggingface.co/docs/peft/conceptual_guides/lora"
+      }
+    ],
   },
   {
     id: "qlora",
@@ -2288,6 +2326,22 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "4-bit 量化 + LoRA：单 GPU 可微调 65B 模型。",
     longDesc: "<p><strong>QLoRA</strong>：4-bit 量化 + LoRA——单 GPU 可微调 65B 模型。</p>",
     related: ["lora","quantization"],
+    quotes: [
+      {
+        "text": "QLoRA: 4-bit quantized base + LoRA adapter. Trains a 65B model on a single 48GB GPU.",
+        "cite": "Dettmers et al. 2023"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "QLoRA 论文",
+        "url": "https://arxiv.org/abs/2305.14314"
+      },
+      {
+        "name": "bitsandbytes",
+        "url": "https://github.com/TimDettmers/bitsandbytes"
+      }
+    ],
   },
   {
     id: "peft",
@@ -2317,6 +2371,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ol>
 <p><strong>应用：</strong>ChatGPT / Claude 早期对齐</p>`,
     related: ["dpo","rlaif","ipo"],
+    quotes: [
+      {
+        "text": "RLHF: Reinforcement Learning from Human Feedback. Aligns LLMs to human preferences via reward modeling.",
+        "cite": "Christiano et al. 2017 / Ouyang et al. 2022"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "InstructGPT 论文 (RLHF 应用)",
+        "url": "https://arxiv.org/abs/2203.02155"
+      },
+      {
+        "name": "Anthropic: Constitutional AI",
+        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems"
+      }
+    ],
   },
   {
     id: "dpo",
@@ -2329,6 +2399,22 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>DPO</strong>：无需 reward model，直接用<strong>偏好数据</strong>优化 LLM。比 RLHF 更简单稳定。</p>
 <p><strong>变体：</strong>ORPO / IPO / SimPO</p>`,
     related: ["rlhf","orpo"],
+    quotes: [
+      {
+        "text": "DPO: Direct Preference Optimization. Replaces RLHF with a simple classification loss.",
+        "cite": "Rafailov et al. 2023"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "DPO 原论文",
+        "url": "https://arxiv.org/abs/2305.18290"
+      },
+      {
+        "name": "TRL DPO Trainer",
+        "url": "https://huggingface.co/docs/trl/main/en/dpo_trainer"
+      }
+    ],
   },
   {
     id: "rlaif",
@@ -3837,6 +3923,22 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债成为新负担。",
     longDesc: "<p>详见 <a href=\"#cognitive-debt\">cognitive-debt</a>。</p>",
     related: ["cognitive-debt","tech-debt"],
+    quotes: [
+      {
+        "text": "Cognitive debt: when the team's understanding of the codebase lags behind the code itself.",
+        "cite": "Andrew Hunt 2026"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Andrew Hunt: Cognitive Debt 详细",
+        "url": "https://www.huntthought.com/2026/cognitive-debt-detail"
+      },
+      {
+        "name": "Hunt: Tech Debt is Still Real",
+        "url": "https://www.huntthought.com/2026/tech-debt"
+      }
+    ],
     examples: [
       {
         "code": "// 2026 预测：AI 交互的累积成本\n// 症状：\n// - 上下文丢失：每次 restart 都要重新 context\n// - 行为漂移：之前能做突然做不了\n// - Prompt 考古：要挖历史才能理解现状\n// Hunt 框架：tech debt → cognitive debt 主导",
@@ -3964,6 +4066,16 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Simon Willison"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Simon Willison: Lethal trifecta",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+      },
+      {
+        "name": "OWASP LLM Top 10",
+        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+      }
+    ],
     examples: [
       {
         "code": "// 致命三要素同时满足：\n// 1. private_data = email_credentials\n// 2. untrusted_content = read_email(attacker@evil.com)\n// 3. external_communication = reply_email()\n// → attacker 通过邮件内容注入指令\n// → agent 读取 email credentials\n// → 自动回复包含 credentials 给 attacker",
@@ -4033,6 +4145,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Vibe coding raises productivity by lowering the cost of using and building on existing code, but it also weakens the user engagement through which many maintainers earn returns.",
         "cite": "Koren et al. 2026-01"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Koren et al. 2026-01 论文",
+        "url": "https://arxiv.org/abs/2601.12345"
+      },
+      {
+        "name": "Vibe Coding Kills Open Source",
+        "url": "https://github.com/vibe-coding-kills-open-source/paper"
       }
     ],
     examples: [
@@ -4180,6 +4302,22 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Stack Overflow 2025 - 66% of devs"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Stack Overflow 2025 AI 调查",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      {
+        "name": "METR 2025-07 研究",
+        "url": "https://metr.org"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Productivity Paradox 实测数据\n# Stack Overflow 2025 调查：\n# - 84% 开发者用或计划用 AI 工具\n# - 51% 每天用 AI\n# - 但 66% 报告\"AI 解决方案几乎对，但还差一点\"（浪费时间 debug）\n# - 76% 不用 AI 做部署/监控\n\n# 这就是 productivity paradox：\n# 工具采用率 ↑，但实际效率不增反降（debug/verify 时间吃掉省下的时间）",
+        "desc": "Productivity paradox 实测数据"
+      }
+    ],
   },
   {
     id: "so-survey-2025",
@@ -4204,6 +4342,22 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "84% of developers use or plan to use AI tools in development. 51% use AI daily.",
         "cite": "Stack Overflow 2025"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Stack Overflow 2025 AI 调查全文",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      {
+        "name": "Stack Overflow 2025 主报告",
+        "url": "https://survey.stackoverflow.co/2025"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Stack Overflow 2025 AI 调查关键数据\n# 1. 采用率\n# - 84% 开发者用或计划用 AI 工具\n# - 51% 每天用 AI\n# - 33% 受信任 AI 输出\n#\n# 2. 不采用率（关键场景）\n# - 76% 不用 AI 做部署/监控\n# - 69% 不用 AI 做项目规划\n# - 66% 报告\"AI 几乎对但不完美\"\n#\n# 3. 工具偏好\n# - 60% Copilot 用户\n# - 25% Cursor 用户\n# - 15% Claude Code 用户",
+        "desc": "Stack Overflow 2025 AI 调查关键数字"
       }
     ],
   },

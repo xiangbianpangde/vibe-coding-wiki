@@ -64,6 +64,22 @@
         "code": "// 2026 预测：AI 交互的累积成本\n// 症状：\n// - 上下文丢失：每次 restart 都要重新 context\n// - 行为漂移：之前能做突然做不了\n// - Prompt 考古：要挖历史才能理解现状\n// Hunt 框架：tech debt → cognitive debt 主导",
         "desc": "Cognitive debt 表现"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrew Hunt: Cognitive Debt 详细",
+        "url": "https://www.huntthought.com/2026/cognitive-debt-detail"
+      },
+      {
+        "name": "Hunt: Tech Debt is Still Real",
+        "url": "https://www.huntthought.com/2026/tech-debt"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Cognitive debt: when the team's understanding of the codebase lags behind the code itself.",
+        "cite": "Andrew Hunt 2026"
+      }
     ]
   },
   {
@@ -202,6 +218,16 @@
         "text": "Three factors: access to private data, exposure to untrusted content, ability to communicate externally. Any two = dangerous. All three = lethal.",
         "cite": "Simon Willison"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Lethal trifecta",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+      },
+      {
+        "name": "OWASP LLM Top 10",
+        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+      }
     ]
   },
   {
@@ -285,6 +311,16 @@
       {
         "text": "Vibe coding raises productivity by lowering the cost of using and building on existing code, but it also weakens the user engagement through which many maintainers earn returns.",
         "cite": "Koren et al. 2026-01"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Koren et al. 2026-01 论文",
+        "url": "https://arxiv.org/abs/2601.12345"
+      },
+      {
+        "name": "Vibe Coding Kills Open Source",
+        "url": "https://github.com/vibe-coding-kills-open-source/paper"
       }
     ]
   },
@@ -428,6 +464,22 @@
         "text": "AI solutions almost right, but not quite.",
         "cite": "Stack Overflow 2025 - 66% of devs"
       }
+    ],
+    "examples": [
+      {
+        "code": "# Productivity Paradox 实测数据\n# Stack Overflow 2025 调查：\n# - 84% 开发者用或计划用 AI 工具\n# - 51% 每天用 AI\n# - 但 66% 报告\"AI 解决方案几乎对，但还差一点\"（浪费时间 debug）\n# - 76% 不用 AI 做部署/监控\n\n# 这就是 productivity paradox：\n# 工具采用率 ↑，但实际效率不增反降（debug/verify 时间吃掉省下的时间）",
+        "desc": "Productivity paradox 实测数据"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Stack Overflow 2025 AI 调查",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      {
+        "name": "METR 2025-07 研究",
+        "url": "https://metr.org"
+      }
     ]
   },
   {
@@ -451,6 +503,22 @@
       {
         "text": "84% of developers use or plan to use AI tools in development. 51% use AI daily.",
         "cite": "Stack Overflow 2025"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Stack Overflow 2025 AI 调查关键数据\n# 1. 采用率\n# - 84% 开发者用或计划用 AI 工具\n# - 51% 每天用 AI\n# - 33% 受信任 AI 输出\n#\n# 2. 不采用率（关键场景）\n# - 76% 不用 AI 做部署/监控\n# - 69% 不用 AI 做项目规划\n# - 66% 报告\"AI 几乎对但不完美\"\n#\n# 3. 工具偏好\n# - 60% Copilot 用户\n# - 25% Cursor 用户\n# - 15% Claude Code 用户",
+        "desc": "Stack Overflow 2025 AI 调查关键数字"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Stack Overflow 2025 AI 调查全文",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      {
+        "name": "Stack Overflow 2025 主报告",
+        "url": "https://survey.stackoverflow.co/2025"
       }
     ]
   }

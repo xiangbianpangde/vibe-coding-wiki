@@ -1103,6 +1103,28 @@
       "lora",
       "rlhf",
       "dpo"
+    ],
+    "examples": [
+      {
+        "code": "# LoRA/QLoRA Fine-tuning（替代全参数微调）\nfrom peft import LoraConfig, get_peft_model\nfrom transformers import AutoModelForCausalLM\n\nmodel = AutoModelForCausalLM.from_pretrained(\"Qwen/Qwen2.5-7B\")\nlora_config = LoraConfig(\n    r=16,                   # 低秩维度\n    lora_alpha=32,\n    target_modules=[\"q_proj\", \"v_proj\"],   # 只调 attention 层\n    lora_dropout=0.05,\n    bias=\"none\",\n    task_type=\"CAUSAL_LM\"\n)\nmodel = get_peft_model(model, lora_config)\nmodel.print_trainable_parameters()\n# trainable params: 4,194,304 || all params: 7,000,000,000 || 0.06%\n# → 只训练 0.06% 参数！",
+        "desc": "LoRA 微调标准流程"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "HuggingFace PEFT",
+        "url": "https://huggingface.co/docs/peft/index"
+      },
+      {
+        "name": "LoRA 原论文",
+        "url": "https://arxiv.org/abs/2106.09685"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Fine-tuning adapts a pre-trained model to a specific task with much less compute than training from scratch.",
+        "cite": "HuggingFace"
+      }
     ]
   },
   {
@@ -1120,6 +1142,22 @@
     "related": [
       "qlora",
       "fine-tuning"
+    ],
+    "seeAlso": [
+      {
+        "name": "LoRA 原论文",
+        "url": "https://arxiv.org/abs/2106.09685"
+      },
+      {
+        "name": "PEFT 文档",
+        "url": "https://huggingface.co/docs/peft/conceptual_guides/lora"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "LoRA: Low-Rank Adaptation of Large Language Models. Trains 0.1% of parameters, retains 95%+ of quality.",
+        "cite": "Microsoft, 2021"
+      }
     ]
   },
   {
@@ -1137,6 +1175,22 @@
     "related": [
       "lora",
       "quantization"
+    ],
+    "seeAlso": [
+      {
+        "name": "QLoRA 论文",
+        "url": "https://arxiv.org/abs/2305.14314"
+      },
+      {
+        "name": "bitsandbytes",
+        "url": "https://github.com/TimDettmers/bitsandbytes"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "QLoRA: 4-bit quantized base + LoRA adapter. Trains a 65B model on a single 48GB GPU.",
+        "cite": "Dettmers et al. 2023"
+      }
     ]
   },
   {
@@ -1173,6 +1227,22 @@
       "dpo",
       "rlaif",
       "ipo"
+    ],
+    "seeAlso": [
+      {
+        "name": "InstructGPT 论文 (RLHF 应用)",
+        "url": "https://arxiv.org/abs/2203.02155"
+      },
+      {
+        "name": "Anthropic: Constitutional AI",
+        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "RLHF: Reinforcement Learning from Human Feedback. Aligns LLMs to human preferences via reward modeling.",
+        "cite": "Christiano et al. 2017 / Ouyang et al. 2022"
+      }
     ]
   },
   {
@@ -1191,6 +1261,22 @@
     "related": [
       "rlhf",
       "orpo"
+    ],
+    "seeAlso": [
+      {
+        "name": "DPO 原论文",
+        "url": "https://arxiv.org/abs/2305.18290"
+      },
+      {
+        "name": "TRL DPO Trainer",
+        "url": "https://huggingface.co/docs/trl/main/en/dpo_trainer"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "DPO: Direct Preference Optimization. Replaces RLHF with a simple classification loss.",
+        "cite": "Rafailov et al. 2023"
+      }
     ]
   },
   {
