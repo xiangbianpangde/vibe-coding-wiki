@@ -3685,6 +3685,28 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "把测试套件当作\"终审\"。",
     longDesc: "<p>把<strong>测试套件</strong>当作\"终审\"——所有改动必须不破坏既有测试 + 满足新测试。</p>",
     related: ["mvp","compiler-referee","safety-net-testing"],
+    quotes: [
+      {
+        "text": "The test suite acts as a referee: mechanical, repeatable, no ambiguity.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Martin Fowler: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+      },
+      {
+        "name": "Kent Beck: TDD by Example",
+        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Test Suite as Referee: 测试套件做裁判\n# 1. 写测试（spec 的机器可读版本）\ndef test_login():\n    user = User.create(email=\"alice@example.com\")\n    assert user.login(\"password123\") is True\n    assert user.login(\"wrong\") is False\n\n# 2. 跑测试\n$ pytest -v\n# tests/test_auth.py::test_login PASSED\n\n# 3. 任何 PR 必须通过全套测试\n# → 失败 = AI 必须 revert 或修复\n# → 通过 = 但还不一定对（还要 review）",
+        "desc": "Test suite as referee 标准流程"
+      }
+    ],
   },
   {
     id: "safety-net-testing",
@@ -3706,6 +3728,22 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Coverage > 80% is the floor. Tests make AI changes safe.",
         "cite": "engineering best practice"
+      },
+      {
+        "text": "A safety net catches you when your code falls. Tests are the safety net for AI.",
+        "cite": "Robert C. Martin"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Working Effectively with Legacy Code",
+        "url": "https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Safety Net Testing: 让 AI 修改安全的兜底\n# 覆盖目标：≥ 80%\n\n# 1. 关键路径 100% 覆盖\n- auth/login\n- payment/checkout\n- data/migration\n\n# 2. 边界条件\n- null/empty inputs\n- 最大值/最小值\n- 错误码\n\n# 3. 回归测试\n- 历史 bug 必须有测试\n\n# 测不到的代码 = AI 改时无兜底 = 易回归",
+        "desc": "Safety net testing 策略"
       }
     ],
   },
@@ -3724,6 +3762,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>PR Review</strong>：把 AI commit 走标准 PR 流程</li>
 </ul>`,
     related: ["code-review","iterative-refinement"],
+    quotes: [
+      {
+        "text": "Trust no PR. Review every diff line.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "GitHub Pull Request 文档",
+        "url": "https://docs.github.com/en/pull-requests"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Diff Review: AI 生成代码的逐行审核\n# AI 修改 PR → 人类 review diff\n\n$ gh pr checkout 42\n$ git diff main..HEAD\n# 审 PR diff 的关键问题：\n# 1. 是否符合 spec.md？\n# 2. 测试覆盖？\n# 3. 安全漏洞？\n# 4. 性能 regression？\n# 5. 命名/风格一致？\n\n# 关键：不要\"信任 PR\" — 每一行都要看",
+        "desc": "Diff review checklist"
+      }
+    ],
   },
   {
     id: "code-review",
@@ -3740,6 +3796,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>与 lint / 自动化测试互补</li>
 </ul>`,
     related: ["diff-review","coderabbit"],
+    quotes: [
+      {
+        "text": "Code review is the human-in-the-loop check on AI-generated code.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "GitHub CODEOWNERS",
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Code Review: AI 生成代码的多人 review\n# 1. AI 生成 PR\n# 2. 至少 1 个工程师 review（最好 2 个）\n# 3. 用 CODEOWNERS 文件指定 reviewer\n# 4. CI 通过 + review approve 才能 merge\n\n# CODEOWNERS 示例：\n# /src/auth/      @security-team\n# /src/payments/  @payments-team\n# *.go            @go-experts",
+        "desc": "Code review with AI + humans"
+      }
+    ],
   },
   {
     id: "yolo-mode",
@@ -3759,6 +3833,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>把 secrets commit 到 git</li>
 </ul>`,
     related: ["responsible-vc","guardrails"],
+    quotes: [
+      {
+        "text": "YOLO mode: deploy and pray. Use only for prototypes.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Auto mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode"
+      }
+    ],
     examples: [
       {
         "code": "// YOLO Mode 最高风险：\n> Let the agent do whatever it wants\n// 风险事件：\n// - Replit Agent 删生产数据库\n// - Lovable 泄漏 PII\n// - Agent 装错依赖污染环境",
@@ -3787,6 +3873,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "It is absolutely possible to do vibe coding responsibly. The opposite of YOLO is not \"no agent\"—it is engaged review.",
         "cite": "community"
+      },
+      {
+        "text": "It is absolutely possible to do vibe coding responsibly. The opposite of YOLO is not 'no agent'—it is engaged review.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Simon Willison: Vibe Coding tags",
+        "url": "https://simonwillison.net/tags/vibe-coding/"
       }
     ],
   },
@@ -3808,6 +3904,24 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>把测试也改了（让假绿）</li>
 </ul>`,
     related: ["guardrails","hallucination"],
+    quotes: [
+      {
+        "text": "Every failure mode needs a guardrail.",
+        "cite": "nazarboyko.com"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Failure Mode Analysis: 列出 AI 可能的失败模式\n# 1. 幻觉：模型编造不存在的 API\n# 2. 误删：rm -rf 误删关键文件\n# 3. 误改：改了不相关的代码\n# 4. 性能 regression：引入 O(n²) 算法\n# 5. 安全漏洞：注入 SQL/XSS\n# 6. 测试跳过：AI 加了 skip 标记绕过测试\n\n# 对每个 mode 设计 guardrail：\n# - 幻觉：强类型检查 + 编译错误\n# - 误删：pre-commit hook 拦截 rm -rf\n# - 安全：Semgrep / Snyk 自动扫描",
+        "desc": "AI coding 常见 failure modes + guardrails"
+      }
+    ],
   },
   {
     id: "spec-driven-prompting",
@@ -3819,6 +3933,24 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "把 spec.md 内容作为 prompt 的核心。",
     longDesc: "<p>把 <strong>spec.md 内容</strong>作为 prompt 的核心——prompt 不再是\"想法\"而是\"规格\"。</p>",
     related: ["spec-md","sdd"],
+    quotes: [
+      {
+        "text": "Spec-driven prompting: let the spec be the prompt.",
+        "cite": "community"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "GitHub Spec Kit",
+        "url": "https://github.github.io/spec-kit/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Spec-Driven Prompting: 把 spec.md 作为 prompt\n# 1. 写 spec.md（含验收标准）\n# 2. 启动 Claude Code：claude\n# 3. prompt: \"请按 spec.md 实现 auth 模块\"\n// Claude 读 spec.md → 生成代码 → 跑测试\n\n# 关键：spec 写得越精确，AI 输出越好\n# 反例：prompt = \"写个登录页\"\n# 正例：prompt = \"按 spec.md 第 3 节实现 OAuth\"",
+        "desc": "Spec-driven prompting 工作流"
+      }
+    ],
   },
   {
     id: "manifest-file",
@@ -3831,6 +3963,18 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>项目级<strong>持久指令文件</strong>——每会话开始加载。</p>
 <p><strong>代表：</strong>CLAUDE.md / .cursorrules / GEMINI.md / AGENTS.md</p>`,
     related: ["claude-md","context-engineering"],
+    seeAlso: [
+      {
+        "name": "npm package.json 文档",
+        "url": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Manifest File: AI 项目的元数据描述\n# package.json (Node) / pyproject.toml (Python) / Cargo.toml (Rust)\n\n{\n  \"name\": \"my-app\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": {\n    \"@anthropic-ai/sdk\": \"^0.20.0\",\n    \"next\": \"^14.0.0\"\n  },\n  \"scripts\": {\n    \"test\": \"vitest run\",\n    \"lint\": \"eslint .\",\n    \"type-check\": \"tsc --noEmit\"\n  }\n}\n\n# AI 生成代码时必须：\n# - 更新 manifest 添加新依赖\n# - 跑 manifest 的 test/lint/type-check 命令\n# - 检查 manifest 是否冲突",
+        "desc": "Manifest file 在 AI 项目中的作用"
+      }
+    ],
   },
   {
     id: "auto-mode-safety",
@@ -3853,6 +3997,12 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Claude Code Docs"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Auto Mode Safety",
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety"
+      }
+    ],
   },
   {
     id: "managed-settings",
@@ -3867,6 +4017,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>特性：</strong>用户和项目设置<strong>无法覆盖</strong>。</p>
 <p><strong>用途：</strong>安全策略、合规要求、标准化工具链。</p>`,
     related: ["permission-mode"],
+    seeAlso: [
+      {
+        "name": "Claude Code: Settings",
+        "url": "https://docs.claude.com/en/docs/claude-code/settings"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Managed Settings: 团队 / 企业的 Claude Code 配置\n# ~/.claude/settings.json (user-level)\n# .claude/settings.json (project-level)\n# .claude/settings.local.json (local, gitignored)\n\n{\n  \"permissions\": {\n    \"allow\": [\"Bash(npm test)\", \"Read(**/*.ts)\"],\n    \"deny\": [\"Bash(rm -rf *)\", \"Bash(curl *)\"]\n  },\n  \"model\": \"claude-sonnet-4-5\",\n  \"autoMode\": \"safe\"\n}\n\n# Managed: IT 团队用 MDM 推到所有机器",
+        "desc": "Claude Code managed settings 配置"
+      }
+    ],
   },
 
   // ============ L6 · 风险度量层 (17 个) ============
