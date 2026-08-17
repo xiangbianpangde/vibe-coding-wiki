@@ -2,8 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const newUrl = 'https://xbpd.github.io/vibe-coding-wiki';
-const oldUrl = 'https://xbpd.github.io/vibe-coding-wiki';
+const newUrl = 'https://xiangbianpangde.github.io/vibe-coding-wiki';
+const oldUrl = 'https://xiangbianpangde.github.io/vibe-coding-wiki';
 const base = path.join(__dirname, '..');
 
 function walk(dir) {

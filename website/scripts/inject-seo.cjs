@@ -16,7 +16,7 @@ const pages = [
 
 const SITE_NAME = 'Vibe Coding Wiki';
 const SITE_DESC = 'Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。';
-const SITE_URL = 'https://xbpd.github.io/vibe-coding-wiki';
+const SITE_URL = 'https://xiangbianpangde.github.io/vibe-coding-wiki';
 
 function buildJsonLd(page) {
   const baseUrl = page.includes('/pages/') ? `${SITE_URL}/pages/${page.split('/').pop()}` : `${SITE_URL}/${page}`;

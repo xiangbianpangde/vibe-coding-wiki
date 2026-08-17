@@ -18,7 +18,7 @@ GitHub 上线 + Star 增长监控 + 1k 达成追踪。
 ### 1. 上线到 GitHub（一次性）
 
 ```bash
-cd /Users/xbpd/Projects/vibe-coding-wiki
+cd /Users/xiangbianpangde/Projects/vibe-coding-wiki
 ops/git-github-bootstrap.sh
 ```
 
@@ -32,7 +32,7 @@ ops/git-github-bootstrap.sh
 
 **手动单次检查：**
 ```bash
-VC_REPO=xbpd/vibe-coding-wiki ops/star-tracker.sh once
+VC_REPO=xiangbianpangde/vibe-coding-wiki ops/star-tracker.sh once
 ```
 
 **自测（无需真实 repo）：**
@@ -65,7 +65,7 @@ python3 ops/star-report.py
 ======================================================================
 Vibe Coding Wiki · Star Tracker Daily Report
 ======================================================================
-Repo:      xbpd/vibe-coding-wiki
+Repo:      xiangbianpangde/vibe-coding-wiki
 Stars:     127 / 1000  (12.7%)
 Delta:     +12
 

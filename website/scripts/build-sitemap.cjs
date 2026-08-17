@@ -8,7 +8,7 @@ const termsContent = fs.readFileSync(termsPath, 'utf8');
 const matches = [...termsContent.matchAll(/id: ["']([^"']+)["']/g)];
 const ids = [...new Set(matches.map(m => m[1]))];
 const today = new Date().toISOString().split('T')[0];
-const base = 'https://xbpd.github.io/vibe-coding-wiki';
+const base = 'https://xiangbianpangde.github.io/vibe-coding-wiki';
 
 const staticUrls = [
   '',

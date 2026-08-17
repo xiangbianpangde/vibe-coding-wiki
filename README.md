@@ -4,7 +4,7 @@
 
 A professional knowledge base for **Vibe Coding** and AI-assisted programming terminology. Built with Chinese traditional color design system (《中国传统色 Studio》).
 
-🌐 **Live Demo**: [https://xbpd.github.io/vibe-coding-wiki](https://xbpd.github.io/vibe-coding-wiki) (after deployment)
+🌐 **Live Demo**: [https://xiangbianpangde.github.io/vibe-coding-wiki](https://xiangbianpangde.github.io/vibe-coding-wiki) (after deployment)
 
 ---
 
@@ -24,7 +24,7 @@ A professional knowledge base for **Vibe Coding** and AI-assisted programming te
 
 ```bash
 # 克隆
-git clone https://github.com/xbpd/vibe-coding-wiki.git
+git clone https://github.com/xiangbianpangde/vibe-coding-wiki.git
 cd vibe-coding-wiki
 
 # 本地预览
