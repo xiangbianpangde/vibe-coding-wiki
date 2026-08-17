@@ -23,7 +23,7 @@ const metaBlock = `  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vibe Coding Wiki">
   <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
-  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="canonical" href="https://xbpd.github.io/vibe-coding-wiki/">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <meta name="robots" content="index,follow">`;
 

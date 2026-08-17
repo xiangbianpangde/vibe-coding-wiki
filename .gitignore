@@ -22,3 +22,6 @@ build/
 *.tmp
 *.bak
 *.log
+
+autoresearch/
+.pw-browsers/

@@ -4,10 +4,11 @@ const path = require('path');
 
 const termsPath = path.join(__dirname, '..', 'js', 'terms.js');
 const termsContent = fs.readFileSync(termsPath, 'utf8');
-const matches = [...termsContent.matchAll(/id: '([^']+)'/g)];
+// Match both single and double quoted id values (rebuild-terms.js uses double quotes)
+const matches = [...termsContent.matchAll(/id: ["']([^"']+)["']/g)];
 const ids = [...new Set(matches.map(m => m[1]))];
 const today = new Date().toISOString().split('T')[0];
-const base = 'https://vibe-coding-wiki.example.com';
+const base = 'https://xbpd.github.io/vibe-coding-wiki';
 
 const staticUrls = [
   '',

@@ -4,7 +4,7 @@
 
 A professional knowledge base for **Vibe Coding** and AI-assisted programming terminology. Built with Chinese traditional color design system (《中国传统色 Studio》).
 
-🌐 **Live Demo**: [https://vibe-coding-wiki.example.com](https://vibe-coding-wiki.example.com) (after deployment)
+🌐 **Live Demo**: [https://xbpd.github.io/vibe-coding-wiki](https://xbpd.github.io/vibe-coding-wiki) (after deployment)
 
 ---
 

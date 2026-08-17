@@ -16,9 +16,9 @@ const pages = [
 ];
 
 const OG_IMAGE_REL = 'og-image.svg';
-const OG_IMAGE_ABS = 'https://vibe-coding-wiki.example.com/og-image.svg';
+const OG_IMAGE_ABS = 'https://xbpd.github.io/vibe-coding-wiki/og-image.svg';
 const OG_IMAGE_ALT_REL = '../og-image.svg';   // from /pages/*.html
-const OG_IMAGE_ALT_ABS = 'https://vibe-coding-wiki.example.com/og-image.svg';
+const OG_IMAGE_ALT_ABS = 'https://xbpd.github.io/vibe-coding-wiki/og-image.svg';
 
 const ogImageTags = (rel) => `
   <meta property="og:image" content="${OG_IMAGE_ABS}">

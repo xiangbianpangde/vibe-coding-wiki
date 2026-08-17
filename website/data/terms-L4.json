@@ -27,6 +27,20 @@
         "text": "Cursor is the AI-first IDE that became the gold standard for vibe coding.",
         "cite": "社区共识"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Cursor 官网",
+        "url": "https://cursor.com"
+      },
+      {
+        "name": "Cursor Docs",
+        "url": "https://docs.cursor.com"
+      },
+      {
+        "name": "Cursor Composer 介绍",
+        "url": "https://cursor.com/blog/composer-1"
+      }
     ]
   },
   {
@@ -44,6 +58,28 @@
     "related": [
       "cursor",
       "agent-loop"
+    ],
+    "examples": [
+      {
+        "code": "# Cursor Composer: 多文件编辑\n# 1. Cmd+I 打开 Composer\n# 2. 输入：\"把登录页改成支持 OAuth，并把测试补齐\"\n# Composer 会：\n#   - 扫描相关文件\n#   - 生成 unified diff（多文件）\n#   - 显示 plan 供 review\n#   - 一次 apply 所有变更",
+        "desc": "Cursor Composer 多文件编辑流程"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Cursor Composer 介绍",
+        "url": "https://cursor.com/blog/composer-1"
+      },
+      {
+        "name": "Cursor Docs: Composer",
+        "url": "https://docs.cursor.com/composer"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Composer is Cursor's agent for multi-file edits, trained on real codebases.",
+        "cite": "Cursor blog"
+      }
     ]
   },
   {
@@ -107,6 +143,28 @@
     "related": [
       "cursor",
       "codeium"
+    ],
+    "examples": [
+      {
+        "code": "# Windsurf Editor: Cascade flow\n# 1. 按 Cmd+I 打开 Cascade AI panel\n# 2. 输入自然语言：\"为 /api/users 添加分页参数\"\n# 3. Cascade 会：\n#    - 读相关文件 (Repo map + RAG)\n#    - 生成 diff\n#    - 在右侧 Supercomplete 给出内联补全\n#    - 失败时自动 rollback\n\n# Windsurf 区别于 Cursor：\n# - Flow = 多文件 agent 编排\n# - Supercomplete = 内联补全（类似 Copilot）",
+        "desc": "Windsurf Cascade flow 流程"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Windsurf 官网",
+        "url": "https://codeium.com/windsurf"
+      },
+      {
+        "name": "Windsurf Docs",
+        "url": "https://docs.codeium.com/windsurf/getting-started"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Windsurf Editor: the first AI-native IDE built for flow.",
+        "cite": "Windsurf.com"
+      }
     ]
   },
   {
@@ -124,6 +182,32 @@
     "related": [
       "cursor",
       "pair-programming"
+    ],
+    "examples": [
+      {
+        "code": "// GitHub Copilot 内联补全（VS Code）\n// 输入注释 → Copilot 建议代码\n// /**\n//  * 计算数组中所有偶数的和\n//  */\nfunction sumEvens(arr) {\n  return arr.filter(n => n % 2 === 0).reduce((a, b) => a + b, 0);\n}\n\n// Copilot Chat（Cmd+I）\n// > \"@workspace /explain 这个文件的 auth middleware\"\n// > \"@terminal 如何在 GitHub Actions 中跑这个命令？\"",
+        "desc": "GitHub Copilot 内联补全 + Chat 命令"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "GitHub Copilot 官网",
+        "url": "https://github.com/features/copilot"
+      },
+      {
+        "name": "Copilot Docs",
+        "url": "https://docs.github.com/en/copilot"
+      },
+      {
+        "name": "Copilot Chat 使用指南",
+        "url": "https://docs.github.com/en/copilot/github-copilot-chat"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Your AI pair programmer.",
+        "cite": "GitHub Copilot 标语"
+      }
     ]
   },
   {
@@ -186,6 +270,22 @@
         "code": "// 风险案例：2025-07\n\"Add a stage column to the production database\"\n// Agent 删除了 production database 表！\n// 即使明确说\"不要修改生产数据\"",
         "desc": "Replit Agent 删库事件"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Replit Agent 官网",
+        "url": "https://replit.com/agent"
+      },
+      {
+        "name": "Replit Docs",
+        "url": "https://docs.replit.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Replit Agent lets you build and deploy full-stack apps from a single prompt.",
+        "cite": "Replit Blog, 2024-09"
+      }
     ]
   },
   {
@@ -210,6 +310,22 @@
         "code": "// 风险案例：2025-05\n170/1645 Lovable web 应用\n泄露 PII（个人可识别信息）",
         "desc": "Lovable PII 泄漏事件"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Lovable 官网",
+        "url": "https://lovable.dev"
+      },
+      {
+        "name": "Lovable Docs",
+        "url": "https://docs.lovable.dev"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Lovable turns ideas into fully functional web apps. No code required.",
+        "cite": "Lovable.dev"
+      }
     ]
   },
   {
@@ -232,6 +348,22 @@
       {
         "code": "// 免费替代 Copilot 的好选择\n// Windsurf 内置，支持 70+ 语言",
         "desc": "Codeium 价值主张"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Codeium 官网",
+        "url": "https://codeium.com"
+      },
+      {
+        "name": "Codeium Docs",
+        "url": "https://docs.codeium.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Codeium: Free AI code completion, chat, and search. Trained on permissively licensed code.",
+        "cite": "Codeium.com"
       }
     ]
   },
@@ -267,6 +399,28 @@
     "related": [
       "cursor",
       "claude-code"
+    ],
+    "examples": [
+      {
+        "code": "# Cline (Roo Code): VS Code 扩展\n# 安装：在 VS Code 扩展市场搜 \"Cline\" 或 \"Roo Code\"\n# 用法：\n# 1. 打开 Cline 侧边栏\n# 2. 输入：\"给 /api/users 加分页\"\n# 3. Cline 会：\n#    - 创建 todo list\n#    - 读相关文件\n#    - 写代码 + 创建/编辑文件\n#    - 跑 terminal 命令（如 npm install）\n#    - diff 视图等你 approve",
+        "desc": "Cline / Roo Code 用法"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Cline GitHub",
+        "url": "https://github.com/cline/cline"
+      },
+      {
+        "name": "Roo Code (Cline fork)",
+        "url": "https://github.com/RooCodeInc/Roo-Code"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Cline: autonomous coding agent right in your IDE.",
+        "cite": "Cline GitHub"
+      }
     ]
   },
   {
@@ -284,6 +438,28 @@
     "related": [
       "claude-code",
       "agent-loop"
+    ],
+    "examples": [
+      {
+        "code": "# Devin (Cognition AI): 全自主 agent\n# Devin 接收 Slack/Jira ticket 后：\n# 1. 在自己的 sandbox 里 git clone repo\n# 2. 读代码 + 写代码 + 跑测试\n# 3. 通过浏览器自测 UI\n# 4. 输出 PR 链接\n# 限制：单任务 ~$2-$10，长任务可能卡住",
+        "desc": "Devin 自主 agent 工作流"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Cognition AI 官网",
+        "url": "https://www.cognition.ai"
+      },
+      {
+        "name": "Devin 介绍博客",
+        "url": "https://www.cognition.ai/blog/introducing-devin"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Devin is the first fully autonomous AI software engineer.",
+        "cite": "Cognition AI, 2024-03"
+      }
     ]
   },
   {
@@ -302,6 +478,28 @@
     "related": [
       "lovable",
       "frontend-scenario"
+    ],
+    "examples": [
+      {
+        "code": "# v0 (Vercel): UI 生成\n# 1. 访问 v0.dev\n# 2. 输入 prompt：\"一个 SaaS dashboard，左侧导航，右侧卡片网格，支持 dark mode\"\n# 3. v0 生成 React + Tailwind + shadcn/ui 代码\n# 4. 可以复制到 clipboard 或 fork 到 Vercel 部署",
+        "desc": "v0.dev UI 生成流程"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "v0.dev 官网",
+        "url": "https://v0.dev"
+      },
+      {
+        "name": "v0 文档",
+        "url": "https://v0.dev/docs"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "v0 generates copy-paste friendly React code based on shadcn/ui.",
+        "cite": "Vercel"
+      }
     ]
   },
   {
@@ -428,6 +626,24 @@
     "related": [
       "claude-code",
       "gemini-cli"
+    ],
+    "examples": [
+      {
+        "code": "# OpenAI Codex CLI (2025): 终端 agent\n$ codex \"为这个 Python 项目添加单元测试\"\n# Codex CLI 会：\n# 1. 探索项目结构\n# 2. 识别需要测试的函数\n# 3. 生成 pytest 测试\n# 4. 跑测试验证\n# 5. 提交 commit",
+        "desc": "Codex CLI 终端 agent 用法"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "OpenAI Codex CLI",
+        "url": "https://github.com/openai/codex"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Codex CLI brings OpenAI's coding agent to your terminal.",
+        "cite": "OpenAI, 2025-04"
+      }
     ]
   },
   {

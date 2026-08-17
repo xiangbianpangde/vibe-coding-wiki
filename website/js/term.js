@@ -72,12 +72,16 @@
 
   // ======== TOC ========
   const tocSections = [
-    { id: 'section-summary', label: '摘要' },
+    { id: 'section-summary',    label: '摘要' },
     { id: 'section-definition', label: '详细定义' },
-    { id: 'section-quotes', label: '相关引文' },
-    { id: 'section-source', label: '引用与来源' },
-    { id: 'section-feedback', label: '反馈' }
-  ];
+    { id: 'section-examples',   label: '例句 / 代码示例',   showIf: () => term.examples && term.examples.length },
+    { id: 'section-misconceptions', label: '⚠️ 常见误解',  showIf: () => term.misconceptions && term.misconceptions.length },
+    { id: 'section-quotes',     label: '相关引文',         showIf: () => term.quotes && term.quotes.length },
+    { id: 'section-timeline',   label: '⏳ 演进时间线',    showIf: () => term.timeline && term.timeline.length },
+    { id: 'section-source',     label: '引用与来源' },
+    { id: 'section-path',       label: '🛤️ 学习路径',      showIf: () => term.path && term.path.length },
+    { id: 'section-feedback',   label: '反馈' },
+  ].filter(s => !s.showIf || s.showIf());
   document.getElementById('toc-list').innerHTML = tocSections.map(s =>
     `<li><a href="#${s.id}">${s.label}</a></li>`
   ).join('');

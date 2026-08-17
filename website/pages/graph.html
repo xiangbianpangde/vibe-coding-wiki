@@ -10,18 +10,18 @@
   <meta property="og:title" content="Vibe Coding Wiki · 专业术语知识库">
   <meta property="og:description" content="Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。">
   <meta property="og:site_name" content="Vibe Coding Wiki">
-  <meta property="og:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta property="og:image" content="https://xbpd.github.io/vibe-coding-wiki/og-image.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
   <meta property="og:image:type" content="image/svg+xml">
-  <meta name="twitter:image" content="https://vibe-coding-wiki.example.com/og-image.svg">
+  <meta name="twitter:image" content="https://xbpd.github.io/vibe-coding-wiki/og-image.svg">
   <meta name="twitter:image:alt" content="Vibe Coding Wiki · 178 词条 · 8 层级 · 14 场景">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vibe Coding Wiki">
   <meta name="twitter:description" content="178+ 词条 · 8 层级 · 14 场景 · 30+ 权威来源">
-  <link rel="canonical" href="https://vibe-coding-wiki.example.com/">
+  <link rel="canonical" href="https://xbpd.github.io/vibe-coding-wiki/">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <meta name="robots" content="index,follow">
 <link rel="stylesheet" href="../css/style.css">
@@ -45,11 +45,11 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Vibe Coding Wiki",
-  "url": "https://vibe-coding-wiki.example.com",
+  "url": "https://xbpd.github.io/vibe-coding-wiki",
   "description": "Vibe Coding 与 AI 辅助编程的专业术语 Wiki。178+ 词条、8 大层级、14 类场景。",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://vibe-coding-wiki.example.com/pages/glossary.html?search={search_term_string}",
+    "target": "https://xbpd.github.io/vibe-coding-wiki/pages/glossary.html?search={search_term_string}",
     "query-input": "required name=search_term_string"
   },
   "inLanguage": [
@@ -67,13 +67,13 @@
       "@type": "ListItem",
       "position": 1,
       "name": "首页",
-      "item": "https://vibe-coding-wiki.example.com"
+      "item": "https://xbpd.github.io/vibe-coding-wiki"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "graph",
-      "item": "https://vibe-coding-wiki.example.com/pages/graph.html"
+      "item": "https://xbpd.github.io/vibe-coding-wiki/pages/graph.html"
     }
   ]
 }
@@ -283,9 +283,14 @@ graph TB
 <script>
   // 确保 mermaid 加载后初始化（处理 CDN 加载顺序问题）
   function initMermaid() {
+    // 先 hide wrap，避免 FOUC 显示原始源码
+    const wrap = document.querySelector('.mermaid-wrap');
+    if (wrap) wrap.style.visibility = 'hidden';
+
     if (typeof mermaid === 'undefined') {
-      // CDN 未加载， fallback
-      document.querySelectorAll('.mermaid').forEach((el, i) => {
+      // CDN 未加载， fallback: 显示原始源码作为静态回退
+      if (wrap) wrap.style.visibility = '';
+      document.querySelectorAll('.mermaid').forEach((el) => {
         el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;">' + el.textContent + '</pre>';
       });
       return;
@@ -307,8 +312,16 @@ graph TB
         },
         flowchart: { curve: 'basis', padding: 8, nodeSpacing: 20, rankSpacing: 25, htmlLabels: true }
       });
+      // mermaid 初始化后 unhide
+      if (wrap) {
+        // 使用 rAF 等 mermaid 实际完成渲染
+        requestAnimationFrame(() => {
+          wrap.style.visibility = '';
+        });
+      }
     } catch (e) {
       console.error('Mermaid init failed:', e);
+      if (wrap) wrap.style.visibility = '';
     }
   }
 
