@@ -1,85 +1,128 @@
-# HackerNews · Show HN
+# Hacker News Submission · Sol-Reviewed
 
-> 提交地址: https://news.ycombinator.com/submit
-> 提交时间: 当 Round 1 KEEP 后（首屏 JS <30KB 后再做，更impressive）
+## Recommended Submit Type
 
----
+**普通 HN submission** （不是 Show HN）。理由：HN 官方规则对 Show HN 限制为"users can play with"——glossary / knowledge base 不属于此类别。普通帖更合适。
 
-## 标题候选（选 1 个）
+## Title (recommended)
 
-A. **Show HN: Vibe Coding Wiki – 178 terms from Karpathy 2025 to Agentic Engineering 2026**
-B. Show HN: I curated 178 terms across 8 layers for the Vibe Coding era
-C. Show HN: Vibe Coding Wiki – a Wikipedia-style glossary for AI-assisted programming
+```
+Vibe Coding Wiki: 178 terms for AI-assisted programming
+```
 
----
+评分 9/10。
+- 简洁（HN 用户喜欢）
+- "Vibe Coding Wiki" 是产品名 + 定位
+- "178 terms" 是精确数字（不是"200+"）
+- "AI-assisted programming" 描述用途
 
-## 描述（300 字符内）
+## Title (alternative if you want Show HN)
 
-**首选版本（英文，简洁）**:
+```
+Show HN: Vibe Coding Wiki – an interactive glossary of 178 AI coding terms
+```
 
-> I curated 178 terms across 8 layers for the Vibe Coding era — from Karpathy's "vibe coding" (2025-02) to "agentic engineering" (2026-02).
->
-> Built with traditional Chinese colors (玄青黑底 + 鎏金暖白), full SEO, dark mode, mobile-friendly, GitHub Pages. Each term has examples, quotes, and authoritative see-also links.
->
-> All static site, ~200KB total. Open source.
+评分 8.5/10。
+- 加 "interactive glossary" 区分 Wikipedia-style
+- "AI coding" 更 HN 化
 
-**备用版本（更短）**:
+## Body (3 段式 · Sol 提供的 9.5/10 版本)
 
-> 178 terms across 8 layers for AI-assisted programming. From "vibe coding" to "agentic engineering". Static site, full SEO, dark mode. Open source.
+```text
+I built this because the vocabulary around AI-assisted programming is getting difficult to keep straight.
 
----
+"Vibe coding", agentic coding, context engineering, MCP, spec-driven development, cognitive debt, guardrails, YOLO mode — the terms are spreading across blog posts, documentation, papers and tool communities, but I couldn't find one place that showed how they relate.
 
-## 第一条评论模板（提交后立即发）
+So I started building a taxonomy rather than another list.
 
-> 作者在这里。
->
-> **为什么做这个**：
-> 2025-02 Karpathy 创造了"vibe coding"这个术语，但没有任何地方系统性整理这类 AI 编程相关词汇。Claude Code 官方词汇表有 30+ 独有术语，散落在各文档里。Karpathy 2026-02 又提出"agentic engineering"取代 vibe coding——这个领域变化太快，需要一个 canonical glossary。
->
-> **做了什么**：
-> - 178 词条，覆盖 Karpathy / Anthropic / Simon Willison / Hunt 等关键人物提出的术语
-> - 8 大层级：范式 / 方法 / 技术 / 工具 / 质量 / 风险 / Prompt / 场景
-> - 14 类使用场景（原型 / 生产 / 重构 / 安全等）
-> - 每词条含 examples / quotes / seeAlso 3 个真实权威来源
-> - 中国色设计系统（玄青 + 鎏金 + 朱砂）
-> - 完整 SEO（JSON-LD / OG / sitemap）
-> - 全静态站，无依赖，GitHub Pages 免费部署
->
-> **诚实的限制**：
-> - 中文为主，英文有但不全（70% 数据是中文权威源）
-> - 部分词条 quotes 还在补（60% 覆盖率）
-> - 不是 Wikipedia 编辑模式，是 curated（我审过每个词条）
->
-> Demo: https://xiangbianpangde.github.io/vibe-coding-wiki/
-> Code: https://github.com/xiangbianpangde/vibe-coding-wiki
->
-> 欢迎提 PR 加词条 / 改错 / 翻译英文。
+It currently has 178 terms organized into 8 layers:
+Paradigms → Methodologies → Technologies → Tools → Quality → Risks → Prompting → Scenarios.
 
----
+For each term I'm trying to include the definition, examples, primary-source quotes, related terms and references. Current coverage is roughly 77% examples, 76% quotes and 79% external references.
 
-## 时间策略
+The site is deliberately simple: static HTML/CSS/JS, per-layer async loading, offline caching, full-text search, relationship views and an early Chinese/English mode. No account or backend.
 
-- **最佳提交时间**: 周二到周四 美东 8:00-10:00 AM (对应北京时间 21:00-23:00)
-- **避免**: 周末、节假日、美东深夜
-- **Round 1 KEEP 后**: 等 24-48h 让 star 曲线稳定再投
-- **目标**: Show HN 24h 内冲到首页（top 30）
+The biggest unfinished part is English. The original knowledge base was written in Chinese; L1 is translated and the remaining layers are being reviewed now.
 
-## 配套动作（提交 Show HN 后 1h 内）
+I'd especially appreciate feedback on:
+- terms that are missing
+- classifications you disagree with
+- incorrect attribution or sources
+- terminology that shouldn't exist as a separate entry
 
-1. 同步发到 Twitter/X（带 og:image）
-2. 同步发到 dev.to（更长版本）
-3. 提交到 Reddit: r/programming, r/MachineLearning, r/ClaudeAI
-4. 提交到 ProductHunt（如有账号）
+The repo is MIT licensed and contributions/corrections are welcome.
+```
 
-## 风险预案
+## Key Properties of This Body
 
-- 如果 24h 内没上首页：编辑标题重发（Show HN 允许自我编辑）
-- 如果被 downvote：回复评论解释，邀请建设性反馈
-- 如果被发现事实错误：立即修 README/数据，公开承认
+| Property | How It's Achieved |
+|---|---|
+| **Problem framing** | "vocabulary is getting difficult to keep straight" — not "I built a thing" |
+| **Specific terms listed** | "vibe coding, agentic coding, context engineering, MCP, spec-driven development, cognitive debt, guardrails, YOLO mode" |
+| **Honest limitation** | "biggest unfinished part is English" |
+| **Invites critique** | 4 specific feedback questions |
+| **Low ego** | "MIT licensed and contributions/corrections are welcome" |
 
-## 不要做
+## Why It Works (vs Original)
 
-- ❌ 多个账号同时发（违规）
-- ❌ 求 upvote（评论里不要"Please upvote"）
-- ❌ 立刻贴多个链接（只贴 demo + code，其他在评论补充）
-- ❌ 长 self-promotion（HN 用户讨厌）
+| Original (8dd40f0) | Sol-Reviewed |
+|---|---|
+| "I built 178 terms" | "I built this because..." |
+| Lists features | Lists problems + design decisions |
+| Pitch | Honest assessment + invitation critique |
+| "Full SEO / dark mode" | "deliberately simple / no backend" |
+| No weakness admitted | "Unfinished English" |
+
+## First Comment Strategy (重要)
+
+HN 用户会问你 3 个问题：
+1. **Why a taxonomy, not a list?** → 你可回答 "因为 taxonomy 显示关系，list 只是堆砌"
+2. **Why 178 not 1000?** → 你可回答 "v2.3 计划扩到 250+；178 是 70%+ 富内容门槛"
+3. **为什么不自动收录新词?** → 引出 Citation Red Team 这就是为什么
+
+## Timing
+
+| 时机 | 美东时间 |
+|---|---|
+| 周二 - 周四 | 09:00 - 11:00 |
+| 避开周一（信息过载）周五（专注整理） |  |
+| 截稿前 7 天在 HN 看 5 个类似帖的 upvote 曲线 |  |
+
+## Don't
+
+- ❌ Ask friends to upvote (HN detects this)
+- ❌ Use "Show HN" if it's a knowledge base (HN 规则)
+- ❌ Mention "178 terms" in title (too many dimensions)
+- ❌ Reply to every comment (looks desperate)
+- ❌ Post first version with too many issues (HN users find WEAK)
+
+## HTTP 测试
+
+```bash
+# 立刻测试你的 HN 内容
+gh api -X POST https://hacker-news.firebaseio.com/v0/item/30597874.json \
+  -d '{"text":"test"}' 2>&1 | head -3
+```
+
+## KOL 触达 (5 天后)
+
+- **目标**: Karpathy / Willison / Anthropic / Simon Willison 个人
+- **方式**: Twitter / Email
+- **timing**: HN 帖 2-3 天后（确保他们能查到讨论）
+- **template**: 在 ops/share/05-kol-outreach.md
+
+## Personal First Comment (立即准备)
+
+```text
+Author here. A few clarifications:
+
+1. The terms are deliberately limited (~178) because my goal is depth, not breadth. Each term has on average 2.9 sourced content pieces (examples, quotes, references).
+
+2. The biggest deliberate gap is English. The original was Chinese — I'm doing the translation layer by layer with primary-source verification, not machine translation.
+
+3. I'm specifically NOT doing this with an LLM-only workflow. Every citation is a primary source (author blog, official docs, original paper). You can verify any quote by clicking the source link.
+
+4. Yes, this is mostly me, an AI agent team (coordinator + data enricher + auditor). The architecture choices are documented in /docs/ARCHITECTURE.md.
+
+Happy to discuss omissions or disagreements in the taxonomy — that's the actual point.
+```
