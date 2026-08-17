@@ -8,6 +8,14 @@
   'use strict';
 
   const DATA_PATH = (() => {
+    // base href 自动解析路径；如果有 base href，用 'data/' 即可
+    const baseHref = document.querySelector('base')?.getAttribute('href');
+    if (baseHref) {
+      // base href 存在（例如部署时 /vibe-coding-wiki/）
+      // 'data/' 被浏览器解析为 /vibe-coding-wiki/data/
+      return 'data/';
+    }
+    // 本地开发（base href 不存在），按目录调整
     const path = location.pathname;
     return path.includes('/pages/') ? '../data/' : 'data/';
   })();
