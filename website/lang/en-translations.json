@@ -480,5 +480,249 @@
   "superwhisper": {
     "enShortDesc": "Speech-to-text tool that lets users talk to LLMs via voice.",
     "enLongDesc": "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p>"
+  },
+  "guardrails": {
+    "enShortDesc": "Automated checks that catch the specific mistakes AI tends to make. Cheap to run, loud to fail.",
+    "enLongDesc": "<p><strong>Guardrails</strong> are automated checks designed to catch AI-specific mistakes: type checks, linters, unit tests, security scans, dependency audits, diff size limits. Run on every change, fail loudly.</p>"
+  },
+  "mvp": {
+    "enShortDesc": "Mechanical Verification Pipeline: use the compiler, diff, and test suite as the referee.",
+    "enLongDesc": "<p><strong>MVP</strong> uses mechanical means (compiler, diff, test suite) as the referee for AI-generated code. An unattended loop makes unattended mistakes.</p>"
+  },
+  "compiler-referee": {
+    "enShortDesc": "The compiler as first reviewer: all AI code must compile before human review.",
+    "enLongDesc": "<p>The <strong>compiler as referee</strong>: AI generates code, the compiler (or type checker) validates. Compile failure = AI must fix. Compile success != correct (still needs review), but it's a strong filter.</p>"
+  },
+  "test-referee": {
+    "enShortDesc": "The test suite as final arbiter.",
+    "enLongDesc": "<p>The <strong>test suite as referee</strong>: tests are the mechanical, repeatable check. AI-generated code must pass the full test suite before merge.</p>"
+  },
+  "safety-net-testing": {
+    "enShortDesc": "Build a testing safety net: enough tests to make AI changes safe.",
+    "enLongDesc": "<p><strong>Safety net testing</strong>: build a comprehensive test suite before letting AI modify critical paths. Coverage > 80% is the floor.</p>"
+  },
+  "diff-review": {
+    "enShortDesc": "Force AI to output a diff and require human review before merge.",
+    "enLongDesc": "<p><strong>Diff review</strong>: in vibe coding workflows, force every AI-generated change to show a diff. A human reviews line-by-line before merge.</p>"
+  },
+  "code-review": {
+    "enShortDesc": "Code review practice. In the AI era, review AI-generated code the same way as human code.",
+    "enLongDesc": "<p><strong>Code review</strong> is the human-in-the-loop check on AI-generated code. Same standards as human code: correctness, security, readability, style.</p>"
+  },
+  "yolo-mode": {
+    "enShortDesc": "Disable all approval. The agent doesn't stop to ask. Extremely risky.",
+    "enLongDesc": "<p><strong>YOLO mode</strong>: turn off all permission prompts. The agent takes actions without confirmation. Use only for prototypes and disposable tools.</p>"
+  },
+  "responsible-vc": {
+    "enShortDesc": "Vibe coding with continuous review. The opposite of YOLO is engaged review, not 'no agent'.",
+    "enLongDesc": "<p><strong>Responsible vibe coding</strong>: use AI agents heavily, but with engaged review, tests, and guardrails. The opposite of YOLO is not 'no agent' — it is reviewed iteration.</p>"
+  },
+  "failure-mode": {
+    "enShortDesc": "Analyze the ways the agent could fail, then add targeted protections for each.",
+    "enLongDesc": "<p><strong>Failure mode analysis</strong> for AI coding: enumerate how the agent could fail (hallucination, deletion, security bugs) and add a guardrail for each.</p>"
+  },
+  "spec-driven-prompting": {
+    "enShortDesc": "Use spec.md content as the core of the prompt.",
+    "enLongDesc": "<p><strong>Spec-driven prompting</strong>: the prompt itself is the spec (or references the spec). AI implements against the spec rather than improvising.</p>"
+  },
+  "manifest-file": {
+    "enShortDesc": "Project-level persistent instruction file. Auto-loaded each session.",
+    "enLongDesc": "<p>A <strong>manifest file</strong> (e.g., package.json, pyproject.toml, CLAUDE.md, AGENTS.md) declares project metadata, dependencies, scripts. AI agents read these for context.</p>"
+  },
+  "auto-mode-safety": {
+    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    "enLongDesc": "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>"
+  },
+  "managed-settings": {
+    "enShortDesc": "Organization-level Claude Code settings. IT/DevOps pushes via admin console to all engineers.",
+    "enLongDesc": "<p><strong>Managed settings</strong>: IT-managed Claude Code config. Pushed via MDM to enforce policy across the org: deny lists, model choices, permissions.</p>"
+  },
+  "tech-debt": {
+    "enShortDesc": "Long-term maintenance burden accumulated in code. Vibe coding dramatically increases it.",
+    "enLongDesc": "<p><strong>Technical debt</strong>: shortcuts taken in code that cost more later (Martin Fowler's metaphor). Vibe coding accelerates tech debt accumulation because code is produced faster than reviewed.</p>"
+  },
+  "cognitive-debt-detail": {
+    "enShortDesc": "AI interaction's accumulated cost — context loss, unreliable agent behavior — beyond technical debt as the new burden.",
+    "enLongDesc": "<p><strong>Cognitive debt</strong> (Andrew Hunt 2026): the team's understanding of the codebase lags behind the code itself. AI produces code that works but nobody fully understands. Harder to measure than technical debt.</p>"
+  },
+  "code-churn": {
+    "enShortDesc": "Rate at which code is modified, rewritten, or deleted. Vibe coding significantly increases it.",
+    "enLongDesc": "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored.</p>"
+  },
+  "code-duplication": {
+    "enShortDesc": "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
+    "enLongDesc": "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>"
+  },
+  "vibe-slop": {
+    "enShortDesc": "Mario Zechner's term: low-quality, hard-to-maintain code produced by vibe coding.",
+    "enLongDesc": "<p><strong>Vibe slop</strong>: Mario Zechner's term for the AI-generated low-quality code flooding the ecosystem. Functionally works but is buggy, insecure, and unsustainable.</p>"
+  },
+  "vibe-hangover": {
+    "enShortDesc": "Fast Company's term (Sep 2025): when vibe-coded apps in production start breaking down.",
+    "enLongDesc": "<p><strong>Vibe hangover</strong>: the period after vibe coding ships, when the codebase starts breaking down under real use. Maintenance cost exceeds original creation savings.</p>"
+  },
+  "dev-hell": {
+    "enShortDesc": "The 'system that resists evolution' trap created by vibe coding.",
+    "enLongDesc": "<p><strong>Dev hell</strong>: a codebase so tangled by ad-hoc AI changes that adding new features requires rewriting large portions. The opposite of maintainable software.</p>"
+  },
+  "lethal-trifecta": {
+    "enShortDesc": "Simon Willison's three-factor risk: private data + untrusted content + external communication. Any two is dangerous; all three is lethal.",
+    "enLongDesc": "<p>The <strong>lethal trifecta</strong> (Simon Willison): access to private data, exposure to untrusted content, and ability to communicate externally. An AI agent with all three is a security risk.</p>"
+  },
+  "vibe-valuation": {
+    "enShortDesc": "AI startup valuations divorced from ARR and fundamentals. The Economist coined this term.",
+    "enLongDesc": "<p><strong>Vibe valuation</strong>: the trend of AI startups being valued at multiples disconnected from actual revenue. Vibes-based investing.</p>"
+  },
+  "homogenization": {
+    "enShortDesc": "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
+    "enLongDesc": "<p><strong>Homogenization</strong>: when LLMs recommend the same popular libraries for every problem, software stacks become similar across organizations, reducing diversity.</p>"
+  },
+  "open-source-impact": {
+    "enShortDesc": "2026-01 paper: vibe coding weakens open source maintainer engagement and revenue.",
+    "enLongDesc": "<p>The <strong>open source impact</strong> of vibe coding (Koren et al. 2026): maintainers see fewer contributions because users build their own versions with AI rather than engaging upstream.</p>"
+  },
+  "eternal-september": {
+    "enShortDesc": "Usenet term borrowed for GitHub: a flood of newcomers unfamiliar with norms.",
+    "enLongDesc": "<p><strong>Eternal September</strong>: the phenomenon where a community is overwhelmed by new members who don't know the established norms. Applied to GitHub after AI coding agents flooded it.</p>"
+  },
+  "prompt-injection": {
+    "enShortDesc": "Malicious content injected into an LLM's input stream to manipulate its behavior.",
+    "enLongDesc": "<p><strong>Prompt injection</strong>: an attacker embeds instructions in data the LLM reads (web pages, emails, documents). The LLM may execute the injected instructions. Treat as a security vulnerability.</p>"
+  },
+  "security": {
+    "enShortDesc": "AI-generated code security issues. Veracode research: no improvement over 3 years.",
+    "enLongDesc": "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>"
+  },
+  "metr-rct": {
+    "enShortDesc": "METR 2025-07 study: 16 developers + 246 tasks, AI tools increased completion time by 19% (developers predicted -24%).",
+    "enLongDesc": "<p><strong>METR RCT</strong> (2025-07): a randomized controlled trial with 16 experienced developers and 246 tasks. AI tools slowed developers by 19% even though they predicted a 24% speedup.</p>"
+  },
+  "productivity-paradox": {
+    "enShortDesc": "AI speeds development but developers spend more total time — METR + Stack Overflow data.",
+    "enLongDesc": "<p>The <strong>productivity paradox</strong>: 84% of developers use AI, but actual efficiency gains are offset by debugging and verification overhead.</p>"
+  },
+  "so-survey-2025": {
+    "enShortDesc": "Stack Overflow 2025 developer survey: 84% use AI, 51% daily, 72% don't use AI for deployment.",
+    "enLongDesc": "<p>The <strong>Stack Overflow 2025</strong> AI survey: 84% of developers use or plan to use AI tools; 51% daily. But 76% don't use AI for deployment and 72% don't trust AI output.</p>"
+  },
+  "cot": {
+    "enShortDesc": "Chain-of-Thought: let the LLM 'think before responding'. For complex tasks.",
+    "enLongDesc": "<p><strong>Chain-of-thought (CoT)</strong> prompting (Wei et al. 2022): instruct the model to show its reasoning before answering. Improves accuracy on math, logic, multi-step tasks.</p>"
+  },
+  "tot": {
+    "enShortDesc": "Tree of Thought: explore multiple reasoning paths and compare. For complex problem-solving.",
+    "enLongDesc": "<p><strong>Tree of Thought (ToT)</strong> (Yao et al. 2023): generate multiple candidate next steps, evaluate each, prune, repeat. Trades compute for accuracy on hard problems.</p>"
+  },
+  "react": {
+    "enShortDesc": "Reason + Act loop: alternate thinking with tool calls. The agent paradigm.",
+    "enLongDesc": "<p><strong>ReAct</strong> (Yao et al. 2022): interleave Thought, Action, Observation. The agent thinks, calls a tool, observes the result, thinks again. Foundation of modern agents.</p>"
+  },
+  "self-consistency": {
+    "enShortDesc": "Sample multiple times and majority vote. Improves reasoning reliability.",
+    "enLongDesc": "<p><strong>Self-consistency</strong> (Wang et al. 2023): sample multiple chain-of-thought answers, take the majority. 5-10% accuracy gain on math/reasoning.</p>"
+  },
+  "reflection": {
+    "enShortDesc": "Have the agent reflect on its own errors and improve its next-step strategy.",
+    "enLongDesc": "<p><strong>Reflection</strong> (Shinn et al. 2023): after each attempt, the agent reviews its failures and updates strategy. Reflexion paper.</p>"
+  },
+  "few-shot": {
+    "enShortDesc": "Include a few examples in the prompt. Let the model imitate the pattern.",
+    "enLongDesc": "<p><strong>Few-shot prompting</strong> (Brown et al. 2020, GPT-3): include 2-5 examples in the prompt. The model generalizes the pattern to new inputs.</p>"
+  },
+  "zero-shot": {
+    "enShortDesc": "Model performs the task from description alone, no examples needed.",
+    "enLongDesc": "<p><strong>Zero-shot prompting</strong>: instruct the model with a task description and let it produce output. Works well for instruction-tuned models.</p>"
+  },
+  "negative-prompting": {
+    "enShortDesc": "Explicitly tell the LLM what NOT to do.",
+    "enLongDesc": "<p><strong>Negative prompting</strong>: include 'do not...' or 'avoid...' instructions. Useful for safety constraints and style guidance.</p>"
+  },
+  "decomposition": {
+    "enShortDesc": "Break complex tasks into smaller subtasks. Let the model handle each.",
+    "enLongDesc": "<p><strong>Decomposition</strong>: split a complex task into smaller pieces (Least-to-Most prompting, Zhou et al. 2022). Each subtask is easier for the model.</p>"
+  },
+  "self-review-prompting": {
+    "enShortDesc": "Have the LLM check its own output before finalizing.",
+    "enLongDesc": "<p><strong>Self-review prompting</strong>: ask the LLM to critique its own draft, then revise. Improves quality on code, math, and structured outputs.</p>"
+  },
+  "tool-description-engineering": {
+    "enShortDesc": "Write clear descriptions for each tool so the LLM knows when to call it.",
+    "enLongDesc": "<p><strong>Tool description engineering</strong>: craft each tool's name and description so the LLM picks the right one. Critical for agent reliability.</p>"
+  },
+  "meta-prompting": {
+    "enShortDesc": "Use an LLM to optimize its own prompt.",
+    "enLongDesc": "<p><strong>Meta-prompting</strong>: ask an LLM to generate or refine the prompt for another LLM. Iterative improvement of prompts.</p>"
+  },
+  "thinking-budget": {
+    "enShortDesc": "Token budget for model reasoning. Higher = more reasoning but slower.",
+    "enLongDesc": "<p><strong>Thinking budget</strong>: allocate tokens for the model's internal reasoning (extended thinking). Tunable parameter for cost/quality tradeoff.</p>"
+  },
+  "prompt-injection-prompt": {
+    "enShortDesc": "Prompt engineering to defend against prompt injection.",
+    "enLongDesc": "<p><strong>Prompt injection defense</strong>: use structural delimiters, explicit instruction precedence, and tool result isolation to make injection harder.</p>"
+  },
+  "system-message": {
+    "enShortDesc": "The global instruction at the start of a conversation.",
+    "enLongDesc": "<p>The <strong>system message</strong> sets persona, constraints, and behavior for the entire conversation. Highest priority instruction.</p>"
+  },
+  "multi-shot": {
+    "enShortDesc": "Use many examples (hundreds) to improve LLM performance.",
+    "enLongDesc": "<p><strong>Multi-shot prompting</strong>: scale few-shot to hundreds of examples. Helps with consistent formatting, edge cases, and domain adaptation.</p>"
+  },
+  "proto-scenario": {
+    "enShortDesc": "From zero to demo-able app, in one night. The vibe coding sweet spot.",
+    "enLongDesc": "<p>The <strong>prototype scenario</strong>: build a working demo quickly, validate the idea, throw it away. Vibe coding's strongest use case.</p>"
+  },
+  "personal-scenario": {
+    "enShortDesc": "Just for personal use, doesn't enter the team.",
+    "enLongDesc": "<p>The <strong>personal tool scenario</strong>: software you build only for yourself. No team handoffs, no production concerns.</p>"
+  },
+  "production-scenario": {
+    "enShortDesc": "Modify existing systems, add features, fix bugs. Requires a completely different workflow than vibe coding.",
+    "enLongDesc": "<p>The <strong>production scenario</strong>: working on real systems with users, SLAs, tests, deploys. Needs SDD, guardrails, code review, not just vibes.</p>"
+  },
+  "refactor-scenario": {
+    "enShortDesc": "Cross-file, cross-module changes without introducing regression.",
+    "enLongDesc": "<p>The <strong>refactor scenario</strong>: large-scale code reorganization. AI helps but needs strong test coverage and review. Use subagents per module.</p>"
+  },
+  "security-scenario": {
+    "enShortDesc": "Auth, authorization, payment, encryption, data privacy.",
+    "enLongDesc": "<p>The <strong>security scenario</strong>: never use AI agents without guardrails. Lethal trifecta, prompt injection, Veracode research. Highest scrutiny required.</p>"
+  },
+  "learning-scenario": {
+    "enShortDesc": "Learn new tech / new language / exploratory coding.",
+    "enLongDesc": "<p>The <strong>learning scenario</strong>: using AI as a tutor while exploring new APIs, languages, frameworks. Vibe coding is well-suited.</p>"
+  },
+  "team-scenario": {
+    "enShortDesc": "Multiple developers sharing code, PR workflows.",
+    "enLongDesc": "<p>The <strong>team scenario</strong>: shared codebase, code review, CI/CD, merge conflicts. Requires coordination beyond solo vibe coding.</p>"
+  },
+  "testing-scenario": {
+    "enShortDesc": "Add tests to existing code. AI writing tests is a relatively safe task.",
+    "enLongDesc": "<p>The <strong>testing scenario</strong>: AI generates test cases. Lower risk because tests are verified by running them. Good first AI task.</p>"
+  },
+  "debug-scenario": {
+    "enShortDesc": "Reproduce + fix bugs.",
+    "enLongDesc": "<p>The <strong>debug scenario</strong>: AI helps reproduce bugs, suggest fixes, write regression tests. Iterative refinement with the agent.</p>"
+  },
+  "docs-scenario": {
+    "enShortDesc": "Write README / generate API docs.",
+    "enLongDesc": "<p>The <strong>docs scenario</strong>: AI excels at generating documentation from code. Low risk, high value. Good CI step too.</p>"
+  },
+  "frontend-scenario": {
+    "enShortDesc": "Frontend components, pages, UI design with vibe coding.",
+    "enLongDesc": "<p>The <strong>frontend scenario</strong>: tools like Lovable, v0, Cursor Composer shine. Visual iteration loop. Mostly safe.</p>"
+  },
+  "data-scenario": {
+    "enShortDesc": "Use LLM for data analysis, visualization, SQL generation.",
+    "enLongDesc": "<p>The <strong>data scenario</strong>: LLM-powered data analysis, code interpreters (ChatGPT), SQL generation. Privacy is the main concern.</p>"
+  },
+  "onboarding-scenario": {
+    "enShortDesc": "Use AI agent to quickly understand an unfamiliar codebase.",
+    "enLongDesc": "<p>The <strong>onboarding scenario</strong>: AI reads code, summarizes, answers questions. Claude Code's <code>/init</code> command creates a CLAUDE.md as onboarding doc.</p>"
+  },
+  "migration-scenario": {
+    "enShortDesc": "AI-assisted framework migration (React→Vue, Python 2→3, etc.).",
+    "enLongDesc": "<p>The <strong>migration scenario</strong>: large-scale code transformation. AI helps but needs comprehensive tests. Use subagents per module.</p>"
   }
 }
