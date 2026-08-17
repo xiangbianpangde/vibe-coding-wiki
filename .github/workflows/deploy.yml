@@ -31,17 +31,24 @@ jobs:
         run: |
           set -e
           mkdir -p _site
-          # Use rsync to exclude heavy/dev directories
-          rsync -a --exclude='node_modules' --exclude='.git' --exclude='*.pyc' --exclude='__pycache__' --exclude='tests' --exclude='vitest.config.js' --exclude='package*.json' website/ _site/
-          # Rewrite relative paths to absolute paths under repo subpath
-          find _site -type f -name "*.html" -exec sed -i 's|href="css/|href="/vibe-coding-wiki/css/|g; s|src="js/|src="/vibe-coding-wiki/js/|g; s|href="data/|href="/vibe-coding-wiki/data/|g' {} +
-          # Also rewrite SVG/og-image/sitemap/robots references
-          find _site -type f -name "*.html" -exec sed -i 's|href="favicon.svg"|href="/vibe-coding-wiki/favicon.svg"|g; s|href="og-image.svg"|href="/vibe-coding-wiki/og-image.svg"|g; s|href="sitemap.xml"|href="/vibe-coding-wiki/sitemap.xml"|g; s|href="robots.txt"|href="/vibe-coding-wiki/robots.txt"|g' {} +
-          # List output
+          # Copy website/ excluding heavy/dev artifacts
+          rsync -a --exclude='node_modules' --exclude='.git' \
+                    --exclude='*.pyc' --exclude='__pycache__' \
+                    --exclude='tests' --exclude='vitest.config.js' \
+                    --exclude='package*.json' \
+                    website/ _site/
+
+          # Inject <base href="/vibe-coding-wiki/"> right after <head>
+          # so all relative paths (css/, js/, data/, pages/, term.html) resolve correctly
+          # Using perl for cross-platform safety (works on both BSD and GNU)
+          find _site -type f -name "*.html" -exec perl -i -pe 's|<head>|<head>\n  <base href="/vibe-coding-wiki/">|' {} +
+
           echo "=== _site contents ==="
-          find _site -type f | head -20
-          echo "=== Sample rewritten paths ==="
-          grep -h "vibe-coding-wiki" _site/index.html | head -3
+          find _site -type f -not -path "*/node_modules/*" | head -25
+          echo "=== Sample base href injection ==="
+          head -5 _site/index.html
+          echo "---"
+          head -5 _site/pages/glossary.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
