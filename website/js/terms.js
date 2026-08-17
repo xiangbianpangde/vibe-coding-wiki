@@ -677,6 +677,8 @@ window.VC_TERMS = [
 <li><strong>Plan</strong>：拆解为子任务</li>
 <li><strong>Tasks</strong>：每个任务独立执行</li>
 </ul>`,
+    enShortDesc: "Spec-Driven Development: using spec.md as a shared contract between humans, AI, tests, and reviewers.",
+    enLongDesc: "<p><strong>SDD</strong> treats spec.md as the single source of truth. The spec is the contract between human intent, AI output, automated tests, and code review.</p><p>GitHub Spec Kit is the canonical toolchain (Specify / Plan / Tasks phases).</p>",
     related: ["spec-md","pdd","plan-verify-build"],
     quotes: [
       {
@@ -716,6 +718,8 @@ window.VC_TERMS = [
 <li>让未来的 reviewer 能理解"为什么变更存在"</li>
 <li>每个 agent 都读同一份 spec</li>
 </ul>`,
+    enShortDesc: "Using spec.md as the single source of truth (Single Source of Truth). Drives SDD workflows.",
+    enLongDesc: "<p>A <strong>spec.md</strong> file captures user stories, acceptance criteria, non-goals, and technical constraints in one place. Both humans and AI agents reference it as the contract.</p>",
     related: ["sdd","pdd"],
     quotes: [
       {
@@ -756,6 +760,8 @@ window.VC_TERMS = [
 <li>Prompt Engineering：优化<strong>指令文本</strong></li>
 <li>Context Engineering：优化<strong>整个上下文窗口</strong></li>
 </ul>`,
+    enShortDesc: "The engineering discipline of managing everything that enters the LLM's context window: instructions, tools, history, files.",
+    enLongDesc: "<p><strong>Context engineering</strong> (Anthropic) is the discipline of curating what goes into the context window: system prompt, retrieved documents, tool definitions, conversation history, and file contents.</p><p>Related to but broader than prompt engineering.</p>",
     related: ["claude-md","auto-memory","compaction"],
     quotes: [
       {
@@ -789,6 +795,8 @@ window.VC_TERMS = [
 Verify → 编译、测试、diff review、guardrail 检查
 Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>Claude Code</strong> 的 plan mode / build mode 即此模式的实践。</p>`,
+    enShortDesc: "The core agent loop: plan, verify, build. The minimal viable workflow for AI coding.",
+    enLongDesc: "<p>The <strong>Plan-Verify-Build</strong> loop: agent plans a step, the mechanical verification pipeline (compiler, tests, linter) validates, the agent builds. Repeat.</p>",
     related: ["tdd-ai","acceptance-criteria"],
     quotes: [
       {
@@ -828,6 +836,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>第三轮：refactor / add feature</li>
 <li>...直至满足 acceptance criteria</li>
 </ol>`,
+    enShortDesc: "Progressively improving output through multiple rounds of prompt adjustments. Each iteration gets closer to the goal.",
+    enLongDesc: "<p><strong>Iterative refinement</strong>: the model rarely produces the best output on the first try. Each round of feedback (more constraints, examples, edge cases) makes it sharper.</p>",
     related: ["acceptance-criteria","iterative-refinement"],
     quotes: [
       {
@@ -867,6 +877,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>每条都应可被编译 / 测试 / 静态检查验证</li>
 <li>不写"代码优雅"这种主观标准</li>
 </ul>`,
+    enShortDesc: "Pre-agreed, machine-verifiable 'definition of done'. Determines when vibe coding stops.",
+    enLongDesc: "<p><strong>Acceptance criteria</strong> are the machine-checkable conditions that define 'done'. Without them, vibe coding has no stopping rule.</p><p>Typically bullet-list checkboxes tied to tests or type checks.</p>",
     related: ["plan-verify-build","iterative-refinement"],
     quotes: [
       {
@@ -908,6 +920,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>测试变绿</li>
 <li>Refactor</li>
 </ol>`,
+    enShortDesc: "Write the test first, then let the AI write the implementation. Simon Willison's recommended pattern for coding agents.",
+    enLongDesc: "<p><strong>TDD with AI</strong>: invert the usual flow. Write a failing test (which serves as the spec), then prompt the AI to make it pass. The test is the contract.</p>",
     related: ["acceptance-criteria","safety-net-testing","safety-net-testing"],
     quotes: [
       {
@@ -949,6 +963,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p>所有发现的 CLAUDE.md 会<strong>拼接</strong>而非覆盖，按作用域从大到小排序。</p>
 <p><strong>关键特性：</strong>项目根 CLAUDE.md 在 compaction 后<strong>会重新读取</strong>，而非丢失。</p>`,
+    enShortDesc: "Claude Code's project-level persistent instruction file. Auto-loaded at every session start.",
+    enLongDesc: "<p><strong>CLAUDE.md</strong> is a markdown file in your project root (or ~/.claude/) that Claude Code reads at the start of every session. Persistent project conventions.</p>",
     related: ["auto-memory","compaction","context-engineering"],
     quotes: [
       {
@@ -989,6 +1005,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>前 200 行或 25 KB 索引在每会话开始加载</li>
 <li>与 CLAUDE.md 互补（user 写 vs Claude 写）</li>
 </ul>`,
+    enShortDesc: "Claude Code's self-written notes based on user corrections and preferences. Survives across git rebases.",
+    enLongDesc: "<p><strong>Auto memory</strong>: Claude Code learns from your corrections and writes notes that persist across sessions. Saved in ~/.claude/memory/.</p>",
     related: ["claude-md","compaction"],
     quotes: [
       {
@@ -1025,6 +1043,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ol>
 <p><strong>存活的内容：</strong>项目根 CLAUDE.md、auto memory（会从磁盘重读）。</p>
 <p><strong>手动触发：</strong><code>/compact [focus]</code></p>`,
+    enShortDesc: "Auto-summarize the conversation when approaching the context window limit. Preserves context while freeing tokens.",
+    enLongDesc: "<p><strong>Compaction</strong>: when the conversation approaches the context window, summarize the older parts to make room. CLAUDE.md instructions survive compaction.</p>",
     related: ["claude-md","auto-memory","context-window"],
     quotes: [
       {
@@ -1065,6 +1085,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p>可回滚：代码、对话、或两者。</p>
 <p><strong>重要：</strong>检查点与 git 独立——bash 工具的修改不通过检查点追踪。</p>`,
+    enShortDesc: "File snapshot at each prompt. Roll back to any checkpoint via Esc Esc or /rewind.",
+    enLongDesc: "<p>A <strong>checkpoint</strong> is a snapshot of the workspace state at a given prompt. Allows rewinding to any previous state without losing progress.</p>",
     related: ["claude-md","iterative-refinement"],
     quotes: [
       {
@@ -1101,6 +1123,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Bypass Permissions</strong>：跳过所有权限</li>
 </ul>
 <p><strong>Auto Mode</strong> 是新模式：另一个分类器模型在后台审查操作，多数无需审批。</p>`,
+    enShortDesc: "Claude Code's base approval behavior. Cycle modes via Shift+Tab in the CLI.",
+    enLongDesc: "<p><strong>Permission mode</strong> controls which tool calls Claude Code can make without confirmation. Three modes: default (prompt for risky), acceptEdits, bypassPermissions.</p>",
     related: ["auto-mode","yolo-mode","guardrails"],
     quotes: [
       {
@@ -1137,6 +1161,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>关键安全特性：</strong>分类器<strong>看不到工具结果</strong>——因此无法被 prompt injection 影响。</p>
 <p><strong>防御范围：</strong>scope escalation、untrusted infrastructure、prompt injection。</p>`,
+    enShortDesc: "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    enLongDesc: "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>",
     related: ["permission-mode","prompt-injection","guardrails"],
     quotes: [
       {
@@ -1179,6 +1205,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>CLAUDE.md</li>
 </ul>
 <p><strong>用途：</strong>CI 环境和脚本化调用——保证每台机器结果一致。</p>`,
+    enShortDesc: "Launch Claude Code with --bare: no hooks, skills, or custom commands. Pure vanilla Claude Code.",
+    enLongDesc: "<p><strong>Bare mode</strong>: Claude Code started with <code>--bare</code> flag. Skips hooks, custom commands, and skills. Useful for debugging or CI consistency.</p>",
     related: ["claude-md","hooks","mcp"],
     quotes: [
       {
@@ -1215,6 +1243,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>支持模型：</strong>Opus 4.6+ / Sonnet 4.6+</p>
 <p>终端显示为灰色斜体文字。</p>`,
+    enShortDesc: "Claude's visible step-by-step reasoning before responding. Tunable via effort level.",
+    enLongDesc: "<p><strong>Extended thinking</strong>: Claude performs chain-of-thought reasoning visible to the user before answering. Configurable via the <code>thinking</code> parameter and effort level.</p>",
     related: ["effort-level","cot"],
     quotes: [
       {
@@ -1253,6 +1283,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>高 effort</strong>：更多 thinking tokens、更深推理</li>
 </ul>
 <p><strong>支持：</strong>Claude Opus 4.6+、Sonnet 4.6+。</p>`,
+    enShortDesc: "Token budget for Claude's adaptive reasoning. Higher = deeper but slower.",
+    enLongDesc: "<p><strong>Effort level</strong> controls how much compute Claude spends on extended thinking. Low for simple tasks, high for hard ones. Tunable per request.</p>",
     related: ["extended-thinking","thinking-budget"],
     quotes: [
       {
@@ -1288,6 +1320,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>CLAUDE.md</strong>：作为系统提示后的<strong>用户消息</strong>追加</li>
 </ul>
 <p><strong>内置风格：</strong>Default / Proactive / Explanatory / Learning</p>`,
+    enShortDesc: "Modify Claude's system prompt to change response behavior, tone, or format.",
+    enLongDesc: "<p>An <strong>output style</strong> (Claude Code) adjusts the system prompt to shape how Claude responds: explanatory, concise, structured, or default.</p>",
     related: ["claude-md","system-prompt"],
     quotes: [
       {
@@ -1328,6 +1362,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>确定性：</strong>在固定生命周期点触发——而非模型自主决定。</p>
 <p>配置三层：Hook event / Matcher / Hook handler</p>`,
+    enShortDesc: "Handlers (shell/HTTP) that auto-execute at specific points in the Claude Code lifecycle.",
+    enLongDesc: "<p><strong>Hooks</strong> are user-defined scripts triggered at events like PreToolUse, PostToolUse, SessionStart, etc. Used for guardrails, logging, or automation.</p>",
     related: ["mcp","permission-mode"],
     quotes: [
       {
@@ -1373,6 +1409,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Bundled skills</strong>：详细 prompt，agent 自主编排</li>
 </ul>
 <p>可以派生子 agent、读文件、适应代码库。</p>`,
+    enShortDesc: "Claude Code's built-in prompt-based playbooks like /batch /loop /init. Auto-available.",
+    enLongDesc: "<p><strong>Bundled skills</strong> are Claude Code's built-in playbooks: pre-configured prompts for common tasks (e.g., /batch for batch operations, /loop for retries).</p>",
     related: ["subagent","commands"],
     quotes: [
       {
@@ -1406,6 +1444,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>自定义：</strong>放在 <code>.claude/commands/</code></p>
 <p><strong>通过插件安装</strong></p>
 <p>对于多步骤命令，推荐使用 Skills 打包。</p>`,
+    enShortDesc: "Reusable instructions invoked via /name. Built-in plus user-defined.",
+    enLongDesc: "<p><strong>Commands</strong> are reusable prompts triggered by typing /name. Claude Code has built-in commands; users can add custom ones in .claude/commands/.</p>",
     related: ["bundled-skills","claude-md"],
     seeAlso: [
       {
@@ -1436,6 +1476,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "基于 Transformer 的大规模语言模型。vibe coding 的引擎。",
     longDesc: `<p>基于 Transformer 架构的大规模语言模型，通过<strong>预测下一个 token</strong>训练。</p>
 <p><strong>代表：</strong>Claude Opus 4.6 / Sonnet 4.6 / Haiku 4.5；GPT-5 / GPT-5.2；Gemini 3 Pro；DeepSeek V3.2；Qwen 3；Llama 4。</p>`,
+    enShortDesc: "Large Language Model: a function from text to text, trained on a large corpus. The foundation of modern AI assistants.",
+    enLongDesc: "<p>An <strong>LLM</strong> is a neural network trained on massive text corpora to predict the next token. Modern LLMs (GPT-4, Claude, Gemini) have hundreds of billions of parameters and exhibit emergent capabilities like reasoning and code generation.</p>",
     related: ["transformer","frontier-model","context-window"],
     quotes: [
       {
@@ -1476,6 +1518,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Positional Encoding</strong>：位置信息</li>
 <li><strong>FFN</strong>：前馈网络</li>
 </ul>`,
+    enShortDesc: "The neural architecture underlying all modern LLMs. Introduced in 'Attention Is All You Need' (Vaswani et al. 2017).",
+    enLongDesc: "<p>The <strong>Transformer</strong> architecture (Vaswani et al. 2017) uses self-attention to process sequences in parallel. Foundation of GPT, BERT, T5, and essentially all modern LLMs.</p>",
     related: ["attention","llm"],
     quotes: [
       {
@@ -1521,6 +1565,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Multi-Query (MQA)</strong>：单 KV 多 Q</li>
 <li><strong>Grouped-Query (GQA)</strong>：分组 KV</li>
 </ul>`,
+    enShortDesc: "The mechanism that lets models weigh the relevance of different input tokens to each other. Foundation of the Transformer.",
+    enLongDesc: "<p><strong>Attention</strong> computes a weighted sum of values, where weights come from query-key dot products. Scaled dot-product attention is the standard variant.</p>",
     related: ["transformer","kv-cache"],
     quotes: [
       {
@@ -1562,6 +1608,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Gemini 3 Pro：2M tokens</li>
 </p>
 <p><strong>注意：</strong>"能塞下整个 codebase" 受到预填注意力机制物理限制，并非简单支持。</p>`,
+    enShortDesc: "The maximum amount of text an LLM can process at once. 2026 standard: 1M tokens (Claude Opus 4.6), 2M tokens (Gemini 2.5 Pro).",
+    enLongDesc: "<p>The <strong>context window</strong> is the maximum input length an LLM can attend to. Measured in tokens (~0.75 English words or ~1.5 Chinese characters per token).</p><p>2026 standard: Claude Opus 4.6 ships 1M, Gemini 2.5 Pro reaches 2M, GPT-4o default 128K.</p>",
     related: ["tokens","llm"],
     quotes: [
       {
@@ -1601,6 +1649,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>中文：1 token ≈ 1-2 字</li>
 </ul>
 <p><strong>Tokenizer 类型：</strong>BPE / SentencePiece / WordPiece</p>`,
+    enShortDesc: "The atomic unit LLMs process. ~0.75 English words or ~1.5 Chinese characters per token. Determines API pricing and context length.",
+    enLongDesc: "<p><strong>Tokens</strong> are the atomic units of LLM input/output. Text is split into tokens via BPE or WordPiece. ~0.75 English words per token, ~1.5 Chinese characters. Pricing and context limits are measured in tokens.</p>",
     related: ["context-window","llm"],
     quotes: [
       {
@@ -1649,6 +1699,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>引用不存在的文档</li>
 <li>写出"看起来对但跑不起来"的代码</li>
 </ul>`,
+    enShortDesc: "When an LLM confidently states false information. The #1 reliability problem with LLMs.",
+    enLongDesc: "<p>A <strong>hallucination</strong> occurs when an LLM generates plausible but factually incorrect text, including invented citations, URLs, APIs, or facts. Mitigation: grounding via RAG, citations, and explicit uncertainty.</p>",
     related: ["context-engineering","guardrails"],
     quotes: [
       {
@@ -1688,6 +1740,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     action = llm.decide(thought)</pre>
 <p><strong>Claude Code 的 Agentic Loop：</strong>gather context → take action → verify results → repeat。每个工具返回都告知下一步。可在任意点中断重定向。</p>
 <p><strong>扩展点：</strong>hooks、skills、MCP 都在特定阶段插入。</p>`,
+    enShortDesc: "The iterative cycle: gather context → take action → verify → repeat. The core pattern of all AI agents.",
+    enLongDesc: "<p>The <strong>agent loop</strong> is the fundamental iteration pattern of AI agents: gather context, plan action, execute, observe result, verify, repeat until done or fail.</p>",
     related: ["subagent","mcp","plan-verify-build"],
     quotes: [
       {
@@ -1732,6 +1786,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>子 agent 负责 context gathering / test coverage / conflict resolution</li>
 </ul>
 <p><strong>实践：</strong>Claude Code 的 Task 工具、spawn_agent</p>`,
+    enShortDesc: "A child agent spawned by a parent agent, with its own context window. Used for context isolation and parallel work.",
+    enLongDesc: "<p>A <strong>subagent</strong> runs within a single session but has its own context window. The parent agent delegates subtasks to keep its own context clean.</p><p>Pattern popularized by Claude Code in 2025.</p>",
     related: ["agent-teams","agent-loop"],
     quotes: [
       {
@@ -1776,6 +1832,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>可以直接与任一 session 交互</li>
 <li>默认禁用（experimental）</li>
 </ul>`,
+    enShortDesc: "Multiple AI agents collaborating in parallel, each with its own context window, sharing a task list (Claude Code Agent Teams, 2025).",
+    enLongDesc: "<p><strong>Agent teams</strong> (Claude Code 2025+) coordinate multiple agents in parallel: each has its own context window, they share a task list, and synchronize via worktrees.</p>",
     related: ["subagent","multi-agent-parallelism"],
     quotes: [
       {
@@ -1815,6 +1873,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <tr><td>直接工具调用</td><td>高（每次注入定义和返回值）</td><td>简单一次性</td></tr>
 <tr><td>让 Agent 写代码调用工具</td><td>低（代码复用工具调用）</td><td>复杂 / 大规模</td></tr>
 </table>`,
+    enShortDesc: "The primitive that turns LLMs into agents: invoking external functions/APIs based on natural language decisions.",
+    enLongDesc: "<p><strong>Tool use</strong> (a.k.a. function calling) lets an LLM decide which external function to call, with what arguments, based on the user's intent. This is the foundation of all AI agents.</p>",
     related: ["mcp","function-calling"],
     quotes: [
       {
@@ -1856,6 +1916,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>协议</strong>：JSON-RPC over stdio / HTTP</li>
 </ul>
 <p><strong>MCP Tool Search</strong>：MCP 工具的 schema 按需加载，节省 context。</p>`,
+    enShortDesc: "Model Context Protocol: Anthropic's open standard for connecting AI tools to external data sources and services.",
+    enLongDesc: "<p><strong>MCP</strong> is an open protocol (Anthropic, 2024) for connecting LLM applications to external tools and data. Standardizes how AI agents discover and invoke tools across vendors.</p>",
     related: ["mcp-server","mcp-tool-search"],
     quotes: [
       {
@@ -1897,6 +1959,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Claude.ai Connector</li>
 </ul>
 <p><strong>本地 stdio server</strong>：Claude Code 从配置的 <code>command</code> 和 <code>args</code> 字段启动进程。</p>`,
+    enShortDesc: "A server implementation of MCP that exposes tools, prompts, or resources to MCP-compatible clients like Claude Code.",
+    enLongDesc: "<p>An <strong>MCP server</strong> provides tools, resources, or prompts to any MCP-compatible client. Written in TypeScript or Python, deployable anywhere.</p>",
     related: ["mcp","mcp-tool-search"],
     quotes: [
       {
@@ -1939,6 +2003,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Claude 决定用工具时再拉取完整 schema</li>
 <li>空闲 MCP server 不消耗 context</li>
 </ul>`,
+    enShortDesc: "Tool search across many MCP servers: store tool descriptions in a vector DB, recall top-k on demand. Saves 85% tokens.",
+    enLongDesc: "<p><strong>MCP tool search</strong> (Anthropic, 2025) avoids loading all tool descriptions into context. Indexes them in a vector DB and recalls only the top-k relevant per query.</p>",
     related: ["mcp","context-engineering"],
     quotes: [
       {
@@ -1979,6 +2045,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>注入工具列表</li>
 </ul>
 <p><strong>与 CLAUDE.md 区别：</strong>System Prompt 由模型供应商控制；CLAUDE.md 是用户在 system prompt <strong>之后</strong>追加的用户消息。</p>`,
+    enShortDesc: "The instruction sent to the LLM before any user message. Sets behavior, persona, and constraints.",
+    enLongDesc: "<p>The <strong>system prompt</strong> (a.k.a. system message) is the highest-priority instruction sent to the LLM. Sets persona, constraints, output format. Cached by prompt caching for cost savings.</p>",
     related: ["output-style","claude-md"],
     quotes: [
       {
@@ -2019,6 +2087,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>聚类、分类</li>
 </ul>
 <p><strong>模型：</strong>OpenAI text-embedding-3 / Cohere embed-v3 / Voyage / BGE / MTEB leaderboard。</p>`,
+    enShortDesc: "A dense numerical vector representing text, used for semantic search and similarity comparisons.",
+    enLongDesc: "<p>An <strong>embedding</strong> maps text into a high-dimensional vector space where semantically similar texts are close together. Foundation of vector search and modern RAG systems.</p>",
     related: ["rag","vector-database","cosine-similarity"],
     quotes: [
       {
@@ -2060,6 +2130,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>LLM 基于文档生成回答</li>
 </ol>
 <p><strong>变体：</strong>GraphRAG / HyDE / Self-RAG / CRAG</p>`,
+    enShortDesc: "Retrieval-Augmented Generation: retrieve relevant documents, then have the LLM generate an answer based on the retrieved context.",
+    enLongDesc: "<p><strong>RAG</strong> augments LLM outputs with retrieved knowledge from a vector database or search index, reducing hallucinations and improving factual accuracy.</p><p>Original paper: Lewis et al. 2020.</p>",
     related: ["embedding","vector-database","graph-rag"],
     quotes: [
       {
@@ -2111,6 +2183,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Milvus</strong>：分布式</li>
 </ul>
 <p><strong>索引算法：</strong>HNSW / IVF / ScaNN</p>`,
+    enShortDesc: "A database optimized for storing and querying high-dimensional embedding vectors (Pinecone, Weaviate, ChromaDB, Qdrant).",
+    enLongDesc: "<p>A <strong>vector database</strong> stores embeddings and supports similarity search (k-nearest neighbors) at scale. Examples: Pinecone, Weaviate, ChromaDB, Qdrant, Milvus, pgvector.</p>",
     related: ["embedding","rag"],
     quotes: [
       {
@@ -2155,6 +2229,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>欧氏距离（Euclidean L2）</li>
 </ul>
 <p><strong>RAG 经验：</strong>如果检索结果不相关，问题通常在检索阶段——调整相似度阈值或换检索算法。</p>`,
+    enShortDesc: "Similarity metric for vectors: measures the angle between them, ignoring magnitude. Standard for embedding comparisons.",
+    enLongDesc: "<p><strong>Cosine similarity</strong> = (a · b) / (||a|| × ||b||). Returns -1 (opposite) to 1 (same direction). Ideal for normalized embeddings because it ignores magnitude.</p>",
     related: ["embedding","vector-database"],
     quotes: [
       {
@@ -2195,6 +2271,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>语义切片</strong>：按主题</li>
 </ul>
 <p><strong>Overlap / Stride</strong>：相邻片段有重叠避免语义断裂。</p>`,
+    enShortDesc: "Splitting long documents into smaller pieces for embedding and retrieval. Strategy choice (size, overlap) significantly affects RAG quality.",
+    enLongDesc: "<p><strong>Chunking</strong> divides documents into processable pieces (typically 500-2000 tokens). Chunk size and overlap are the most underrated RAG parameters.</p>",
     related: ["rag","embedding"],
     quotes: [
       {
@@ -2234,6 +2312,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Cross-encoder 重排：精确排序 top-K → top-N</li>
 </ol>
 <p><strong>代表：</strong>Cohere Rerank 3 / BGE Reranker / ColBERT</p>`,
+    enShortDesc: "A second-pass model that re-scores vector search candidates for higher accuracy. Typically slower but more precise than embedding similarity.",
+    enLongDesc: "<p>A <strong>reranker</strong> (e.g., Cohere Rerank, cross-encoder) takes the top-K results from a vector search and re-scores them with a more expensive model. Typically +15-30% retrieval accuracy.</p>",
     related: ["rag","cosine-similarity"],
     seeAlso: [
       {
@@ -2268,6 +2348,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>提供结构化上下文</li>
 </ul>
 <p><strong>代表实现：</strong>Microsoft GraphRAG / Neo4j + LLM</p>`,
+    enShortDesc: "RAG augmented with a knowledge graph: extract entities, build relationships, then query via community detection. Better for cross-chunk relational queries.",
+    enLongDesc: "<p><strong>GraphRAG</strong> (Microsoft, 2024) augments traditional vector RAG with a knowledge graph built from extracted entities and relationships. Enables global queries across chunks.</p>",
     related: ["rag","hyde"],
     quotes: [
       {
@@ -2306,6 +2388,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "让 LLM 先生成假设性答案文档，再用其 embedding 检索真实文档。",
     longDesc: `<p><strong>HyDE</strong>：让 LLM 先生成<strong>假设性答案文档</strong>，再用其 embedding 检索真实文档。</p>
 <p><strong>直觉：</strong>假设答案的 embedding 与真实答案更接近，比 query embedding 检索更准。</p>`,
+    enShortDesc: "Hypothetical Document Embeddings: generate a hypothetical answer, embed it, then search. Outperforms query embedding for short questions.",
+    enLongDesc: "<p><strong>HyDE</strong> (Gao et al. 2022) generates a hypothetical answer via LLM, embeds that, and uses it for vector search. The hypothesis is closer to real document space than the raw question.</p>",
     related: ["rag","embedding"],
     seeAlso: [
       {
@@ -2336,6 +2420,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>命中且阈值高 → 返回缓存</li>
 <li>未命中 → 调 LLM</li>
 </ol>`,
+    enShortDesc: "Cache prompt prefix to avoid recomputing KV cache on every request. Cuts cost by up to 90% for repeated system prompts.",
+    enLongDesc: "<p><strong>Prompt caching</strong> (Anthropic, OpenAI) lets you mark a portion of the prompt as cacheable. Subsequent requests with the same prefix reuse the KV cache, dramatically reducing latency and cost.</p>",
     related: ["embedding","kv-cache"],
     seeAlso: [
       {
@@ -2359,6 +2445,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>PagedAttention (vLLM)</strong>：分页管理 KV</li>
 <li><strong>KV Cache Quantization</strong>：量化压缩</li>
 </ul>`,
+    enShortDesc: "Cache of key/value matrices from previous tokens during autoregressive generation. Reduces per-token computation from O(n²) to O(n).",
+    enLongDesc: "<p><strong>KV cache</strong> stores previously computed key and value matrices, avoiding redundant computation during text generation. Memory grows linearly with sequence length.</p>",
     related: ["speculative-decoding","paged-attention"],
     quotes: [
       {
@@ -2398,6 +2486,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>提高 batch 吞吐量 4-24x</li>
 <li>支持 continuous batching</li>
 </ul>`,
+    enShortDesc: "vLLM's memory management: page KV cache like OS virtual memory. 2-4x throughput improvement.",
+    enLongDesc: "<p><strong>PagedAttention</strong> (Kwon et al. SOSP 2023) borrows OS virtual memory concepts to manage LLM KV cache in fixed-size pages, reducing fragmentation and improving throughput 2-4x.</p>",
     related: ["kv-cache"],
     quotes: [
       {
@@ -2433,6 +2523,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>用<strong>小模型快速生成候选</strong>，<strong>大模型并行验证</strong>，加速推理。</p>
 <p><strong>适用：</strong>相同分布的小模型 + 大模型对（如 7B + 70B）。</p>
 <p><strong>加速比：</strong>2-3x 典型，输出质量不变。</p>`,
+    enShortDesc: "Use a small draft model to generate candidates, then a large model verifies in parallel. 2-3x speedup with same output quality.",
+    enLongDesc: "<p><strong>Speculative decoding</strong> (Leviathan et al. 2022) uses a small fast model to draft multiple tokens, then the large model verifies them all in one forward pass. Same outputs, 2-3x faster.</p>",
     related: ["kv-cache","flash-attention"],
     quotes: [
       {
@@ -2464,6 +2556,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>通过 <strong>IO-aware 算法</strong>显著加速注意力计算并节省内存。</p>
 <p><strong>原理：</strong>减少 GPU HBM ↔ SRAM 之间的 IO——attention 是 memory-bound。</p>
 <p><strong>版本：</strong>FlashAttention 1 / 2 / 3</p>`,
+    enShortDesc: "IO-aware exact attention algorithm. 2-4x wall-clock speedup, 5-10x memory reduction. By Tri Dao.",
+    enLongDesc: "<p><strong>Flash Attention</strong> (Dao et al. NeurIPS 2022) computes exact attention via tiling and recomputation, avoiding the O(n²) memory of the standard attention matrix. HuggingFace supports it via <code>attn_implementation=\"flash_attention_2\"</code>.</p>",
     related: ["attention","kv-cache"],
     quotes: [
       {
@@ -2503,6 +2597,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>MoE</strong>：多个专家子网络 + 路由器动态激活部分参数。</p>
 <p><strong>代表：</strong>Mixtral 8x7B、DeepSeek V3 (671B 参数 / 37B 激活)、GPT-4 (传闻)。</p>
 <p><strong>优势：</strong>模型参数量大但推理成本可控（稀疏激活）。</p>`,
+    enShortDesc: "Sparse model architecture: many 'experts' but only top-k activated per token. DeepSeek V3: 671B params, 37B active.",
+    enLongDesc: "<p><strong>Mixture of Experts (MoE)</strong> uses a router to select the top-k experts per token, keeping total parameter count high while active parameters per forward pass low. Enables trillion-parameter models at inference cost of much smaller ones.</p>",
     related: ["transformer","router-gating"],
     quotes: [
       {
@@ -2537,6 +2633,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "MoE 中决定哪个 expert 处理哪个 token 的网络。",
     longDesc: `<p>MoE 中的<strong>路由器</strong>——决定哪个 expert 处理哪个 token。</p>
 <p><strong>训练挑战：</strong>负载均衡（避免总路由到少数 experts）。</p>`,
+    enShortDesc: "A network that routes inputs to specific experts (in MoE) or to the most cost-effective model (multi-model systems).",
+    enLongDesc: "<p><strong>Router/Gating</strong> networks decide which expert to use per token (MoE) or which LLM to query (FrugalGPT, RouteLLM). The routing function itself can be learned or rule-based.</p>",
     related: ["mixture-of-experts"],
     quotes: [
       {
@@ -2573,6 +2671,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>优势：</strong>线性复杂度处理超长序列。</p>
 <p><strong>缺点：</strong>in-context learning 能力弱于 Transformer。</p>
 <p><strong>代表：</strong>Mamba / Mamba-2 / Jamba (SSM + Attention 混合)</p>`,
+    enShortDesc: "State Space Model alternative to Transformers. Linear O(n) complexity instead of quadratic. Strong for long sequences.",
+    enLongDesc: "<p><strong>Mamba</strong> (Gu & Dao 2023) is a selective state space model with linear-time sequence modeling. Trades off against attention for tasks requiring precise retrieval. Often combined with attention in hybrid models (e.g., Jamba).</p>",
     related: ["transformer"],
     quotes: [
       {
@@ -2613,6 +2713,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>计算高效</li>
 </ul>
 <p><strong>用户：</strong>Llama / Qwen / DeepSeek / Mistral</p>`,
+    enShortDesc: "Rotary Position Embedding: encodes position by rotating query/key vectors. Better length extrapolation than absolute positions.",
+    enLongDesc: "<p><strong>RoPE</strong> (Su et al. 2021) encodes positional information by rotating the query and key vectors. Naturally supports relative positions and length extrapolation. Used in LLaMA, Mistral, many others.</p>",
     related: ["alibi","transformer"],
     quotes: [
       {
@@ -2644,6 +2746,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p><strong>ALiBi</strong> (Attention with Linear Biases)：通过<strong>线性偏置</strong>注意力分数编码相对位置。</p>
 <p><strong>优势：</strong>无额外参数；外推到更长序列。</p>
 <p><strong>用户：</strong>MPT / BLOOM</p>`,
+    enShortDesc: "Attention with Linear Biases: a simple parameter-free positional encoding with strong length extrapolation.",
+    enLongDesc: "<p><strong>ALiBi</strong> (Press et al. 2022) adds a linear distance-based bias to attention scores instead of using learned positional embeddings. No extra parameters, strong length extrapolation.</p>",
     related: ["rope","transformer"],
     quotes: [
       {
@@ -2676,6 +2780,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>精度：</strong>FP16 → INT8 / INT4 / NF4</p>
 <p><strong>权衡：</strong>精度下降 vs 内存 / 速度提升</p>
 <p><strong>代表实现：</strong>bitsandbytes / GPTQ / AWQ / SmoothQuant</p>`,
+    enShortDesc: "Reduce model precision (FP32 → FP16 → INT8 → INT4) to save memory and speed up inference. 4-bit is the sweet spot.",
+    enLongDesc: "<p><strong>Quantization</strong> maps weights from higher precision (FP32) to lower (INT4), reducing memory 4-8x with minimal accuracy loss. Methods: GPTQ, AWQ, bitsandbytes, SmoothQuant.</p>",
     related: ["awq","gptq"],
     quotes: [
       {
@@ -2717,6 +2823,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tech","optimization"],
     shortDesc: "Activation-aware Weight Quantization：保护重要权重的低精度量化。",
     longDesc: "<p><strong>AWQ</strong>（Activation-aware Weight Quantization）：通过分析激活值分布保护<strong>重要权重</strong>，实现低精度量化且精度损失小。</p>",
+    enShortDesc: "Activation-aware Weight Quantization: 4-bit quantization that preserves salient weights in higher precision. Quality-leading.",
+    enLongDesc: "<p><strong>AWQ</strong> (Lin et al. 2023) protects the 1% most salient weights in FP16 and quantizes the rest to 4-bit. Better quality than GPTQ at the same bit width.</p>",
     related: ["quantization","gptq"],
     quotes: [
       {
@@ -2751,6 +2859,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "逐层量化大模型，INT4 精度下保持高质量。",
     longDesc: `<p><strong>GPTQ</strong>：逐层量化大模型，INT4 精度下保持高质量。</p>
 <p><strong>原理：</strong>二阶信息最小化量化误差。</p>`,
+    enShortDesc: "GPT-style post-training quantization: layer-wise, second-order optimization. The first widely-used 4-bit method.",
+    enLongDesc: "<p><strong>GPTQ</strong> (Frantar et al. 2022) quantizes one layer at a time using second-order error compensation. Requires a small calibration set. Standard 4-bit method.</p>",
     related: ["awq","quantization"],
     quotes: [
       {
@@ -2785,6 +2895,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "用大模型的输出训练小模型，保留大部分能力但降低推理成本。",
     longDesc: `<p><strong>蒸馏</strong>：用大模型（teacher）的输出训练小模型（student），保留大部分能力但降低推理成本。</p>
 <p><strong>代表：</strong>DeepSeek R1 蒸馏到 Qwen / Llama 系列。</p>`,
+    enShortDesc: "Train a small model to mimic a larger one's outputs. DistilBERT retains 97% of BERT quality at 60% size.",
+    enLongDesc: "<p><strong>Knowledge distillation</strong> trains a small (student) model to match the soft probability distribution of a larger (teacher) model. The student learns the teacher's 'dark knowledge' beyond hard labels.</p>",
     related: ["quantization","fine-tuning"],
     examples: [
       {
@@ -2812,6 +2924,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Meta</strong>：Llama 4</li>
 <li><strong>Alibaba</strong>：Qwen 3</li>
 </ul>`,
+    enShortDesc: "The most capable AI system at a given time. 2026 frontier: Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, DeepSeek V3.",
+    enLongDesc: "<p>A <strong>frontier model</strong> is the most capable AI system available. 2026 frontier list: Claude Opus 4.6 (1M context), GPT-5, Gemini 2.5 Pro (2M context), DeepSeek V3, Llama 4.</p>",
     related: ["llm"],
     quotes: [
       {
@@ -2854,6 +2968,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>StarCoder / StarCoder2</strong>（BigCode）</li>
 <li><strong>Codex CLI</strong>（OpenAI 2025+）</li>
 </ul>`,
+    enShortDesc: "LLM specialized for code generation. Leaderboard: Claude Sonnet 4.5, GPT-5-Codex, Qwen2.5-Coder.",
+    enLongDesc: "<p>A <strong>code model</strong> is an LLM trained or fine-tuned specifically on code. Excels at fill-in-middle, multi-language understanding, and repository-level context (SWE-bench).</p>",
     related: ["llm","frontier-model"],
     quotes: [
       {
@@ -2894,6 +3010,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Instruction Tuning</strong>：指令遵循</li>
 </ul>
 <p><strong>参数高效方法：</strong>LoRA / QLoRA / PEFT / Prefix Tuning</p>`,
+    enShortDesc: "Adapting a pre-trained model to a specific task by continuing training on task-specific data.",
+    enLongDesc: "<p><strong>Fine-tuning</strong> continues training a pre-trained model on task-specific data. Modern variants (LoRA, QLoRA) only train a small subset of parameters to save compute.</p>",
     related: ["lora","rlhf","dpo"],
     quotes: [
       {
@@ -2928,6 +3046,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "参数高效微调：只更新小的低秩矩阵，大幅降低训练成本。",
     longDesc: `<p><strong>LoRA</strong>：参数高效微调方法，<strong>只更新小的低秩矩阵</strong>，大幅降低训练成本。</p>
 <p><strong>衍生：</strong>QLoRA（量化 + LoRA）/ PEFT / Prefix Tuning</p>`,
+    enShortDesc: "Low-Rank Adaptation: train 0.1% of parameters, retain 95%+ quality. The dominant efficient fine-tuning method.",
+    enLongDesc: "<p><strong>LoRA</strong> (Hu et al. 2021) freezes pre-trained weights and adds a low-rank decomposition (A × B) that learns the task. Trains 0.1-1% of parameters, retains near-full quality.</p>",
     related: ["qlora","fine-tuning"],
     quotes: [
       {
@@ -2961,6 +3081,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tech","training"],
     shortDesc: "4-bit 量化 + LoRA：单 GPU 可微调 65B 模型。",
     longDesc: "<p><strong>QLoRA</strong>：4-bit 量化 + LoRA——单 GPU 可微调 65B 模型。</p>",
+    enShortDesc: "4-bit quantized base + LoRA adapter. Trains a 65B model on a single 48GB GPU with no quality loss.",
+    enLongDesc: "<p><strong>QLoRA</strong> (Dettmers et al. 2023) combines 4-bit quantization of the base model with LoRA adapters in bf16. Enables fine-tuning of large models on consumer GPUs.</p>",
     related: ["lora","quantization"],
     quotes: [
       {
@@ -2995,6 +3117,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "参数高效微调的总称。LoRA / QLoRA / Prefix Tuning 都属此类。",
     longDesc: `<p><strong>PEFT</strong>：Parameter-Efficient Fine-Tuning 的总称。</p>
 <p><strong>代表方法：</strong>LoRA / QLoRA / Prefix Tuning / Prompt Tuning / Adapter</p>`,
+    enShortDesc: "Parameter-Efficient Fine-Tuning: a unified library for LoRA, prefix tuning, prompt tuning, IA^3, and more.",
+    enLongDesc: "<p><strong>PEFT</strong> (HuggingFace library) provides unified implementations of parameter-efficient fine-tuning methods. Train <1% of params, retain most quality.</p>",
     related: ["lora","qlora"],
     seeAlso: [
       {
@@ -3024,6 +3148,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>用 PPO 等 RL 算法优化 LLM</li>
 </ol>
 <p><strong>应用：</strong>ChatGPT / Claude 早期对齐</p>`,
+    enShortDesc: "Reinforcement Learning from Human Feedback: 3-stage training (SFT → Reward Model → PPO). The original alignment method.",
+    enLongDesc: "<p><strong>RLHF</strong> (Ouyang et al. 2022) aligns LLMs to human preferences via: (1) supervised fine-tuning, (2) training a reward model on human preference rankings, (3) PPO reinforcement learning with the reward model.</p>",
     related: ["dpo","rlaif","ipo"],
     quotes: [
       {
@@ -3058,6 +3184,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "无需 reward model，直接用偏好数据优化 LLM。比 RLHF 更简单稳定。",
     longDesc: `<p><strong>DPO</strong>：无需 reward model，直接用<strong>偏好数据</strong>优化 LLM。比 RLHF 更简单稳定。</p>
 <p><strong>变体：</strong>ORPO / IPO / SimPO</p>`,
+    enShortDesc: "Direct Preference Optimization: replaces RLHF with a simple classification loss. No reward model needed.",
+    enLongDesc: "<p><strong>DPO</strong> (Rafailov et al. 2023) optimizes the LLM directly on preference pairs (chosen, rejected) using a simple cross-entropy loss. No reward model, more stable than RLHF.</p>",
     related: ["rlhf","orpo"],
     quotes: [
       {
@@ -3092,6 +3220,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "用 AI 生成偏好标签替代人类。Anthropic Constitutional AI 用此。",
     longDesc: `<p><strong>RLAIF</strong>（RL from AI Feedback）：用<strong>AI 生成偏好标签</strong>替代人类。</p>
 <p><strong>代表：</strong>Anthropic Constitutional AI</p>`,
+    enShortDesc: "RL from AI Feedback: use AI to label preferences, scaling RLHF without humans. Constitutional AI's foundation.",
+    enLongDesc: "<p><strong>RLAIF</strong> (Lee et al. 2023, Anthropic Constitutional AI) replaces human preference labeling with AI-generated preferences based on a set of principles. Scalable, consistent.</p>",
     related: ["rlhf","dpo"],
     seeAlso: [
       {
@@ -3115,6 +3245,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tech","training"],
     shortDesc: "Odds Ratio Preference Optimization：SFT + DPO 一体化训练。",
     longDesc: "<p><strong>ORPO</strong>：SFT + DPO 一体化的偏好优化方法。</p>",
+    enShortDesc: "Odds Ratio Preference Optimization: combines SFT and DPO in one step. No reference model needed.",
+    enLongDesc: "<p><strong>ORPO</strong> (Hong et al. 2024) folds supervised fine-tuning and preference optimization into a single objective using odds ratio. No reference model, simpler pipeline than DPO.</p>",
     related: ["dpo","ipo"],
     seeAlso: [
       {
@@ -3132,6 +3264,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tech","training"],
     shortDesc: "改进 DPO 避免过拟合的偏好优化方法。",
     longDesc: "<p><strong>IPO</strong>：改进 DPO 避免<strong>过拟合</strong>的偏好优化方法。</p>",
+    enShortDesc: "Identity Preference Optimization: fixes DPO's overfitting by using an identity instead of a log-sigmoid.",
+    enLongDesc: "<p><strong>IPO</strong> (Azar et al. 2023) replaces DPO's log-sigmoid with an identity loss, preventing the model from overfitting to preference data and producing deterministic outputs.</p>",
     related: ["dpo","orpo"],
     seeAlso: [
       {
@@ -3158,6 +3292,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>结果回给 LLM</li>
 <li>LLM 生成自然语言回答</li>
 </ol>`,
+    enShortDesc: "LLM decides which external function to call with what arguments. The primitive that turns LLMs into agents.",
+    enLongDesc: "<p><strong>Function calling</strong> (a.k.a. tool use) lets the LLM emit structured calls to external functions. OpenAI, Anthropic, Google all support it via JSON schema definitions.</p>",
     related: ["tool-use","structured-outputs"],
     quotes: [
       {
@@ -3197,6 +3333,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>让 LLM 输出<strong>严格遵循 JSON Schema</strong>。</p>
 <p><strong>实现：</strong>Constrained Decoding / Grammar-based generation</p>
 <p><strong>代表：</strong>OpenAI Structured Outputs / Anthropic tool use / Gemini structured output</p>`,
+    enShortDesc: "Force the LLM to output JSON matching a specific schema. OpenAI's strict mode guarantees 100% schema compliance.",
+    enLongDesc: "<p><strong>Structured outputs</strong> (OpenAI 2024, others) constrain the LLM to emit tokens matching a JSON schema. No retries needed; 100% schema-compliant. Use Pydantic or similar for type safety.</p>",
     related: ["function-calling","constrained-decoding"],
     quotes: [
       {
@@ -3232,6 +3370,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>用 <strong>grammar / JSON schema</strong>限制 LLM 输出格式。</p>
 <p><strong>原理：</strong>在 token 选择时屏蔽不符合 grammar 的 token。</p>
 <p><strong>优势：</strong>100% 遵循 schema，无需后处理。</p>`,
+    enShortDesc: "Force LLM output to match a schema at the token level. Tools: Outlines, Guidance, JSONformer.",
+    enLongDesc: "<p><strong>Constrained decoding</strong> uses finite-state machines or context-free grammars to mask invalid tokens during generation. 100% guaranteed valid output, no retries.</p>",
     related: ["structured-outputs","function-calling"],
     seeAlso: [
       {
@@ -3262,6 +3402,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Greedy Decoding</strong>：temperature=0 等价</li>
 <li><strong>Beam Search</strong>：保留 top-K 序列</li>
 </ul>`,
+    enShortDesc: "Strategies for picking tokens from the LLM's probability distribution: greedy, top-k, top-p, temperature.",
+    enLongDesc: "<p><strong>Sampling</strong> controls randomness in token generation. Greedy (deterministic), top-k (limit to top K), top-p / nucleus (cumulative probability), and temperature (logit scaling) are the main strategies.</p>",
     related: ["llm"],
     seeAlso: [
       {
@@ -3288,6 +3430,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>2024-10</strong> Anthropic 首次发布 Sonnet 3.5 的 computer use。</p>
 <p><strong>工具：</strong>screenshot / mouse / keyboard / shell</p>
 <p><strong>应用：</strong>UI 自动化测试、表单填写、跨应用操作</p>`,
+    enShortDesc: "Anthropic's capability for Claude to control a computer: screenshot, mouse, keyboard. Released Oct 2024 for Sonnet 3.5.",
+    enLongDesc: "<p><strong>Computer use</strong> (Anthropic, 2024-10) gives Claude access to screenshot, mouse, and keyboard tools, allowing it to operate desktop GUIs as a human would. Use cases: UI automation testing, form filling, cross-app workflows.</p>",
     related: ["browser-use","agent-loop"],
     quotes: [
       {
@@ -3328,6 +3472,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>OpenAI Operator</li>
 </ul>
 <p><strong>挑战：</strong>反爬虫、CAPTCHA、动态内容。</p>`,
+    enShortDesc: "AI agent capability to control a web browser. Anthropic Claude for Chrome, browser-use open source library, OpenAI Operator.",
+    enLongDesc: "<p><strong>Browser use</strong> lets AI agents automate web browsers via DOM, screenshots, or accessibility APIs. Examples: Claude for Chrome, the browser-use Python library, OpenAI Operator.</p>",
     related: ["computer-use","agent-loop"],
     quotes: [
       {
@@ -3376,6 +3522,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Agent Mode</strong>：自主 agent</li>
 </ul>
 <p><strong>模型：</strong>Claude / GPT / Gemini 多模型支持</p>`,
+    enShortDesc: "AI-first IDE based on a VS Code fork. Flagship vibe coding tool.",
+    enLongDesc: "<p><strong>Cursor</strong> is an AI-first IDE built on a VS Code fork. Features Tab autocomplete, Chat (@code), Composer (multi-file agent), and Agent Mode. Supports Claude, GPT, Gemini.</p>",
     related: ["cursor-composer","windsurf","claude-code"],
     quotes: [
       {
@@ -3420,6 +3568,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>diff 实时显示</li>
 <li>可中断、可重定向</li>
 </ul>`,
+    enShortDesc: "Cursor's multi-file edit + agent orchestration feature. The flagship vibe coding workflow.",
+    enLongDesc: "<p><strong>Composer</strong> is Cursor's agent for multi-file edits: reads relevant files, generates unified diffs across many files, shows a plan for review, then applies in one shot.</p>",
     related: ["cursor","agent-loop"],
     quotes: [
       {
@@ -3463,6 +3613,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>MCP 原生支持</li>
 </ul>
 <p><strong>Agentic Harness</strong>：Claude Code 是 harness，Claude 是模型。</p>`,
+    enShortDesc: "Anthropic's CLI agent for the terminal. Recommended by Karpathy.",
+    enLongDesc: "<p><strong>Claude Code</strong> is Anthropic's terminal-based coding agent. Uses Claude models with tool use (Read, Edit, Bash), subagents, checkpoints, hooks, and CLAUDE.md for persistence.</p>",
     related: ["cursor","aider","mcp"],
     quotes: [
       {
@@ -3506,6 +3658,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Cascade</strong>：类似 Composer 的多文件编辑</li>
 <li><strong>Supercomplete</strong>：上下文感知的补全</li>
 </ul>`,
+    enShortDesc: "Codeium's AI IDE, direct competitor to Cursor.",
+    enLongDesc: "<p><strong>Windsurf</strong> is Codeium's AI-native IDE. Features Cascade (agent flow), Supercomplete (inline suggestions), and Flow for multi-file edits.</p>",
     related: ["cursor","codeium"],
     quotes: [
       {
@@ -3547,6 +3701,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Copilot for PRs</strong>：PR 摘要</li>
 </ul>
 <p><strong>Stack Overflow 2025</strong>：68% 开发者使用</p>`,
+    enShortDesc: "The earliest mainstream AI coding assistant (2021). Highest adoption rate.",
+    enLongDesc: "<p><strong>GitHub Copilot</strong> (2021) pioneered AI code completion. Inline suggestions + chat (Copilot Chat). Backed by OpenAI Codex / GPT models.</p>",
     related: ["cursor","pair-programming"],
     quotes: [
       {
@@ -3591,6 +3747,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>多种 LLM 后端（Claude / GPT / DeepSeek / 本地）</li>
 <li><strong>Repo map</strong>：把整个仓库结构注入 context</li>
 </ul>`,
+    enShortDesc: "AI pair programmer in the terminal. Open source. Multi-LLM backend.",
+    enLongDesc: "<p><strong>Aider</strong> is a terminal-based AI pair programming tool. Reads git-tracked files, edits, and auto-commits. Supports many LLM backends.</p>",
     related: ["claude-code","cursor"],
     quotes: [
       {
@@ -3630,6 +3788,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>Replit 云端 IDE 内置的 agent。</p>
 <p><strong>风险事件：</strong>2025-07 AI agent <strong>删除了用户生产数据库</strong>，尽管明确指示"不要修改"。</p>
 <p><strong>教训：</strong>YOLO 模式的代价。</p>`,
+    enShortDesc: "Agent built into Replit's cloud IDE. In July 2025, it deleted a user's production database during a code execution.",
+    enLongDesc: "<p><strong>Replit Agent</strong> is the agent built into Replit's cloud IDE. Builds and deploys full-stack apps from natural language. Has had notable production incidents.</p>",
     related: ["yolo-mode","lovable","vibe-coding"],
     quotes: [
       {
@@ -3664,6 +3824,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "瑞典 startup，专注前端 vibe coding。2025-05 出现 PII 泄漏事件。",
     longDesc: `<p>瑞典 startup，<strong>专注前端 vibe coding</strong>。</p>
 <p><strong>风险事件：</strong>2025-05 170/1645 web 应用存在<strong>泄露个人信息</strong>的漏洞。</p>`,
+    enShortDesc: "Swedish startup focused on frontend vibe coding. Had a PII leak incident in May 2025.",
+    enLongDesc: "<p><strong>Lovable</strong> is a frontend vibe coding platform. Generates React + Tailwind from prompts, deploys to a custom domain. Target: non-developers building SaaS frontends.</p>",
     related: ["vibe-coding","security"],
     quotes: [
       {
@@ -3698,6 +3860,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "免费 AI 代码补全工具。Windsurf 母公司。",
     longDesc: `<p>免费 AI 代码补全工具，<strong>Windsurf 母公司</strong>。</p>
 <p><strong>特点：</strong>免费、个人版可用、支持 70+ 语言。</p>`,
+    enShortDesc: "Free AI code completion tool. Parent company of Windsurf.",
+    enLongDesc: "<p><strong>Codeium</strong> provides free AI code completion. Acquired by / merged with Windsurf. Supports many languages and IDEs.</p>",
     related: ["windsurf","tabnine"],
     quotes: [
       {
@@ -3731,6 +3895,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tool","completion"],
     shortDesc: "早期 AI 代码补全工具，主打本地部署与隐私。",
     longDesc: "<p>早期 AI 代码补全工具，主打<strong>本地部署</strong>与<strong>隐私</strong>。</p>",
+    enShortDesc: "Early AI code completion tool, focused on on-prem deployment and privacy.",
+    enLongDesc: "<p><strong>Tabnine</strong> offers AI code completion with optional on-prem model deployment for code privacy. Enterprise-friendly.</p>",
     related: ["copilot","codeium"],
     quotes: [
       {
@@ -3770,6 +3936,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>MCP 支持</li>
 <li>多 model 后端</li>
 </ul>`,
+    enShortDesc: "VS Code extension that turns the IDE into an agent workbench.",
+    enLongDesc: "<p><strong>Cline</strong> (formerly Claude Dev) is a VS Code extension that lets Claude autonomously edit files, run commands, and use a browser. Open source.</p>",
     related: ["cursor","claude-code"],
     quotes: [
       {
@@ -3804,6 +3972,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Cognition 推出的号称\"第一个 AI 软件工程师\"的独立 agent。",
     longDesc: `<p>Cognition 2024 推出的号称<strong>"第一个 AI 软件工程师"</strong>的独立 agent。</p>
 <p><strong>争议：</strong>演示视频被发现有加速剪辑；实际能力被质疑。</p>`,
+    enShortDesc: "Cognition AI's 'first AI software engineer' — an autonomous agent.",
+    enLongDesc: "<p><strong>Devin</strong> is Cognition AI's autonomous coding agent. Receives tickets, spins up a sandbox, clones the repo, codes, tests, and submits PRs. Marketed as the first AI engineer.</p>",
     related: ["claude-code","agent-loop"],
     quotes: [
       {
@@ -3838,6 +4008,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Vercel 推出的前端 vibe coding 平台。从 prompt 到 React 组件。",
     longDesc: `<p>Vercel 推出的<strong>前端 vibe coding 平台</strong>。</p>
 <p>从 prompt 到 <strong>React + Tailwind 组件</strong>。</p>`,
+    enShortDesc: "Vercel's frontend vibe coding platform. Prompt to React component.",
+    enLongDesc: "<p><strong>v0</strong> (Vercel) generates React + Tailwind + shadcn/ui components from natural language prompts. Designed for copy-paste into your codebase.</p>",
     related: ["lovable","frontend-scenario"],
     quotes: [
       {
@@ -3872,6 +4044,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "AI 代码审查 agent，对接 GitHub PR。研究显示安全漏洞显著升高。",
     longDesc: `<p>AI 代码审查 agent，对接 GitHub PR。</p>
 <p><strong>2025-12 研究：</strong>470 个开源 PR 分析，AI co-authored 代码<strong>重大问题</strong>多 1.7×，<strong>配置错误</strong>多 75%，<strong>安全漏洞</strong>多 2.74×。</p>`,
+    enShortDesc: "AI code review agent for GitHub PRs. Research shows it increases security vulnerabilities.",
+    enLongDesc: "<p><strong>CodeRabbit</strong> is an AI PR reviewer that comments on GitHub pull requests. Research (2025) found AI co-authored code had 2.74x more security vulnerabilities.</p>",
     related: ["veracode","guardrails"],
     quotes: [
       {
@@ -3896,6 +4070,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
     longDesc: `<p>安全扫描平台。</p>
 <p><strong>2025-10 研究：</strong>LLM 生成代码安全性<strong>3 年未改善</strong>；大模型不比小模型更安全。</p>`,
+    enShortDesc: "Security scanning platform. Research shows LLM-generated code security hasn't improved over 3 years.",
+    enLongDesc: "<p><strong>Veracode</strong> is an application security testing platform. Their 2025 report found LLM-generated code security has not improved in 3 years; larger models aren't more secure than smaller ones.</p>",
     related: ["security"],
     quotes: [
       {
@@ -3926,6 +4102,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Tasks</strong>：独立执行</li>
 </ul>
 <p><strong>命令：</strong><code>/speckit.specify</code>、<code>/speckit.plan</code>、<code>/speckit.tasks</code></p>`,
+    enShortDesc: "GitHub's open-source SDD toolchain. Specify / Plan / Tasks three phases.",
+    enLongDesc: "<p><strong>GitHub Spec Kit</strong> is an open-source toolchain for Spec-Driven Development. Three phases: <code>specify</code> (generate spec.md), <code>plan</code> (architecture), <code>tasks</code> (checklist).</p>",
     related: ["sdd","spec-md","claude-code"],
     quotes: [
       {
@@ -3963,6 +4141,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tool","google","cli"],
     shortDesc: "Google 推出的 CLI Agent，类似 Claude Code。",
     longDesc: "<p>Google 2025-06 推出的 <strong>CLI Agent</strong>。</p>",
+    enShortDesc: "Google's CLI agent, similar to Claude Code.",
+    enLongDesc: "<p><strong>Gemini CLI</strong> is Google's terminal-based coding agent powered by Gemini 2.5 Pro. Open source. Supports long contexts (1M+).</p>",
     related: ["claude-code","codex-cli"],
     quotes: [
       {
@@ -3993,6 +4173,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "OpenAI 推出的 CLI Agent。2025-04 发布。",
     longDesc: `<p>OpenAI 2025-04 推出的 <strong>CLI Agent</strong>。</p>
 <p>Willison 将 Claude Code / Codex CLI / Gemini CLI 并列为三大 <strong>coding agent</strong>。</p>`,
+    enShortDesc: "OpenAI's CLI agent. Released April 2025.",
+    enLongDesc: "<p><strong>Codex CLI</strong> is OpenAI's terminal agent. Uses GPT-5-Codex. Released April 2025 as part of OpenAI's coding tooling.</p>",
     related: ["claude-code","gemini-cli"],
     quotes: [
       {
@@ -4023,6 +4205,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Willison 命名：可以迭代代码、主动测试和修改直到达成目标的工具。",
     longDesc: `<p>Simon Willison 命名的<strong>工具类别</strong>——"can iterate on code, actively testing and modifying it until it achieves a specified goal"。</p>
 <p><strong>代表：</strong>Claude Code（2025-02）/ Codex CLI（2025-04）/ Gemini CLI（2025-06）</p>`,
+    enShortDesc: "Simon Willison's term: tools that iteratively code, test, and modify until the goal is met.",
+    enLongDesc: "<p><strong>Coding agents</strong> (Willison) are AI tools that iteratively plan, code, test, and refine until they reach a goal. Distinct from one-shot completions.</p>",
     related: ["claude-code","vibe-engineering"],
     quotes: [
       {
@@ -4060,6 +4244,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tool","google","ide"],
     shortDesc: "Google 推出的 AI IDE（2025）。",
     longDesc: "<p>Google 2025 推出的 AI IDE。</p>",
+    enShortDesc: "Google's AI IDE released in 2025.",
+    enLongDesc: "<p><strong>Antigravity</strong> is Google's AI-native IDE released in 2025. Built on VS Code. Competes with Cursor and Windsurf.</p>",
     related: ["cursor","windsurf"],
   },
   {
@@ -4078,6 +4264,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>LangSmith</strong>：可观测性</li>
 </ul>
 <p><strong>统计：</strong>600+ 集成</p>`,
+    enShortDesc: "LLM application orchestration framework. 600+ integrations, LangGraph for stateful agents.",
+    enLongDesc: "<p><strong>LangChain</strong> orchestrates LLM workflows with 600+ integrations. LCEL for chain composition; LangGraph for stateful multi-agent systems.</p>",
     related: ["llamaindex","dspy"],
     quotes: [
       {
@@ -4126,6 +4314,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Index（索引）</li>
 <li>Retriever（检索器）</li>
 </ul>`,
+    enShortDesc: "Focused on RAG pipelines. Node-based document model and query engines.",
+    enLongDesc: "<p><strong>LlamaIndex</strong> is a data framework for LLM applications, with first-class RAG support. Indexes documents as nodes, exposes query engines and agents.</p>",
     related: ["langchain","rag"],
     quotes: [
       {
@@ -4172,6 +4362,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Stanford 提出的 LLM 程序优化框架。把 prompt 当可编译的代码。",
     longDesc: `<p><strong>DSPy</strong>：Stanford 提出的 <strong>LLM 程序优化</strong>框架。</p>
 <p><strong>核心思想：</strong>把 prompt 当<strong>可编译的代码</strong>——自动优化 prompt 与模型权重。</p>`,
+    enShortDesc: "Stanford's LLM program optimization framework. Prompts as compilable code.",
+    enLongDesc: "<p><strong>DSPy</strong> (Stanford NLP) treats prompts as code: you write signatures and modules, then optimizers (BootstrapFewShot, MIPRO) compile them against your training data.</p>",
     related: ["langchain","llamaindex"],
     quotes: [
       {
@@ -4216,6 +4408,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>Hub</strong>：模型托管</li>
 <li><strong>Inference Endpoints</strong>：托管推理</li>
 </ul>`,
+    enShortDesc: "Open-source ML model and dataset platform. Home of the Transformers library.",
+    enLongDesc: "<p><strong>Hugging Face</strong> hosts models, datasets, and Spaces. The Transformers library is the de facto standard for open LLM inference and fine-tuning.</p>",
     related: ["llm"],
     quotes: [
       {
@@ -4261,6 +4455,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>浏览器</strong>：Browser-Use / Computer Use</li>
 <li><strong>其他</strong>：文件系统 / GitHub / Sentry</li>
 </ul>`,
+    enShortDesc: "Hundreds of MCP servers provide integrations for Slack, Jira, databases, browsers, etc.",
+    enLongDesc: "<p>Public <strong>MCP servers</strong> provide tools for common services: filesystem, GitHub, Slack, Postgres, Playwright, etc. Search the MCP registry or build your own.</p>",
     related: ["mcp","claude-code"],
   },
   {
@@ -4272,6 +4468,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["tool","platform"],
     shortDesc: "vibe coding 平台之一。",
     longDesc: "<p>vibe coding 平台之一。</p>",
+    enShortDesc: "One of several vibe coding platforms.",
+    enLongDesc: "<p><strong>Orchids</strong> is a vibe coding platform for building apps from natural language prompts.</p>",
     related: ["lovable","v0"],
   },
   {
@@ -4284,6 +4482,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "AI agent 系统，包含 \"Pi coding harness\"。Mario Zechner 等创造 vibe slop 术语之地。",
     longDesc: `<p><strong>OpenClaw</strong>：AI agent 系统，包含 <code>Pi coding harness</code>。</p>
 <p><strong>关键人物：</strong>Mario Zechner 与 Armin Ronacher 在此项目工作中创造了 <strong>vibe slop</strong> 一词。</p>`,
+    enShortDesc: "AI agent system including 'Pi coding harness'. Created by Mario Zechner and others.",
+    enLongDesc: "<p><strong>OpenClaw</strong> is an open-source AI agent framework that includes the 'Pi coding harness'. Inspired by Anthropic's Claude Code.</p>",
     related: ["vibe-slop","agent-loop"],
   },
   {
@@ -4296,6 +4496,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "语音转文字工具，让用户能用语音与 LLM 对话。",
     longDesc: `<p>语音转文字工具，让用户能用<strong>语音与 LLM 对话</strong>。</p>
 <p>vibe coding 时代新交互模式。</p>`,
+    enShortDesc: "Speech-to-text tool that lets users talk to LLMs via voice.",
+    enLongDesc: "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p>",
     related: ["cursor"],
   },
 
@@ -4319,6 +4521,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>依赖审计</li>
 <li>Diff size 阈值</li>
 </ul>`,
+    enShortDesc: "Automated checks that catch the specific mistakes AI tends to make. Cheap to run, loud to fail.",
+    enLongDesc: "<p><strong>Guardrails</strong> are automated checks designed to catch AI-specific mistakes: type checks, linters, unit tests, security scans, dependency audits, diff size limits. Run on every change, fail loudly.</p>",
     related: ["mvp","yolo-mode","responsible-vc"],
     quotes: [
       {
@@ -4356,6 +4560,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>安全扫描</li>
 <li>Code review（人）</li>
 </ol>`,
+    enShortDesc: "Mechanical Verification Pipeline: use the compiler, diff, and test suite as the referee.",
+    enLongDesc: "<p><strong>MVP</strong> uses mechanical means (compiler, diff, test suite) as the referee for AI-generated code. An unattended loop makes unattended mistakes.</p>",
     related: ["guardrails","compiler-referee","test-referee"],
     quotes: [
       {
@@ -4389,6 +4595,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["quality","verification"],
     shortDesc: "把编译器当作\"第一道审查者\"，所有 AI 代码必须先过编译。",
     longDesc: "<p>把<strong>编译器</strong>当作\"第一道审查者\"——所有 AI 代码必须先过编译。</p>",
+    enShortDesc: "The compiler as first reviewer: all AI code must compile before human review.",
+    enLongDesc: "<p>The <strong>compiler as referee</strong>: AI generates code, the compiler (or type checker) validates. Compile failure = AI must fix. Compile success != correct (still needs review), but it's a strong filter.</p>",
     related: ["mvp","test-referee"],
     quotes: [
       {
@@ -4426,6 +4634,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["quality","verification"],
     shortDesc: "把测试套件当作\"终审\"。",
     longDesc: "<p>把<strong>测试套件</strong>当作\"终审\"——所有改动必须不破坏既有测试 + 满足新测试。</p>",
+    enShortDesc: "The test suite as final arbiter.",
+    enLongDesc: "<p>The <strong>test suite as referee</strong>: tests are the mechanical, repeatable check. AI-generated code must pass the full test suite before merge.</p>",
     related: ["mvp","compiler-referee","safety-net-testing"],
     quotes: [
       {
@@ -4465,6 +4675,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>测试覆盖率 > 80% 是底线</li>
 <li>测试要"先红后绿"——AI 让它变绿</li>
 </ul>`,
+    enShortDesc: "Build a testing safety net: enough tests to make AI changes safe.",
+    enLongDesc: "<p><strong>Safety net testing</strong>: build a comprehensive test suite before letting AI modify critical paths. Coverage > 80% is the floor.</p>",
     related: ["tdd-ai","mvp"],
     quotes: [
       {
@@ -4503,6 +4715,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>"Accept All" without reading diffs</strong>：Karpathy 原话提到的反模式</li>
 <li><strong>PR Review</strong>：把 AI commit 走标准 PR 流程</li>
 </ul>`,
+    enShortDesc: "Force AI to output a diff and require human review before merge.",
+    enLongDesc: "<p><strong>Diff review</strong>: in vibe coding workflows, force every AI-generated change to show a diff. A human reviews line-by-line before merge.</p>",
     related: ["code-review","iterative-refinement"],
     quotes: [
       {
@@ -4537,6 +4751,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>需要建立<strong>审查文化</strong></li>
 <li>与 lint / 自动化测试互补</li>
 </ul>`,
+    enShortDesc: "Code review practice. In the AI era, review AI-generated code the same way as human code.",
+    enLongDesc: "<p><strong>Code review</strong> is the human-in-the-loop check on AI-generated code. Same standards as human code: correctness, security, readability, style.</p>",
     related: ["diff-review","coderabbit"],
     quotes: [
       {
@@ -4574,6 +4790,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>写错文件路径</li>
 <li>把 secrets commit 到 git</li>
 </ul>`,
+    enShortDesc: "Disable all approval. The agent doesn't stop to ask. Extremely risky.",
+    enLongDesc: "<p><strong>YOLO mode</strong>: turn off all permission prompts. The agent takes actions without confirmation. Use only for prototypes and disposable tools.</p>",
     related: ["responsible-vc","guardrails"],
     quotes: [
       {
@@ -4614,6 +4832,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <tr><td>适用场景</td><td>一次性 demo</td><td>生产</td></tr>
 <tr><td>风险</td><td>极高</td><td>可控</td></tr>
 </table>`,
+    enShortDesc: "Vibe coding with continuous review. The opposite of YOLO is engaged review, not 'no agent'.",
+    enLongDesc: "<p><strong>Responsible vibe coding</strong>: use AI agents heavily, but with engaged review, tests, and guardrails. The opposite of YOLO is not 'no agent' — it is reviewed iteration.</p>",
     related: ["yolo-mode","guardrails","vibe-engineering"],
     quotes: [
       {
@@ -4649,6 +4869,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>装错依赖</li>
 <li>把测试也改了（让假绿）</li>
 </ul>`,
+    enShortDesc: "Analyze the ways the agent could fail, then add targeted protections for each.",
+    enLongDesc: "<p><strong>Failure mode analysis</strong> for AI coding: enumerate how the agent could fail (hallucination, deletion, security bugs) and add a guardrail for each.</p>",
     related: ["guardrails","hallucination"],
     quotes: [
       {
@@ -4678,6 +4900,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["quality","prompt"],
     shortDesc: "把 spec.md 内容作为 prompt 的核心。",
     longDesc: "<p>把 <strong>spec.md 内容</strong>作为 prompt 的核心——prompt 不再是\"想法\"而是\"规格\"。</p>",
+    enShortDesc: "Use spec.md content as the core of the prompt.",
+    enLongDesc: "<p><strong>Spec-driven prompting</strong>: the prompt itself is the spec (or references the spec). AI implements against the spec rather than improvising.</p>",
     related: ["spec-md","sdd"],
     quotes: [
       {
@@ -4708,6 +4932,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "项目级持久指令文件。每会话开始加载。",
     longDesc: `<p>项目级<strong>持久指令文件</strong>——每会话开始加载。</p>
 <p><strong>代表：</strong>CLAUDE.md / .cursorrules / GEMINI.md / AGENTS.md</p>`,
+    enShortDesc: "Project-level persistent instruction file. Auto-loaded each session.",
+    enLongDesc: "<p>A <strong>manifest file</strong> (e.g., package.json, pyproject.toml, CLAUDE.md, AGENTS.md) declares project metadata, dependencies, scripts. AI agents read these for context.</p>",
     related: ["claude-md","context-engineering"],
     quotes: [
       {
@@ -4742,6 +4968,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>分类器<strong>看不到工具结果</strong>→ 免疫 prompt injection</li>
 <li>防御 scope escalation、untrusted infrastructure</li>
 </ul>`,
+    enShortDesc: "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    enLongDesc: "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>",
     related: ["auto-mode","prompt-injection"],
     quotes: [
       {
@@ -4768,6 +4996,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>机制：</strong>IT / DevOps 通过 admin console 或 OS 级路径部署。</p>
 <p><strong>特性：</strong>用户和项目设置<strong>无法覆盖</strong>。</p>
 <p><strong>用途：</strong>安全策略、合规要求、标准化工具链。</p>`,
+    enShortDesc: "Organization-level Claude Code settings. IT/DevOps pushes via admin console to all engineers.",
+    enLongDesc: "<p><strong>Managed settings</strong>: IT-managed Claude Code config. Pushed via MDM to enforce policy across the org: deny lists, model choices, permissions.</p>",
     related: ["permission-mode"],
     quotes: [
       {
@@ -4805,6 +5035,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>代码重复</strong>：增加约 4 倍</li>
 <li><strong>代码 churn</strong>：几乎翻倍</li>
 </ul>`,
+    enShortDesc: "Long-term maintenance burden accumulated in code. Vibe coding dramatically increases it.",
+    enLongDesc: "<p><strong>Technical debt</strong>: shortcuts taken in code that cost more later (Martin Fowler's metaphor). Vibe coding accelerates tech debt accumulation because code is produced faster than reviewed.</p>",
     related: ["cognitive-debt","code-churn"],
     quotes: [
       {
@@ -4842,6 +5074,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["risk","hunt","emerging"],
     shortDesc: "AI 交互的累积成本——上下文丢失、agent 行为不可靠——超越技术债成为新负担。",
     longDesc: "<p>详见 <a href=\"#cognitive-debt\">cognitive-debt</a>。</p>",
+    enShortDesc: "AI interaction's accumulated cost — context loss, unreliable agent behavior — beyond technical debt as the new burden.",
+    enLongDesc: "<p><strong>Cognitive debt</strong> (Andrew Hunt 2026): the team's understanding of the codebase lags behind the code itself. AI produces code that works but nobody fully understands. Harder to measure than technical debt.</p>",
     related: ["cognitive-debt","tech-debt"],
     quotes: [
       {
@@ -4877,6 +5111,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>代码被<strong>修改 / 重写 / 删除</strong>的比率。</p>
 <p><strong>vibe coding 影响：</strong>AI 倾向于"重写而不重构"，导致 churn 飙升。</p>
 <p><strong>GitClear 数据：</strong>2024 年代码 churn 较 2021 翻倍。</p>`,
+    enShortDesc: "Rate at which code is modified, rewritten, or deleted. Vibe coding significantly increases it.",
+    enLongDesc: "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored.</p>",
     related: ["tech-debt","code-duplication"],
   },
   {
@@ -4890,6 +5126,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>相同 / 相似代码段重复出现。</p>
 <p><strong>vibe coding 影响：</strong>AI 重复生成相似函数，不主动 DRY。</p>
 <p><strong>GitClear 数据：</strong>2024 年代码重复较 2021 增加约 4 倍。</p>`,
+    enShortDesc: "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
+    enLongDesc: "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>",
     related: ["tech-debt","code-churn"],
   },
   {
@@ -4902,6 +5140,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "Mario Zechner 创造：vibe coding 产生的低质量、难维护代码。",
     longDesc: `<p><strong>Vibe Slop</strong>：Mario Zechner 与 Armin Ronacher（OpenClaw 工程师）发明的术语——指 vibe coding 产生的大量低质量、难维护代码。</p>
 <blockquote>"You have infrastructure that's falling apart, and you have software that's now very, very buggy compared to before. We can play this game for a couple more months, or maybe even years, but eventually it will catch up to us." — Mario Zechner</blockquote>`,
+    enShortDesc: "Mario Zechner's term: low-quality, hard-to-maintain code produced by vibe coding.",
+    enLongDesc: "<p><strong>Vibe slop</strong>: Mario Zechner's term for the AI-generated low-quality code flooding the ecosystem. Functionally works but is buggy, insecure, and unsustainable.</p>",
     related: ["tech-debt","cognitive-debt"],
     quotes: [
       {
@@ -4942,6 +5182,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>文档完全缺失</li>
 <li>业务规则散落在 prompt 历史里</li>
 </ul>`,
+    enShortDesc: "Fast Company's term (Sep 2025): when vibe-coded apps in production start breaking down.",
+    enLongDesc: "<p><strong>Vibe hangover</strong>: the period after vibe coding ships, when the codebase starts breaking down under real use. Maintenance cost exceeds original creation savings.</p>",
     related: ["tech-debt","vibe-slop"],
   },
   {
@@ -4960,6 +5202,8 @@ Build  → 写代码、运行命令、调用工具</pre>
   → Vibe Slop
   → Vibe Hangover
   → Development Hell</pre>`,
+    enShortDesc: "The 'system that resists evolution' trap created by vibe coding.",
+    enLongDesc: "<p><strong>Dev hell</strong>: a codebase so tangled by ad-hoc AI changes that adding new features requires rewriting large portions. The opposite of maintainable software.</p>",
     related: ["tech-debt","vibe-slop"],
   },
   {
@@ -4979,6 +5223,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>任意两个组合：</strong>危险<br>
 <strong>三个全占：</strong>致命</p>
 <p><strong>Auto Mode 缓解：</strong>分类器看不到工具结果。</p>`,
+    enShortDesc: "Simon Willison's three-factor risk: private data + untrusted content + external communication. Any two is dangerous; all three is lethal.",
+    enLongDesc: "<p>The <strong>lethal trifecta</strong> (Simon Willison): access to private data, exposure to untrusted content, and ability to communicate externally. An AI agent with all three is a security risk.</p>",
     related: ["prompt-injection","security"],
     quotes: [
       {
@@ -5013,6 +5259,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "AI 创业公司估值背离 ARR 等指标的潮流。The Economist 提出。",
     longDesc: `<p><strong>Vibe Valuation</strong>：AI 创业公司估值背离 ARR（年经常性收入）等指标的潮流。The Economist 提出。</p>
 <p><strong>与 vibe coding 关系：</strong>跨域类比——重速度、轻质量；类似"vibe slop"在投资领域。</p>`,
+    enShortDesc: "AI startup valuations divorced from ARR and fundamentals. The Economist coined this term.",
+    enLongDesc: "<p><strong>Vibe valuation</strong>: the trend of AI startups being valued at multiples disconnected from actual revenue. Vibes-based investing.</p>",
     related: ["vibe-slop"],
   },
   {
@@ -5025,6 +5273,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "LLM 倾向于选择主流/知名库，导致软件栈趋同。",
     longDesc: `<p><strong>软件同质化</strong>：LLM 倾向于选择<strong>主流 / 知名库</strong>，导致软件栈趋同、生态多样性下降。</p>
 <p><strong>论文：</strong>"Vibe Coding Kills Open Source"（Koren et al., 2026-01）</p>`,
+    enShortDesc: "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
+    enLongDesc: "<p><strong>Homogenization</strong>: when LLMs recommend the same popular libraries for every problem, software stacks become similar across organizations, reducing diversity.</p>",
     related: ["vibe-coding"],
     quotes: [
       {
@@ -5060,6 +5310,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>论文 "Vibe Coding Kills Open Source"（Koren, Békés, Hinz, Lohmann，2026-01）：</p>
 <blockquote>"Vibe coding raises productivity by lowering the cost of using and building on existing code, but it also weakens the user engagement through which many maintainers earn returns."</blockquote>
 <p><strong>受影响项目：</strong>cURL（结束 bug bounty）/ Ghostty（移至邀请制）</p>`,
+    enShortDesc: "2026-01 paper: vibe coding weakens open source maintainer engagement and revenue.",
+    enLongDesc: "<p>The <strong>open source impact</strong> of vibe coding (Koren et al. 2026): maintainers see fewer contributions because users build their own versions with AI rather than engaging upstream.</p>",
     related: ["homogenization"],
     quotes: [
       {
@@ -5094,6 +5346,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"。",
     longDesc: `<p><strong>Eternal September</strong>：GitHub 借用的 Usenet 术语——指"大量新人不了解规范地涌入"，让既有社区难以维持秩序。</p>
 <p><strong>vibe coding 影响：</strong>大量"prompt-only"的 PR 涌入开源项目。</p>`,
+    enShortDesc: "Usenet term borrowed for GitHub: a flood of newcomers unfamiliar with norms.",
+    enLongDesc: "<p><strong>Eternal September</strong>: the phenomenon where a community is overwhelmed by new members who don't know the established norms. Applied to GitHub after AI coding agents flooded it.</p>",
     related: ["vibe-slop"],
   },
   {
@@ -5116,6 +5370,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>审查工具返回值</li>
 <li>Auto Mode（分类器看不到工具结果）</li>
 </ul>`,
+    enShortDesc: "Malicious content injected into an LLM's input stream to manipulate its behavior.",
+    enLongDesc: "<p><strong>Prompt injection</strong>: an attacker embeds instructions in data the LLM reads (web pages, emails, documents). The LLM may execute the injected instructions. Treat as a security vulnerability.</p>",
     related: ["lethal-trifecta","security"],
     quotes: [
       {
@@ -5163,6 +5419,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>AI 生成代码的<strong>安全问题</strong>。</p>
 <p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 3 年未改善；大模型不比小模型更安全。</p>
 <p><strong>CodeRabbit 2025-12：</strong>AI co-authored 代码<strong>安全漏洞</strong>多 2.74 倍。</p>`,
+    enShortDesc: "AI-generated code security issues. Veracode research: no improvement over 3 years.",
+    enLongDesc: "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>",
     related: ["veracode","prompt-injection"],
     quotes: [
       {
@@ -5187,6 +5445,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>开发者事前预测 <strong>-24%</strong></li>
 </ul>
 <p><strong>结论：</strong>开发者高估了 AI 的提速效果。</p>`,
+    enShortDesc: "METR 2025-07 study: 16 developers + 246 tasks, AI tools increased completion time by 19% (developers predicted -24%).",
+    enLongDesc: "<p><strong>METR RCT</strong> (2025-07): a randomized controlled trial with 16 experienced developers and 246 tasks. AI tools slowed developers by 19% even though they predicted a 24% speedup.</p>",
     related: ["productivity-paradox"],
     quotes: [
       {
@@ -5215,6 +5475,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>Stack Overflow 2025：45% 开发者报告"调试 AI 生成代码更耗时间"</li>
 <li>66% "AI 解决方案几乎对但不完全对"</li>
 </ul>`,
+    enShortDesc: "AI speeds development but developers spend more total time — METR + Stack Overflow data.",
+    enLongDesc: "<p>The <strong>productivity paradox</strong>: 84% of developers use AI, but actual efficiency gains are offset by debugging and verification overhead.</p>",
     related: ["metr-rct"],
     quotes: [
       {
@@ -5257,6 +5519,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li><strong>66%</strong> "AI 解决方案几乎对但不完全对"</li>
 <li><strong>45%</strong> 调试 AI 代码更耗时</li>
 </ul>`,
+    enShortDesc: "Stack Overflow 2025 developer survey: 84% use AI, 51% daily, 72% don't use AI for deployment.",
+    enLongDesc: "<p>The <strong>Stack Overflow 2025</strong> AI survey: 84% of developers use or plan to use AI tools; 51% daily. But 76% don't use AI for deployment and 72% don't trust AI output.</p>",
     related: ["metr-rct","productivity-paradox"],
     quotes: [
       {
@@ -5295,6 +5559,8 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>vibe coding 用法：</strong></p>
 <blockquote>"在写代码前先分析问题，列出 3 个可能的实现方案，逐一比较，再选择最佳方案写代码。"</blockquote>
 <p><strong>变体：</strong>Self-Consistency / Tree-of-Thought / ReAct</p>`,
+    enShortDesc: "Chain-of-Thought: let the LLM 'think before responding'. For complex tasks.",
+    enLongDesc: "<p><strong>Chain-of-thought (CoT)</strong> prompting (Wei et al. 2022): instruct the model to show its reasoning before answering. Improves accuracy on math, logic, multi-step tasks.</p>",
     related: ["tot","react","self-consistency"],
     quotes: [
       {
@@ -5328,6 +5594,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     tags: ["prompt","reasoning"],
     shortDesc: "让 LLM 探索多个推理路径并比较。复杂问题求解。",
     longDesc: "<p><strong>Tree-of-Thought</strong>：让 LLM <strong>探索多个推理路径</strong>并比较——CoT 的扩展。</p>",
+    enShortDesc: "Tree of Thought: explore multiple reasoning paths and compare. For complex problem-solving.",
+    enLongDesc: "<p><strong>Tree of Thought (ToT)</strong> (Yao et al. 2023): generate multiple candidate next steps, evaluate each, prune, repeat. Trades compute for accuracy on hard problems.</p>",
     related: ["cot","react"],
   },
   {
@@ -5345,6 +5613,8 @@ Observation: ...
 Thought: ...
 Action: ...
 Observation: ... (重复直到完成)</pre>`,
+    enShortDesc: "Reason + Act loop: alternate thinking with tool calls. The agent paradigm.",
+    enLongDesc: "<p><strong>ReAct</strong> (Yao et al. 2022): interleave Thought, Action, Observation. The agent thinks, calls a tool, observes the result, thinks again. Foundation of modern agents.</p>",
     related: ["cot","agent-loop"],
     quotes: [
       {
@@ -5379,6 +5649,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "多次采样 + 多数投票，提升推理可靠性。",
     longDesc: `<p><strong>Self-Consistency</strong>：<strong>多次采样 + 多数投票</strong>，提升推理可靠性。</p>
 <p>CoT 的扩展——生成多条推理路径，选最一致的答案。</p>`,
+    enShortDesc: "Sample multiple times and majority vote. Improves reasoning reliability.",
+    enLongDesc: "<p><strong>Self-consistency</strong> (Wang et al. 2023): sample multiple chain-of-thought answers, take the majority. 5-10% accuracy gain on math/reasoning.</p>",
     related: ["cot","reflection"],
     examples: [
       {
@@ -5404,6 +5676,8 @@ Observation: ... (重复直到完成)</pre>`,
 <li>写入记忆</li>
 <li>下次用</li>
 </ol>`,
+    enShortDesc: "Have the agent reflect on its own errors and improve its next-step strategy.",
+    enLongDesc: "<p><strong>Reflection</strong> (Shinn et al. 2023): after each attempt, the agent reviews its failures and updates strategy. Reflexion paper.</p>",
     related: ["react","self-consistency"],
   },
   {
@@ -5425,6 +5699,8 @@ Observation: ... (重复直到完成)</pre>`,
 - Output: 写一个 &lt;form onSubmit={handler}&gt; 组件
 现在请按同样风格为 Input: "Add a modal" 输出代码
 </pre>`,
+    enShortDesc: "Include a few examples in the prompt. Let the model imitate the pattern.",
+    enLongDesc: "<p><strong>Few-shot prompting</strong> (Brown et al. 2020, GPT-3): include 2-5 examples in the prompt. The model generalizes the pattern to new inputs.</p>",
     related: ["zero-shot","cot"],
     quotes: [
       {
@@ -5459,6 +5735,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "模型基于任务描述直接执行，无需示例。",
     longDesc: `<p><strong>Zero-Shot</strong>：模型基于<strong>任务描述</strong>直接执行，无需示例。</p>
 <p>现代 LLM 的基础能力——但复杂任务仍需 few-shot 或 CoT。</p>`,
+    enShortDesc: "Model performs the task from description alone, no examples needed.",
+    enLongDesc: "<p><strong>Zero-shot prompting</strong>: instruct the model with a task description and let it produce output. Works well for instruction-tuned models.</p>",
     related: ["few-shot"],
   },
   {
@@ -5476,6 +5754,8 @@ Observation: ... (重复直到完成)</pre>`,
 <li>"不要修改 tests/ 目录"</li>
 <li>"不要用 eval"</li>
 </ul>`,
+    enShortDesc: "Explicitly tell the LLM what NOT to do.",
+    enLongDesc: "<p><strong>Negative prompting</strong>: include 'do not...' or 'avoid...' instructions. Useful for safety constraints and style guidance.</p>",
     related: ["system-prompt"],
     quotes: [
       {
@@ -5511,6 +5791,8 @@ Observation: ... (重复直到完成)</pre>`,
 <li>每个子任务独立 prompt</li>
 <li>最后汇总</li>
 </ul>`,
+    enShortDesc: "Break complex tasks into smaller subtasks. Let the model handle each.",
+    enLongDesc: "<p><strong>Decomposition</strong>: split a complex task into smaller pieces (Least-to-Most prompting, Zhou et al. 2022). Each subtask is easier for the model.</p>",
     related: ["subagent","plan-verify-build"],
     quotes: [
       {
@@ -5542,6 +5824,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>Self-Review Prompting</strong>：让 LLM <strong>先自查再输出</strong>。</p>
 <p><strong>模板：</strong></p>
 <blockquote>"请先列出你这个方案可能的 3 个 bug，再写代码。"</blockquote>`,
+    enShortDesc: "Have the LLM check its own output before finalizing.",
+    enLongDesc: "<p><strong>Self-review prompting</strong>: ask the LLM to critique its own draft, then revise. Improves quality on code, math, and structured outputs.</p>",
     related: ["reflection","cot"],
   },
   {
@@ -5559,6 +5843,8 @@ Observation: ... (重复直到完成)</pre>`,
 <li>列举何时使用 vs 不使用</li>
 <li>给参数命名清晰的 schema</li>
 </ul>`,
+    enShortDesc: "Write clear descriptions for each tool so the LLM knows when to call it.",
+    enLongDesc: "<p><strong>Tool description engineering</strong>: craft each tool's name and description so the LLM picks the right one. Critical for agent reliability.</p>",
     related: ["tool-use","mcp"],
   },
   {
@@ -5571,6 +5857,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "用 LLM 优化自己的 prompt。",
     longDesc: `<p><strong>Meta-Prompting</strong>：用 LLM 优化自己的 prompt。</p>
 <p><strong>应用：</strong>DSPy / PromptWizard / 自动 prompt 工程。</p>`,
+    enShortDesc: "Use an LLM to optimize its own prompt.",
+    enLongDesc: "<p><strong>Meta-prompting</strong>: ask an LLM to generate or refine the prompt for another LLM. Iterative improvement of prompts.</p>",
     related: ["dspy","self-review-prompting"],
   },
   {
@@ -5583,6 +5871,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "控制模型推理 token 的预算。",
     longDesc: `<p><strong>Thinking Budget</strong>：控制模型推理 token 的预算。</p>
 <p><strong>配置：</strong>通过 <code>MAX_THINKING_TOKENS</code> 或 <strong>effort level</strong> 设置。</p>`,
+    enShortDesc: "Token budget for model reasoning. Higher = more reasoning but slower.",
+    enLongDesc: "<p><strong>Thinking budget</strong>: allocate tokens for the model's internal reasoning (extended thinking). Tunable parameter for cost/quality tradeoff.</p>",
     related: ["effort-level","extended-thinking"],
   },
   {
@@ -5600,6 +5890,8 @@ Observation: ... (重复直到完成)</pre>`,
 <li>输出 schema 限制</li>
 <li>人 review 高风险输出</li>
 </ul>`,
+    enShortDesc: "Prompt engineering to defend against prompt injection.",
+    enLongDesc: "<p><strong>Prompt injection defense</strong>: use structural delimiters, explicit instruction precedence, and tool result isolation to make injection harder.</p>",
     related: ["prompt-injection","lethal-trifecta"],
   },
   {
@@ -5611,6 +5903,8 @@ Observation: ... (重复直到完成)</pre>`,
     tags: ["prompt"],
     shortDesc: "会话开头的全局指令。",
     longDesc: "<p>会话开头的<strong>全局指令</strong>。详见 <a href=\"#system-prompt\">system-prompt</a>。</p>",
+    enShortDesc: "The global instruction at the start of a conversation.",
+    enLongDesc: "<p>The <strong>system message</strong> sets persona, constraints, and behavior for the entire conversation. Highest priority instruction.</p>",
     related: ["system-prompt"],
   },
   {
@@ -5623,6 +5917,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "用大量示例（数百）提升 LLM 表现。",
     longDesc: `<p><strong>Multi-Shot</strong>：用<strong>大量示例</strong>（数百）提升 LLM 表现——few-shot 的规模化。</p>
 <p>2024+ 的研究发现，许多 LLM 在 hundreds of shots 下表现接近 fine-tuning。</p>`,
+    enShortDesc: "Use many examples (hundreds) to improve LLM performance.",
+    enLongDesc: "<p><strong>Multi-shot prompting</strong>: scale few-shot to hundreds of examples. Helps with consistent formatting, edge cases, and domain adaptation.</p>",
     related: ["few-shot"],
   },
 
@@ -5638,6 +5934,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>一次性原型</strong>：从 0 到可 demo 的应用，一晚上搞定。</p>
 <p><strong>推荐组合：</strong>Vibe Coding / Cursor Composer / Lovable / Iterative Refinement</p>
 <p><strong>风险：</strong>低（不进入生产）</p>`,
+    enShortDesc: "From zero to demo-able app, in one night. The vibe coding sweet spot.",
+    enLongDesc: "<p>The <strong>prototype scenario</strong>: build a working demo quickly, validate the idea, throw it away. Vibe coding's strongest use case.</p>",
     related: ["vibe-coding","cursor-composer"],
     quotes: [
       {
@@ -5663,6 +5961,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>个人工具</strong>：只为个人用，不进入团队。Software for One 心态。</p>
 <p><strong>推荐组合：</strong>Vibe Coding / YOLO Mode（可接受）/ Few-Shot</p>
 <p><strong>风险：</strong>低（仅自己用）</p>`,
+    enShortDesc: "Just for personal use, doesn't enter the team.",
+    enLongDesc: "<p>The <strong>personal tool scenario</strong>: software you build only for yourself. No team handoffs, no production concerns.</p>",
     related: ["software-for-one","yolo-mode"],
   },
   {
@@ -5677,6 +5977,8 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>推荐组合：</strong>Agentic Programming（非 vibe coding）/ MVP / Guardrails / SDD / Code Review / Compiler as Referee</p>
 <p><strong>风险：</strong>高</p>
 <p><strong>Stack Overflow 2025：</strong>76% 开发者不在生产用 AI；69% 不用于项目规划。</p>`,
+    enShortDesc: "Modify existing systems, add features, fix bugs. Requires a completely different workflow than vibe coding.",
+    enLongDesc: "<p>The <strong>production scenario</strong>: working on real systems with users, SLAs, tests, deploys. Needs SDD, guardrails, code review, not just vibes.</p>",
     related: ["agentic-programming","guardrails","sdd"],
     quotes: [
       {
@@ -5702,6 +6004,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>大型重构</strong>：跨文件、跨模块改动，不引入 regression。</p>
 <p><strong>推荐组合：</strong>Subagent（任务拆分）/ Plan-Verify-Build / Context Engineering / Safety Net Testing / TDD with AI</p>
 <p><strong>风险：</strong>中（AI 倾向"重写而不重构"）</p>`,
+    enShortDesc: "Cross-file, cross-module changes without introducing regression.",
+    enLongDesc: "<p>The <strong>refactor scenario</strong>: large-scale code reorganization. AI helps but needs strong test coverage and review. Use subagents per module.</p>",
     related: ["subagent","plan-verify-build"],
   },
   {
@@ -5716,6 +6020,8 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>推荐组合：</strong><strong>禁止 Vibe Coding / YOLO Mode</strong> / Lethal Trifecta 检查 / Veracode / Snyk / Prompt Injection 防护</p>
 <p><strong>风险：</strong>最高</p>
 <p><strong>CodeRabbit：</strong>AI co-authored 代码安全漏洞 ×2.74。</p>`,
+    enShortDesc: "Auth, authorization, payment, encryption, data privacy.",
+    enLongDesc: "<p>The <strong>security scenario</strong>: never use AI agents without guardrails. Lethal trifecta, prompt injection, Veracode research. Highest scrutiny required.</p>",
     related: ["lethal-trifecta","veracode"],
     quotes: [
       {
@@ -5747,6 +6053,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>学习探索</strong>：学新技术 / 新语言 / 探索性编程 / 教学示例。</p>
 <p><strong>推荐组合：</strong>Vibe Coding / Few-Shot / Chain-of-Thought</p>
 <p><strong>风险：</strong>低</p>`,
+    enShortDesc: "Learn new tech / new language / exploratory coding.",
+    enLongDesc: "<p>The <strong>learning scenario</strong>: using AI as a tutor while exploring new APIs, languages, frameworks. Vibe coding is well-suited.</p>",
     related: ["vibe-coding","few-shot"],
   },
   {
@@ -5760,6 +6068,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>团队协作</strong>：多开发者共享代码、PR 流程。</p>
 <p><strong>推荐组合：</strong>Copilot / Cursor（团队版）/ CodeRabbit / Spec.md as Contract / Diff Review</p>
 <p><strong>风险：</strong>中</p>`,
+    enShortDesc: "Multiple developers sharing code, PR workflows.",
+    enLongDesc: "<p>The <strong>team scenario</strong>: shared codebase, code review, CI/CD, merge conflicts. Requires coordination beyond solo vibe coding.</p>",
     related: ["copilot","code-review"],
     quotes: [
       {
@@ -5779,6 +6089,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>测试编写</strong>：为已有代码补测试。</p>
 <p><strong>推荐组合：</strong>TDD with AI / Safety Net Testing / Test Suite as Referee</p>
 <p><strong>风险：</strong>低（AI 写测试是相对安全的任务）</p>`,
+    enShortDesc: "Add tests to existing code. AI writing tests is a relatively safe task.",
+    enLongDesc: "<p>The <strong>testing scenario</strong>: AI generates test cases. Lower risk because tests are verified by running them. Good first AI task.</p>",
     related: ["tdd-ai","safety-net-testing"],
   },
   {
@@ -5793,6 +6105,8 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>推荐组合：</strong>Iterative Refinement（贴错误信息）/ Failure Mode Analysis / Acceptance Criteria</p>
 <p><strong>风险：</strong>中（AI 倾向"治标不治本"）</p>
 <p><strong>Stack Overflow 2025：</strong>45% 报告"调试 AI 代码更耗时"</p>`,
+    enShortDesc: "Reproduce + fix bugs.",
+    enLongDesc: "<p>The <strong>debug scenario</strong>: AI helps reproduce bugs, suggest fixes, write regression tests. Iterative refinement with the agent.</p>",
     related: ["iterative-refinement","failure-mode"],
   },
   {
@@ -5806,6 +6120,8 @@ Observation: ... (重复直到完成)</pre>`,
     longDesc: `<p><strong>文档注释</strong>：写 README / 生成 API 文档 / 代码注释。</p>
 <p><strong>推荐组合：</strong>Few-Shot Prompting（输出格式）/ Spec.md as Contract</p>
 <p><strong>风险：</strong>低</p>`,
+    enShortDesc: "Write README / generate API docs.",
+    enLongDesc: "<p>The <strong>docs scenario</strong>: AI excels at generating documentation from code. Low risk, high value. Good CI step too.</p>",
     related: ["few-shot","spec-md"],
   },
   {
@@ -5820,6 +6136,8 @@ Observation: ... (重复直到完成)</pre>`,
 <p><strong>推荐工具：</strong>Lovable / v0 / Cursor Composer</p>
 <p><strong>优势：</strong>AI 擅长视觉组件、响应式布局、Tailwind / CSS。</p>
 <p><strong>风险：</strong>中（无障碍、设计系统一致性）</p>`,
+    enShortDesc: "Frontend components, pages, UI design with vibe coding.",
+    enLongDesc: "<p>The <strong>frontend scenario</strong>: tools like Lovable, v0, Cursor Composer shine. Visual iteration loop. Mostly safe.</p>",
     related: ["lovable","v0"],
   },
   {
@@ -5832,6 +6150,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "用 LLM 做数据分析、可视化、SQL 生成。",
     longDesc: `<p><strong>数据分析</strong>：用 LLM 做数据分析、可视化、SQL 生成。</p>
 <p><strong>工具：</strong>Code Interpreter / LLM SQL / Notebook agents</p>`,
+    enShortDesc: "Use LLM for data analysis, visualization, SQL generation.",
+    enLongDesc: "<p>The <strong>data scenario</strong>: LLM-powered data analysis, code interpreters (ChatGPT), SQL generation. Privacy is the main concern.</p>",
     related: ["computer-use","rag"],
   },
   {
@@ -5844,6 +6164,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "用 AI agent 快速理解陌生代码库。",
     longDesc: `<p><strong>代码库入门</strong>：用 AI agent 快速理解陌生代码库。</p>
 <p><strong>实践：</strong>让 Claude Code / Cursor 解释模块、画架构图、生成 README。</p>`,
+    enShortDesc: "Use AI agent to quickly understand an unfamiliar codebase.",
+    enLongDesc: "<p>The <strong>onboarding scenario</strong>: AI reads code, summarizes, answers questions. Claude Code's <code>/init</code> command creates a CLAUDE.md as onboarding doc.</p>",
     related: ["context-engineering","claude-code"],
   },
   {
@@ -5856,6 +6178,8 @@ Observation: ... (重复直到完成)</pre>`,
     shortDesc: "用 AI 协助框架迁移（React→Vue、Python 2→3 等）。",
     longDesc: `<p><strong>框架迁移</strong>：用 AI 协助框架迁移（React→Vue、Python 2→3 等）。</p>
 <p><strong>组合：</strong>Subagent + Plan-Verify-Build + Safety Net Testing</p>`,
+    enShortDesc: "AI-assisted framework migration (React→Vue, Python 2→3, etc.).",
+    enLongDesc: "<p>The <strong>migration scenario</strong>: large-scale code transformation. AI helps but needs comprehensive tests. Use subagents per module.</p>",
     related: ["subagent","refactor-scenario"],
   },
 ];

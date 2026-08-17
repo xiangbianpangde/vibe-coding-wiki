@@ -40,7 +40,9 @@
         "name": "Andrew Hunt: Cognitive Debt",
         "url": "https://www.huntthought.com/2026/cognitive-debt"
       }
-    ]
+    ],
+    "enShortDesc": "Long-term maintenance burden accumulated in code. Vibe coding dramatically increases it.",
+    "enLongDesc": "<p><strong>Technical debt</strong>: shortcuts taken in code that cost more later (Martin Fowler's metaphor). Vibe coding accelerates tech debt accumulation because code is produced faster than reviewed.</p>"
   },
   {
     "id": "cognitive-debt-detail",
@@ -80,7 +82,9 @@
         "text": "Cognitive debt: when the team's understanding of the codebase lags behind the code itself.",
         "cite": "Andrew Hunt 2026"
       }
-    ]
+    ],
+    "enShortDesc": "AI interaction's accumulated cost — context loss, unreliable agent behavior — beyond technical debt as the new burden.",
+    "enLongDesc": "<p><strong>Cognitive debt</strong> (Andrew Hunt 2026): the team's understanding of the codebase lags behind the code itself. AI produces code that works but nobody fully understands. Harder to measure than technical debt.</p>"
   },
   {
     "id": "code-churn",
@@ -97,7 +101,9 @@
     "related": [
       "tech-debt",
       "code-duplication"
-    ]
+    ],
+    "enShortDesc": "Rate at which code is modified, rewritten, or deleted. Vibe coding significantly increases it.",
+    "enLongDesc": "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored.</p>"
   },
   {
     "id": "code-duplication",
@@ -114,7 +120,9 @@
     "related": [
       "tech-debt",
       "code-churn"
-    ]
+    ],
+    "enShortDesc": "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
+    "enLongDesc": "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>"
   },
   {
     "id": "vibe-slop",
@@ -154,7 +162,9 @@
         "name": "Vibe Coding Kills Open Source",
         "url": "https://arxiv.org/abs/2601.12345"
       }
-    ]
+    ],
+    "enShortDesc": "Mario Zechner's term: low-quality, hard-to-maintain code produced by vibe coding.",
+    "enLongDesc": "<p><strong>Vibe slop</strong>: Mario Zechner's term for the AI-generated low-quality code flooding the ecosystem. Functionally works but is buggy, insecure, and unsustainable.</p>"
   },
   {
     "id": "vibe-hangover",
@@ -171,7 +181,9 @@
     "related": [
       "tech-debt",
       "vibe-slop"
-    ]
+    ],
+    "enShortDesc": "Fast Company's term (Sep 2025): when vibe-coded apps in production start breaking down.",
+    "enLongDesc": "<p><strong>Vibe hangover</strong>: the period after vibe coding ships, when the codebase starts breaking down under real use. Maintenance cost exceeds original creation savings.</p>"
   },
   {
     "id": "dev-hell",
@@ -188,7 +200,9 @@
     "related": [
       "tech-debt",
       "vibe-slop"
-    ]
+    ],
+    "enShortDesc": "The 'system that resists evolution' trap created by vibe coding.",
+    "enLongDesc": "<p><strong>Dev hell</strong>: a codebase so tangled by ad-hoc AI changes that adding new features requires rewriting large portions. The opposite of maintainable software.</p>"
   },
   {
     "id": "lethal-trifecta",
@@ -228,7 +242,9 @@
         "name": "OWASP LLM Top 10",
         "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
       }
-    ]
+    ],
+    "enShortDesc": "Simon Willison's three-factor risk: private data + untrusted content + external communication. Any two is dangerous; all three is lethal.",
+    "enLongDesc": "<p>The <strong>lethal trifecta</strong> (Simon Willison): access to private data, exposure to untrusted content, and ability to communicate externally. An AI agent with all three is a security risk.</p>"
   },
   {
     "id": "vibe-valuation",
@@ -245,7 +261,9 @@
     "longDesc": "<p><strong>Vibe Valuation</strong>：AI 创业公司估值背离 ARR（年经常性收入）等指标的潮流。The Economist 提出。</p>\n<p><strong>与 vibe coding 关系：</strong>跨域类比——重速度、轻质量；类似\"vibe slop\"在投资领域。</p>",
     "related": [
       "vibe-slop"
-    ]
+    ],
+    "enShortDesc": "AI startup valuations divorced from ARR and fundamentals. The Economist coined this term.",
+    "enLongDesc": "<p><strong>Vibe valuation</strong>: the trend of AI startups being valued at multiples disconnected from actual revenue. Vibes-based investing.</p>"
   },
   {
     "id": "homogenization",
@@ -283,7 +301,9 @@
         "name": "GitClear Code Quality Report 2024",
         "url": "https://gitclear.com"
       }
-    ]
+    ],
+    "enShortDesc": "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
+    "enLongDesc": "<p><strong>Homogenization</strong>: when LLMs recommend the same popular libraries for every problem, software stacks become similar across organizations, reducing diversity.</p>"
   },
   {
     "id": "open-source-impact",
@@ -322,7 +342,9 @@
         "name": "Vibe Coding Kills Open Source",
         "url": "https://github.com/vibe-coding-kills-open-source/paper"
       }
-    ]
+    ],
+    "enShortDesc": "2026-01 paper: vibe coding weakens open source maintainer engagement and revenue.",
+    "enLongDesc": "<p>The <strong>open source impact</strong> of vibe coding (Koren et al. 2026): maintainers see fewer contributions because users build their own versions with AI rather than engaging upstream.</p>"
   },
   {
     "id": "eternal-september",
@@ -338,7 +360,9 @@
     "longDesc": "<p><strong>Eternal September</strong>：GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"，让既有社区难以维持秩序。</p>\n<p><strong>vibe coding 影响：</strong>大量\"prompt-only\"的 PR 涌入开源项目。</p>",
     "related": [
       "vibe-slop"
-    ]
+    ],
+    "enShortDesc": "Usenet term borrowed for GitHub: a flood of newcomers unfamiliar with norms.",
+    "enLongDesc": "<p><strong>Eternal September</strong>: the phenomenon where a community is overwhelmed by new members who don't know the established norms. Applied to GitHub after AI coding agents flooded it.</p>"
   },
   {
     "id": "prompt-injection",
@@ -390,7 +414,9 @@
         "name": "Anthropic: Prompt injection 指南",
         "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense"
       }
-    ]
+    ],
+    "enShortDesc": "Malicious content injected into an LLM's input stream to manipulate its behavior.",
+    "enLongDesc": "<p><strong>Prompt injection</strong>: an attacker embeds instructions in data the LLM reads (web pages, emails, documents). The LLM may execute the injected instructions. Treat as a security vulnerability.</p>"
   },
   {
     "id": "security",
@@ -413,7 +439,9 @@
         "text": "AI agents in production need a security model. \"Trust no agent\" is the safe default.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "AI-generated code security issues. Veracode research: no improvement over 3 years.",
+    "enLongDesc": "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>"
   },
   {
     "id": "metr-rct",
@@ -442,7 +470,9 @@
         "name": "METR 报告",
         "url": "https://metr.org"
       }
-    ]
+    ],
+    "enShortDesc": "METR 2025-07 study: 16 developers + 246 tasks, AI tools increased completion time by 19% (developers predicted -24%).",
+    "enLongDesc": "<p><strong>METR RCT</strong> (2025-07): a randomized controlled trial with 16 experienced developers and 246 tasks. AI tools slowed developers by 19% even though they predicted a 24% speedup.</p>"
   },
   {
     "id": "productivity-paradox",
@@ -480,7 +510,9 @@
         "name": "METR 2025-07 研究",
         "url": "https://metr.org"
       }
-    ]
+    ],
+    "enShortDesc": "AI speeds development but developers spend more total time — METR + Stack Overflow data.",
+    "enLongDesc": "<p>The <strong>productivity paradox</strong>: 84% of developers use AI, but actual efficiency gains are offset by debugging and verification overhead.</p>"
   },
   {
     "id": "so-survey-2025",
@@ -520,6 +552,8 @@
         "name": "Stack Overflow 2025 主报告",
         "url": "https://survey.stackoverflow.co/2025"
       }
-    ]
+    ],
+    "enShortDesc": "Stack Overflow 2025 developer survey: 84% use AI, 51% daily, 72% don't use AI for deployment.",
+    "enLongDesc": "<p>The <strong>Stack Overflow 2025</strong> AI survey: 84% of developers use or plan to use AI tools; 51% daily. But 76% don't use AI for deployment and 72% don't trust AI output.</p>"
   }
 ]

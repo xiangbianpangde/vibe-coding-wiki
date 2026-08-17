@@ -41,7 +41,9 @@
         "name": "Cursor Composer 介绍",
         "url": "https://cursor.com/blog/composer-1"
       }
-    ]
+    ],
+    "enShortDesc": "AI-first IDE based on a VS Code fork. Flagship vibe coding tool.",
+    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a VS Code fork. Features Tab autocomplete, Chat (@code), Composer (multi-file agent), and Agent Mode. Supports Claude, GPT, Gemini.</p>"
   },
   {
     "id": "cursor-composer",
@@ -80,7 +82,9 @@
         "text": "Composer is Cursor's agent for multi-file edits, trained on real codebases.",
         "cite": "Cursor blog"
       }
-    ]
+    ],
+    "enShortDesc": "Cursor's multi-file edit + agent orchestration feature. The flagship vibe coding workflow.",
+    "enLongDesc": "<p><strong>Composer</strong> is Cursor's agent for multi-file edits: reads relevant files, generates unified diffs across many files, shows a plan for review, then applies in one shot.</p>"
   },
   {
     "id": "claude-code",
@@ -125,7 +129,9 @@
         "text": "The agentic loop: gather context, take action, verify results, repeat.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Anthropic's CLI agent for the terminal. Recommended by Karpathy.",
+    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's terminal-based coding agent. Uses Claude models with tool use (Read, Edit, Bash), subagents, checkpoints, hooks, and CLAUDE.md for persistence.</p>"
   },
   {
     "id": "windsurf",
@@ -165,7 +171,9 @@
         "text": "Windsurf Editor: the first AI-native IDE built for flow.",
         "cite": "Windsurf.com"
       }
-    ]
+    ],
+    "enShortDesc": "Codeium's AI IDE, direct competitor to Cursor.",
+    "enLongDesc": "<p><strong>Windsurf</strong> is Codeium's AI-native IDE. Features Cascade (agent flow), Supercomplete (inline suggestions), and Flow for multi-file edits.</p>"
   },
   {
     "id": "copilot",
@@ -208,7 +216,9 @@
         "text": "Your AI pair programmer.",
         "cite": "GitHub Copilot 标语"
       }
-    ]
+    ],
+    "enShortDesc": "The earliest mainstream AI coding assistant (2021). Highest adoption rate.",
+    "enLongDesc": "<p><strong>GitHub Copilot</strong> (2021) pioneered AI code completion. Inline suggestions + chat (Copilot Chat). Backed by OpenAI Codex / GPT models.</p>"
   },
   {
     "id": "aider",
@@ -252,7 +262,9 @@
         "text": "Aider: AI pair programming in your terminal. Auto-commits to git.",
         "cite": "Aider docs"
       }
-    ]
+    ],
+    "enShortDesc": "AI pair programmer in the terminal. Open source. Multi-LLM backend.",
+    "enLongDesc": "<p><strong>Aider</strong> is a terminal-based AI pair programming tool. Reads git-tracked files, edits, and auto-commits. Supports many LLM backends.</p>"
   },
   {
     "id": "replit-agent",
@@ -292,7 +304,9 @@
         "text": "Replit Agent lets you build and deploy full-stack apps from a single prompt.",
         "cite": "Replit Blog, 2024-09"
       }
-    ]
+    ],
+    "enShortDesc": "Agent built into Replit's cloud IDE. In July 2025, it deleted a user's production database during a code execution.",
+    "enLongDesc": "<p><strong>Replit Agent</strong> is the agent built into Replit's cloud IDE. Builds and deploys full-stack apps from natural language. Has had notable production incidents.</p>"
   },
   {
     "id": "lovable",
@@ -332,7 +346,9 @@
         "text": "Lovable turns ideas into fully functional web apps. No code required.",
         "cite": "Lovable.dev"
       }
-    ]
+    ],
+    "enShortDesc": "Swedish startup focused on frontend vibe coding. Had a PII leak incident in May 2025.",
+    "enLongDesc": "<p><strong>Lovable</strong> is a frontend vibe coding platform. Generates React + Tailwind from prompts, deploys to a custom domain. Target: non-developers building SaaS frontends.</p>"
   },
   {
     "id": "codeium",
@@ -371,7 +387,9 @@
         "text": "Codeium: Free AI code completion, chat, and search. Trained on permissively licensed code.",
         "cite": "Codeium.com"
       }
-    ]
+    ],
+    "enShortDesc": "Free AI code completion tool. Parent company of Windsurf.",
+    "enLongDesc": "<p><strong>Codeium</strong> provides free AI code completion. Acquired by / merged with Windsurf. Supports many languages and IDEs.</p>"
   },
   {
     "id": "tabnine",
@@ -410,7 +428,9 @@
         "text": "Tabnine: AI code completion trained on permissively licensed code, with optional on-prem deployment.",
         "cite": "Tabnine.com"
       }
-    ]
+    ],
+    "enShortDesc": "Early AI code completion tool, focused on on-prem deployment and privacy.",
+    "enLongDesc": "<p><strong>Tabnine</strong> offers AI code completion with optional on-prem model deployment for code privacy. Enterprise-friendly.</p>"
   },
   {
     "id": "cline",
@@ -449,7 +469,9 @@
         "text": "Cline: autonomous coding agent right in your IDE.",
         "cite": "Cline GitHub"
       }
-    ]
+    ],
+    "enShortDesc": "VS Code extension that turns the IDE into an agent workbench.",
+    "enLongDesc": "<p><strong>Cline</strong> (formerly Claude Dev) is a VS Code extension that lets Claude autonomously edit files, run commands, and use a browser. Open source.</p>"
   },
   {
     "id": "devin",
@@ -488,7 +510,9 @@
         "text": "Devin is the first fully autonomous AI software engineer.",
         "cite": "Cognition AI, 2024-03"
       }
-    ]
+    ],
+    "enShortDesc": "Cognition AI's 'first AI software engineer' — an autonomous agent.",
+    "enLongDesc": "<p><strong>Devin</strong> is Cognition AI's autonomous coding agent. Receives tickets, spins up a sandbox, clones the repo, codes, tests, and submits PRs. Marketed as the first AI engineer.</p>"
   },
   {
     "id": "v0",
@@ -528,7 +552,9 @@
         "text": "v0 generates copy-paste friendly React code based on shadcn/ui.",
         "cite": "Vercel"
       }
-    ]
+    ],
+    "enShortDesc": "Vercel's frontend vibe coding platform. Prompt to React component.",
+    "enLongDesc": "<p><strong>v0</strong> (Vercel) generates React + Tailwind + shadcn/ui components from natural language prompts. Designed for copy-paste into your codebase.</p>"
   },
   {
     "id": "coderabbit",
@@ -557,7 +583,9 @@
         "name": "CodeRabbit 官网",
         "url": "https://www.coderabbit.ai"
       }
-    ]
+    ],
+    "enShortDesc": "AI code review agent for GitHub PRs. Research shows it increases security vulnerabilities.",
+    "enLongDesc": "<p><strong>CodeRabbit</strong> is an AI PR reviewer that comments on GitHub pull requests. Research (2025) found AI co-authored code had 2.74x more security vulnerabilities.</p>"
   },
   {
     "id": "veracode",
@@ -585,7 +613,9 @@
         "name": "Veracode: 2025 GenAI Code Security Report",
         "url": "https://www.veracode.com/blog/2025-genai-code-security-report/"
       }
-    ]
+    ],
+    "enShortDesc": "Security scanning platform. Research shows LLM-generated code security hasn't improved over 3 years.",
+    "enLongDesc": "<p><strong>Veracode</strong> is an application security testing platform. Their 2025 report found LLM-generated code security has not improved in 3 years; larger models aren't more secure than smaller ones.</p>"
   },
   {
     "id": "spec-kit",
@@ -630,7 +660,9 @@
         "code": "# GitHub Spec Kit 典型流程\n$ specify init my-project      # 初始化 spec/ 目录\n$ specify spec \"添加 OAuth 登录\" # 生成 spec.md（含 user story + acceptance criteria）\n$ specify plan                   # 生成 plan.md（技术决策 + 架构）\n$ specify tasks                  # 生成 tasks.md（可勾选 checklist）\n$ implement                      # 按 tasks.md 顺序实现",
         "desc": "Spec Kit 四阶段 CLI 流程"
       }
-    ]
+    ],
+    "enShortDesc": "GitHub's open-source SDD toolchain. Specify / Plan / Tasks three phases.",
+    "enLongDesc": "<p><strong>GitHub Spec Kit</strong> is an open-source toolchain for Spec-Driven Development. Three phases: <code>specify</code> (generate spec.md), <code>plan</code> (architecture), <code>tasks</code> (checklist).</p>"
   },
   {
     "id": "gemini-cli",
@@ -666,7 +698,9 @@
         "text": "Gemini CLI: open-source AI agent for your terminal, powered by Gemini 2.5 Pro's 1M context.",
         "cite": "Google AI, 2025"
       }
-    ]
+    ],
+    "enShortDesc": "Google's CLI agent, similar to Claude Code.",
+    "enLongDesc": "<p><strong>Gemini CLI</strong> is Google's terminal-based coding agent powered by Gemini 2.5 Pro. Open source. Supports long contexts (1M+).</p>"
   },
   {
     "id": "codex-cli",
@@ -702,7 +736,9 @@
         "text": "Codex CLI brings OpenAI's coding agent to your terminal.",
         "cite": "OpenAI, 2025-04"
       }
-    ]
+    ],
+    "enShortDesc": "OpenAI's CLI agent. Released April 2025.",
+    "enLongDesc": "<p><strong>Codex CLI</strong> is OpenAI's terminal agent. Uses GPT-5-Codex. Released April 2025 as part of OpenAI's coding tooling.</p>"
   },
   {
     "id": "coding-agents",
@@ -746,7 +782,9 @@
         "text": "Coding agents autonomously plan, edit, test, and iterate on real software tasks.",
         "cite": "Anthropic / OpenAI docs, 2025"
       }
-    ]
+    ],
+    "enShortDesc": "Simon Willison's term: tools that iteratively code, test, and modify until the goal is met.",
+    "enLongDesc": "<p><strong>Coding agents</strong> (Willison) are AI tools that iteratively plan, code, test, and refine until they reach a goal. Distinct from one-shot completions.</p>"
   },
   {
     "id": "antigravity",
@@ -764,7 +802,9 @@
     "related": [
       "cursor",
       "windsurf"
-    ]
+    ],
+    "enShortDesc": "Google's AI IDE released in 2025.",
+    "enLongDesc": "<p><strong>Antigravity</strong> is Google's AI-native IDE released in 2025. Built on VS Code. Competes with Cursor and Windsurf.</p>"
   },
   {
     "id": "langchain",
@@ -811,7 +851,9 @@
         "code": "// LangGraph：状态化 agent 循环\nimport { StateGraph, MessagesAnnotation, ToolNode } from \"@langchain/langgraph\";\nimport { tool } from \"@langchain/core/tools\";\n\nconst search = tool(async ({ q }) => webSearch(q), {\n  name: \"search\", description: \"搜索网页\",\n});\n\nconst graph = new StateGraph(MessagesAnnotation)\n  .addNode(\"agent\", callModelWithTools)\n  .addNode(\"tools\", new ToolNode([search]))\n  .addEdge(\"__start__\", \"agent\")\n  .addConditionalEdges(\"agent\", shouldContinue)   // has tool calls?\n  .addEdge(\"tools\", \"agent\");                     // loop back\n\nexport const app = graph.compile();   // → 可部署的 agent",
         "desc": "LangGraph 状态图：tool-use 循环"
       }
-    ]
+    ],
+    "enShortDesc": "LLM application orchestration framework. 600+ integrations, LangGraph for stateful agents.",
+    "enLongDesc": "<p><strong>LangChain</strong> orchestrates LLM workflows with 600+ integrations. LCEL for chain composition; LangGraph for stateful multi-agent systems.</p>"
   },
   {
     "id": "llamaindex",
@@ -863,7 +905,9 @@
         "text": "LlamaIndex: data framework for LLM applications. RAG, agents, workflows.",
         "cite": "LlamaIndex docs"
       }
-    ]
+    ],
+    "enShortDesc": "Focused on RAG pipelines. Node-based document model and query engines.",
+    "enLongDesc": "<p><strong>LlamaIndex</strong> is a data framework for LLM applications, with first-class RAG support. Indexes documents as nodes, exposes query engines and agents.</p>"
   },
   {
     "id": "dspy",
@@ -906,7 +950,9 @@
         "name": "DSPy 论文 (Khattab et al. 2023)",
         "url": "https://arxiv.org/abs/2310.03714"
       }
-    ]
+    ],
+    "enShortDesc": "Stanford's LLM program optimization framework. Prompts as compilable code.",
+    "enLongDesc": "<p><strong>DSPy</strong> (Stanford NLP) treats prompts as code: you write signatures and modules, then optimizers (BootstrapFewShot, MIPRO) compile them against your training data.</p>"
   },
   {
     "id": "huggingface",
@@ -948,7 +994,9 @@
         "name": "HuggingFace Hub",
         "url": "https://huggingface.co/docs/hub/index"
       }
-    ]
+    ],
+    "enShortDesc": "Open-source ML model and dataset platform. Home of the Transformers library.",
+    "enLongDesc": "<p><strong>Hugging Face</strong> hosts models, datasets, and Spaces. The Transformers library is the de facto standard for open LLM inference and fine-tuning.</p>"
   },
   {
     "id": "mcp-tool-server",
@@ -966,7 +1014,9 @@
     "related": [
       "mcp",
       "claude-code"
-    ]
+    ],
+    "enShortDesc": "Hundreds of MCP servers provide integrations for Slack, Jira, databases, browsers, etc.",
+    "enLongDesc": "<p>Public <strong>MCP servers</strong> provide tools for common services: filesystem, GitHub, Slack, Postgres, Playwright, etc. Search the MCP registry or build your own.</p>"
   },
   {
     "id": "orchids",
@@ -983,7 +1033,9 @@
     "related": [
       "lovable",
       "v0"
-    ]
+    ],
+    "enShortDesc": "One of several vibe coding platforms.",
+    "enLongDesc": "<p><strong>Orchids</strong> is a vibe coding platform for building apps from natural language prompts.</p>"
   },
   {
     "id": "openclaw",
@@ -1000,7 +1052,9 @@
     "related": [
       "vibe-slop",
       "agent-loop"
-    ]
+    ],
+    "enShortDesc": "AI agent system including 'Pi coding harness'. Created by Mario Zechner and others.",
+    "enLongDesc": "<p><strong>OpenClaw</strong> is an open-source AI agent framework that includes the 'Pi coding harness'. Inspired by Anthropic's Claude Code.</p>"
   },
   {
     "id": "superwhisper",
@@ -1016,6 +1070,8 @@
     "longDesc": "<p>语音转文字工具，让用户能用<strong>语音与 LLM 对话</strong>。</p>\n<p>vibe coding 时代新交互模式。</p>",
     "related": [
       "cursor"
-    ]
+    ],
+    "enShortDesc": "Speech-to-text tool that lets users talk to LLMs via voice.",
+    "enLongDesc": "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p>"
   }
 ]

@@ -26,7 +26,9 @@
         "text": "Prototype scenarios: build fast, validate, throw away. The code is disposable.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "From zero to demo-able app, in one night. The vibe coding sweet spot.",
+    "enLongDesc": "<p>The <strong>prototype scenario</strong>: build a working demo quickly, validate the idea, throw it away. Vibe coding's strongest use case.</p>"
   },
   {
     "id": "personal-scenario",
@@ -43,7 +45,9 @@
     "related": [
       "software-for-one",
       "yolo-mode"
-    ]
+    ],
+    "enShortDesc": "Just for personal use, doesn't enter the team.",
+    "enLongDesc": "<p>The <strong>personal tool scenario</strong>: software you build only for yourself. No team handoffs, no production concerns.</p>"
   },
   {
     "id": "production-scenario",
@@ -73,7 +77,9 @@
         "text": "76% of developers do not use AI for deployment/monitoring. 69% do not use AI for project planning.",
         "cite": "Stack Overflow 2025"
       }
-    ]
+    ],
+    "enShortDesc": "Modify existing systems, add features, fix bugs. Requires a completely different workflow than vibe coding.",
+    "enLongDesc": "<p>The <strong>production scenario</strong>: working on real systems with users, SLAs, tests, deploys. Needs SDD, guardrails, code review, not just vibes.</p>"
   },
   {
     "id": "refactor-scenario",
@@ -90,7 +96,9 @@
     "related": [
       "subagent",
       "plan-verify-build"
-    ]
+    ],
+    "enShortDesc": "Cross-file, cross-module changes without introducing regression.",
+    "enLongDesc": "<p>The <strong>refactor scenario</strong>: large-scale code reorganization. AI helps but needs strong test coverage and review. Use subagents per module.</p>"
   },
   {
     "id": "security-scenario",
@@ -125,7 +133,9 @@
         "text": "Security-sensitive work: never use AI agents without guardrails. The lethal trifecta is real.",
         "cite": "Simon Willison"
       }
-    ]
+    ],
+    "enShortDesc": "Auth, authorization, payment, encryption, data privacy.",
+    "enLongDesc": "<p>The <strong>security scenario</strong>: never use AI agents without guardrails. Lethal trifecta, prompt injection, Veracode research. Highest scrutiny required.</p>"
   },
   {
     "id": "learning-scenario",
@@ -142,7 +152,9 @@
     "related": [
       "vibe-coding",
       "few-shot"
-    ]
+    ],
+    "enShortDesc": "Learn new tech / new language / exploratory coding.",
+    "enLongDesc": "<p>The <strong>learning scenario</strong>: using AI as a tutor while exploring new APIs, languages, frameworks. Vibe coding is well-suited.</p>"
   },
   {
     "id": "team-scenario",
@@ -165,7 +177,9 @@
         "text": "Agent teams are experimental and disabled by default. Each teammate has its own context.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Multiple developers sharing code, PR workflows.",
+    "enLongDesc": "<p>The <strong>team scenario</strong>: shared codebase, code review, CI/CD, merge conflicts. Requires coordination beyond solo vibe coding.</p>"
   },
   {
     "id": "testing-scenario",
@@ -182,7 +196,9 @@
     "related": [
       "tdd-ai",
       "safety-net-testing"
-    ]
+    ],
+    "enShortDesc": "Add tests to existing code. AI writing tests is a relatively safe task.",
+    "enLongDesc": "<p>The <strong>testing scenario</strong>: AI generates test cases. Lower risk because tests are verified by running them. Good first AI task.</p>"
   },
   {
     "id": "debug-scenario",
@@ -199,7 +215,9 @@
     "related": [
       "iterative-refinement",
       "failure-mode"
-    ]
+    ],
+    "enShortDesc": "Reproduce + fix bugs.",
+    "enLongDesc": "<p>The <strong>debug scenario</strong>: AI helps reproduce bugs, suggest fixes, write regression tests. Iterative refinement with the agent.</p>"
   },
   {
     "id": "docs-scenario",
@@ -216,7 +234,9 @@
     "related": [
       "few-shot",
       "spec-md"
-    ]
+    ],
+    "enShortDesc": "Write README / generate API docs.",
+    "enLongDesc": "<p>The <strong>docs scenario</strong>: AI excels at generating documentation from code. Low risk, high value. Good CI step too.</p>"
   },
   {
     "id": "frontend-scenario",
@@ -233,7 +253,9 @@
     "related": [
       "lovable",
       "v0"
-    ]
+    ],
+    "enShortDesc": "Frontend components, pages, UI design with vibe coding.",
+    "enLongDesc": "<p>The <strong>frontend scenario</strong>: tools like Lovable, v0, Cursor Composer shine. Visual iteration loop. Mostly safe.</p>"
   },
   {
     "id": "data-scenario",
@@ -250,7 +272,9 @@
     "related": [
       "computer-use",
       "rag"
-    ]
+    ],
+    "enShortDesc": "Use LLM for data analysis, visualization, SQL generation.",
+    "enLongDesc": "<p>The <strong>data scenario</strong>: LLM-powered data analysis, code interpreters (ChatGPT), SQL generation. Privacy is the main concern.</p>"
   },
   {
     "id": "onboarding-scenario",
@@ -267,7 +291,9 @@
     "related": [
       "context-engineering",
       "claude-code"
-    ]
+    ],
+    "enShortDesc": "Use AI agent to quickly understand an unfamiliar codebase.",
+    "enLongDesc": "<p>The <strong>onboarding scenario</strong>: AI reads code, summarizes, answers questions. Claude Code's <code>/init</code> command creates a CLAUDE.md as onboarding doc.</p>"
   },
   {
     "id": "migration-scenario",
@@ -284,6 +310,8 @@
     "related": [
       "subagent",
       "refactor-scenario"
-    ]
+    ],
+    "enShortDesc": "AI-assisted framework migration (React→Vue, Python 2→3, etc.).",
+    "enLongDesc": "<p>The <strong>migration scenario</strong>: large-scale code transformation. AI helps but needs comprehensive tests. Use subagents per module.</p>"
   }
 ]

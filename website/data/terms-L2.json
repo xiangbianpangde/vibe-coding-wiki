@@ -38,7 +38,9 @@
         "code": "# spec.md 的最小可执行结构\n# 1. 用户故事\nAs a 注册用户\nI want 通过 GitHub OAuth 登录\nSo that 我不用记密码\n\n# 2. 验收标准（机器可验证）\n- [ ] GET /auth/github 跳转到 GitHub OAuth 页面\n- [ ] 回调 /auth/github/callback 用 code 换 token\n- [ ] 用户首次登录自动创建 DB 记录\n- [ ] 测试覆盖率 ≥ 80%\n- [ ] npx tsc --noEmit 通过\n\n# 3. 非目标（明确说不做什么）\n- 不做多因素认证\n- 不做密码重置流程\n\n# 4. 技术约束\n- 后端：Fastify + PostgreSQL\n- Token：HttpOnly cookie，1h 过期",
         "desc": "spec.md 模板：4 段可验证结构"
       }
-    ]
+    ],
+    "enShortDesc": "Spec-Driven Development: using spec.md as a shared contract between humans, AI, tests, and reviewers.",
+    "enLongDesc": "<p><strong>SDD</strong> treats spec.md as the single source of truth. The spec is the contract between human intent, AI output, automated tests, and code review.</p><p>GitHub Spec Kit is the canonical toolchain (Specify / Plan / Tasks phases).</p>"
   },
   {
     "id": "spec-md",
@@ -77,7 +79,9 @@
         "code": "# spec.md 完整模板\n# /spec/auth.md\n\n# 1. User Story\n## 作为 注册用户\n## 我想 通过 GitHub OAuth 登录\n## 以便 不用记密码\n\n# 2. Acceptance Criteria (机器可验证)\n- [ ] GET /auth/github 跳转到 GitHub OAuth\n- [ ] /auth/github/callback 用 code 换 token\n- [ ] 首次登录自动创建 User 记录\n- [ ] token 存 HttpOnly cookie，1h 过期\n- [ ] refresh token，30 天过期\n- [ ] npx tsc --noEmit 通过\n- [ ] 测试覆盖 ≥ 80%\n\n# 3. Non-Goals\n- 不做多因素认证\n- 不做密码重置\n\n# 4. Tech Constraints\n- 后端：Fastify + PostgreSQL\n- Token：JWT (RS256)\n- 测试：vitest",
         "desc": "spec.md 完整模板（4 段可验证结构）"
       }
-    ]
+    ],
+    "enShortDesc": "Using spec.md as the single source of truth (Single Source of Truth). Drives SDD workflows.",
+    "enLongDesc": "<p>A <strong>spec.md</strong> file captures user stories, acceptance criteria, non-goals, and technical constraints in one place. Both humans and AI agents reference it as the contract.</p>"
   },
   {
     "id": "context-engineering",
@@ -114,7 +118,9 @@
         "text": "The art of providing the right context, at the right time, in the right format, to an LLM.",
         "cite": "Anthropic engineering"
       }
-    ]
+    ],
+    "enShortDesc": "The engineering discipline of managing everything that enters the LLM's context window: instructions, tools, history, files.",
+    "enLongDesc": "<p><strong>Context engineering</strong> (Anthropic) is the discipline of curating what goes into the context window: system prompt, retrieved documents, tool definitions, conversation history, and file contents.</p><p>Related to but broader than prompt engineering.</p>"
   },
   {
     "id": "plan-verify-build",
@@ -153,7 +159,9 @@
         "name": "Anthropic: Building effective agents",
         "url": "https://www.anthropic.com/research/building-effective-agents"
       }
-    ]
+    ],
+    "enShortDesc": "The core agent loop: plan, verify, build. The minimal viable workflow for AI coding.",
+    "enLongDesc": "<p>The <strong>Plan-Verify-Build</strong> loop: agent plans a step, the mechanical verification pipeline (compiler, tests, linter) validates, the agent builds. Repeat.</p>"
   },
   {
     "id": "iterative-refinement",
@@ -192,7 +200,9 @@
         "text": "Iterative refinement: each round of feedback makes the output sharper. The model's first attempt is rarely the best.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Progressively improving output through multiple rounds of prompt adjustments. Each iteration gets closer to the goal.",
+    "enLongDesc": "<p><strong>Iterative refinement</strong>: the model rarely produces the best output on the first try. Each round of feedback (more constraints, examples, edge cases) makes it sharper.</p>"
   },
   {
     "id": "acceptance-criteria",
@@ -231,7 +241,9 @@
         "code": "# Acceptance Criteria: spec 的机器可验证版本\n## User Story: 作为用户，我想重置密码，以便忘记密码时能恢复账号\n\n# 验收标准（每条都是可测的）：\n- [ ] 点击\"忘记密码\"链接，5 秒内跳转到 /reset\n- [ ] 输入邮箱，60 秒内收到重置邮件\n- [ ] 重置链接 24h 后失效\n- [ ] 重置后，旧 session 全部失效\n- [ ] npx tsc --noEmit 通过\n- [ ] 3 个 e2e 测试覆盖（点击、邮件、失效）\n\n# 非目标（明确不做）：\n- 不做短信验证码\n- 不做多因素认证",
         "desc": "Acceptance Criteria 完整样例"
       }
-    ]
+    ],
+    "enShortDesc": "Pre-agreed, machine-verifiable 'definition of done'. Determines when vibe coding stops.",
+    "enLongDesc": "<p><strong>Acceptance criteria</strong> are the machine-checkable conditions that define 'done'. Without them, vibe coding has no stopping rule.</p><p>Typically bullet-list checkboxes tied to tests or type checks.</p>"
   },
   {
     "id": "tdd-ai",
@@ -271,7 +283,9 @@
         "code": "# TDD with AI: 测试先于代码\n# 1. 写失败的测试（spec 形式）\ndef test_calculate_discount():\n    assert calculate_discount(100, \"regular\") == 100\n    assert calculate_discount(100, \"gold\") == 80\n\n# 2. 跑测试：FAIL（AI 还没写实现）\n$ pytest test_discount.py\n# FAILED test_discount.py::test_calculate_discount - NameError\n\n# 3. prompt AI:\n# \"实现 calculate_discount(price, tier):\n#  - regular: 无折扣\n#  - silver: 10%\n#  - gold: 20%\n#  - platinum: 30%\n#  通过 test_calculate_discount 中的测试\"\n\n# 4. AI 写代码 → 重跑测试 → PASS",
         "desc": "TDD with AI 工作流"
       }
-    ]
+    ],
+    "enShortDesc": "Write the test first, then let the AI write the implementation. Simon Willison's recommended pattern for coding agents.",
+    "enLongDesc": "<p><strong>TDD with AI</strong>: invert the usual flow. Write a failing test (which serves as the spec), then prompt the AI to make it pass. The test is the contract.</p>"
   },
   {
     "id": "claude-md",
@@ -312,7 +326,9 @@
         "name": "Anthropic Prompt Caching",
         "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
       }
-    ]
+    ],
+    "enShortDesc": "Claude Code's project-level persistent instruction file. Auto-loaded at every session start.",
+    "enLongDesc": "<p><strong>CLAUDE.md</strong> is a markdown file in your project root (or ~/.claude/) that Claude Code reads at the start of every session. Persistent project conventions.</p>"
   },
   {
     "id": "auto-memory",
@@ -348,7 +364,9 @@
         "code": "# Claude Code Auto Memory: 跨 session 持久化\n# ~/.claude/memory/CLAUDE.md 跨会话保留\n# 项目级：.claude/memory/\n\n# 自动记忆的内容：\n# - 用户偏好（\"always use 2-space indent\"）\n# - 项目约定（\"API errors return RFC 7807\"）\n# - 关键决策（\"chose Postgres over MongoDB for JSONB\"）\n\n# 触发：每个 session 末尾自动 append\n# 加载：每个 session 开始时自动 prepend",
         "desc": "Claude Code auto memory 用法"
       }
-    ]
+    ],
+    "enShortDesc": "Claude Code's self-written notes based on user corrections and preferences. Survives across git rebases.",
+    "enLongDesc": "<p><strong>Auto memory</strong>: Claude Code learns from your corrections and writes notes that persist across sessions. Saved in ~/.claude/memory/.</p>"
   },
   {
     "id": "compaction",
@@ -388,7 +406,9 @@
         "name": "Anthropic: Context Engineering",
         "url": "https://www.anthropic.com/research/building-effective-agents"
       }
-    ]
+    ],
+    "enShortDesc": "Auto-summarize the conversation when approaching the context window limit. Preserves context while freeing tokens.",
+    "enLongDesc": "<p><strong>Compaction</strong>: when the conversation approaches the context window, summarize the older parts to make room. CLAUDE.md instructions survive compaction.</p>"
   },
   {
     "id": "checkpoint",
@@ -424,7 +444,9 @@
         "text": "Checkpoints let you rewind long-running agent tasks without losing progress.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "File snapshot at each prompt. Roll back to any checkpoint via Esc Esc or /rewind.",
+    "enLongDesc": "<p>A <strong>checkpoint</strong> is a snapshot of the workspace state at a given prompt. Allows rewinding to any previous state without losing progress.</p>"
   },
   {
     "id": "permission-mode",
@@ -461,7 +483,9 @@
         "text": "Permission mode determines which tools Claude can invoke without confirmation.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Claude Code's base approval behavior. Cycle modes via Shift+Tab in the CLI.",
+    "enLongDesc": "<p><strong>Permission mode</strong> controls which tool calls Claude Code can make without confirmation. Three modes: default (prompt for risky), acceptEdits, bypassPermissions.</p>"
   },
   {
     "id": "auto-mode",
@@ -502,7 +526,9 @@
         "name": "Claude Code: Safety",
         "url": "https://docs.claude.com/en/docs/claude-code/security"
       }
-    ]
+    ],
+    "enShortDesc": "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    "enLongDesc": "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>"
   },
   {
     "id": "bare-mode",
@@ -539,7 +565,9 @@
         "text": "Bare mode: vanilla Claude Code without project customizations.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Launch Claude Code with --bare: no hooks, skills, or custom commands. Pure vanilla Claude Code.",
+    "enLongDesc": "<p><strong>Bare mode</strong>: Claude Code started with <code>--bare</code> flag. Skips hooks, custom commands, and skills. Useful for debugging or CI consistency.</p>"
   },
   {
     "id": "extended-thinking",
@@ -579,7 +607,9 @@
         "name": "Claude Code: Extended Thinking",
         "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking"
       }
-    ]
+    ],
+    "enShortDesc": "Claude's visible step-by-step reasoning before responding. Tunable via effort level.",
+    "enLongDesc": "<p><strong>Extended thinking</strong>: Claude performs chain-of-thought reasoning visible to the user before answering. Configurable via the <code>thinking</code> parameter and effort level.</p>"
   },
   {
     "id": "effort-level",
@@ -615,7 +645,9 @@
         "text": "Effort level: Claude adjusts reasoning depth based on the task's complexity.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Token budget for Claude's adaptive reasoning. Higher = deeper but slower.",
+    "enLongDesc": "<p><strong>Effort level</strong> controls how much compute Claude spends on extended thinking. Low for simple tasks, high for hard ones. Tunable per request.</p>"
   },
   {
     "id": "output-style",
@@ -650,7 +682,9 @@
         "text": "Output style shapes how Claude communicates — verbose or terse, prose or tables.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Modify Claude's system prompt to change response behavior, tone, or format.",
+    "enLongDesc": "<p>An <strong>output style</strong> (Claude Code) adjusts the system prompt to shape how Claude responds: explanatory, concise, structured, or default.</p>"
   },
   {
     "id": "hooks",
@@ -690,7 +724,9 @@
         "text": "Hooks are automated triggers that run before/after tool calls. They enforce guardrails without slowing the agent.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Handlers (shell/HTTP) that auto-execute at specific points in the Claude Code lifecycle.",
+    "enLongDesc": "<p><strong>Hooks</strong> are user-defined scripts triggered at events like PreToolUse, PostToolUse, SessionStart, etc. Used for guardrails, logging, or automation.</p>"
   },
   {
     "id": "bundled-skills",
@@ -725,7 +761,9 @@
         "text": "Bundled skills: package reusable prompts as files Claude Code auto-loads.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Claude Code's built-in prompt-based playbooks like /batch /loop /init. Auto-available.",
+    "enLongDesc": "<p><strong>Bundled skills</strong> are Claude Code's built-in playbooks: pre-configured prompts for common tasks (e.g., /batch for batch operations, /loop for retries).</p>"
   },
   {
     "id": "commands",
@@ -758,6 +796,8 @@
         "code": "# Claude Code Custom Commands: 把常用 prompt 模板化\n# .claude/commands/test.md:\n\"\"\"\n跑以下测试并报告：\n- pytest tests/ -v\n- npx vitest run\n- coverage < 80% 时列出未覆盖文件\n\n只报告失败项，不要解释成功项。\n\"\"\"\n\n# 用法：在 Claude Code 中输入 /test\n# 自动执行上面的 prompt\n\n# 类似 /deploy, /review-pr, /refactor",
         "desc": "Claude Code custom commands 模板"
       }
-    ]
+    ],
+    "enShortDesc": "Reusable instructions invoked via /name. Built-in plus user-defined.",
+    "enLongDesc": "<p><strong>Commands</strong> are reusable prompts triggered by typing /name. Claude Code has built-in commands; users can add custom ones in .claude/commands/.</p>"
   }
 ]

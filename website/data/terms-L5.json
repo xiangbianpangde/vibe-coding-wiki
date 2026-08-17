@@ -32,7 +32,9 @@
         "text": "Guardrails are automated checks, not gates, not roadblocks.",
         "cite": "nazarboyko.com"
       }
-    ]
+    ],
+    "enShortDesc": "Automated checks that catch the specific mistakes AI tends to make. Cheap to run, loud to fail.",
+    "enLongDesc": "<p><strong>Guardrails</strong> are automated checks designed to catch AI-specific mistakes: type checks, linters, unit tests, security scans, dependency audits, diff size limits. Run on every change, fail loudly.</p>"
   },
   {
     "id": "mvp",
@@ -72,7 +74,9 @@
         "name": "Claude Code: Plan mode",
         "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
       }
-    ]
+    ],
+    "enShortDesc": "Mechanical Verification Pipeline: use the compiler, diff, and test suite as the referee.",
+    "enLongDesc": "<p><strong>MVP</strong> uses mechanical means (compiler, diff, test suite) as the referee for AI-generated code. An unattended loop makes unattended mistakes.</p>"
   },
   {
     "id": "compiler-referee",
@@ -115,7 +119,9 @@
         "text": "The compiler, the diff, and the test suite act as the referee.",
         "cite": "nazarboyko.com"
       }
-    ]
+    ],
+    "enShortDesc": "The compiler as first reviewer: all AI code must compile before human review.",
+    "enLongDesc": "<p>The <strong>compiler as referee</strong>: AI generates code, the compiler (or type checker) validates. Compile failure = AI must fix. Compile success != correct (still needs review), but it's a strong filter.</p>"
   },
   {
     "id": "test-referee",
@@ -155,7 +161,9 @@
         "text": "The test suite acts as a referee: mechanical, repeatable, no ambiguity.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "The test suite as final arbiter.",
+    "enLongDesc": "<p>The <strong>test suite as referee</strong>: tests are the mechanical, repeatable check. AI-generated code must pass the full test suite before merge.</p>"
   },
   {
     "id": "safety-net-testing",
@@ -194,7 +202,9 @@
         "name": "Working Effectively with Legacy Code",
         "url": "https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052"
       }
-    ]
+    ],
+    "enShortDesc": "Build a testing safety net: enough tests to make AI changes safe.",
+    "enLongDesc": "<p><strong>Safety net testing</strong>: build a comprehensive test suite before letting AI modify critical paths. Coverage > 80% is the floor.</p>"
   },
   {
     "id": "diff-review",
@@ -229,7 +239,9 @@
         "text": "Trust no PR. Review every diff line.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Force AI to output a diff and require human review before merge.",
+    "enLongDesc": "<p><strong>Diff review</strong>: in vibe coding workflows, force every AI-generated change to show a diff. A human reviews line-by-line before merge.</p>"
   },
   {
     "id": "code-review",
@@ -264,7 +276,9 @@
         "text": "Code review is the human-in-the-loop check on AI-generated code.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Code review practice. In the AI era, review AI-generated code the same way as human code.",
+    "enLongDesc": "<p><strong>Code review</strong> is the human-in-the-loop check on AI-generated code. Same standards as human code: correctness, security, readability, style.</p>"
   },
   {
     "id": "yolo-mode",
@@ -304,7 +318,9 @@
         "text": "YOLO mode: deploy and pray. Use only for prototypes.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Disable all approval. The agent doesn't stop to ask. Extremely risky.",
+    "enLongDesc": "<p><strong>YOLO mode</strong>: turn off all permission prompts. The agent takes actions without confirmation. Use only for prototypes and disposable tools.</p>"
   },
   {
     "id": "responsible-vc",
@@ -338,7 +354,9 @@
         "name": "Simon Willison: Vibe Coding tags",
         "url": "https://simonwillison.net/tags/vibe-coding/"
       }
-    ]
+    ],
+    "enShortDesc": "Vibe coding with continuous review. The opposite of YOLO is engaged review, not 'no agent'.",
+    "enLongDesc": "<p><strong>Responsible vibe coding</strong>: use AI agents heavily, but with engaged review, tests, and guardrails. The opposite of YOLO is not 'no agent' — it is reviewed iteration.</p>"
   },
   {
     "id": "failure-mode",
@@ -373,7 +391,9 @@
         "text": "Every failure mode needs a guardrail.",
         "cite": "nazarboyko.com"
       }
-    ]
+    ],
+    "enShortDesc": "Analyze the ways the agent could fail, then add targeted protections for each.",
+    "enLongDesc": "<p><strong>Failure mode analysis</strong> for AI coding: enumerate how the agent could fail (hallucination, deletion, security bugs) and add a guardrail for each.</p>"
   },
   {
     "id": "spec-driven-prompting",
@@ -408,7 +428,9 @@
         "text": "Spec-driven prompting: let the spec be the prompt.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Use spec.md content as the core of the prompt.",
+    "enLongDesc": "<p><strong>Spec-driven prompting</strong>: the prompt itself is the spec (or references the spec). AI implements against the spec rather than improvising.</p>"
   },
   {
     "id": "manifest-file",
@@ -443,7 +465,9 @@
         "text": "A manifest file is the contract between your project and the AI: dependencies, scripts, version constraints.",
         "cite": "community"
       }
-    ]
+    ],
+    "enShortDesc": "Project-level persistent instruction file. Auto-loaded each session.",
+    "enLongDesc": "<p>A <strong>manifest file</strong> (e.g., package.json, pyproject.toml, CLAUDE.md, AGENTS.md) declares project metadata, dependencies, scripts. AI agents read these for context.</p>"
   },
   {
     "id": "auto-mode-safety",
@@ -472,7 +496,9 @@
         "name": "Claude Code: Auto Mode Safety",
         "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety"
       }
-    ]
+    ],
+    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    "enLongDesc": "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>"
   },
   {
     "id": "managed-settings",
@@ -506,6 +532,8 @@
         "text": "Managed settings: IT pushes Claude Code config to all engineers via MDM. One config, one team.",
         "cite": "Claude Code Docs"
       }
-    ]
+    ],
+    "enShortDesc": "Organization-level Claude Code settings. IT/DevOps pushes via admin console to all engineers.",
+    "enLongDesc": "<p><strong>Managed settings</strong>: IT-managed Claude Code config. Pushed via MDM to enforce policy across the org: deny lists, model choices, permissions.</p>"
   }
 ]
