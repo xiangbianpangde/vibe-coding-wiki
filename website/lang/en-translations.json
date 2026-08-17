@@ -288,5 +288,197 @@
   "browser-use": {
     "enShortDesc": "AI agent capability to control a web browser. Anthropic Claude for Chrome, browser-use open source library, OpenAI Operator.",
     "enLongDesc": "<p><strong>Browser use</strong> lets AI agents automate web browsers via DOM, screenshots, or accessibility APIs. Examples: Claude for Chrome, the browser-use Python library, OpenAI Operator.</p>"
+  },
+  "sdd": {
+    "enShortDesc": "Spec-Driven Development: using spec.md as a shared contract between humans, AI, tests, and reviewers.",
+    "enLongDesc": "<p><strong>SDD</strong> treats spec.md as the single source of truth. The spec is the contract between human intent, AI output, automated tests, and code review.</p><p>GitHub Spec Kit is the canonical toolchain (Specify / Plan / Tasks phases).</p>"
+  },
+  "spec-md": {
+    "enShortDesc": "Using spec.md as the single source of truth (Single Source of Truth). Drives SDD workflows.",
+    "enLongDesc": "<p>A <strong>spec.md</strong> file captures user stories, acceptance criteria, non-goals, and technical constraints in one place. Both humans and AI agents reference it as the contract.</p>"
+  },
+  "context-engineering": {
+    "enShortDesc": "The engineering discipline of managing everything that enters the LLM's context window: instructions, tools, history, files.",
+    "enLongDesc": "<p><strong>Context engineering</strong> (Anthropic) is the discipline of curating what goes into the context window: system prompt, retrieved documents, tool definitions, conversation history, and file contents.</p><p>Related to but broader than prompt engineering.</p>"
+  },
+  "plan-verify-build": {
+    "enShortDesc": "The core agent loop: plan, verify, build. The minimal viable workflow for AI coding.",
+    "enLongDesc": "<p>The <strong>Plan-Verify-Build</strong> loop: agent plans a step, the mechanical verification pipeline (compiler, tests, linter) validates, the agent builds. Repeat.</p>"
+  },
+  "iterative-refinement": {
+    "enShortDesc": "Progressively improving output through multiple rounds of prompt adjustments. Each iteration gets closer to the goal.",
+    "enLongDesc": "<p><strong>Iterative refinement</strong>: the model rarely produces the best output on the first try. Each round of feedback (more constraints, examples, edge cases) makes it sharper.</p>"
+  },
+  "acceptance-criteria": {
+    "enShortDesc": "Pre-agreed, machine-verifiable 'definition of done'. Determines when vibe coding stops.",
+    "enLongDesc": "<p><strong>Acceptance criteria</strong> are the machine-checkable conditions that define 'done'. Without them, vibe coding has no stopping rule.</p><p>Typically bullet-list checkboxes tied to tests or type checks.</p>"
+  },
+  "tdd-ai": {
+    "enShortDesc": "Write the test first, then let the AI write the implementation. Simon Willison's recommended pattern for coding agents.",
+    "enLongDesc": "<p><strong>TDD with AI</strong>: invert the usual flow. Write a failing test (which serves as the spec), then prompt the AI to make it pass. The test is the contract.</p>"
+  },
+  "claude-md": {
+    "enShortDesc": "Claude Code's project-level persistent instruction file. Auto-loaded at every session start.",
+    "enLongDesc": "<p><strong>CLAUDE.md</strong> is a markdown file in your project root (or ~/.claude/) that Claude Code reads at the start of every session. Persistent project conventions.</p>"
+  },
+  "auto-memory": {
+    "enShortDesc": "Claude Code's self-written notes based on user corrections and preferences. Survives across git rebases.",
+    "enLongDesc": "<p><strong>Auto memory</strong>: Claude Code learns from your corrections and writes notes that persist across sessions. Saved in ~/.claude/memory/.</p>"
+  },
+  "compaction": {
+    "enShortDesc": "Auto-summarize the conversation when approaching the context window limit. Preserves context while freeing tokens.",
+    "enLongDesc": "<p><strong>Compaction</strong>: when the conversation approaches the context window, summarize the older parts to make room. CLAUDE.md instructions survive compaction.</p>"
+  },
+  "checkpoint": {
+    "enShortDesc": "File snapshot at each prompt. Roll back to any checkpoint via Esc Esc or /rewind.",
+    "enLongDesc": "<p>A <strong>checkpoint</strong> is a snapshot of the workspace state at a given prompt. Allows rewinding to any previous state without losing progress.</p>"
+  },
+  "permission-mode": {
+    "enShortDesc": "Claude Code's base approval behavior. Cycle modes via Shift+Tab in the CLI.",
+    "enLongDesc": "<p><strong>Permission mode</strong> controls which tool calls Claude Code can make without confirmation. Three modes: default (prompt for risky), acceptEdits, bypassPermissions.</p>"
+  },
+  "auto-mode": {
+    "enShortDesc": "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    "enLongDesc": "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>"
+  },
+  "bare-mode": {
+    "enShortDesc": "Launch Claude Code with --bare: no hooks, skills, or custom commands. Pure vanilla Claude Code.",
+    "enLongDesc": "<p><strong>Bare mode</strong>: Claude Code started with <code>--bare</code> flag. Skips hooks, custom commands, and skills. Useful for debugging or CI consistency.</p>"
+  },
+  "extended-thinking": {
+    "enShortDesc": "Claude's visible step-by-step reasoning before responding. Tunable via effort level.",
+    "enLongDesc": "<p><strong>Extended thinking</strong>: Claude performs chain-of-thought reasoning visible to the user before answering. Configurable via the <code>thinking</code> parameter and effort level.</p>"
+  },
+  "effort-level": {
+    "enShortDesc": "Token budget for Claude's adaptive reasoning. Higher = deeper but slower.",
+    "enLongDesc": "<p><strong>Effort level</strong> controls how much compute Claude spends on extended thinking. Low for simple tasks, high for hard ones. Tunable per request.</p>"
+  },
+  "output-style": {
+    "enShortDesc": "Modify Claude's system prompt to change response behavior, tone, or format.",
+    "enLongDesc": "<p>An <strong>output style</strong> (Claude Code) adjusts the system prompt to shape how Claude responds: explanatory, concise, structured, or default.</p>"
+  },
+  "hooks": {
+    "enShortDesc": "Handlers (shell/HTTP) that auto-execute at specific points in the Claude Code lifecycle.",
+    "enLongDesc": "<p><strong>Hooks</strong> are user-defined scripts triggered at events like PreToolUse, PostToolUse, SessionStart, etc. Used for guardrails, logging, or automation.</p>"
+  },
+  "bundled-skills": {
+    "enShortDesc": "Claude Code's built-in prompt-based playbooks like /batch /loop /init. Auto-available.",
+    "enLongDesc": "<p><strong>Bundled skills</strong> are Claude Code's built-in playbooks: pre-configured prompts for common tasks (e.g., /batch for batch operations, /loop for retries).</p>"
+  },
+  "commands": {
+    "enShortDesc": "Reusable instructions invoked via /name. Built-in plus user-defined.",
+    "enLongDesc": "<p><strong>Commands</strong> are reusable prompts triggered by typing /name. Claude Code has built-in commands; users can add custom ones in .claude/commands/.</p>"
+  },
+  "cursor": {
+    "enShortDesc": "AI-first IDE based on a VS Code fork. Flagship vibe coding tool.",
+    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a VS Code fork. Features Tab autocomplete, Chat (@code), Composer (multi-file agent), and Agent Mode. Supports Claude, GPT, Gemini.</p>"
+  },
+  "cursor-composer": {
+    "enShortDesc": "Cursor's multi-file edit + agent orchestration feature. The flagship vibe coding workflow.",
+    "enLongDesc": "<p><strong>Composer</strong> is Cursor's agent for multi-file edits: reads relevant files, generates unified diffs across many files, shows a plan for review, then applies in one shot.</p>"
+  },
+  "claude-code": {
+    "enShortDesc": "Anthropic's CLI agent for the terminal. Recommended by Karpathy.",
+    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's terminal-based coding agent. Uses Claude models with tool use (Read, Edit, Bash), subagents, checkpoints, hooks, and CLAUDE.md for persistence.</p>"
+  },
+  "windsurf": {
+    "enShortDesc": "Codeium's AI IDE, direct competitor to Cursor.",
+    "enLongDesc": "<p><strong>Windsurf</strong> is Codeium's AI-native IDE. Features Cascade (agent flow), Supercomplete (inline suggestions), and Flow for multi-file edits.</p>"
+  },
+  "copilot": {
+    "enShortDesc": "The earliest mainstream AI coding assistant (2021). Highest adoption rate.",
+    "enLongDesc": "<p><strong>GitHub Copilot</strong> (2021) pioneered AI code completion. Inline suggestions + chat (Copilot Chat). Backed by OpenAI Codex / GPT models.</p>"
+  },
+  "aider": {
+    "enShortDesc": "AI pair programmer in the terminal. Open source. Multi-LLM backend.",
+    "enLongDesc": "<p><strong>Aider</strong> is a terminal-based AI pair programming tool. Reads git-tracked files, edits, and auto-commits. Supports many LLM backends.</p>"
+  },
+  "replit-agent": {
+    "enShortDesc": "Agent built into Replit's cloud IDE. In July 2025, it deleted a user's production database during a code execution.",
+    "enLongDesc": "<p><strong>Replit Agent</strong> is the agent built into Replit's cloud IDE. Builds and deploys full-stack apps from natural language. Has had notable production incidents.</p>"
+  },
+  "lovable": {
+    "enShortDesc": "Swedish startup focused on frontend vibe coding. Had a PII leak incident in May 2025.",
+    "enLongDesc": "<p><strong>Lovable</strong> is a frontend vibe coding platform. Generates React + Tailwind from prompts, deploys to a custom domain. Target: non-developers building SaaS frontends.</p>"
+  },
+  "codeium": {
+    "enShortDesc": "Free AI code completion tool. Parent company of Windsurf.",
+    "enLongDesc": "<p><strong>Codeium</strong> provides free AI code completion. Acquired by / merged with Windsurf. Supports many languages and IDEs.</p>"
+  },
+  "tabnine": {
+    "enShortDesc": "Early AI code completion tool, focused on on-prem deployment and privacy.",
+    "enLongDesc": "<p><strong>Tabnine</strong> offers AI code completion with optional on-prem model deployment for code privacy. Enterprise-friendly.</p>"
+  },
+  "cline": {
+    "enShortDesc": "VS Code extension that turns the IDE into an agent workbench.",
+    "enLongDesc": "<p><strong>Cline</strong> (formerly Claude Dev) is a VS Code extension that lets Claude autonomously edit files, run commands, and use a browser. Open source.</p>"
+  },
+  "devin": {
+    "enShortDesc": "Cognition AI's 'first AI software engineer' — an autonomous agent.",
+    "enLongDesc": "<p><strong>Devin</strong> is Cognition AI's autonomous coding agent. Receives tickets, spins up a sandbox, clones the repo, codes, tests, and submits PRs. Marketed as the first AI engineer.</p>"
+  },
+  "v0": {
+    "enShortDesc": "Vercel's frontend vibe coding platform. Prompt to React component.",
+    "enLongDesc": "<p><strong>v0</strong> (Vercel) generates React + Tailwind + shadcn/ui components from natural language prompts. Designed for copy-paste into your codebase.</p>"
+  },
+  "coderabbit": {
+    "enShortDesc": "AI code review agent for GitHub PRs. Research shows it increases security vulnerabilities.",
+    "enLongDesc": "<p><strong>CodeRabbit</strong> is an AI PR reviewer that comments on GitHub pull requests. Research (2025) found AI co-authored code had 2.74x more security vulnerabilities.</p>"
+  },
+  "veracode": {
+    "enShortDesc": "Security scanning platform. Research shows LLM-generated code security hasn't improved over 3 years.",
+    "enLongDesc": "<p><strong>Veracode</strong> is an application security testing platform. Their 2025 report found LLM-generated code security has not improved in 3 years; larger models aren't more secure than smaller ones.</p>"
+  },
+  "spec-kit": {
+    "enShortDesc": "GitHub's open-source SDD toolchain. Specify / Plan / Tasks three phases.",
+    "enLongDesc": "<p><strong>GitHub Spec Kit</strong> is an open-source toolchain for Spec-Driven Development. Three phases: <code>specify</code> (generate spec.md), <code>plan</code> (architecture), <code>tasks</code> (checklist).</p>"
+  },
+  "gemini-cli": {
+    "enShortDesc": "Google's CLI agent, similar to Claude Code.",
+    "enLongDesc": "<p><strong>Gemini CLI</strong> is Google's terminal-based coding agent powered by Gemini 2.5 Pro. Open source. Supports long contexts (1M+).</p>"
+  },
+  "codex-cli": {
+    "enShortDesc": "OpenAI's CLI agent. Released April 2025.",
+    "enLongDesc": "<p><strong>Codex CLI</strong> is OpenAI's terminal agent. Uses GPT-5-Codex. Released April 2025 as part of OpenAI's coding tooling.</p>"
+  },
+  "coding-agents": {
+    "enShortDesc": "Simon Willison's term: tools that iteratively code, test, and modify until the goal is met.",
+    "enLongDesc": "<p><strong>Coding agents</strong> (Willison) are AI tools that iteratively plan, code, test, and refine until they reach a goal. Distinct from one-shot completions.</p>"
+  },
+  "antigravity": {
+    "enShortDesc": "Google's AI IDE released in 2025.",
+    "enLongDesc": "<p><strong>Antigravity</strong> is Google's AI-native IDE released in 2025. Built on VS Code. Competes with Cursor and Windsurf.</p>"
+  },
+  "langchain": {
+    "enShortDesc": "LLM application orchestration framework. 600+ integrations, LangGraph for stateful agents.",
+    "enLongDesc": "<p><strong>LangChain</strong> orchestrates LLM workflows with 600+ integrations. LCEL for chain composition; LangGraph for stateful multi-agent systems.</p>"
+  },
+  "llamaindex": {
+    "enShortDesc": "Focused on RAG pipelines. Node-based document model and query engines.",
+    "enLongDesc": "<p><strong>LlamaIndex</strong> is a data framework for LLM applications, with first-class RAG support. Indexes documents as nodes, exposes query engines and agents.</p>"
+  },
+  "dspy": {
+    "enShortDesc": "Stanford's LLM program optimization framework. Prompts as compilable code.",
+    "enLongDesc": "<p><strong>DSPy</strong> (Stanford NLP) treats prompts as code: you write signatures and modules, then optimizers (BootstrapFewShot, MIPRO) compile them against your training data.</p>"
+  },
+  "huggingface": {
+    "enShortDesc": "Open-source ML model and dataset platform. Home of the Transformers library.",
+    "enLongDesc": "<p><strong>Hugging Face</strong> hosts models, datasets, and Spaces. The Transformers library is the de facto standard for open LLM inference and fine-tuning.</p>"
+  },
+  "mcp-tool-server": {
+    "enShortDesc": "Hundreds of MCP servers provide integrations for Slack, Jira, databases, browsers, etc.",
+    "enLongDesc": "<p>Public <strong>MCP servers</strong> provide tools for common services: filesystem, GitHub, Slack, Postgres, Playwright, etc. Search the MCP registry or build your own.</p>"
+  },
+  "orchids": {
+    "enShortDesc": "One of several vibe coding platforms.",
+    "enLongDesc": "<p><strong>Orchids</strong> is a vibe coding platform for building apps from natural language prompts.</p>"
+  },
+  "openclaw": {
+    "enShortDesc": "AI agent system including 'Pi coding harness'. Created by Mario Zechner and others.",
+    "enLongDesc": "<p><strong>OpenClaw</strong> is an open-source AI agent framework that includes the 'Pi coding harness'. Inspired by Anthropic's Claude Code.</p>"
+  },
+  "superwhisper": {
+    "enShortDesc": "Speech-to-text tool that lets users talk to LLMs via voice.",
+    "enLongDesc": "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p>"
   }
 }
