@@ -104,7 +104,24 @@ function initTermPage() {
   document.getElementById('term-meta').innerHTML = metaHTML;
 
   // ======== Summary ========
-  document.getElementById('term-summary').innerHTML = `<p>${term.shortDesc}</p>`;
+  document.getElementById('term-summary').innerHTML = `<p>${shortDesc}</p>`;
+
+  // ======== i18n: Translate section titles & UI labels ========
+  function applyI18n() {
+    if (typeof window.VC_I18N === 'undefined') return;
+    const t = window.VC_I18N.t;
+    // Section titles
+    ['summary', 'definition', 'quotes', 'source', 'examples', 'misconceptions', 'timeline', 'path', 'feedback'].forEach(s => {
+      const el = document.getElementById(`section-${s}`)?.querySelector('h2');
+      if (el) el.textContent = t(`term.section_${s}`);
+    });
+    // Right rail headings
+    const relatedH4 = document.querySelector('.term-related h4');
+    if (relatedH4) relatedH4.textContent = t('term.related');
+    const sameLayerH4 = Array.from(document.querySelectorAll('.term-related h4')).pop();
+    if (sameLayerH4 && sameLayerH4 !== relatedH4) sameLayerH4.textContent = t('term.same_layer');
+  }
+  applyI18n();
 
   // ======== Long Description ========
   document.getElementById('term-long-desc').innerHTML = longDesc || '<p>暂无详细定义。</p>';
