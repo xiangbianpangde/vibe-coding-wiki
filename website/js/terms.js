@@ -207,6 +207,16 @@ window.VC_TERMS = [
         "url": "https://github.blog/news-insights/research/research-the-impact-of-github-copilot/"
       }
     ],
+    examples: [
+      {
+        "code": "# AI-assisted coding workflow\n# 1. 写注释描述意图（让 AI 理解）\ndef calculate_discount(price, tier):\n    \"\"\"\n    Tier 1: 0% off (regular)\n    Tier 2: 10% off (silver)\n    Tier 3: 20% off (gold)\n    Tier 4: 30% off (platinum)\n    \"\"\"\n    # 2. AI 补全实现\n    discounts = {1: 0, 2: 0.1, 3: 0.2, 4: 0.3}\n    return price * (1 - discounts.get(tier, 0))",
+        "desc": "AI-assisted coding: 写注释 + AI 补全"
+      },
+      {
+        "code": "# AI-assisted test writing\n# 输入：函数签名 + 行为描述\n# 输出：测试用例（AI 生成）\ndef test_login():\n    # AI 生成的测试\n    assert login(\"alice\", \"correct\") == True\n    assert login(\"alice\", \"wrong\") == False\n    assert login(\"\", \"\") == False\n    assert raises(login, None, None)  # type check",
+        "desc": "AI-assisted test writing"
+      }
+    ],
   },
   {
     id: "pdd",
@@ -230,6 +240,12 @@ window.VC_TERMS = [
       {
         "name": "Simon Willison tags",
         "url": "https://simonwillison.net/tags/prompt-driven-development/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Prompt-Driven Development\n# 1. 把需求写成精确 prompt\nprompt = \"\"\"\n实现用户登录接口，要求：\n- POST /api/login\n- 接受 {email, password}\n- 返回 JWT token (HttpOnly cookie)\n- 失败返回 401 + 错误信息\n- rate limit: 5 次/分钟\n\"\"\"\n\n# 2. prompt 作为 source of truth\n# 3. CI 跑 prompt → 验证实现匹配 prompt\n$ pd test spec-login.md\n# ✓ All spec requirements met\n# ✓ Rate limit: 5/min implemented\n# ✓ JWT in HttpOnly cookie",
+        "desc": "PDD: prompt 作为 source of truth"
       }
     ],
   },
@@ -269,6 +285,12 @@ window.VC_TERMS = [
       {
         "name": "Kent Beck: TDD",
         "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+      }
+    ],
+    examples: [
+      {
+        "code": "# AI pair programming: 驾驶员-导航员模式\n# Driver: 写代码的人（AI 或人）\n# Navigator: review 的人\n\n# Round 1: 人导航，AI 写\n# \"我想要一个缓存装饰器，支持 TTL 和 LRU 淘汰\"\n# AI 写代码 → 人 review → 反馈\n\n# Round 2: AI 导航，人写\n# 人: 写缓存类骨架\n# AI: 建议\"加 TTL 检查\"、\"用 OrderedDict 实现 LRU\"\n\n# 关键：定期交换角色",
+        "desc": "AI pair programming 驾驶员-导航员模式"
       }
     ],
   },
@@ -383,6 +405,12 @@ window.VC_TERMS = [
         "url": "https://www.jnd.org/dn.ms/EmotionalDesign.html"
       }
     ],
+    examples: [
+      {
+        "code": "# AI Emotioneering: 用模型调整 UX 情感曲线\n# 设计师先标注每屏的情绪目标\nscreens = [\n    {\"name\": \"onboarding\", \"target_emotion\": \"trust\"},\n    {\"name\": \"error\", \"target_emotion\": \"calm\"},\n    {\"name\": \"success\", \"target_emotion\": \"delight\"},\n]\n\n# AI 生成匹配情绪的设计方案\nfor screen in screens:\n    design = ai.generate_design(\n        screen[\"name\"],\n        emotion=screen[\"target_emotion\"],\n        palette=\"warm\",  # 暖色调增强 trust\n    )",
+        "desc": "AI 生成匹配目标情绪的 UX 设计"
+      }
+    ],
   },
   {
     id: "orchestration-of-agents",
@@ -416,6 +444,12 @@ window.VC_TERMS = [
       {
         "name": "LangGraph 文档",
         "url": "https://langchain-ai.github.io/langgraph/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Orchestration: 一个 lead agent 协调多个 specialist\n# LangGraph 示例\nfrom langgraph.graph import StateGraph\nfrom typing import TypedDict, List\n\nclass WorkflowState(TypedDict):\n    query: str\n    research: List[str]\n    analysis: str\n    final: str\n\ngraph = StateGraph(WorkflowState)\ngraph.add_node(\"researcher\", research_agent)\ngraph.add_node(\"analyst\", analysis_agent)\ngraph.add_node(\"writer\", writing_agent)\n\ngraph.add_edge(\"__start__\", \"researcher\")\ngraph.add_edge(\"researcher\", \"analyst\")\ngraph.add_edge(\"analyst\", \"writer\")\ngraph.add_edge(\"writer\", \"__end__\")\n\napp = graph.compile()\nresult = app.invoke({\"query\": \"AI safety trends 2026\"})",
+        "desc": "LangGraph 多 agent 编排"
       }
     ],
   },
@@ -486,6 +520,12 @@ window.VC_TERMS = [
         "url": "https://docs.crewai.com"
       }
     ],
+    examples: [
+      {
+        "code": "# Agentic Workflow: 循环 plan → act → observe\n# 不再是 single-shot prompt，而是持续循环\n\nasync function agentic_loop(task):\n    state = {goal: task, done: False}\n    while not state.done:\n        # 1. Plan: 决定下一步\n        plan = await llm.plan(state.context, state.history)\n        # 2. Act: 执行 action\n        result = await execute(plan.action)\n        # 3. Observe: 收集结果\n        state.history.append({\"plan\": plan, \"result\": result})\n        state.done = check_done(state)\n    return state.history[-1].result\n\n# vs 单次 prompt:\n# answer = await llm.complete(prompt)\n# agentic 多步处理复杂任务",
+        "desc": "Agentic workflow vs single-shot prompt"
+      }
+    ],
   },
   {
     id: "cognitive-debt-vs-tech-debt",
@@ -517,6 +557,12 @@ window.VC_TERMS = [
         "url": "https://martinfowler.com/articles/isomorphism.html"
       }
     ],
+    examples: [
+      {
+        "code": "# Technical Debt vs Cognitive Debt\n# Tech debt: 代码层面\ndef legacy_function(x):\n    # TODO: 不知道干嘛，也不敢动\n    return some_unclear_transformation(x)\n\n# Cognitive debt: 团队认知层面\n# - 不知道 AI 改了什么\n# - 不知道为什么这样写\n# - spec 散落在 PR comments / Slack / 各处\n# - 6 个月后回来接手的人：完全失忆\n\n# Hunt 框架：\n# 2025 = tech debt year（代码债积累）\n# 2026 = cognitive debt year（认知债爆炸）",
+        "desc": "Cognitive debt vs technical debt 实测"
+      }
+    ],
   },
   {
     id: "no-code",
@@ -543,6 +589,12 @@ window.VC_TERMS = [
       {
         "name": "v0 官网",
         "url": "https://v0.dev"
+      }
+    ],
+    examples: [
+      {
+        "code": "# No-code: 用 AI 工具不写代码建应用\n# 1. Lovable / v0: 描述 → 全栈应用\n$ lovable \"Build a SaaS dashboard for tracking gym workouts.\nLogin + workout log + progress chart. Dark mode.\"\n\n# 2. 生成 React + Tailwind + DB\n# 3. 部署到 lovable.dev subdomain\n# 4. 之后用 Claude Code 加自定义功能\n\n# 适合：原型、个人工具、内部工具\n# 不适合：复杂业务逻辑、高合规要求",
+        "desc": "No-code 工具栈: Lovable/v0 流程"
       }
     ],
   },
@@ -643,6 +695,12 @@ window.VC_TERMS = [
         "url": "https://spec-coding.dev"
       }
     ],
+    examples: [
+      {
+        "code": "# spec.md 完整模板\n# /spec/auth.md\n\n# 1. User Story\n## 作为 注册用户\n## 我想 通过 GitHub OAuth 登录\n## 以便 不用记密码\n\n# 2. Acceptance Criteria (机器可验证)\n- [ ] GET /auth/github 跳转到 GitHub OAuth\n- [ ] /auth/github/callback 用 code 换 token\n- [ ] 首次登录自动创建 User 记录\n- [ ] token 存 HttpOnly cookie，1h 过期\n- [ ] refresh token，30 天过期\n- [ ] npx tsc --noEmit 通过\n- [ ] 测试覆盖 ≥ 80%\n\n# 3. Non-Goals\n- 不做多因素认证\n- 不做密码重置\n\n# 4. Tech Constraints\n- 后端：Fastify + PostgreSQL\n- Token：JWT (RS256)\n- 测试：vitest",
+        "desc": "spec.md 完整模板（4 段可验证结构）"
+      }
+    ],
   },
   {
     id: "context-engineering",
@@ -735,6 +793,12 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "LangChain: Iterative refinement",
         "url": "https://python.langchain.com/docs/how_to/iterative_refinement/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Iterative Refinement: 多轮 prompt 优化\n# Round 1: 粗 prompt\nprompt1 = \"Write a sorting function\"\n\n# Round 2: 加约束\nprompt2 = \"Write a sorting function in Python. Handle empty list. Stable sort.\"\n\n# Round 3: 加测试\nprompt3 = prompt2 + \"Must pass these tests: sort([])==[], sort([3,1])==[1,3]\"\n\n# Round 4: 加边界\nprompt4 = prompt3 + \"Handle negative numbers, floats, and duplicates\"\n\n# 每次迭代：跑测试 → 找失败 → 加约束 → 再 prompt\n# 关键：把\"成功标准\"明确化",
+        "desc": "Iterative refinement 4 轮 prompt 优化"
       }
     ],
   },
