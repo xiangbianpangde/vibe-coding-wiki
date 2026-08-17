@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/dark.css">
 <link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="lang.css">
 <link rel="stylesheet" href="../css/glossary.css">
 <script type="application/ld+json">
 {
@@ -88,6 +89,7 @@
     </nav>
     <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
       <span>搜索术语</span><kbd>⌘K</kbd>
+    <button class="lang-toggle" aria-label="Switch language" type="button">EN</button>
     <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
   <span class="theme-icon-light">☀️</span>
   <span class="theme-icon-dark">🌙</span>
@@ -134,6 +136,7 @@
 </div>
 
 <script src="js/nav.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/theme.js"></script>
 <script src="../js/terms-loader.js" data-layers="L1,L2,L3,L4,L5,L6,L7,L8"></script>
 <script src="../js/data.js"></script>

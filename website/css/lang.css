@@ -1,0 +1,33 @@
+/* Vibe Coding Wiki · Language Toggle (i18n) */
+
+.lang-toggle {
+  background: var(--c-panel-soft);
+  border: 1px solid var(--c-line);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-rounded);
+  color: var(--c-ink);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  min-width: 40px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.lang-toggle:hover {
+  background: var(--c-panel);
+  border-color: var(--c-shihqing);
+  color: var(--c-shihqing);
+}
+
+[data-theme="dark"] .lang-toggle {
+  background: var(--c-panel-soft);
+  border-color: var(--c-line);
+  color: var(--c-ink);
+}
+
+[data-theme="dark"] .lang-toggle:hover {
+  background: var(--c-liujin);
+  color: var(--c-ink);
+}

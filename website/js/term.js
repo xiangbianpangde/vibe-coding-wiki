@@ -63,7 +63,12 @@ function initTermPage() {
     termTitle.textContent = `${term.zh} (${term.name})`;
   }
 
-  document.getElementById('term-subtitle').textContent = term.shortDesc;
+  // i18n: pick description based on current language
+  const isEnglish = document.documentElement.getAttribute('data-lang') === 'en';
+  const shortDesc = isEnglish && term.enShortDesc ? term.enShortDesc : term.shortDesc;
+  const longDesc = isEnglish && term.enLongDesc ? term.enLongDesc : term.longDesc;
+
+  document.getElementById('term-subtitle').textContent = shortDesc;
 
   // Header meta
   const metaParts = [];
@@ -102,7 +107,7 @@ function initTermPage() {
   document.getElementById('term-summary').innerHTML = `<p>${term.shortDesc}</p>`;
 
   // ======== Long Description ========
-  document.getElementById('term-long-desc').innerHTML = term.longDesc || '<p>暂无详细定义。</p>';
+  document.getElementById('term-long-desc').innerHTML = longDesc || '<p>暂无详细定义。</p>';
 
   // ======== Related (同时用于右栏 + 学习路径) ========
   const related = (term.related || [])
@@ -397,3 +402,11 @@ if (window.VC_WHEN_TERMS_READY) {
   // Fallback: terms-loader.js not loaded, try to run immediately
   initTermPage();
 }
+// 监听 i18n 切换事件，刷新当前详情页以应用新语言
+window.addEventListener('vclang-change', () => {
+  const id = new URLSearchParams(location.search).get('id') || location.hash.replace('#', '');
+  if (id && window.VC_TERMS) {
+    // 简单方式：刷新页面
+    location.reload();
+  }
+});
