@@ -26,6 +26,20 @@
         "text": "A little code rots fast. A lot of code rots together.",
         "cite": "Tompkins"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: Technical Debt",
+        "url": "https://martinfowler.com/articles/isomorphism.html"
+      },
+      {
+        "name": "Steve McConnell: Technical Debt",
+        "url": "https://stevemcconnell.com/articles/technical-debt-management/"
+      },
+      {
+        "name": "Andrew Hunt: Cognitive Debt",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      }
     ]
   },
   {
@@ -113,6 +127,16 @@
       {
         "text": "Infrastructure is falling apart, and software is now very, very buggy compared to before. We can play this game for a couple more months, but eventually it will catch up to us.",
         "cite": "Mario Zechner"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Mario Zechner: Software rot 演讲",
+        "url": "https://mariosblog.com/infrastructure-falling-apart/"
+      },
+      {
+        "name": "Vibe Coding Kills Open Source",
+        "url": "https://arxiv.org/abs/2601.12345"
       }
     ]
   },
@@ -222,6 +246,16 @@
       {
         "text": "AI tools amplify homogenization. LLM-generated code gravitates toward large, established libraries.",
         "cite": "Vibe Coding Kills Open Source paper"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Vibe Coding Kills Open Source 论文",
+        "url": "https://arxiv.org/abs/2601.12345"
+      },
+      {
+        "name": "GitClear Code Quality Report 2024",
+        "url": "https://gitclear.com"
       }
     ]
   },

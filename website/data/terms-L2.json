@@ -208,6 +208,16 @@
         "text": "CLAUDE.md gives Claude persistent instructions. Project CLAUDE.md survives compaction.",
         "cite": "Claude Code Docs"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: CLAUDE.md 文档",
+        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+      },
+      {
+        "name": "Anthropic Prompt Caching",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+      }
     ]
   },
   {
@@ -255,6 +265,16 @@
       {
         "text": "When the conversation gets too long, summarize the old parts to make room for new.",
         "cite": "Claude Code Docs"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Compaction 文档",
+        "url": "https://docs.claude.com/en/docs/claude-code/compaction"
+      },
+      {
+        "name": "Anthropic: Context Engineering",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
       }
     ]
   },
@@ -324,6 +344,16 @@
         "text": "Auto Mode: aggressive convenience, fast, with safety mechanisms behind the scenes.",
         "cite": "Claude Code Docs"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Auto Mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode"
+      },
+      {
+        "name": "Claude Code: Safety",
+        "url": "https://docs.claude.com/en/docs/claude-code/security"
+      }
     ]
   },
   {
@@ -372,6 +402,16 @@
       {
         "text": "Extended thinking gives Claude enhanced reasoning transparency before responding.",
         "cite": "Anthropic"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Extended Thinking",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+      },
+      {
+        "name": "Claude Code: Extended Thinking",
+        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking"
       }
     ]
   },

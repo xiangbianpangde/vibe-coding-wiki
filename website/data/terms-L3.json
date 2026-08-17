@@ -49,6 +49,20 @@
       {
         "name": "Attention Is All You Need (原论文)",
         "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "name": "The Illustrated Transformer",
+        "url": "https://jalammar.github.io/illustrated-transformer/"
+      },
+      {
+        "name": "Andrej Karpathy: Let's build GPT",
+        "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Transformer block（简化伪代码）\n# 论文：Vaswani et al. \"Attention Is All You Need\" (2017)\ndef transformer_block(x):\n    # Self-attention + 残差 + LayerNorm\n    attn_out = layer_norm(x + multi_head_attention(x))\n    # FFN + 残差 + LayerNorm\n    ffn_out  = layer_norm(attn_out + feed_forward(attn_out))\n    return ffn_out\n\n# GPT (decoder-only): N 个 transformer_block 堆叠\n# BERT (encoder-only): 同上但用 encoder mask\n# T5 (encoder-decoder): encoder + decoder 组合",
+        "desc": "Transformer block 核心结构伪代码"
       }
     ]
   },
@@ -72,6 +86,22 @@
       {
         "text": "Attention is all you need.",
         "cite": "Vaswani et al. 2017"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Scaled Dot-Product Attention (Vaswani et al. 2017)\nimport torch\nimport torch.nn.functional as F\n\ndef attention(Q, K, V, mask=None):\n    # Q, K, V: (batch, heads, seq, d_k)\n    d_k = Q.size(-1)\n    scores = (Q @ K.transpose(-2, -1)) / (d_k ** 0.5)   # (batch, heads, seq, seq)\n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, float('-inf'))\n    weights = F.softmax(scores, dim=-1)\n    return weights @ V                                    # (batch, heads, seq, d_k)\n\n# Multi-Head = parallel multiple attention() with different Q/K/V projections\n# 8 heads × d_k=64 → 总维度 512（同单 head 的 d_model）",
+        "desc": "Scaled Dot-Product Attention PyTorch 实现"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Attention Is All You Need 论文",
+        "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "name": "The Illustrated Attention",
+        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/"
       }
     ]
   },
@@ -128,6 +158,10 @@
       {
         "name": "tiktoken GitHub",
         "url": "https://github.com/openai/tiktoken"
+      },
+      {
+        "name": "Anthropic: Context Windows",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
       }
     ],
     "quotes": [

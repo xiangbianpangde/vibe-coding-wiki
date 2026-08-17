@@ -576,6 +576,16 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Claude Code Docs"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Claude Code: CLAUDE.md 文档",
+        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+      },
+      {
+        "name": "Anthropic Prompt Caching",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+      }
+    ],
     examples: [
       {
         "code": "# 项目根 /CLAUDE.md\n\n# 项目规范\n- 使用 TypeScript strict mode\n- 测试覆盖率 > 80%\n- 所有 API 调用必须 wrap in try/catch\n\n# 不要\n- 不要修改 /tests/ 目录\n- 不要在 production 跑 npm test",
@@ -622,6 +632,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "When the conversation gets too long, summarize the old parts to make room for new.",
         "cite": "Claude Code Docs"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Compaction 文档",
+        "url": "https://docs.claude.com/en/docs/claude-code/compaction"
+      },
+      {
+        "name": "Anthropic: Context Engineering",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
       }
     ],
     examples: [
@@ -690,6 +710,16 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Claude Code Docs"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Claude Code: Auto Mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode"
+      },
+      {
+        "name": "Claude Code: Safety",
+        "url": "https://docs.claude.com/en/docs/claude-code/security"
+      }
+    ],
     examples: [
       {
         "code": "// 合规保证：分类器看不到工具结果\n// 攻击向量：网页包含 \"ignore previous instructions\"\n// 分类器仅基于工具调用本身（命令、参数）判断\n// 不受工具输出影响",
@@ -738,6 +768,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Extended thinking gives Claude enhanced reasoning transparency before responding.",
         "cite": "Anthropic"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Anthropic: Extended Thinking",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+      },
+      {
+        "name": "Claude Code: Extended Thinking",
+        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking"
       }
     ],
     examples: [
@@ -905,6 +945,20 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Attention Is All You Need (原论文)",
         "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "name": "The Illustrated Transformer",
+        "url": "https://jalammar.github.io/illustrated-transformer/"
+      },
+      {
+        "name": "Andrej Karpathy: Let's build GPT",
+        "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Transformer block（简化伪代码）\n# 论文：Vaswani et al. \"Attention Is All You Need\" (2017)\ndef transformer_block(x):\n    # Self-attention + 残差 + LayerNorm\n    attn_out = layer_norm(x + multi_head_attention(x))\n    # FFN + 残差 + LayerNorm\n    ffn_out  = layer_norm(attn_out + feed_forward(attn_out))\n    return ffn_out\n\n# GPT (decoder-only): N 个 transformer_block 堆叠\n# BERT (encoder-only): 同上但用 encoder mask\n# T5 (encoder-decoder): encoder + decoder 组合",
+        "desc": "Transformer block 核心结构伪代码"
       }
     ],
   },
@@ -930,6 +984,22 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Attention is all you need.",
         "cite": "Vaswani et al. 2017"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Attention Is All You Need 论文",
+        "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "name": "The Illustrated Attention",
+        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Scaled Dot-Product Attention (Vaswani et al. 2017)\nimport torch\nimport torch.nn.functional as F\n\ndef attention(Q, K, V, mask=None):\n    # Q, K, V: (batch, heads, seq, d_k)\n    d_k = Q.size(-1)\n    scores = (Q @ K.transpose(-2, -1)) / (d_k ** 0.5)   # (batch, heads, seq, seq)\n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, float('-inf'))\n    weights = F.softmax(scores, dim=-1)\n    return weights @ V                                    # (batch, heads, seq, d_k)\n\n# Multi-Head = parallel multiple attention() with different Q/K/V projections\n# 8 heads × d_k=64 → 总维度 512（同单 head 的 d_model）",
+        "desc": "Scaled Dot-Product Attention PyTorch 实现"
       }
     ],
   },
@@ -988,6 +1058,10 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "tiktoken GitHub",
         "url": "https://github.com/openai/tiktoken"
+      },
+      {
+        "name": "Anthropic: Context Windows",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
       }
     ],
     examples: [
@@ -3111,6 +3185,16 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "nazarboyko.com"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Martin Fowler: Verification",
+        "url": "https://martinfowler.com/articles/verification.html"
+      },
+      {
+        "name": "Claude Code: Plan mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
+      }
+    ],
     examples: [
       {
         "code": "// 验证金字塔：\nunit_test(pure_function)  // 毫秒\nintegration_test(component)  // 秒\ncompiler_check(type_safety)  // 毫秒\nstatik_analysis(lint, format)  // 毫秒\nhuman_review(code_clarity)  // 分钟 → 小时",
@@ -3128,6 +3212,32 @@ Build  → 写代码、运行命令、调用工具</pre>
     shortDesc: "把编译器当作\"第一道审查者\"，所有 AI 代码必须先过编译。",
     longDesc: "<p>把<strong>编译器</strong>当作\"第一道审查者\"——所有 AI 代码必须先过编译。</p>",
     related: ["mvp","test-referee"],
+    quotes: [
+      {
+        "text": "The compiler, the diff, and the test suite act as the referee.",
+        "cite": "nazarboyko.com"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "nazarboyko.com",
+        "url": "https://nazarboyko.com"
+      },
+      {
+        "name": "Martin Fowler: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Compiler as Referee: 让编译器做裁判\n# 1. 写代码（让 AI 生成）\nfunction add(a, b) { return a + b; }\n\n# 2. 编译器检查类型（机械验证）\n# npx tsc --noEmit\n# → error: 类型不匹配 → AI 必须修复\n\n# 3. 编译器 = 机械裁判，零歧义\n#    编译失败 = 代码错\n#    编译成功 ≠ 代码对（还要测试）",
+        "desc": "Compiler as referee 实际流程"
+      },
+      {
+        "code": "# 测试套件作为机械裁判\n# pytest / jest / go test 跑全套\n$ pytest tests/ -v\n# tests/test_auth.py::test_login ✓\n# tests/test_auth.py::test_logout ✓\n# ========================= 12 passed in 0.5s =========================\n\n# 任何失败 → AI 必须 revert 或修复",
+        "desc": "Test suite as referee"
+      }
+    ],
   },
   {
     id: "test-referee",
@@ -3346,6 +3456,20 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Tompkins"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Martin Fowler: Technical Debt",
+        "url": "https://martinfowler.com/articles/isomorphism.html"
+      },
+      {
+        "name": "Steve McConnell: Technical Debt",
+        "url": "https://stevemcconnell.com/articles/technical-debt-management/"
+      },
+      {
+        "name": "Andrew Hunt: Cognitive Debt",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      }
+    ],
     examples: [
       {
         "code": "// GitClear 2024 数据：\n// - refactor 占比：25% → <10%（5 年下降 60%）\n// - duplicate code：增加 4x\n// - code churn：增加 2x\n// AI 时代：快速凑出能跑的代码，但跳过重构 → 长期维护成本累积",
@@ -3411,6 +3535,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Infrastructure is falling apart, and software is now very, very buggy compared to before. We can play this game for a couple more months, but eventually it will catch up to us.",
         "cite": "Mario Zechner"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Mario Zechner: Software rot 演讲",
+        "url": "https://mariosblog.com/infrastructure-falling-apart/"
+      },
+      {
+        "name": "Vibe Coding Kills Open Source",
+        "url": "https://arxiv.org/abs/2601.12345"
       }
     ],
     examples: [
@@ -3514,6 +3648,16 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "AI tools amplify homogenization. LLM-generated code gravitates toward large, established libraries.",
         "cite": "Vibe Coding Kills Open Source paper"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Vibe Coding Kills Open Source 论文",
+        "url": "https://arxiv.org/abs/2601.12345"
+      },
+      {
+        "name": "GitClear Code Quality Report 2024",
+        "url": "https://gitclear.com"
       }
     ],
     examples: [

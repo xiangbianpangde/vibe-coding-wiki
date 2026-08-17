@@ -62,6 +62,16 @@
         "text": "The compiler, the diff, and the test suite act as the referee.",
         "cite": "nazarboyko.com"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: Verification",
+        "url": "https://martinfowler.com/articles/verification.html"
+      },
+      {
+        "name": "Claude Code: Plan mode",
+        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
+      }
     ]
   },
   {
@@ -79,6 +89,32 @@
     "related": [
       "mvp",
       "test-referee"
+    ],
+    "examples": [
+      {
+        "code": "# Compiler as Referee: 让编译器做裁判\n# 1. 写代码（让 AI 生成）\nfunction add(a, b) { return a + b; }\n\n# 2. 编译器检查类型（机械验证）\n# npx tsc --noEmit\n# → error: 类型不匹配 → AI 必须修复\n\n# 3. 编译器 = 机械裁判，零歧义\n#    编译失败 = 代码错\n#    编译成功 ≠ 代码对（还要测试）",
+        "desc": "Compiler as referee 实际流程"
+      },
+      {
+        "code": "# 测试套件作为机械裁判\n# pytest / jest / go test 跑全套\n$ pytest tests/ -v\n# tests/test_auth.py::test_login ✓\n# tests/test_auth.py::test_logout ✓\n# ========================= 12 passed in 0.5s =========================\n\n# 任何失败 → AI 必须 revert 或修复",
+        "desc": "Test suite as referee"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "nazarboyko.com",
+        "url": "https://nazarboyko.com"
+      },
+      {
+        "name": "Martin Fowler: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The compiler, the diff, and the test suite act as the referee.",
+        "cite": "nazarboyko.com"
+      }
     ]
   },
   {
