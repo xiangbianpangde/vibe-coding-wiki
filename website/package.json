@@ -15,6 +15,9 @@
     "rebuild:terms": "node scripts/rebuild-terms.cjs",
     "enrich:priority-1": "node scripts/enrich-priority-1.cjs",
     "enrich:priority-2": "node scripts/enrich-priority-2.cjs",
+    "enrich:priority-3": "node scripts/enrich-priority-3.cjs",
+    "enrich:priority-4": "node scripts/enrich-priority-4.cjs",
+    "enrich:priority-5": "node scripts/enrich-priority-5.cjs",
     "fix:orphan-related": "node scripts/fix-orphan-related.cjs"
   },
   "devDependencies": {

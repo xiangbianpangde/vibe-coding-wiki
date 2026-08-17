@@ -95,6 +95,22 @@
         "code": "test-first + plan-mode + comprehensive review + research skills + coding agent",
         "desc": "Willison 提出的 vibe engineering 实践清单"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Vibe engineering",
+        "url": "https://simonwillison.net/2025/Oct/7/vibe-engineering/"
+      },
+      {
+        "name": "Vibe Coding 词条",
+        "url": "https://simonwillison.net/2025/Feb/2/simulating-pi-with-100-million-lines-of-code/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Vibe engineering is vibe coding for people who know what they are doing.",
+        "cite": "Simon Willison, 2025-10"
+      }
     ]
   },
   {
@@ -122,6 +138,22 @@
       {
         "text": "Vibe coding is passe. Agentic engineering is the term coming out on top.",
         "cite": "Karpathy 2026-02 X post"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Agentic Engineering 工作流（vs Vibe Coding）\n# Vibe Coding: \"给我写一个登录页\"\n# Agentic Engineering: \"我需要 OAuth 登录，请按以下规范执行\"\n\n# 1. 写 spec.md (含验收标准)\n# 2. 用 subagent 并行：frontend / backend / tests\n# 3. plan-verify-build 循环：每个 subagent 都跑测试\n# 4. 人类 review diff + architecture decisions\n# 5. 部署 + 监控",
+        "desc": "Agentic engineering vs vibe coding 对比"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Agentic engineering",
+        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/"
+      },
+      {
+        "name": "Martin Fowler: AI-Assisted Engineering",
+        "url": "https://martinfowler.com/articles/exploring-gen-ai.html"
       }
     ]
   },
@@ -232,12 +264,26 @@
       {
         "code": "症状：agent 突然不会做之前的任务 · 上下文丢失要重新填充 · 同一个 prompt 跑出不同结果",
         "desc": "Hunt 提出的 cognitive debt 表现"
+      },
+      {
+        "code": "# Cognitive Debt 与 Technical Debt 的差异\n# Technical Debt: 代码债 (编译失败、重复代码、复杂耦合)\n# Cognitive Debt: 上下文债 (不知道 AI 改了什么、不知道为什么这样写)\n\n# 典型场景：6 个月后回来接手\ndef mysterious_function(x):\n    # TODO: ??? 不知道干嘛，也不敢动\n    return some_unclear_transformation(x)\n\n# Cognitive debt 让团队无法维护 AI 生成的代码\n# 解法：spec.md / CLAUDE.md / 严格测试套件 / git history 可追溯",
+        "desc": "Cognitive debt vs technical debt 实测对比"
       }
     ],
     "quotes": [
       {
         "text": "In 2026, cognitive debt becomes the dominant engineering burden. Context loss, unreliable agent behavior, prompt archaeology.",
         "cite": "Andrew Hunt 2026 prediction"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrew Hunt: Cognitive Debt 词条",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      },
+      {
+        "name": "Hunt: Technical Debt is Still Real",
+        "url": "https://www.huntthought.com/2026/tech-debt"
       }
     ]
   },

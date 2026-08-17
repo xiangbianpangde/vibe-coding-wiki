@@ -382,6 +382,28 @@
     "related": [
       "copilot",
       "codeium"
+    ],
+    "examples": [
+      {
+        "code": "# Tabnine: 本地/云端 AI 代码补全\n# 特点：可选本地模型（保护代码不出网）\n# 安装：VS Code / JetBrains 扩展市场搜 \"Tabnine\"\n# 模式：\n#   - Pro: 云端模型（GPT-class）\n#   - Enterprise: 本地模型 + 团队私有训练\n\ndef calculate_total(items):\n    # Tabnine 自动补全建议：\n    # return sum(item.price * item.quantity for item in items)",
+        "desc": "Tabnine 本地/云端补全模式"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Tabnine 官网",
+        "url": "https://www.tabnine.com"
+      },
+      {
+        "name": "Tabnine Docs",
+        "url": "https://docs.tabnine.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Tabnine: AI code completion trained on permissively licensed code, with optional on-prem deployment.",
+        "cite": "Tabnine.com"
+      }
     ]
   },
   {
@@ -608,6 +630,24 @@
     "related": [
       "claude-code",
       "codex-cli"
+    ],
+    "examples": [
+      {
+        "code": "# Gemini CLI (Google): 终端 agent\n$ gemini \"为这个 Python 项目添加 README\"\n# Gemini CLI 会：\n# 1. 扫描项目结构\n# 2. 生成 README.md 模板\n# 3. 在 terminal 中显示 diff\n# 4. 等待 y/N 确认\n\n# 也支持 @file 引用：\n$ gemini \"@main.py 这段代码为什么慢？\"",
+        "desc": "Gemini CLI 终端 agent 用法"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Gemini CLI GitHub",
+        "url": "https://github.com/google-gemini/gemini-cli"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Gemini CLI: open-source AI agent for your terminal, powered by Gemini 2.5 Pro's 1M context.",
+        "cite": "Google AI, 2025"
+      }
     ]
   },
   {
@@ -662,6 +702,32 @@
     "related": [
       "claude-code",
       "vibe-engineering"
+    ],
+    "examples": [
+      {
+        "code": "# Coding Agents 通用模式（Claude Code / Codex CLI / Cline / Devin 等）\nasync function coding_agent(task, repo) {\n  loop {\n    context = await observe(repo)         // ls / grep / read files\n    plan = await llm.think(context, task) // decide next action\n    if (plan.action === \"finish\") return plan.result\n    result = await execute(plan.action)   // edit / test / git commit\n    if (result.failed) revert()           // safety net\n    task = await verify(result, task)     // re-evaluate\n  }\n}",
+        "desc": "Coding agent 通用循环伪代码"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code 文档",
+        "url": "https://docs.claude.com/en/docs/claude-code"
+      },
+      {
+        "name": "OpenAI Codex CLI",
+        "url": "https://github.com/openai/codex"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Coding agents autonomously plan, edit, test, and iterate on real software tasks.",
+        "cite": "Anthropic / OpenAI docs, 2025"
+      }
     ]
   },
   {

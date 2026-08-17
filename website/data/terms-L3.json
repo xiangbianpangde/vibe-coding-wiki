@@ -256,6 +256,28 @@
     "related": [
       "subagent",
       "multi-agent-parallelism"
+    ],
+    "examples": [
+      {
+        "code": "# Claude Code Agent Teams: 多 agent 协作\n# 启动：/agents 命令\n# 配置 teammates（每个有独立 context window）\n# 共享 task list + worktree\n\n# 典型工作流：\n# 1. Lead agent 把任务拆成 3 个子任务\n# 2. 分发给 3 个 teammate agent（并行）\n# 3. 每个 agent 在自己的 worktree 工作\n# 4. 完成后 merge 回主分支",
+        "desc": "Claude Code agent teams 并行协作"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Agent Teams",
+        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams"
+      },
+      {
+        "name": "Claude Code: Subagents",
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Agent teams coordinate independently with a shared task list. Each teammate has its own context.",
+        "cite": "Claude Code Docs"
+      }
     ]
   },
   {
@@ -380,6 +402,28 @@
     "related": [
       "mcp",
       "context-engineering"
+    ],
+    "examples": [
+      {
+        "code": "# MCP Tool Search (Anthropic, 2025-05)\n# 解决：MCP server 多时工具太多塞爆 context\n# 用法：把工具描述摘要存在向量库，按需召回\n\n// 旧方式：所有工具描述都进 prompt\nconst tools = [...100Tools];   // 50K tokens\n\n// 新方式：工具搜索\nconst relevantTools = await toolSearch(query, topK=10);\n// 只把相关的 10 个工具描述进 prompt",
+        "desc": "MCP Tool Search 节省 context"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Tool Search",
+        "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+      },
+      {
+        "name": "MCP 文档",
+        "url": "https://modelcontextprotocol.io"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Tool search reduces token usage by 85% when working with many MCP servers.",
+        "cite": "Anthropic Engineering, 2025-05"
+      }
     ]
   },
   {
@@ -397,6 +441,28 @@
     "related": [
       "output-style",
       "claude-md"
+    ],
+    "examples": [
+      {
+        "code": "# Anthropic system prompt 标准结构\nmessages = [{\n  \"role\": \"user\",\n  \"content\": [{\n    \"type\": \"text\",\n    \"text\": \"你是一个严谨的技术文档作者...\"\n  }, {\n    \"type\": \"text\",\n    \"text\": \"<project_context>...</project_context>\",\n    \"cache_control\": {\"type\": \"ephemeral\"}   // ← 提示缓存\n  }],\n  \"content\": \"用户的实际问题\"\n}]",
+        "desc": "Anthropic system prompt + prompt caching"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic Prompt Engineering",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      },
+      {
+        "name": "OpenAI Prompt Engineering",
+        "url": "https://platform.openai.com/docs/guides/prompt-engineering"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The system prompt sets the model's behavior. It is the most important lever for output quality.",
+        "cite": "Anthropic Prompt Engineering Guide"
+      }
     ]
   },
   {
@@ -552,6 +618,28 @@
     "related": [
       "rag",
       "embedding"
+    ],
+    "examples": [
+      {
+        "code": "# LangChain: 文档 chunking\nfrom langchain.text_splitter import RecursiveCharacterTextSplitter\n\nsplitter = RecursiveCharacterTextSplitter(\n    chunk_size=1000,        # 每个 chunk 1000 字符\n    chunk_overlap=200,      # 相邻 chunk 重叠 200 字符（保留上下文）\n    separators=[\"\\n\\n\", \"\\n\", \" \", \"\"],\n)\n\nchunks = splitter.split_text(long_document)\nprint(len(chunks))   # → ~200 chunks\n\n# 选 chunk_size 的经验：\n#   - 512: 适合 QA、检索（细粒度）\n#   - 1024: 适合大多数 RAG\n#   - 2048: 适合长文档摘要",
+        "desc": "RecursiveCharacterTextSplitter chunking"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "LangChain Text Splitters",
+        "url": "https://python.langchain.com/docs/how_to/text_splitters/"
+      },
+      {
+        "name": "LlamaIndex Node Parsers",
+        "url": "https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Chunking strategy is the most underrated part of RAG. Wrong chunk size kills retrieval quality.",
+        "cite": "LlamaIndex engineering blog"
+      }
     ]
   },
   {
