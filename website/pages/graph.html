@@ -284,23 +284,16 @@ graph TB
 <script src="js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
-  // 确保 mermaid 加载后初始化（处理 CDN 加载顺序问题）
-  function initMermaid() {
-    // 先 hide wrap，避免 FOUC 显示原始源码
+  // Mermaid 渲染 — 手动调用避免 startOnLoad 冲突
+  function renderMermaid() {
+    if (typeof mermaid === 'undefined') return false;
     const wrap = document.querySelector('.mermaid-wrap');
-    if (wrap) wrap.style.visibility = 'hidden';
+    const targets = document.querySelectorAll('.mermaid');
+    if (targets.length === 0) return true; // 无需渲染
 
-    if (typeof mermaid === 'undefined') {
-      // CDN 未加载， fallback: 显示原始源码作为静态回退
-      if (wrap) wrap.style.visibility = '';
-      document.querySelectorAll('.mermaid').forEach((el) => {
-        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;">' + el.textContent + '</pre>';
-      });
-      return;
-    }
     try {
       mermaid.initialize({
-        startOnLoad: true,
+        startOnLoad: false, // 手动调用避免与 %%{init}%% 冲突
         theme: 'base',
         securityLevel: 'loose',
         themeVariables: {
@@ -311,31 +304,54 @@ graph TB
           secondaryColor: '#F8DF72',
           tertiaryColor: '#D8E3E7',
           fontFamily: '"Avenir Next", "PingFang SC", sans-serif',
-          fontSize: '13px',
+          fontSize: '12px',
         },
-        flowchart: { curve: 'basis', padding: 8, nodeSpacing: 20, rankSpacing: 25, htmlLabels: true }
+        flowchart: { curve: 'basis', padding: 8, nodeSpacing: 25, rankSpacing: 35, htmlLabels: true }
       });
-      // mermaid 初始化后 unhide
-      if (wrap) {
-        // 使用 rAF 等 mermaid 实际完成渲染
-        requestAnimationFrame(() => {
-          wrap.style.visibility = '';
-        });
-      }
     } catch (e) {
-      console.error('Mermaid init failed:', e);
-      if (wrap) wrap.style.visibility = '';
+      // 即使 initialize 报错（可能已有 %%{init}%% 配置）也继续 render
     }
+
+    // 手动渲染每个 .mermaid 块
+    let allRendered = true;
+    targets.forEach((el, i) => {
+      if (el.dataset.rendered === '1') return; // 避免重复
+      const code = el.textContent;
+      const id = 'mermaid-svg-' + Date.now() + '-' + i;
+      mermaid.render(id, code).then(({svg}) => {
+        el.innerHTML = svg;
+        el.dataset.rendered = '1';
+        if (wrap) wrap.style.visibility = '';
+      }).catch(err => {
+        console.warn('[mermaid] render failed:', err);
+        // fallback: 显示源码
+        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;color:#777;">' + code + '</pre>';
+        el.dataset.rendered = '1';
+        if (wrap) wrap.style.visibility = '';
+      });
+    });
+
+    return true;
   }
 
-  // 多次尝试以处理 CDN 加载时序
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(initMermaid, 200));
-  } else {
-    setTimeout(initMermaid, 200);
+  // 多 retry 处理 CDN 加载顺序
+  let attempts = 0;
+  const maxAttempts = 20; // 20 × 200ms = 4s
+  function tryRender() {
+    attempts++;
+    if (renderMermaid()) return; // success
+    if (attempts < maxAttempts) {
+      setTimeout(tryRender, 200);
+    } else {
+      // 最终 fallback: 显示源码
+      const wrap = document.querySelector('.mermaid-wrap');
+      if (wrap) wrap.style.visibility = '';
+      document.querySelectorAll('.mermaid').forEach(el => {
+        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;color:#777;">' + el.textContent + '</pre>';
+      });
+    }
   }
-  // 备用：DOMContentLoaded 后再次尝试
-  window.addEventListener('load', initMermaid);
+  tryRender();
 </script>
 <script>
   // Service Worker registration (Round 2: offline cache)
