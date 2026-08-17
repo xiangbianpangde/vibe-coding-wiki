@@ -412,5 +412,19 @@
 <script src="../js/term.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/app.js"></script>
+<script>
+  // Service Worker registration (Round 2: offline cache)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/vibe-coding-wiki/sw.js', {
+        scope: '/vibe-coding-wiki/'
+      }).then(reg => {
+        console.log('[SW] Registered, scope:', reg.scope);
+      }).catch(err => {
+        console.warn('[SW] Registration failed:', err);
+      });
+    });
+  }
+</script>
 </body>
 </html>
