@@ -1962,6 +1962,28 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>RAG 经验：</strong>如果检索结果不相关，问题通常在检索阶段——调整相似度阈值或换检索算法。</p>`,
     related: ["embedding","vector-database"],
+    quotes: [
+      {
+        "text": "Cosine similarity measures the angle between vectors, ignoring magnitude. Ideal for comparing normalized embeddings.",
+        "cite": "Stanford NLP"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Wikipedia: Cosine similarity",
+        "url": "https://en.wikipedia.org/wiki/Cosine_similarity"
+      },
+      {
+        "name": "NumPy: np.dot",
+        "url": "https://numpy.org/doc/stable/reference/generated/numpy.dot.html"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Cosine Similarity: 衡量两个向量的方向相似度\nimport numpy as np\n\ndef cosine_similarity(a, b):\n    \"\"\"\n    Returns: -1 (opposite) to 1 (same direction)\n    Formula: cos(θ) = (a · b) / (||a|| × ||b||)\n    \"\"\"\n    dot = np.dot(a, b)\n    norm_a = np.linalg.norm(a)\n    norm_b = np.linalg.norm(b)\n    return dot / (norm_a * norm_b)\n\n# Embedding 相似度示例：\nemb_cat   = [0.8, 0.2, 0.1]   # \"cat\" 的 embedding\nemb_dog   = [0.7, 0.3, 0.1]   # \"dog\"\nemb_table = [0.1, 0.8, 0.5]   # \"table\"\n\nprint(cosine_similarity(emb_cat, emb_dog))      # → 0.99 (高)\nprint(cosine_similarity(emb_cat, emb_table))    # → 0.32 (低)\n\n# vs Euclidean distance: 对向量长度敏感\n# Cosine: 只关心方向（更适合 NLP embedding）",
+        "desc": "Cosine similarity 实现 + 与 Euclidean 对比"
+      }
+    ],
   },
   {
     id: "chunking",
@@ -2037,6 +2059,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>代表实现：</strong>Microsoft GraphRAG / Neo4j + LLM</p>`,
     related: ["rag","hyde"],
+    seeAlso: [
+      {
+        "name": "Microsoft GraphRAG",
+        "url": "https://microsoft.github.io/graphrag/"
+      },
+      {
+        "name": "GraphRAG 论文",
+        "url": "https://arxiv.org/abs/2404.16130"
+      }
+    ],
+    examples: [
+      {
+        "code": "# GraphRAG: 用知识图谱增强 RAG\n# 传统 RAG: chunk → embedding → vector search\n# GraphRAG: chunk → entity extraction → graph → community detection → summary\n\n# Microsoft GraphRAG 简化流程\nfrom graphrag import GraphRAG\n\ngraph = GraphRAG.from_documents(docs)\n\n# 1. 提取实体和关系\ngraph.extract_entities()\n\n# 2. 构建知识图谱\ngraph.build_graph()\n\n# 3. Leiden 算法分社区\ncommunities = graph.detect_communities()\n\n# 4. 每个社区生成 summary\ngraph.summarize_communities()\n\n# 5. 查询：先用 community summary 找相关社区，再 drill down\nresult = graph.query(\"What are the key themes in this document?\")\n\n# 优势：跨 chunk 关系查询，全局摘要\n# 劣势：图构建慢，索引大",
+        "desc": "Microsoft GraphRAG 简化流程"
+      }
+    ],
   },
   {
     id: "hyde",
@@ -2090,6 +2128,22 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "DAIR.ai"
       }
     ],
+    seeAlso: [
+      {
+        "name": "vLLM: PagedAttention 论文",
+        "url": "https://arxiv.org/abs/2309.06180"
+      },
+      {
+        "name": "DAIR.ai: KV Cache 解释",
+        "url": "https://dair.ai"
+      }
+    ],
+    examples: [
+      {
+        "code": "# KV Cache: Transformer 推理加速的关键\n# 标准 autoregressive 生成：每生成一个 token 要重算所有之前的 attention\n# → O(n²) per context\n\n# KV Cache: 把已计算的 K, V 矩阵缓存起来\n# → 新 token 只需算自己的 Q，然后和缓存的 K、V 做 attention\n# → O(n) per context\n\n# 内存代价：\n#   cache_size = 2 × num_layers × seq_len × d_model × batch_size × bytes_per_param\n# GPT-3 175B (96 layers, d_model=12288, fp16):\n#   per token = 2 × 96 × 12288 × 2 bytes = 4.7 MB\n#   2048 tokens context = 9.4 GB\n# → 长 context 内存爆炸，催生 vLLM/PagedAttention 等优化",
+        "desc": "KV Cache 工作原理 + 内存代价"
+      }
+    ],
   },
   {
     id: "paged-attention",
@@ -2107,6 +2161,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>支持 continuous batching</li>
 </ul>`,
     related: ["kv-cache"],
+    seeAlso: [
+      {
+        "name": "PagedAttention 论文 (Kwon et al. 2023)",
+        "url": "https://arxiv.org/abs/2309.06180"
+      },
+      {
+        "name": "vLLM 文档",
+        "url": "https://docs.vllm.ai"
+      }
+    ],
+    examples: [
+      {
+        "code": "# PagedAttention: vLLM 的 KV Cache 分页管理\n# 问题：传统 KV Cache 是连续内存，长 context 会 OOM\n# 解决：把 KV Cache 分成固定大小的\"页\"（类似 OS 虚拟内存）\n\nfrom vllm import LLM, SamplingParams\n\nllm = LLM(\n    model=\"meta-llama/Llama-3-70b\",\n    gpu_memory_utilization=0.9,\n    block_size=16,         # 每页存 16 个 token 的 KV\n    max_num_blocks_per_seq=256,   # 最长 4096 tokens\n)\n\n# 自动应用 PagedAttention\noutputs = llm.generate([\"Long prompt...\"], SamplingParams(max_tokens=100))\n\n# 优势：\n# - 内存碎片化 ↓\n# - 长 context 支持 ↑\n# - batch 内不同 seq 长度高效共享 GPU",
+        "desc": "vLLM PagedAttention 用法"
+      }
+    ],
   },
   {
     id: "speculative-decoding",
@@ -2120,6 +2190,18 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>适用：</strong>相同分布的小模型 + 大模型对（如 7B + 70B）。</p>
 <p><strong>加速比：</strong>2-3x 典型，输出质量不变。</p>`,
     related: ["kv-cache","flash-attention"],
+    seeAlso: [
+      {
+        "name": "Speculative Decoding 论文",
+        "url": "https://arxiv.org/abs/2211.17192"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Speculative Decoding: 用小模型加速大模型推理\n# 1. 小模型 (draft) 生成 K 个候选 token（快）\n# 2. 大模型 (target) 一次性验证 K 个候选（并行）\n\n# 用 HuggingFace transformers 实现\nfrom transformers import AutoModelForCausalLM, AutoTokenizer\n\ndraft_model = AutoModelForCausalLM.from_pretrained(\"Qwen/Qwen2.5-0.5B\").cuda()\ntarget_model = AutoModelForCausalLM.from_pretrained(\"Qwen/Qwen2.5-7B\").cuda()\n\n# draft 生成 5 个 token\ndraft_tokens = draft_model.generate(input_ids, max_new_tokens=5)\n\n# target 一次性 verify\n# 接受 prefix 长度 = 直到第一个 mismatch\noutput = target_model.generate(\n    input_ids,\n    max_new_tokens=5,\n    speculative_decoding=True,\n    assistant_model=draft_model,\n)\n\n# 实测加速：2-3x（取决于 acceptance rate）",
+        "desc": "Speculative decoding 简化实现"
+      }
+    ],
   },
   {
     id: "flash-attention",
@@ -2133,6 +2215,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>原理：</strong>减少 GPU HBM ↔ SRAM 之间的 IO——attention 是 memory-bound。</p>
 <p><strong>版本：</strong>FlashAttention 1 / 2 / 3</p>`,
     related: ["attention","kv-cache"],
+    seeAlso: [
+      {
+        "name": "Flash Attention 论文 (Dao et al. 2022)",
+        "url": "https://arxiv.org/abs/2205.14135"
+      },
+      {
+        "name": "Flash Attention GitHub",
+        "url": "https://github.com/Dao-AILab/flash-attention"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Flash Attention: 内存高效的 attention 计算\n# 标准 attention: O(n²) 内存（存 attention matrix）\n# Flash Attention: O(n) 内存（分块计算，不存中间结果）\n\n# HuggingFace transformers 自动支持 (PyTorch 2.0+)\nfrom transformers import AutoModelForCausalLM\nimport torch\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"Qwen/Qwen2.5-7B\",\n    attn_implementation=\"flash_attention_2\",   # 启用\n    torch_dtype=torch.bfloat16,\n).cuda()\n\n# 长 context 训练必备（节省 5-10x 显存）",
+        "desc": "Flash Attention 启用方式"
+      }
+    ],
   },
   {
     id: "mixture-of-experts",
@@ -2150,6 +2248,22 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "Sparse models scale up but not out. DeepSeek V3 has 671B params but only 37B active.",
         "cite": "DeepSeek 2024"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "Switch Transformer 论文",
+        "url": "https://arxiv.org/abs/2101.03961"
+      },
+      {
+        "name": "DeepSeek V3 技术报告",
+        "url": "https://arxiv.org/abs/2412.19437"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Mixture of Experts (MoE): 稀疏激活大模型\n# DeepSeek V3: 671B 总参数，但每 token 只激活 ~37B\n\nclass MoELayer(torch.nn.Module):\n    def __init__(self, d_model, num_experts=64, top_k=2):\n        super().__init__()\n        self.gate = torch.nn.Linear(d_model, num_experts)\n        self.experts = torch.nn.ModuleList([\n            torch.nn.Sequential(\n                torch.nn.Linear(d_model, d_model * 4),\n                torch.nn.GELU(),\n                torch.nn.Linear(d_model * 4, d_model),\n            ) for _ in range(num_experts)\n        ])\n        self.top_k = top_k\n\n    def forward(self, x):\n        # 1. Router 决定 top-k experts\n        scores = self.gate(x)                    # (batch, seq, num_experts)\n        top_k_vals, top_k_idx = scores.topk(self.top_k, dim=-1)\n\n        # 2. 只激活 top-k experts\n        output = torch.zeros_like(x)\n        for k in range(self.top_k):\n            mask = (top_k_idx[..., k:k+1] == torch.arange(len(self.experts))).any(-1)\n            # ... 复杂 index + scatter，实际用 vLLM/Switch Transformer 优化\n        return output",
+        "desc": "MoE layer 简化实现"
       }
     ],
   },
@@ -2184,6 +2298,22 @@ Build  → 写代码、运行命令、调用工具</pre>
         "cite": "Gu & Dao 2023"
       }
     ],
+    seeAlso: [
+      {
+        "name": "Mamba 原论文 (Gu & Dao 2023)",
+        "url": "https://arxiv.org/abs/2312.00752"
+      },
+      {
+        "name": "Mamba GitHub",
+        "url": "https://github.com/state-spaces/mamba"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Mamba: 状态空间模型替代 Transformer\n# 优势：线性时间复杂度 O(n) vs Transformer O(n²)\n# 劣势：不适合需要精确检索的任务（vs attention）\n\nfrom mamba_ssm import Mamba\n\nmodel = Mamba(\n    d_model=768,           # hidden dim\n    d_state=16,            # SSM state dimension\n    d_conv=4,              # 局部卷积核大小\n    expand=2,              # 块扩展因子\n).to(\"cuda\")\n\n# 输入: (batch, seq_len, d_model)\nx = torch.randn(2, 1024, 768).to(\"cuda\")\ny = model(x)   # 输出同 shape\n\n# Mamba-2: 改进版本，更快 + 支持 tensor parallel\n# Jamba: Mamba + Attention 混合（弥补 Mamba 弱点）",
+        "desc": "Mamba state space model PyTorch 示例"
+      }
+    ],
   },
   {
     id: "rope",
@@ -2206,6 +2336,18 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "text": "RoPE encodes position by rotating the query and key vectors.",
         "cite": "Su et al. 2021"
+      }
+    ],
+    seeAlso: [
+      {
+        "name": "RoPE 原论文 (Su et al. 2021)",
+        "url": "https://arxiv.org/abs/2104.09864"
+      }
+    ],
+    examples: [
+      {
+        "code": "# RoPE (Rotary Position Embedding)\n# 核心思想：把位置信息编码为 query / key 向量的旋转\n# 不加 position embedding，而是旋转 Q、K 向量\n\nimport torch\nimport torch.nn.functional as F\n\ndef apply_rope(x, freqs):\n    \"\"\"\n    x:      (batch, heads, seq, d_k)\n    freqs:  (seq, d_k/2) — 预计算的 sin/cos\n    \"\"\"\n    # 把最后一维拆成两半，分别乘 cos/sin\n    x_pair = x.float().reshape(*x.shape[:-1], -1, 2)\n    x_real, x_imag = x_pair[..., 0], x_pair[..., 1]\n\n    # cos/sin 旋转\n    cos = freqs.cos()[None, None, :, :]\n    sin = freqs.sin()[None, None, :, :]\n    out_real = x_real * cos - x_imag * sin\n    out_imag = x_real * sin + x_imag * cos\n\n    return torch.stack([out_real, out_imag], dim=-1).reshape(x.shape).to(x.dtype)\n\n# 优势：天然支持相对位置 + 长度外推",
+        "desc": "RoPE 旋转位置编码 PyTorch 实现"
       }
     ],
   },
@@ -2235,6 +2377,22 @@ Build  → 写代码、运行命令、调用工具</pre>
 <p><strong>权衡：</strong>精度下降 vs 内存 / 速度提升</p>
 <p><strong>代表实现：</strong>bitsandbytes / GPTQ / AWQ / SmoothQuant</p>`,
     related: ["awq","gptq"],
+    seeAlso: [
+      {
+        "name": "bitsandbytes",
+        "url": "https://github.com/TimDettmers/bitsandbytes"
+      },
+      {
+        "name": "HuggingFace: Quantization",
+        "url": "https://huggingface.co/docs/transformers/quantization"
+      }
+    ],
+    examples: [
+      {
+        "code": "# Model Quantization: FP32 → FP16 → INT8 → INT4\n# 目的：减少模型大小 + 加速推理（牺牲一点精度）\n\n# 1. bitsandbytes (HuggingFace)\nfrom transformers import AutoModelForCausalLM, BitsAndBytesConfig\n\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,                    # 4-bit 量化\n    bnb_4bit_compute_dtype=\"bfloat16\",    # 计算用 bf16\n    bnb_4bit_quant_type=\"nf4\",            # NormalFloat4 (LLM 最优)\n)\n\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"meta-llama/Llama-3-70b\",\n    quantization_config=bnb_config,\n    device_map=\"auto\",\n)\n# 70B FP16 → 35GB → 4-bit: 17.5GB（单 24GB GPU 可跑）\n\n# 2. GPTQ (post-training, GPU-friendly)\n# 3. AWQ (activation-aware, 4-bit, 质量最好)",
+        "desc": "Model quantization 4-bit + bitsandbytes"
+      }
+    ],
   },
   {
     id: "awq",
