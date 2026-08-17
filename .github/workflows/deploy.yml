@@ -10,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -28,15 +27,21 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Build (no actual build needed, static)
+      - name: Build static site
         run: |
+          set -e
           mkdir -p _site
-          cp -r website/* _site/
-          # Use absolute URLs for SEO
-          sed -i 's|href="\(css/|href="/vibe-coding-wiki/css/|g' _site/*.html _site/pages/*.html
-          sed -i 's|src="\(js/|src="/vibe-coding-wiki/js/|g' _site/*.html _site/pages/*.html
-          sed -i 's|href="\([^/"]*\.svg\)"|href="/vibe-coding-wiki/\1"|g' _site/*.html _site/pages/*.html
-          sed -i 's|href="\(data/\)"|href="/vibe-coding-wiki/\1"|g' _site/*.html _site/pages/*.html
+          # Use rsync to exclude heavy/dev directories
+          rsync -a --exclude='node_modules' --exclude='.git' --exclude='*.pyc' --exclude='__pycache__' --exclude='tests' --exclude='vitest.config.js' --exclude='package*.json' website/ _site/
+          # Rewrite relative paths to absolute paths under repo subpath
+          find _site -type f -name "*.html" -exec sed -i 's|href="css/|href="/vibe-coding-wiki/css/|g; s|src="js/|src="/vibe-coding-wiki/js/|g; s|href="data/|href="/vibe-coding-wiki/data/|g' {} +
+          # Also rewrite SVG/og-image/sitemap/robots references
+          find _site -type f -name "*.html" -exec sed -i 's|href="favicon.svg"|href="/vibe-coding-wiki/favicon.svg"|g; s|href="og-image.svg"|href="/vibe-coding-wiki/og-image.svg"|g; s|href="sitemap.xml"|href="/vibe-coding-wiki/sitemap.xml"|g; s|href="robots.txt"|href="/vibe-coding-wiki/robots.txt"|g' {} +
+          # List output
+          echo "=== _site contents ==="
+          find _site -type f | head -20
+          echo "=== Sample rewritten paths ==="
+          grep -h "vibe-coding-wiki" _site/index.html | head -3
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
