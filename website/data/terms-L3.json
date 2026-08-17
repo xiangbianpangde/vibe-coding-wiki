@@ -573,6 +573,20 @@
         "text": "RAG: a way to give the model access to additional information that's not in its training data.",
         "cite": "OpenAI Cookbook"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Lewis et al. 2020 RAG 原始论文",
+        "url": "https://arxiv.org/abs/2005.11401"
+      },
+      {
+        "name": "OpenAI Cookbook: RAG",
+        "url": "https://cookbook.openai.com/examples/question_answering_using_embeddings"
+      },
+      {
+        "name": "LlamaIndex RAG 指南",
+        "url": "https://docs.llamaindex.ai/en/stable/getting_started/concepts/"
+      }
     ]
   },
   {

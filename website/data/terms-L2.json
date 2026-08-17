@@ -55,6 +55,22 @@
     "related": [
       "sdd",
       "pdd"
+    ],
+    "seeAlso": [
+      {
+        "name": "GitHub Spec Kit",
+        "url": "https://github.github.io/spec-kit/"
+      },
+      {
+        "name": "Spec Coding Manifesto",
+        "url": "https://spec-coding.dev"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "A good spec.md is not a prompt wrapper. It is the shared contract.",
+        "cite": "spec-coding.dev"
+      }
     ]
   },
   {
@@ -142,6 +158,16 @@
     "related": [
       "acceptance-criteria",
       "iterative-refinement"
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      },
+      {
+        "name": "LangChain: Iterative refinement",
+        "url": "https://python.langchain.com/docs/how_to/iterative_refinement/"
+      }
     ]
   },
   {
@@ -177,6 +203,22 @@
       "acceptance-criteria",
       "safety-net-testing",
       "safety-net-testing"
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: TDD",
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+      },
+      {
+        "name": "Kent Beck: TDD by Example",
+        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "TDD with AI: write the test first, let AI make it pass, then refactor. The test is the spec.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -478,6 +520,16 @@
         "code": "// .claude/settings.json\n{\n  \"hooks\": {\n    \"PreToolUse\": [{\n      \"matcher\": \"Bash\",\n      \"hooks\": [{\"type\": \"shell\", \"command\": \"echo\"}]\n    }]\n  }\n}",
         "desc": "Claude Code Hook 配置"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Hooks",
+        "url": "https://docs.claude.com/en/docs/claude-code/hooks"
+      },
+      {
+        "name": "Husky Git hooks",
+        "url": "https://typicode.github.io/husky/"
+      }
     ]
   },
   {
@@ -518,6 +570,16 @@
     "related": [
       "bundled-skills",
       "claude-md"
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Custom Commands",
+        "url": "https://docs.claude.com/en/docs/claude-code/custom-commands"
+      },
+      {
+        "name": "Claude Code: Slash commands",
+        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands"
+      }
     ]
   }
 ]

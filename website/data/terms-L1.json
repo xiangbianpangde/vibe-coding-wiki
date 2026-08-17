@@ -67,6 +67,22 @@
         "code": "用 Claude Code + Spec Kit：先写 spec.md，让 agent 拆分任务，本人只负责关键架构决策",
         "desc": "Fowler 描述的 agentic programming 实践"
       }
+    ],
+    "seeAlso": [
+      {
+        "name": "Simon Willison: Agentic engineering",
+        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Agentic programming uses LLMs as autonomous agents that plan, execute, and iterate on real software tasks.",
+        "cite": "Simon Willison"
+      }
     ]
   },
   {
@@ -173,6 +189,22 @@
       "vibe-coding",
       "agentic-programming",
       "pair-programming"
+    ],
+    "seeAlso": [
+      {
+        "name": "Martin Fowler: AI Assistance",
+        "url": "https://martinfowler.com/articles/exploring-gen-ai.html"
+      },
+      {
+        "name": "GitHub Copilot 研究",
+        "url": "https://github.blog/news-insights/research/research-the-impact-of-github-copilot/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "AI-assisted programming augments developer capabilities, not replaces them.",
+        "cite": "Martin Fowler"
+      }
     ]
   },
   {
@@ -321,6 +353,22 @@
     "related": [
       "agentic-engineering",
       "vibe-engineering"
+    ],
+    "seeAlso": [
+      {
+        "name": "Anthropic: Orchestration patterns",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      },
+      {
+        "name": "LangGraph 文档",
+        "url": "https://langchain-ai.github.io/langgraph/"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Orchestration of AI agents is the new role for developers: from writing code to managing autonomous collaborators.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -337,6 +385,28 @@
     "longDesc": "<p>Willison / Shimmin 提出：<strong>运行多个 agent 实例并行</strong>，每个处理一个问题。</p>\n<p>Shimmin 自述：他用多 agent 并行一周内写出了一个可工作的 Rust 编译器——这是单 agent 难以达到的速度。</p>\n<p>挑战：</p>\n<ul>\n<li>Context 隔离</li>\n<li>结果合并</li>\n<li>资源成本翻倍</li>\n<li>冲突检测</li>\n</ul>",
     "related": [
       "coding-agents"
+    ],
+    "examples": [
+      {
+        "code": "# Multi-Agent Parallelism: 多个 agent 并行解决多个问题\n# 实测案例：Shimmin 用此方法一周写出完整 Rust 编译器\n\n# 典型模式：\nasync function parallel_research(questions):\n    agents = questions.map(q =>\n        Agent(task=q, model=\"claude-sonnet-4-5\")\n    )\n    results = await Promise.all(agents.map(a => a.run()))\n    return merge(results)\n\n# 适用场景：\n# - 多文件并行重构\n# - 多模块并行测试\n# - 多角度并行调研\n\n# 限制：\n# - context 隔离（每个 agent 独立窗口）\n# - 合并逻辑要清晰",
+        "desc": "Multi-agent parallelism 实际模式"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Claude Code: Agent Teams",
+        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams"
+      },
+      {
+        "name": "Anthropic: Building effective agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Multi-agent parallelism: Shimmin used this to write a complete Rust compiler in one week.",
+        "cite": "community"
+      }
     ]
   },
   {
@@ -354,6 +424,22 @@
     "related": [
       "plan-verify-build",
       "guardrails"
+    ],
+    "seeAlso": [
+      {
+        "name": "LangGraph 文档",
+        "url": "https://langchain-ai.github.io/langgraph/"
+      },
+      {
+        "name": "CrewAI 文档",
+        "url": "https://docs.crewai.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Agarwal: multi-step agentic workflows produce tech debt at machine speed without engineering practices.",
+        "cite": "Agarwal"
+      }
     ]
   },
   {
@@ -371,6 +457,22 @@
     "related": [
       "cognitive-debt",
       "tech-debt"
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrew Hunt: Cognitive Debt",
+        "url": "https://www.huntthought.com/2026/cognitive-debt"
+      },
+      {
+        "name": "Martin Fowler: Technical Debt",
+        "url": "https://martinfowler.com/articles/isomorphism.html"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Hunt's framework: 2025 is technical debt year, 2026 transitions to cognitive debt year. The type of engineering burden is migrating.",
+        "cite": "Andrew Hunt"
+      }
     ]
   },
   {
