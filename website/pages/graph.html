@@ -125,7 +125,7 @@
 
 <section class="container" style="padding-bottom:64px;">
 
-<div class="mermaid-wrap" style="text-align:center;overflow-x:auto;background:#FFFFFF;padding:24px;">
+<div class="mermaid-wrap" style="text-align:center;overflow-x:auto;background:#FFFFFF;padding:24px;" hidden>
 <pre class="mermaid" style="text-align:center;">
 %%{init: {'flowchart': {'curve': 'basis', 'htmlLabels': true, 'nodeSpacing': 25, 'rankSpacing': 35, 'padding': 10}, 'themeVariables': {'fontSize': '12px'}}}%%
 graph TB
@@ -183,6 +183,32 @@ graph TB
   style L5Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
   style L6Layer fill:#F0EEE9,stroke:#AAA093,stroke-width:1px
   </pre>
+</div>
+
+<!-- Fallback: 静态表格说明（mermaid 加载失败时显示） -->
+<div id="graph-fallback" hidden style="margin-top:24px; padding:24px; background:var(--c-panel-soft); border:1px solid var(--c-line);">
+  <h3 style="font-family:var(--font-title);font-size:1.2rem;margin-bottom:12px;color:var(--c-ink);">关系图说明（静态 fallback）</h3>
+  <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin-bottom:16px;">Mermaid 图加载失败时显示此说明。完整关系见各词条详情页的"相关词条"。</p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;font-size:12px;">
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L1-paradigm);">
+      <strong>L1 范式层</strong>: vibe-coding, agentic-programming, vibe-engineering, agentic-engineering
+    </div>
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L2-method);">
+      <strong>L2 方法层</strong>: SDD, context-engineering, plan-verify-build
+    </div>
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L3-tech);">
+      <strong>L3 技术层</strong>: LLM, MCP, RAG, LoRA, attention
+    </div>
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L4-tools);">
+      <strong>L4 工具层</strong>: Claude Code, Cursor, LangChain, Aider
+    </div>
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L5-quality);">
+      <strong>L5 质量层</strong>: guardrails, MVP, hallucination
+    </div>
+    <div style="padding:12px;background:var(--c-panel);border-left:3px solid var(--L6-risk);">
+      <strong>L6 风险层</strong>: Lethal Trifecta, technical debt, vibe slop
+    </div>
+  </div>
 </div>
 
 <div style="margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -282,18 +308,25 @@ graph TB
 <script src="js/data.js"></script>
 <script src="js/search.js"></script>
 <script src="js/app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.6/dist/mermaid.min.js"></script>
 <script>
-  // Mermaid 渲染 — 手动调用避免 startOnLoad 冲突
-  function renderMermaid() {
-    if (typeof mermaid === 'undefined') return false;
+  // Mermaid 渲染 — Sol 推荐生命周期
+  // 依赖: mermaid-wrap 元素含 hidden 属性
+  // 不使用 startOnLoad（避免与 %%{init}%% 冲突）
+  // 手动调用 mermaid.run() + await
+  (async function renderGraph() {
     const wrap = document.querySelector('.mermaid-wrap');
-    const targets = document.querySelectorAll('.mermaid');
-    if (targets.length === 0) return true; // 无需渲染
-
+    const node = document.querySelector('.mermaid');
+    const fallback = document.getElementById('graph-fallback');
     try {
+      if (!window.mermaid) {
+        throw new Error('Mermaid failed to load');
+      }
+      if (!node) {
+        throw new Error('Mermaid graph node not found');
+      }
       mermaid.initialize({
-        startOnLoad: false, // 手动调用避免与 %%{init}%% 冲突
+        startOnLoad: false,
         theme: 'base',
         securityLevel: 'loose',
         themeVariables: {
@@ -306,52 +339,28 @@ graph TB
           fontFamily: '"Avenir Next", "PingFang SC", sans-serif',
           fontSize: '12px',
         },
-        flowchart: { curve: 'basis', padding: 8, nodeSpacing: 25, rankSpacing: 35, htmlLabels: true }
+        flowchart: {
+          curve: 'basis',
+          padding: 8,
+          nodeSpacing: 20,
+          rankSpacing: 25,
+          htmlLabels: true,
+        },
       });
-    } catch (e) {
-      // 即使 initialize 报错（可能已有 %%{init}%% 配置）也继续 render
+      // 真正的关键：显式 await run
+      await mermaid.run({ nodes: [node] });
+      // hard assertion: SVG 必须存在
+      if (!node.querySelector('svg')) {
+        throw new Error('Mermaid run completed but SVG was not produced');
+      }
+      // SVG 真正完成 → 显示
+      if (wrap) wrap.hidden = false;
+    } catch (err) {
+      console.error('[graph] Mermaid render failed:', err);
+      if (wrap) wrap.hidden = true;
+      if (fallback) fallback.hidden = false;
     }
-
-    // 手动渲染每个 .mermaid 块
-    let allRendered = true;
-    targets.forEach((el, i) => {
-      if (el.dataset.rendered === '1') return; // 避免重复
-      const code = el.textContent;
-      const id = 'mermaid-svg-' + Date.now() + '-' + i;
-      mermaid.render(id, code).then(({svg}) => {
-        el.innerHTML = svg;
-        el.dataset.rendered = '1';
-        if (wrap) wrap.style.visibility = '';
-      }).catch(err => {
-        console.warn('[mermaid] render failed:', err);
-        // fallback: 显示源码
-        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;color:#777;">' + code + '</pre>';
-        el.dataset.rendered = '1';
-        if (wrap) wrap.style.visibility = '';
-      });
-    });
-
-    return true;
-  }
-
-  // 多 retry 处理 CDN 加载顺序
-  let attempts = 0;
-  const maxAttempts = 20; // 20 × 200ms = 4s
-  function tryRender() {
-    attempts++;
-    if (renderMermaid()) return; // success
-    if (attempts < maxAttempts) {
-      setTimeout(tryRender, 200);
-    } else {
-      // 最终 fallback: 显示源码
-      const wrap = document.querySelector('.mermaid-wrap');
-      if (wrap) wrap.style.visibility = '';
-      document.querySelectorAll('.mermaid').forEach(el => {
-        el.innerHTML = '<pre style="white-space:pre-wrap;padding:16px;color:#777;">' + el.textContent + '</pre>';
-      });
-    }
-  }
-  tryRender();
+  })();
 </script>
 <script>
   // Service Worker registration (Round 2: offline cache)
