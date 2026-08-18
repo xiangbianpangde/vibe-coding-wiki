@@ -106,6 +106,25 @@
   color: var(--c-shihqing);
 }
 
+.term-meta-extra {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 12px;
+  padding: 0 4px;
+  border-top: 1px solid var(--c-line-soft);
+  padding-top: 8px;
+}
+
+.term-meta-extra a {
+  color: var(--c-muted);
+  text-decoration: none;
+}
+
+.term-meta-extra a:hover {
+  color: var(--c-shihqing);
+  text-decoration: underline;
+}
+
 /* ============ 主内容 ============ */
 .term-main { min-width: 0; }
 
