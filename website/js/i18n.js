@@ -75,8 +75,17 @@
     }
   }
 
+  // 6.5 Apply static translations (data-zh / data-en attribute)
+  function applyStaticTranslations(lang) {
+    document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+      el.textContent = lang === 'en' ? el.dataset.en : el.dataset.zh;
+    });
+  }
+
   // 7. Initialize
   applyLang(getInitialLang());
+  // 初始语言静态翻译
+  setTimeout(() => applyStaticTranslations(getInitialLang()), 0);
 
   // 8. Attach handler
   function attachHandler() {

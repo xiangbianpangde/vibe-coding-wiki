@@ -86,8 +86,36 @@
 /* ============ Compare Table ============ */
 .compare-table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--c-line);
   background: var(--c-panel);
+}
+
+.compare-table th:first-child,
+.compare-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--c-paper-deep);
+  box-shadow: 1px 0 0 var(--c-line);
+}
+
+.compare-table thead th:first-child {
+  z-index: 3;
+}
+
+.mobile-scroll-hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll-hint {
+    display: block;
+    font-size: 12px;
+    color: var(--c-muted);
+    margin-bottom: 8px;
+    text-align: center;
+  }
 }
 
 .compare-table {

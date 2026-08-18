@@ -69,15 +69,11 @@
       render(search($input.value));
       focusActiveResult();
     } else if (e.key === 'Enter') {
-      // 改进：如果没有选中，结果有 1 个就打开；否则打开选中的
-      if (activeIndex >= 0) {
-        e.preventDefault();
-        const target = $results.querySelectorAll('.search-result')[activeIndex];
-        if (target) location.href = target.dataset.url;
-      } else if (results.length === 1) {
-        e.preventDefault();
-        location.href = results[0].dataset.url;
-      }
+      // Sol #6： Enter 打开第一条结果（如果没选中）
+      e.preventDefault();
+      const index = activeIndex >= 0 ? activeIndex : 0;
+      const target = $results.querySelectorAll('.search-result')[index];
+      if (target) location.href = target.dataset.url;
     } else if (e.key === 'Escape') {
       $modal.classList.remove('open');
     }
