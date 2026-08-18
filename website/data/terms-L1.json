@@ -382,8 +382,6 @@
       "context-engineering"
     ],
     "source": "Andrew Hunt, 2026 prediction",
-    "coinedBy": "Andrew Hunt",
-    "coinedDate": "2026",
     "examples": [
       {
         "code": "症状：agent 突然不会做之前的任务 · 上下文丢失要重新填充 · 同一个 prompt 跑出不同结果",

@@ -371,8 +371,6 @@ window.VC_TERMS = [
     enLongDesc: "<p>Andrew Hunt (The Pragmatic Programmer) 2026 prediction: <strong>cognitive debt</strong> will replace technical debt as the dominant engineering burden.</p><p>Manifestations: context loss, unreliable agent behavior, prompt archaeology, agent drift.</p><p>Counter-balance: <strong>compounding leverage</strong> via engineering the agentic harness.",
     related: ["tech-debt","context-engineering"],
     source: "Andrew Hunt, 2026 prediction",
-    coinedBy: "Andrew Hunt",
-    coinedDate: "2026",
     quotes: [
       {
         "text": "In 2026, cognitive debt becomes the dominant engineering burden. Context loss, unreliable agent behavior, prompt archaeology.",
