@@ -210,6 +210,78 @@ For **larger changes** (new components, new pages, refactoring):
 - **Unreleased / vaporware products** — wait until stable
 - **Off-topic content** (not related to AI coding / vibe coding)
 
+## 🌟 How to File a Good First Issue (Maintainer Guide)
+
+> If you're a maintainer looking to create onboarding-friendly issues for new contributors, follow this template.
+
+### When to Create a Good First Issue
+
+Good First Issues are **scoped, well-defined, 1-3 file changes** that:
+- Touch **1 term file** (e.g., `terms-L3.json`) OR **1 module** (e.g., `js/search.js`)
+- Don't require deep domain knowledge
+- Have a clear "done" criterion
+- Can be completed in < 2 hours
+
+**Good candidates**:
+- Add `lastVerified` field to 1 term
+- Verify 1 primary source URL
+- Add 1 missing `seeAlso` reference
+- Fix 1 broken anchor link
+- Add 1 missing `examples` for a high-traffic term
+- Improve 1 enShortDesc translation
+
+**Bad candidates** (don't label "good first issue"):
+- Multi-term refactors
+- New feature implementation
+- Anything touching `prepare.py` / `runner.py` / `evaluate.py` (FROZEN files)
+
+### Issue Template (Maintainer)
+
+```markdown
+## [Good First Issue] <verb> <object>
+
+### What
+<1-2 sentences describing the task>
+
+### Why
+<1 sentence explaining the impact>
+
+### Where
+- File path: `website/data/terms-L<N>.json` (or other)
+- Specific terms: `term-id-1`, `term-id-2`, ...
+
+### Done When
+- [ ] Specific checkable outcome
+- [ ] PR opened with `Closes #<this-issue>`
+
+### Estimated Time
+<number> minutes
+
+### Difficulty
+Beginner (no prior knowledge required)
+```
+
+### Auto-Post Welcome Comment
+
+After creating a Good First Issue, post this welcome comment:
+
+```bash
+ISSUE_NUM=<n>
+gh issue comment $ISSUE_NUM --body-file ops/share/good-first-issue-welcome.md
+```
+
+This gives new contributors a structured starting point with:
+- Where to find docs (`docs/CONTRIBUTING.md`)
+- Which file to edit
+- How to test locally
+- How to open a PR
+
+### Active Good First Issues (Current)
+
+See [GitHub Issues labeled "good first issue"](https://github.com/xiangbianpangde/vibe-coding-wiki/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) for current onboarding tasks.
+
+Maintenance cadence: review weekly, label new candidates from incoming issues.
+
 ## 🔍 Code Review Process
 
 All PRs go through:
