@@ -321,6 +321,34 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.hero__hint {
+  font-size: 13px;
+  color: var(--c-muted);
+  margin-bottom: 32px;
+  font-family: var(--font-body);
+}
+
+.hero__hint kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-ink);
+  margin: 0 2px;
+}
+
+.hero__hint a {
+  color: var(--c-shihqing);
+  font-weight: 500;
+}
+
+.hero__hint a:hover {
+  text-decoration: underline;
 }
 
 .btn {
