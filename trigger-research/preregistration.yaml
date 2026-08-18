@@ -1,0 +1,437 @@
+# Preregistration: Latent Capability Trigger Study
+# Frozen BEFORE confirmation phase (Phase B freeze).
+# Once written, this file MUST NOT be modified.
+# Modifications invalidate all confirmation runs.
+
+# ============================================================
+# 1. Research Question
+# ============================================================
+research_question: |
+  Do short, minimally informative lexical cues produce reproducible,
+  domain-selective gains in LLM task accuracy beyond semantic
+  paraphrases, generic reasoning prompts, and matched random controls?
+
+# ============================================================
+# 2. Primary Hypothesis
+# ============================================================
+primary_hypothesis: |
+  There exists some trigger t such that paired exact accuracy
+  Δ(t) = Acc(t) - Acc(baseline) > 0, with effect replicating on
+  untouched holdout, beating matched random controls, persisting
+  under problem paraphrasing, stable across runs, and ideally
+  domain-selective.
+
+null_hypothesis: |
+  For any problem i, P(Yᵢ=1 | T=t) = P(Yᵢ=1 | T=∅).
+
+# ============================================================
+# 3. Domains
+# ============================================================
+domains:
+  - id: medicine
+    name: Medical Reasoning
+    benchmark: MedQA-USMLE
+    citation: "Jin et al., 2021, MedQA"
+    items_total: 1273
+    splits:
+      discovery: 150
+      confirmation: 800
+      reserve: 323
+    primary_triggers: [domain_concept, strategy, role, abbreviation]
+    expected_effect_direction: "+5 to +10 percentage points"
+
+  - id: math
+    name: Mathematical Reasoning
+    benchmark: GSM1k + answer-preserving perturbations
+    citation: "GSM1k construction paper"
+    items_total: 1000
+    splits:
+      discovery: 120
+      confirmation: 700
+      reserve: 180
+    primary_triggers: [concept, strategy, role, shorthand]
+    expected_effect_direction: "+3 to +8 percentage points"
+
+  - id: code_replication
+    name: Code Generation (Replication Only)
+    benchmark: LiveCodeBench
+    citation: "Jain et al., 2024, LiveCodeBench"
+    items_total: TBD
+    splits:
+      discovery: 100
+      confirmation: 400
+    primary_triggers: [concept, role]
+    note: "Replication only. Calls and unit-test scoring cost higher."
+
+# ============================================================
+# 4. Triggers (Frozen after Phase B)
+# ============================================================
+trigger_families:
+  domain_knowledge:
+    medicine:
+      - {id: med_concept_01, text: "differential diagnosis", type: phrase}
+      - {id: med_concept_02, text: "pathophysiology", type: word}
+      - {id: med_concept_03, text: "etiology", type: word}
+      - {id: med_concept_04, text: "Bayesian", type: word}
+    math:
+      - {id: math_concept_01, text: "invariant", type: word}
+      - {id: math_concept_02, text: "symmetry", type: word}
+      - {id: math_concept_03, text: "amortized analysis", type: phrase}
+
+  reasoning_strategy:
+    medicine:
+      - {id: med_strat_01, text: "differential", type: word}
+      - {id: med_strat_02, text: "rule out", type: phrase}
+      - {id: med_strat_03, text: "localize", type: word}
+    math:
+      - {id: math_strat_01, text: "dimensional analysis", type: phrase}
+      - {id: math_strat_02, text: "constructive proof", type: phrase}
+      - {id: math_strat_03, text: "counterexample", type: word}
+
+  role_distribution:
+    medicine:
+      - {id: med_role_01, text: "radiologist", type: word}
+      - {id: med_role_02, text: "internist", type: word}
+    math:
+      - {id: math_role_01, text: "olympiad mathematician", type: phrase}
+
+  abbreviation:
+    medicine:
+      - {id: med_abbr_01, text: "DDx", type: word}
+      - {id: med_abbr_02, text: "Dx", type: word}
+    math:
+      - {id: math_abbr_01, text: "WLOG", type: word}
+
+# ============================================================
+# 5. Required Controls (every trigger tested against all)
+# ============================================================
+required_controls:
+  - {id: ctrl_baseline, text: "", type: empty, role: "no trigger baseline"}
+  - {id: ctrl_generic_reasoning, text: "think carefully", type: generic, role: "general prompt benefit"}
+  - {id: ctrl_unrelated_word_1, text: "banana", type: real_word, role: "any English word"}
+  - {id: ctrl_unrelated_word_2, text: "harbor", type: real_word, role: "any English word"}
+  - {id: ctrl_nonce_1, text: "mivora", type: nonce, role: "no pre-existing semantics"}
+  - {id: ctrl_nonce_2, text: "talnix", type: nonce, role: "no pre-existing semantics"}
+  - {id: ctrl_gibberish_1, text: "xqz17", type: gibberish, role: "token/length effect"}
+  - {id: ctrl_gibberish_2, text: "vnr42", type: gibberish, role: "token/length effect"}
+
+# ============================================================
+# 6. Ablation Protocol (per candidate trigger)
+# ============================================================
+ablation_conditions:
+  - "[none]"                              # baseline
+  - "{trigger_text}"                       # exact candidate
+  - "{trigger_text_capitalized}"           # DIFFERENTIAL DIAGNOSIS
+  - "{trigger_abbreviation}"               # DDx
+  - "{trigger_single_word}"                # differential
+  - "{trigger_semantic_paraphrase}"        # consider alternative possible diagnoses
+  - "{trigger_reordered}"                  # diagnosis differential
+  - "{trigger_with_typo}"                  # d1fferential diagnosis
+  - "{nonce_word}"                         # mivora
+  - "{real_word}"                          # banana
+
+# ============================================================
+# 7. Prompt Template (Frozen)
+# ============================================================
+prompt_template: |
+  SYSTEM:
+  Answer the following question.
+  Return only the final answer in the required format.
+
+  USER:
+  {TRIGGER}
+  {QUESTION}
+
+notes_on_template:
+  - Only {TRIGGER} may vary across experimental conditions.
+  - Empty {TRIGGER} = baseline condition.
+  - DO NOT use instructional triggers as primary (e.g., "Use differential diagnosis to carefully reason...").
+
+# ============================================================
+# 8. Primary Metric
+# ============================================================
+primary_metric:
+  name: paired_exact_accuracy_difference
+  formula: "Δ = Accuracy(trigger) - Accuracy(baseline)"
+  computation: "All comparisons use identical problem IDs"
+  unit: percentage_points
+
+secondary_metrics:
+  - paired_bootstrap_95ci
+  - exact_mcnemar_test
+  - format_compliance_rate
+  - abstention_rate
+  - input_tokens
+  - output_tokens
+  - reasoning_tokens
+  - latency_ms
+  - api_cost_estimate
+  - run_to_run_consistency
+
+# ============================================================
+# 9. Statistical Tests
+# ============================================================
+statistics:
+  effect_size:
+    type: paired_risk_difference
+    unit: percentage_points
+    not_recommended: cohen_d  # we have binary outcomes
+
+  confidence_interval:
+    type: paired_bootstrap_95ci
+    resampling_unit: problem_id   # NOT independent responses
+    resamples: 10000
+
+  significance:
+    type: exact_mcnemar
+    rationale: "Paired binary outcome; same problem tested in both conditions"
+
+  multiplicity:
+    discovery:
+      correction: BH_FDR
+      q: 0.10
+      note: "Discovery results are exploratory"
+    confirmation:
+      correction: holm_bonferroni
+      family_wise_alpha: 0.05
+      note: "All preregistered contrasts reported regardless of direction"
+
+# ============================================================
+# 10. Sample Size (Power Calculation)
+# ============================================================
+sample_size:
+  alpha: 0.05
+  power: 0.80
+  requirements:
+    +10pp_discordant_q_0.20: 150
+    +10pp_discordant_q_0.30: 230
+    +10pp_discordant_q_0.40: 310
+    +5pp_discordant_q_0.20: 620
+    +5pp_discordant_q_0.30: 935
+    +5pp_discordant_q_0.40: 1250
+  recommendations:
+    discovery_min: 150
+    confirmation_min: 400
+    confirmation_better: "600-800 per domain"
+
+# ============================================================
+# 11. Reasoning-Effort Experiment
+# ============================================================
+reasoning_effort:
+  primary_interaction: "I = Δ_trigger(low) - Δ_trigger(high)"
+  effort_levels: [low, medium, high]
+  provider_caveats:
+    openai: "reasoning.effort is model-dependent"
+    anthropic: "adaptive thinking + effort; low effort may not reason on simple tasks"
+  equivalence_test:
+      description: "Test if Acc(low,T) ≈ Acc(high,B) within preregistered margin"
+      margin_pp: 2
+      not: "failed to reject difference"
+
+# ============================================================
+# 12. Hard Gates (Run INVALID if violated)
+# ============================================================
+hard_gates:
+  - "frozen-file hash mismatch"
+  - "confirmation items inspected during trigger selection"
+  - "prompt text differs outside allowed trigger slot"
+  - "question text changes across conditions"
+  - "answer-choice order changes across conditions"
+  - "model snapshot or model ID changes inside comparison"
+  - "reasoning-effort config changes unexpectedly"
+  - "output-token budget differs between trigger conditions"
+  - "temperature/sampling config differs between conditions"
+  - "responses share conversational state across conditions"
+  - "answer parser changes after results seen"
+  - "failed items silently removed"
+  - "trigger-specific retries performed"
+  - "semantic retries / self-correction retries"
+  - "LLM-as-judge used as primary correctness metric"
+  - "confirmation triggers selected using confirmation results"
+  - "only favorable subgroups reported"
+  - "raw responses or request metadata unavailable"
+  - "request ordering not randomized"
+  - "duplicate or missing problem-condition cells unexplained"
+
+retry_policy:
+  transport_failures:
+    allowed: true
+    requirement: "identical request payload, logged"
+  semantic_failures:
+    allowed: false
+    rationale: "Triggers must change first response, not retry"
+
+# ============================================================
+# 13. Request Independence & Randomization
+# ============================================================
+request_independence:
+  forbidden_reuse:
+    - conversation_history
+    - assistant_state
+    - scratchpads
+    - previous_responses
+  randomization:
+    axis: [problem, trigger, model, effort]
+    seed: FROZEN  # set before confirmation
+    per_run_logged: true
+
+# ============================================================
+# 14. Frozen Run Parameters (Pre-Confirmation)
+# ============================================================
+frozen_run_parameters:
+  temperature: 0.0
+  max_output_tokens: 32
+  reasoning_effort: medium
+  api_timeout_seconds: 90
+  retries_on_error: 1
+  retries_on_semantic_failure: 0
+  prompt_hash: FROZEN
+  answer_parser: FROZEN
+
+# ============================================================
+# 15. Scientific Claim Levels
+# ============================================================
+claim_levels:
+  - level: 0
+    claim: Association
+    evidence: "One benchmark/model trigger improvement"
+  - level: 1
+    claim: Replicated Behavioral Trigger
+    evidence: "Untouched holdout + beats matched controls"
+  - level: 2
+    claim: Domain-Selective Trigger
+    evidence: "Preregistered trigger × domain interaction + paraphrased problems"
+  - level: 3
+    claim: Mechanistic Latent Selector
+    evidence: "Activation probing / causal intervention / activation patching"
+    warning: "Black-box accuracy alone MUST NOT be described as Level 3"
+
+# ============================================================
+# 16. Reporting
+# ============================================================
+reporting:
+  all_preregistered_contrasts: required
+  effect_size: required
+  confidence_interval: required
+  exploratory_vs_confirmatory_distinguished: required
+  failed_results: "MUST NOT be deleted"
+  public_artifacts:
+    - trigger registry
+    - problem IDs
+    - code
+    - statistical methods
+    - raw responses (or hash if too large)
+
+# ============================================================
+# 17. Critical Traps (Avoid)
+# ============================================================
+traps:
+  trap_1_instruction_vs_trigger:
+    description: "Don't confuse 'Use differential diagnosis to carefully reason...' (instructional) with bare lexical cue like 'differential'"
+    counter_control: "semantic paraphrase + bare cue + nonce controls"
+
+  trap_2_autoresearch_pollutes_benchmark:
+    description: "If flow is: try trigger → score → keep best → continue → benchmark becomes training set"
+    counter_control: "Discovery can autoresearch; Confirmation MUST NOT"
+
+  trap_3_black_box_doesnt_prove_internal:
+    description: "Even +10pp, p<0.001, 3 model replications only proves prompt-conditioned behavioral capability shift"
+    counter_control: "Closed APIs may have provider routing / hidden prompts / adaptive reasoning"
+    safe_title: 'Latent Capability Trigger Hypothesis — behavioral evidence'
+    unsafe_title: 'we discovered internal latent modes'
+
+# ============================================================
+# 18. Interpretation Hierarchy (Sol-provided)
+# ============================================================
+interpretation_hierarchy:
+  level_A_instruction:
+    evidence: "All paraphrases also help"
+    claim: "Prompt/instruction effect (still meaningful, but not lexical trigger)"
+  level_B_semantic_strategy:
+    evidence: "Paraphrase + DDx both help, banana/banana don't"
+    claim: "Semantic strategy activation"
+  level_C_lexical_sensitivity:
+    evidence: "Only specific lexical form helps, nonce 0"
+    claim: "Lexical sensitivity (most interesting)"
+  level_D_domain_selective:
+    evidence: "MedQA only, not Math"
+    claim: "Domain-selective trigger"
+
+cross_domain_trigger_warning: |
+  If trigger helps Medicine, Math, AND Coding uniformly, more likely a generic metacognitive cue (NOT universal latent capability token).
+  Check reasoning_tokens / latency / output_tokens.
+  If they increase by 40%: implicit effort cue.
+
+reasoning_effort_interpretation:
+  if_low_T_approx_eq_high_baseline:
+    explanation_1: "Trigger changes search policy (not compute) — most interesting"
+    explanation_2: "Trigger implicitly increases compute"
+    explanation_3: "High effort saturates same strategy → Trigger × Effort negative interaction"
+    check: "reasoning_tokens / latency / output_tokens"
+
+# ============================================================
+# 19. Project Timeline (Sol-recommended 2-3 weeks)
+# ============================================================
+timeline:
+  week_1:
+    goal: "Freeze infrastructure"
+    deliverables:
+      - prepare.py
+      - runner.py
+      - evaluate.py
+      - trigger registry
+      - control generator
+      - preregistration.yaml
+      - hard gates
+      - dry-run with mock provider
+      - complete discovery
+
+  week_2:
+    goal: "Main experiment"
+    deliverables:
+      - freeze candidate triggers
+      - freeze confirmation IDs
+      - freeze statistics
+      - freeze models
+      - execute Medicine + Math confirmation
+
+  week_3:
+    goal: "Replication"
+    deliverables:
+      - cross-model replication
+      - reasoning effort experiment
+      - ablation
+      - 10% repeatability
+      - stats + report
+
+  STOP_AT_WEEK_3: true
+  stop_rationale: "Do not become leaderboard hacking"
+
+# ============================================================
+# 20. Status (filled in by audit/leader)
+# ============================================================
+status:
+  sol_design_complete: true
+  sol_job_id: "8497c08c-77b2-4893-89c3-97237224a50b"
+  prepare_py: pending
+  runner_py: pending
+  evaluate_py: pending
+  mock_provider: pending
+  trigger_registry: pending
+  hard_gate_validator: pending
+  api_key_holder_discovery_run: pending
+  confirmation_freeze_commit: pending
+  confirmation_run: pending
+  replication_runs: pending
+  final_report: pending
+
+# ============================================================
+# 21. Final Word
+# ============================================================
+final_statement: |
+  This project establishes behavioral trigger effects only.
+  Internal latent-mode claims require separate mechanistic evidence
+  (Level 3) via open-weight activation intervention.
+  Black-box accuracy alone is necessary but NOT sufficient.
+  Safest paper title: "Latent Capability Trigger Hypothesis — behavioral evidence"
+  NOT: "we discovered internal latent modes"

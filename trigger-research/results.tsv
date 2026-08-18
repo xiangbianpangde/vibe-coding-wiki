@@ -1,0 +1,2 @@
+timestamp	commit	phase	trigger_id	domain	model	n	delta_pp	ci_low_pp	ci_high_pp	mcnemar_p	p_holm	significant	status	notes
+2026-08-18T17:43:00Z	pending	discovery	mock	dry-run	mock-provider	3	33.33	-100.00	100.00	1.0000	1.0	false	dry-run	Sol design integration complete. Awaiting API key holder.
