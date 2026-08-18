@@ -895,6 +895,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.5;
 }
 
+.search-mark {
+  background: var(--c-liujin);
+  color: var(--c-ink);
+  padding: 0 2px;
+  font-weight: 600;
+  border-radius: 0;
+}
+
 .search-layer-badge {
   display: inline-block;
   padding: 3px 8px;

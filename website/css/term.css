@@ -330,6 +330,30 @@
   font-style: normal;
 }
 
+.quote-copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  font-size: 11px;
+  color: var(--c-ink);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.quote-copy-btn:hover {
+  background: var(--c-liujin);
+  border-color: var(--c-liujin);
+}
+
+.quote-card {
+  position: relative;
+}
+
 /* ============ 引用与来源 ============ */
 .term-source {
   padding: 16px 20px;

@@ -18,8 +18,22 @@
     return engine.search(window.VC_DATA || [], q, 14);
   }
 
+  // 转义 + 高亮 query
+  function highlight(text, q) {
+    if (!text) return '';
+    const safe = String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+    if (!q) return safe;
+    const safeQ = String(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp(safeQ, 'gi'), m => `<mark class="search-mark">${m}</mark>`);
+  }
+
   function render(results) {
     if (!$results) return;
+    const q = $input ? $input.value : '';
     if (!results.length) {
       $results.innerHTML = '<div style="padding:24px;text-align:center;color:var(--c-muted);font-size:13px;">没有匹配的结果</div>';
       return;
@@ -29,10 +43,10 @@
       return `
       <div class="search-result${i === activeIndex ? ' active' : ''}" data-i="${i}" data-url="${url}">
         <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
-          <h5 style="margin:0;flex:1;">${r.zh} <span style="font-weight:400;color:var(--c-muted);font-size:12px;">· ${r.name}</span></h5>
+          <h5 style="margin:0;flex:1;">${highlight(r.zh, q)} <span style="font-weight:400;color:var(--c-muted);font-size:12px;">· ${highlight(r.name, q)}</span></h5>
           <span class="search-layer-badge" style="background:${window.VC_LAYERS[r.layer].color};color:#fff;">${window.VC_LAYERS[r.layer].name}</span>
         </div>
-        <p style="margin:6px 0 0;">${r.desc}</p>
+        <p style="margin:6px 0 0;">${highlight(r.desc, q)}</p>
       </div>
     `}).join('');
   }

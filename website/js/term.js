@@ -134,12 +134,37 @@ function initTermPage() {
   // ======== Quotes ========
   const quotesEl = document.getElementById('term-quotes');
   if (term.quotes && term.quotes.length) {
-    quotesEl.innerHTML = term.quotes.map(q => `
+    quotesEl.innerHTML = term.quotes.map((q, i) => `
       <div class="quote-card">
         <div class="quote-card__text">"${q.text}"</div>
         <div class="quote-card__cite">— ${q.cite}</div>
+        <button class="quote-copy-btn" data-quote-index="${i}" aria-label="Copy quote">📋 Copy</button>
       </div>
     `).join('');
+    // 绑定复制按钮
+    quotesEl.querySelectorAll('.quote-copy-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = parseInt(btn.dataset.quoteIndex, 10);
+        const q = term.quotes[idx];
+        const text = `"${q.text}"\n— ${q.cite}`;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = '✅ Copied';
+            setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+          });
+        } else {
+          // Fallback
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+          btn.textContent = '✅ Copied';
+          setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+        }
+      });
+    });
   } else {
     quotesEl.innerHTML = '<p class="text-faint">暂无相关引文。</p>';
   }
