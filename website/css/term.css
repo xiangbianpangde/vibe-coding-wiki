@@ -598,6 +598,29 @@
   font-family: var(--font-mono);
 }
 
+.term-header-cta {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.term-cta-btn {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--c-panel);
+  border: 1px solid var(--c-line);
+  font-size: 11px;
+  color: var(--c-ink);
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+}
+
+.term-cta-btn:hover {
+  background: var(--c-liujin);
+  border-color: var(--c-liujin);
+}
+
 /* ============ Example Cards ============ */
 .example-card {
   background: var(--c-panel-soft);
