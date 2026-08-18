@@ -17,8 +17,8 @@
     ],
     "examples": [
       {
-        "code": "// GitClear 2024 数据：\n// - refactor 占比：25% → <10%（5 年下降 60%）\n// - duplicate code：增加 4x\n// - code churn：增加 2x\n// AI 时代：快速凑出能跑的代码，但跳过重构 → 长期维护成本累积",
-        "desc": "GitClear 实证数据"
+        "code": "// GitClear 2021-2024 数据（methodology caveats apply）：\n// - refactor 占比：25% → <10%（4 年下降 60%）\n// - code cloning metric：增加约 4x\n// - code churn：增加约 2x\n// AI 时代：快速凑出能跑的代码，但跳过重构 → 长期维护成本累积",
+        "desc": "GitClear 实证数据（带方法论说明）"
       }
     ],
     "quotes": [
@@ -96,14 +96,14 @@
       "risk",
       "metric"
     ],
-    "shortDesc": "代码被修改/重写/删除的比率。vibe coding 显著推高。",
-    "longDesc": "<p>代码被<strong>修改 / 重写 / 删除</strong>的比率。</p>\n<p><strong>vibe coding 影响：</strong>AI 倾向于\"重写而不重构\"，导致 churn 飙升。</p>\n<p><strong>GitClear 数据：</strong>2024 年代码 churn 较 2021 翻倍。</p>",
+    "shortDesc": "代码被修改/重写/删除的比率。GitClear 2021-2024 churn metric 翻倍。",
+    "longDesc": "<p>代码被<strong>修改 / 重写 / 删除</strong>的比率。</p>\n<p><strong>vibe coding 影响：</strong>AI 倾向于\"重写而不重构\"，导致 churn 飙升。</p>\n<p><strong>GitClear Code Quality Report：</strong>2021-2024 年代码 churn metric 翻倍。该指标基于 GitClear 专有方法论（methodology caveats apply）。</p>",
     "related": [
       "tech-debt",
       "code-duplication"
     ],
-    "enShortDesc": "Rate at which code is modified, rewritten, or deleted. Vibe coding significantly increases it.",
-    "enLongDesc": "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored.</p>"
+    "enShortDesc": "Rate at which code is modified, rewritten, or deleted. GitClear reports churn metric doubled 2021-2024, methodology caveats apply.",
+    "enLongDesc": "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored. The GitClear Code Quality Report measured ~2x growth in their churn metric from 2021-2024 (with methodology caveats—definition and sampling rules apply).</p>"
   },
   {
     "id": "code-duplication",
@@ -440,8 +440,8 @@
         "cite": "community"
       }
     ],
-    "enShortDesc": "AI-generated code security issues. Veracode research: no improvement over 3 years.",
-    "enLongDesc": "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>"
+    "enShortDesc": "AI-generated code security issues. Veracode 2025: security pass rate plateaued 45-55% across 2023-2025; model size uncorrelated.",
+    "enLongDesc": "<p><strong>Security</strong> of AI-generated code: Veracode's 2025 report found security pass rate plateaued at 45-55% across 2023-2025, and model size showed no correlation with pass rate—larger models are not more secure than smaller ones.</p>"
   },
   {
     "id": "metr-rct",
@@ -492,7 +492,7 @@
     "quotes": [
       {
         "text": "AI solutions almost right, but not quite.",
-        "cite": "Stack Overflow 2025 - 66% of devs"
+        "cite": "Stack Overflow 2025 Developer Survey (paraphrase of 66% reporting this issue)"
       }
     ],
     "examples": [
