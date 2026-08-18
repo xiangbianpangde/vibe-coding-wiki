@@ -527,7 +527,7 @@
         "url": "https://docs.claude.com/en/docs/claude-code/security"
       }
     ],
-    "enShortDesc": "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    "enShortDesc": "Background classifier that reviews operations. uses safety classifier + defense-in-depth, reduces prompt injection risk but doesn't guarantee absolute safety.",
     "enLongDesc": "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>"
   },
   {

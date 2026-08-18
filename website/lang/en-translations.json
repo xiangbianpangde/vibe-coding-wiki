@@ -338,7 +338,7 @@
     "enLongDesc": "<p><strong>Permission mode</strong> controls which tool calls Claude Code can make without confirmation. Three modes: default (prompt for risky), acceptEdits, bypassPermissions.</p>"
   },
   "auto-mode": {
-    "enShortDesc": "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    "enShortDesc": "Background classifier that reviews operations. uses safety classifier + defense-in-depth, reduces prompt injection risk but doesn't guarantee absolute safety.",
     "enLongDesc": "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>"
   },
   "bare-mode": {
@@ -530,7 +530,7 @@
     "enLongDesc": "<p>A <strong>manifest file</strong> (e.g., package.json, pyproject.toml, CLAUDE.md, AGENTS.md) declares project metadata, dependencies, scripts. AI agents read these for context.</p>"
   },
   "auto-mode-safety": {
-    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results; uses defense-in-depth to reduce prompt injection risk but doesn't guarantee absolute safety.",
     "enLongDesc": "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>"
   },
   "managed-settings": {

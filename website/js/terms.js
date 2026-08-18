@@ -1159,7 +1159,7 @@ Build  → 写代码、运行命令、调用工具</pre>
 </ul>
 <p><strong>关键安全特性：</strong>分类器<strong>看不到工具结果</strong>——因此无法被 prompt injection 影响。</p>
 <p><strong>防御范围：</strong>scope escalation、untrusted infrastructure、prompt injection。</p>`,
-    enShortDesc: "Background classifier that reviews operations. Doesn't see tool results, so immune to prompt injection.",
+    enShortDesc: "Background classifier that reviews operations. uses safety classifier + defense-in-depth, reduces prompt injection risk but doesn't guarantee absolute safety.",
     enLongDesc: "<p><strong>Auto mode</strong>: a background safety classifier approves or rejects agent actions. Crucially, it never sees tool results, so injected instructions cannot trick it.</p>",
     related: ["permission-mode","prompt-injection","guardrails"],
     quotes: [
@@ -4966,7 +4966,7 @@ Build  → 写代码、运行命令、调用工具</pre>
 <li>分类器<strong>看不到工具结果</strong>→ 免疫 prompt injection</li>
 <li>防御 scope escalation、untrusted infrastructure</li>
 </ul>`,
-    enShortDesc: "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    enShortDesc: "Claude Code Auto Mode's safety design: background classifier never sees tool results; uses defense-in-depth to reduce prompt injection risk but doesn't guarantee absolute safety.",
     enLongDesc: "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>",
     related: ["auto-mode","prompt-injection"],
     quotes: [
@@ -5058,8 +5058,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     ],
     examples: [
       {
-        "code": "// GitClear 2024 数据：\n// - refactor 占比：25% → <10%（5 年下降 60%）\n// - duplicate code：增加 4x\n// - code churn：增加 2x\n// AI 时代：快速凑出能跑的代码，但跳过重构 → 长期维护成本累积",
-        "desc": "GitClear 实证数据"
+        "code": "// GitClear 2021-2024 数据（methodology caveats apply）：\n// - refactor 占比：25% → <10%（4 年下降 60%）\n// - code cloning metric：增加约 4x\n// - code churn：增加约 2x\n// AI 时代：快速凑出能跑的代码，但跳过重构 → 长期维护成本累积",
+        "desc": "GitClear 实证数据（带方法论说明）"
       }
     ],
   },
@@ -5105,12 +5105,12 @@ Build  → 写代码、运行命令、调用工具</pre>
     layer: "L6",
     category: "risk",
     tags: ["risk","metric"],
-    shortDesc: "代码被修改/重写/删除的比率。vibe coding 显著推高。",
+    shortDesc: "代码被修改/重写/删除的比率。GitClear 2021-2024 churn metric 翻倍。",
     longDesc: `<p>代码被<strong>修改 / 重写 / 删除</strong>的比率。</p>
 <p><strong>vibe coding 影响：</strong>AI 倾向于"重写而不重构"，导致 churn 飙升。</p>
-<p><strong>GitClear 数据：</strong>2024 年代码 churn 较 2021 翻倍。</p>`,
-    enShortDesc: "Rate at which code is modified, rewritten, or deleted. Vibe coding significantly increases it.",
-    enLongDesc: "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored.</p>",
+<p><strong>GitClear Code Quality Report：</strong>2021-2024 年代码 churn metric 翻倍。该指标基于 GitClear 专有方法论（methodology caveats apply）。</p>`,
+    enShortDesc: "Rate at which code is modified, rewritten, or deleted. GitClear reports churn metric doubled 2021-2024, methodology caveats apply.",
+    enLongDesc: "<p><strong>Code churn</strong>: the percentage of code that changes over time. AI tools increase churn because code is rewritten rather than refactored. The GitClear Code Quality Report measured ~2x growth in their churn metric from 2021-2024 (with methodology caveats—definition and sampling rules apply).</p>",
     related: ["tech-debt","code-duplication"],
   },
   {
@@ -5124,8 +5124,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>相同 / 相似代码段重复出现。</p>
 <p><strong>vibe coding 影响：</strong>AI 重复生成相似函数，不主动 DRY。</p>
 <p><strong>GitClear Code Quality Report：</strong>GitClear 报告 2021-2024 年代码克隆度量增长约 4 倍。该指标基于 GitClear 专有方法论，包含采样规则与定义细节（methodology caveats apply）。</p>`,
-    enShortDesc: "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
-    enLongDesc: "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>",
+    enShortDesc: "Identical or similar code segments repeated. GitClear reports ~4x growth in code-cloning metric from 2021-2024, methodology caveats apply.",
+    enLongDesc: "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication. The GitClear Code Quality Report measured ~4x growth in their code-cloning metric from 2021-2024 (with methodology caveats—definition and sampling rules apply).</p>",
     related: ["tech-debt","code-churn"],
   },
   {
@@ -5417,8 +5417,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     longDesc: `<p>AI 生成代码的<strong>安全问题</strong>。</p>
 <p><strong>Veracode 2025-10：</strong>LLM 生成代码安全性 security pass rate 在 2023-2025 期间维持在 45-55%；大模型不比小模型更安全。</p>
 <p><strong>CodeRabbit 2025-12：</strong>AI co-authored 代码<strong>安全漏洞</strong>多 2.74 倍。</p>`,
-    enShortDesc: "AI-generated code security issues. Veracode research: no improvement over 3 years.",
-    enLongDesc: "<p><strong>Security</strong> of AI-generated code: studies (Veracode 2025) show no improvement in 3 years. Larger models aren't more secure than smaller ones.</p>",
+    enShortDesc: "AI-generated code security issues. Veracode 2025: security pass rate plateaued 45-55% across 2023-2025; model size uncorrelated.",
+    enLongDesc: "<p><strong>Security</strong> of AI-generated code: Veracode's 2025 report found security pass rate plateaued at 45-55% across 2023-2025, and model size showed no correlation with pass rate—larger models are not more secure than smaller ones.</p>",
     related: ["veracode","prompt-injection"],
     quotes: [
       {
@@ -5479,7 +5479,7 @@ Build  → 写代码、运行命令、调用工具</pre>
     quotes: [
       {
         "text": "AI solutions almost right, but not quite.",
-        "cite": "Stack Overflow 2025 - 66% of devs"
+        "cite": "Stack Overflow 2025 Developer Survey (paraphrase of 66% reporting this issue)"
       }
     ],
     seeAlso: [

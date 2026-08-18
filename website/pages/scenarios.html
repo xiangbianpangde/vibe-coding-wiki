@@ -97,7 +97,7 @@
   </header>
 
 <section class="container" style="padding-top:48px;padding-bottom:32px;">
-  <h1 style="font-family:var(--font-title);font-size:2.6rem;font-weight:900;color:var(--c-ink);margin-bottom:8px;">10 类使用场景</h1>
+  <h1 style="font-family:var(--font-title);font-size:2.6rem;font-weight:900;color:var(--c-ink);margin-bottom:8px;">14 类使用场景</h1>
   <p style="color:var(--c-ink-soft);font-size:15px;max-width:680px;">这是用户最关心的维度——按"做什么"找术语。每个场景都标注 vibe 强度（★ 数）和推荐术语组合。</p>
 </section>
 
@@ -173,7 +173,8 @@
       const container = document.getElementById('scenario-list');
     
       container.innerHTML = Object.entries(scenarios).map(([key, s]) => {
-        const meta = sceneMeta[key];
+        // Sol #1: key mismatch fix — scene ID has '-scenario' suffix, sceneMeta keys don't
+        const meta = sceneMeta[key.replace(/-scenario$/, '')];
         const stars = '★'.repeat(s.vibe) + '☆'.repeat(5 - s.vibe);
         const termBadges = s.terms.map(t => {
           const found = data.find(d => d.name === t || d.zh === t);

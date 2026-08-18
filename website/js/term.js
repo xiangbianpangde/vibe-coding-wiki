@@ -76,6 +76,16 @@ function initTermPage() {
   if (term.coinedDate) metaParts.push(`<span><strong>时间：</strong>${term.coinedDate}</span>`);
   document.getElementById('term-header-meta').innerHTML = metaParts.join('');
 
+  // Sol #4: Edit this page / Report issue — 动态设置正确 layer
+  const editLayer = term.layer || 'L1';
+  const termId = term.id;
+  document.querySelectorAll('.js-edit-term').forEach(a => {
+    a.href = `https://github.com/xiangbianpangde/vibe-coding-wiki/edit/main/website/data/terms-${editLayer}.json`;
+  });
+  document.querySelectorAll('.js-report-term').forEach(a => {
+    a.href = `https://github.com/xiangbianpangde/vibe-coding-wiki/issues/new?title=${encodeURIComponent(`[${termId}] 内容问题`)}&labels=term`;
+  });
+
   // ======== TOC ========
   const tocSections = [
     { id: 'section-summary',    label: '摘要' },

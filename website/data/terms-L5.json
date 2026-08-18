@@ -497,7 +497,7 @@
         "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety"
       }
     ],
-    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results, immune to prompt injection.",
+    "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results; uses defense-in-depth to reduce prompt injection risk but doesn't guarantee absolute safety.",
     "enLongDesc": "<p><strong>Auto Mode safety</strong>: Claude Code's background classifier reviews actions but never sees tool outputs. Injected instructions in tool results cannot influence its decisions.</p>"
   },
   {
