@@ -44,6 +44,14 @@ try:
 except ImportError:
     HAS_GOOGLE = False
 
+try:
+    import urllib.request
+    import urllib.error
+    import json as _json
+    HAS_MINIMAX = True
+except ImportError:
+    HAS_MINIMAX = False
+
 from prepare import (
     Problem,
     Prompt,
@@ -240,6 +248,69 @@ async def call_google(prompt: Prompt, model: str, effort: str = "medium") -> dic
     }
 
 
+async def call_minimax(prompt: Prompt, model: str, effort: str = "n/a") -> dict:
+    """Call minimax API (synchronous via urllib, FROZEN during active run).
+
+    Note: minimax-m3 model uses reasoning mode by default.
+    We must set max_tokens high enough to cover reasoning_tokens + completion_tokens.
+    """
+    if not HAS_MINIMAX:
+        raise ProviderError("urllib not available")
+
+    api_key = os.environ.get("MINIMAX_API_KEY")
+    if not api_key:
+        raise ProviderError("MINIMAX_API_KEY not set")
+
+    # minimax-m3 needs higher token limit because reasoning tokens consume budget
+    max_tokens = max(MAX_OUTPUT_TOKENS * 4, 200)  # At least 200 tokens
+
+    payload = _json.dumps({
+        "model": model,
+        "messages": [
+            {"role": "system", "content": prompt.system},
+            {"role": "user", "content": prompt.user},
+        ],
+        "max_tokens": max_tokens,
+        "temperature": TEMPERATURE,
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        "https://api.minimax.chat/v1/text/chatcompletion_v2",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    start = time.time()
+    try:
+        with urllib.request.urlopen(req, timeout=DEFAULT_TIMEOUT) as resp:
+            response_data = _json.loads(resp.read().decode("utf-8"))
+    except urllib.error.URLError as e:
+        raise ProviderError(f"minimax error: {e}")
+    except Exception as e:
+        raise ProviderError(f"Unexpected minimax error: {e}")
+
+    latency = int((time.time() - start) * 1000)
+
+    choice = response_data["choices"][0]
+    content = choice["message"]["content"]
+    usage = response_data.get("usage", {})
+
+    # minimax-m3 returns reasoning_tokens in completion_tokens_details
+    reasoning_tokens = usage.get("completion_tokens_details", {}).get("reasoning_tokens")
+
+    return {
+        "response": content,
+        "input_tokens": usage.get("prompt_tokens", 0),
+        "output_tokens": usage.get("completion_tokens", 0),
+        "reasoning_tokens": reasoning_tokens,
+        "latency_ms": latency,
+    }
+
+
 async def call_mock(prompt: Prompt, model: str, effort: str = "n/a") -> dict:
     """Mock provider for dry-run / testing (NOT for real experiment)."""
     # Deterministic mock answer: pick first letter / first number
@@ -260,6 +331,7 @@ PROVIDERS = {
     "openai": call_openai,
     "anthropic": call_anthropic,
     "google": call_google,
+    "minimax": call_minimax,
     "mock": call_mock,
 }
 

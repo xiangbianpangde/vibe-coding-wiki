@@ -26,14 +26,12 @@ import yaml
 # ============================================================
 # FROZEN CONSTANTS (after Phase B freeze)
 # ============================================================
-PROMPT_TEMPLATE = """Answer the following question.
-Return only the final answer in the required format.
+PROMPT_TEMPLATE = """Answer the following question with ONLY the letter of the correct option.
+Reply with exactly one letter (A, B, C, D, or E) and nothing else.
 
 {QUESTION}"""
 
-SYSTEM_PROMPT = """You are a careful assistant.
-Answer the question accurately.
-Return only the final answer in the required format."""
+SYSTEM_PROMPT = """You are a careful test-taking assistant. For multiple choice questions, respond with ONLY the letter of the correct answer. No explanation, no preamble, no extra text."""
 
 TRIGGER_POSITION = "prefix"  # {TRIGGER}\n{QUESTION}
 
