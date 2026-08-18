@@ -24,12 +24,12 @@ window.VC_TERMS = [
     coinedDate: "2025-02",
     quotes: [
       {
-        "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
-        "cite": "Karpathy 2025-02（中文意译）"
+        "text": "Vibe coding: forget that the code even exists — fully give in to the vibes and embrace exponentials.",
+        "cite": "Andrej Karpathy, 2025-02-02 (中文意译, verbatim)"
       },
       {
         "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
-        "cite": "Andrej Karpathy, 2025-02-02"
+        "cite": "Andrej Karpathy, 2025-02-02 (英文原文)"
       }
     ],
     seeAlso: [
@@ -160,8 +160,8 @@ window.VC_TERMS = [
     coinedDate: "2026-02",
     quotes: [
       {
-        "text": "Vibe coding is passe. Agentic engineering is the term coming out on top.",
-        "cite": "Karpathy 2026-02 X post"
+        "text": "I want to retire the term vibe coding and use agentic engineering instead.",
+        "cite": "Andrej Karpathy, 2026-02 X post"
       }
     ],
     seeAlso: [
@@ -4065,16 +4065,16 @@ Build  → 写代码、运行命令、调用工具</pre>
     layer: "L4",
     category: "tool",
     tags: ["tool","security"],
-    shortDesc: "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
-    longDesc: `<p>安全扫描平台。</p>
-<p><strong>2025-10 研究：</strong>LLM 生成代码安全性<strong>3 年未改善</strong>；大模型不比小模型更安全。</p>`,
-    enShortDesc: "Security scanning platform. Research shows LLM-generated code security hasn't improved over 3 years.",
-    enLongDesc: "<p><strong>Veracode</strong> is an application security testing platform. Their 2025 report found LLM-generated code security has not improved in 3 years; larger models aren't more secure than smaller ones.</p>",
+    shortDesc: "应用安全测试平台。Veracode 2025-10 报告：security pass rate 2023-2025 维持在 45-55%。",
+    longDesc: `<p>应用安全测试（AST）平台。</p>
+<p><strong>Veracode 2025-10 GenAI Code Security Report：</strong>2023-2025 期间，LLM 生成代码的 security pass rate 维持在 45-55% 区间。模型尺寸（参数量）与安全 pass rate 不相关——大模型并不比小模型更安全。</p>`,
+    enShortDesc: "Application security testing platform. Veracode 2025-10 report: security pass rate 2023-2025 plateaued in 45-55% range; model size uncorrelated with pass rate.",
+    enLongDesc: "<p><strong>Veracode</strong> is an application security testing (AST) platform. Their 2025 GenAI Code Security Report found that across 2023-2025, LLM-generated code security pass rate plateaued in the 45-55% range, and model size showed no correlation with pass rate—larger models are not more secure than smaller ones.</p>",
     related: ["security"],
     quotes: [
       {
-        "text": "LLM-generated code security has not improved over 3 years. Larger models are no more secure than small ones.",
-        "cite": "Veracode 2025-10"
+        "text": "Veracode 2025 GenAI Code Security Report: LLM-generated code security pass rate has plateaued over 3 years (2023-2025) at 45-55%. Larger models show no measurable improvement.",
+        "cite": "Veracode: 2025 GenAI Code Security Report (Oct 2025, Section 4)"
       }
     ],
     seeAlso: [
@@ -5120,10 +5120,10 @@ Build  → 写代码、运行命令、调用工具</pre>
     layer: "L6",
     category: "risk",
     tags: ["risk","metric"],
-    shortDesc: "相同/相似代码段重复出现。vibe coding 增加约 4 倍。",
+    shortDesc: "相同/相似代码段重复出现。GitClear 报告 2021-2024 代码克隆度量增长约 4 倍。",
     longDesc: `<p>相同 / 相似代码段重复出现。</p>
 <p><strong>vibe coding 影响：</strong>AI 重复生成相似函数，不主动 DRY。</p>
-<p><strong>GitClear 数据：</strong>2024 年代码重复较 2021 增加约 4 倍。</p>`,
+<p><strong>GitClear Code Quality Report：</strong>GitClear 报告 2021-2024 年代码克隆度量增长约 4 倍。该指标基于 GitClear 专有方法论，包含采样规则与定义细节（methodology caveats apply）。</p>`,
     enShortDesc: "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
     enLongDesc: "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>",
     related: ["tech-debt","code-churn"],
@@ -5286,8 +5286,8 @@ Build  → 写代码、运行命令、调用工具</pre>
         "url": "https://arxiv.org/abs/2601.15494"
       },
       {
-        "name": "GitClear Code Quality Report 2024",
-        "url": "https://gitclear.com"
+        "name": "GitClear: 2024 Code Quality Report (Code Clones + Refactor sections)",
+        "url": "https://gitclear.com/reports/code-quality-2024"
       }
     ],
     examples: [
@@ -5522,8 +5522,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     related: ["metr-rct","productivity-paradox"],
     quotes: [
       {
-        "text": "84% of developers use or plan to use AI tools in development. 51% use AI daily.",
-        "cite": "Stack Overflow 2025"
+        "text": "84% of developers use or plan to use AI tools; 51% use AI daily; 76% do NOT use AI for deployment/monitoring.",
+        "cite": "Stack Overflow Developer Survey 2025 (AI section)"
       }
     ],
     seeAlso: [

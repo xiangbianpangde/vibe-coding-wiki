@@ -597,15 +597,15 @@
       "tool",
       "security"
     ],
-    "shortDesc": "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
-    "longDesc": "<p>安全扫描平台。</p>\n<p><strong>2025-10 研究：</strong>LLM 生成代码安全性<strong>3 年未改善</strong>；大模型不比小模型更安全。</p>",
+    "shortDesc": "应用安全测试平台。Veracode 2025-10 报告：security pass rate 2023-2025 维持在 45-55%。",
+    "longDesc": "<p>应用安全测试（AST）平台。</p>\n<p><strong>Veracode 2025-10 GenAI Code Security Report：</strong>2023-2025 期间，LLM 生成代码的 security pass rate 维持在 45-55% 区间。模型尺寸（参数量）与安全 pass rate 不相关——大模型并不比小模型更安全。</p>",
     "related": [
       "security"
     ],
     "quotes": [
       {
-        "text": "LLM-generated code security has not improved over 3 years. Larger models are no more secure than small ones.",
-        "cite": "Veracode 2025-10"
+        "text": "Veracode 2025 GenAI Code Security Report: LLM-generated code security pass rate has plateaued over 3 years (2023-2025) at 45-55%. Larger models show no measurable improvement.",
+        "cite": "Veracode: 2025 GenAI Code Security Report (Oct 2025, Section 4)"
       }
     ],
     "seeAlso": [
@@ -614,8 +614,8 @@
         "url": "https://www.veracode.com/blog/2025-genai-code-security-report/"
       }
     ],
-    "enShortDesc": "Security scanning platform. Research shows LLM-generated code security hasn't improved over 3 years.",
-    "enLongDesc": "<p><strong>Veracode</strong> is an application security testing platform. Their 2025 report found LLM-generated code security has not improved in 3 years; larger models aren't more secure than smaller ones.</p>"
+    "enShortDesc": "Application security testing platform. Veracode 2025-10 report: security pass rate 2023-2025 plateaued in 45-55% range; model size uncorrelated with pass rate.",
+    "enLongDesc": "<p><strong>Veracode</strong> is an application security testing (AST) platform. Their 2025 GenAI Code Security Report found that across 2023-2025, LLM-generated code security pass rate plateaued in the 45-55% range, and model size showed no correlation with pass rate—larger models are not more secure than smaller ones.</p>"
   },
   {
     "id": "spec-kit",

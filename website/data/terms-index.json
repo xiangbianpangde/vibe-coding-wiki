@@ -18,7 +18,7 @@
       "totalExamples": 172,
       "totalQuotes": 163
     },
-    "generated": "2026-08-18T13:35:39.770Z"
+    "generated": "2026-08-18T13:37:41.147Z"
   },
   "summaries": [
     {
@@ -1301,7 +1301,7 @@
       "name": "Veracode",
       "zh": "Veracode",
       "layer": "L4",
-      "shortDesc": "安全扫描平台。研究显示 LLM 代码 3 年未改善。",
+      "shortDesc": "应用安全测试平台。Veracode 2025-10 报告：security pass rate 2023-2025 维持在 45-55%。",
       "category": "tool",
       "tags": [
         "tool",
@@ -1683,7 +1683,7 @@
       "name": "Code Duplication",
       "zh": "代码重复",
       "layer": "L6",
-      "shortDesc": "相同/相似代码段重复出现。vibe coding 增加约 4 倍。",
+      "shortDesc": "相同/相似代码段重复出现。GitClear 报告 2021-2024 代码克隆度量增长约 4 倍。",
       "category": "risk",
       "tags": [
         "risk",

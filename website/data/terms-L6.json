@@ -115,14 +115,14 @@
       "risk",
       "metric"
     ],
-    "shortDesc": "相同/相似代码段重复出现。vibe coding 增加约 4 倍。",
-    "longDesc": "<p>相同 / 相似代码段重复出现。</p>\n<p><strong>vibe coding 影响：</strong>AI 重复生成相似函数，不主动 DRY。</p>\n<p><strong>GitClear 数据：</strong>2024 年代码重复较 2021 增加约 4 倍。</p>",
+    "shortDesc": "相同/相似代码段重复出现。GitClear 报告 2021-2024 代码克隆度量增长约 4 倍。",
+    "longDesc": "<p>相同 / 相似代码段重复出现。</p>\n<p><strong>vibe coding 影响：</strong>AI 重复生成相似函数，不主动 DRY。</p>\n<p><strong>GitClear Code Quality Report：</strong>GitClear 报告 2021-2024 年代码克隆度量增长约 4 倍。该指标基于 GitClear 专有方法论，包含采样规则与定义细节（methodology caveats apply）。</p>",
     "related": [
       "tech-debt",
       "code-churn"
     ],
-    "enShortDesc": "Identical or similar code segments repeated. Vibe coding increases it ~4x.",
-    "enLongDesc": "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication.</p>"
+    "enShortDesc": "Identical or similar code segments repeated. GitClear reports ~4x growth in code-cloning metric from 2021-2024, methodology caveats apply.",
+    "enLongDesc": "<p><strong>Code duplication</strong>: the same or similar logic appearing multiple times in a codebase. AI coding assistants tend to copy-paste rather than refactor, increasing duplication. The GitClear Code Quality Report measured ~4x growth in their code-cloning metric from 2021-2024 (with methodology caveats—definition and sampling rules apply).</p>"
   },
   {
     "id": "vibe-slop",
@@ -298,8 +298,8 @@
         "url": "https://arxiv.org/abs/2601.15494"
       },
       {
-        "name": "GitClear Code Quality Report 2024",
-        "url": "https://gitclear.com"
+        "name": "GitClear: 2024 Code Quality Report (Code Clones + Refactor sections)",
+        "url": "https://gitclear.com/reports/code-quality-2024"
       }
     ],
     "enShortDesc": "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
@@ -533,8 +533,8 @@
     ],
     "quotes": [
       {
-        "text": "84% of developers use or plan to use AI tools in development. 51% use AI daily.",
-        "cite": "Stack Overflow 2025"
+        "text": "84% of developers use or plan to use AI tools; 51% use AI daily; 76% do NOT use AI for deployment/monitoring.",
+        "cite": "Stack Overflow Developer Survey 2025 (AI section)"
       }
     ],
     "examples": [

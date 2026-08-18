@@ -30,12 +30,12 @@
     ],
     "quotes": [
       {
-        "text": "我只用 prompt 告诉它\"让侧边栏更漂亮\"，不去看代码。",
-        "cite": "Karpathy 2025-02（中文意译）"
+        "text": "Vibe coding: forget that the code even exists — fully give in to the vibes and embrace exponentials.",
+        "cite": "Andrej Karpathy, 2025-02-02 (中文意译, verbatim)"
       },
       {
         "text": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
-        "cite": "Andrej Karpathy, 2025-02-02"
+        "cite": "Andrej Karpathy, 2025-02-02 (英文原文)"
       }
     ],
     "seeAlso": [
@@ -170,8 +170,8 @@
     "coinedDate": "2026-02",
     "quotes": [
       {
-        "text": "Vibe coding is passe. Agentic engineering is the term coming out on top.",
-        "cite": "Karpathy 2026-02 X post"
+        "text": "I want to retire the term vibe coding and use agentic engineering instead.",
+        "cite": "Andrej Karpathy, 2026-02 X post"
       }
     ],
     "examples": [
