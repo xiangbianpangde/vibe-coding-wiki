@@ -796,6 +796,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.6;
 }
 
+.footer__last-updated {
+  font-size: 12px !important;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.footer__last-updated a {
+  color: var(--c-shihqing);
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.footer__last-updated a:hover {
+  text-decoration: underline;
+}
+
 .footer__links {
   display: flex;
   gap: 24px;
