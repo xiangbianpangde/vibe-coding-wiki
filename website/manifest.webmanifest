@@ -1,0 +1,35 @@
+{
+  "name": "Vibe Coding Wiki",
+  "short_name": "Vibe Coding",
+  "description": "178-term bilingual taxonomy for AI-assisted programming. Vibe coding, agentic engineering, Claude Code, MCP, RAG, and more.",
+  "start_url": "/vibe-coding-wiki/",
+  "scope": "/vibe-coding-wiki/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#F9F4DC",
+  "background_color": "#F9F4DC",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["books", "education", "productivity"],
+  "icons": [
+    {
+      "src": "/vibe-coding-wiki/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search 178 terms",
+      "short_name": "Search",
+      "description": "Press / to focus search",
+      "url": "/vibe-coding-wiki/?focus=search"
+    },
+    {
+      "name": "Browse 8 Layers",
+      "short_name": "Layers",
+      "url": "/vibe-coding-wiki/pages/layers.html"
+    }
+  ]
+}

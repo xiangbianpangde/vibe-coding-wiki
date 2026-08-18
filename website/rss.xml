@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vibe Coding Wiki</title>
+    <link>https://xiangbianpangde.github.io/vibe-coding-wiki/</link>
+    <description>178-term bilingual taxonomy for AI-assisted programming. Open source. Primary-source citations. Updates when terms are added or corrected.</description>
+    <language>en-us</language>
+    <atom:link href="https://xiangbianpangde.github.io/vibe-coding-wiki/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2026 22:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Vibe Coding Wiki v2.2 Launch · 178 terms, 8 layers, 14 scenarios</title>
+      <link>https://xiangbianpangde.github.io/vibe-coding-wiki/</link>
+      <guid isPermaLink="false">vibe-coding-wiki-v2.2-launch</guid>
+      <pubDate>Sat, 17 Aug 2026 22:00:00 +0000</pubDate>
+      <description>
+        &lt;p&gt;Major release: 178 terms across 8 layers (Paradigm → Methodology → Tech → Tools → Quality → Risk → Prompting → Scenario).&lt;/p&gt;
+        &lt;p&gt;100% bilingual (zh-CN ↔ en). 77% code examples, 76% primary-source quotes, 79% external references.&lt;/p&gt;
+        &lt;p&gt;Static site with per-layer async loading, offline cache, full-text search, 8-layer relationship graph.&lt;/p&gt;
+      </description>
+    </item>
+
+    <item>
+      <title>Citation Red Team: 8 P0 fixes shipped (Hunt attribution + arXiv 2601.15494)</title>
+      <link>https://github.com/xiangbianpangde/vibe-coding-wiki/commit/c6cdc8f</link>
+      <guid isPermaLink="false">citation-red-team-p0-fixes</guid>
+      <pubDate>Sat, 17 Aug 2026 21:50:00 +0000</pubDate>
+      <description>
+        &lt;p&gt;Fixed 8 high-risk citations before launch:&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Fowler coinedDate 2025 → 2026-05&lt;/li&gt;
+          &lt;li&gt;Simon Willison URL 2025/Mar/16 → 2026/Mar/15&lt;/li&gt;
+          &lt;li&gt;arXiv ID 2601.12345 → 2601.15494 (correct paper)&lt;/li&gt;
+          &lt;li&gt;Removed unverified Andrew Hunt attribution on cognitive debt&lt;/li&gt;
+          &lt;li&gt;Veracode/CodeRabbit phrasing tightened to source language&lt;/li&gt;
+        &lt;/ul&gt;
+      </description>
+    </item>
+
+    <item>
+      <title>100% English translation milestone · 178/178 terms</title>
+      <link>https://github.com/xiangbianpangde/vibe-coding-wiki/commit/fb1468c</link>
+      <guid isPermaLink="false">i18n-100-percent-english</guid>
+      <pubDate>Sat, 17 Aug 2026 21:30:00 +0000</pubDate>
+      <description>
+        &lt;p&gt;All 178 terms now have English short descriptions and long descriptions. The site is fully bilingual with language toggle (localStorage persistence).&lt;/p&gt;
+      </description>
+    </item>
+
+    <item>
+      <title>Round 2: Service Worker offline cache (committed + deployed)</title>
+      <link>https://github.com/xiangbianpangde/vibe-coding-wiki/commit/216583e</link>
+      <guid isPermaLink="false">round-2-service-worker</guid>
+      <pubDate>Sat, 17 Aug 2026 20:00:00 +0000</pubDate>
+      <description>
+        &lt;p&gt;Site now works offline on repeat visits. Cache-first for static assets, network-first for HTML/data. Repeat visits load in &lt;500ms.&lt;/p&gt;
+      </description>
+    </item>
+
+    <item>
+      <title>Round 1: Per-layer async loading (initial JS -85%)</title>
+      <link>https://github.com/xiangbianpangde/vibe-coding-wiki/commit/bafe45c</link>
+      <guid isPermaLink="false">round-1-async-loading</guid>
+      <pubDate>Sat, 17 Aug 2026 18:00:00 +0000</pubDate>
+      <description>
+        &lt;p&gt;Replaced 200KB synchronous terms.js with per-layer async loading. Initial page load JS &lt; 30KB. Available across 9 routes.&lt;/p&gt;
+      </description>
+    </item>
+  </channel>
+</rss>
