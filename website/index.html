@@ -88,15 +88,16 @@
       <a href="pages/stats.html">数据</a>
       <a href="pages/citations.html">来源</a>
     </nav>
-    <button class="topnav__search" onclick="document.getElementById('search-modal').classList.add('open')">
+    <button type="button" class="topnav__search" aria-label="搜索术语（按 ⌘K）" onclick="document.getElementById('search-modal').classList.add('open')">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
       <span>搜索术语</span>
       <kbd>⌘K</kbd>
-    <button class="lang-toggle" aria-label="Switch language" type="button">EN</button>
-    <button class="theme-toggle" aria-label="切换暗色/浅色主题，按 Enter 切换">
-  <span class="theme-icon-light">☀️</span>
-  <span class="theme-icon-dark">🌙</span>
-</button>
+    </button>
+    <button type="button" class="lang-toggle" aria-label="Switch language">EN</button>
+    <button type="button" class="theme-toggle" aria-label="切换暗色/浅色主题">
+      <span class="theme-icon-light">☀️</span>
+      <span class="theme-icon-dark">🌙</span>
+    </button>
     </div>
   </header>
 

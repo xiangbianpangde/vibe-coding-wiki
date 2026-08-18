@@ -132,7 +132,7 @@
   background: var(--c-panel-soft);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .vc-nav-toggle {
     display: inline-flex;
   }
@@ -166,6 +166,12 @@
 
   .topnav__links a.active::after {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .vc-nav-toggle {
+    display: inline-flex;
   }
 }
 

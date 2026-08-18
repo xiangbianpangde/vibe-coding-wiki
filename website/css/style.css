@@ -947,7 +947,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero__title { font-size: 2rem; }
   .hero__subtitle { font-size: 15px; }
   .footer__inner { flex-direction: column; }
-  .topnav__search { display: none; }
+  .topnav__search {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .topnav__search span,
+  .topnav__search kbd {
+    display: none;
+  }
+  .topnav__search::before {
+    content: "⌕";
+    font-size: 22px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
