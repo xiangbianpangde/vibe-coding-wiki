@@ -427,7 +427,7 @@
     ],
     "examples": [
       {
-        "code": "# Tabnine: 本地/云端 AI 代码补全\n# 特点：可选本地模型（保护代码不出网）\n# 安装：VS Code / JetBrains 扩展市场搜 \"Tabnine\"\n# 模式：\n#   - Pro: 云端模型（GPT-class）\n#   - Enterprise: 本地模型 + 团队私有训练\n\ndef calculate_total(items):\n    # Tabnine 自动补全建议：\n    # return sum(item.price * item.quantity for item in items)",
+        "code": "# Tabnine: 本地/云端 AI 代码补全\n# 特点：可选本地模型（保护代码不出网）\n# 安装：VS Code / JetBrains 扩展市场搜 \"Tabnine\"\n# 模式：\n#   - Pro: 云端模型（GPT-class）\n#   - Enterprise: 本地模型 + 团队私有训练\n\ndef calculate_total(items):\n    # Tabnine 自动补全建议：\n    # return sum(item.price * item.quantity for item in items)\n    pass  # 接受补全建议后函数体即完整",
         "desc": "Tabnine 本地/云端补全模式"
       }
     ],

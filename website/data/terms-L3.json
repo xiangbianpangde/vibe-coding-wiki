@@ -2182,7 +2182,7 @@
     ],
     "examples": [
       {
-        "code": "# Browser-Use 库 — 让 LLM 操控浏览器\nfrom browser_use import Agent\nfrom langchain_anthropic import ChatAnthropic\n\nagent = Agent(\n    task=\"在 Hacker News 上找最近一篇关于 vibe coding 的文章，提取标题和评论数\",\n    llm=ChatAnthropic(model=\"claude-sonnet-4-5\"),\n)\n\nresult = await agent.run()\nprint(result)   # → 标题 + 评论数\n\n# 内部循环：\n# 1. 打开浏览器 → 截图 → 让 LLM 决策\n# 2. 执行 click/type/scroll\n# 3. 直到 LLM 输出 task_complete",
+        "code": "# Browser-Use 库 — 让 LLM 操控浏览器\nfrom browser_use import Agent\nfrom langchain_anthropic import ChatAnthropic\n\nagent = Agent(\n    task=\"在 Hacker News 上找最近一篇关于 vibe coding 的文章，提取标题和评论数\",\n    llm=ChatAnthropic(model=\"claude-sonnet-4-5\"),\n)\n\nimport asyncio\n\nasync def main():\n    result = await agent.run()\n    print(result)   # → 标题 + 评论数\n\nasyncio.run(main())\n\n# 内部循环：\n# 1. 打开浏览器 → 截图 → 让 LLM 决策\n# 2. 执行 click/type/scroll\n# 3. 直到 LLM 输出 task_complete",
         "desc": "browser-use 开源库（Python）"
       }
     ],
