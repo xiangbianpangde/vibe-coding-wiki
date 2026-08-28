@@ -10,6 +10,7 @@
     "test:unit": "vitest run tests/unit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "check:examples": "node scripts/example-check.cjs",
     "serve": "python3 -m http.server 8765",
     "build:sitemap": "node scripts/build-sitemap.cjs",
     "rebuild:terms": "node scripts/rebuild-terms.cjs",
