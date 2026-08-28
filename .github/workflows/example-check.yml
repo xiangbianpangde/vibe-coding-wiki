@@ -1,0 +1,29 @@
+name: Example code check
+
+on:
+  pull_request:
+    paths:
+      - 'website/data/**'
+
+jobs:
+  example-check:
+    name: Example code syntax check (report-only)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run example check
+        working-directory: website
+        run: node scripts/example-check.cjs --out example-check-report.md
+
+      - name: Upload example check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-check-report
+          path: website/example-check-report.md
+          retention-days: 7
