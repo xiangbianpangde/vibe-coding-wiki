@@ -2,6 +2,18 @@
 
 > **The taxonomy problem behind AI-assisted programming.**
 
+<p align="center">
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/actions"><img src="https://img.shields.io/badge/deploy-GitHub%20Pages-success" alt="Deploy"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/stargazers"><img src="https://img.shields.io/github/stars/xiangbianpangde/vibe-coding-wiki?style=social" alt="Stars"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/releases"><img src="https://img.shields.io/github/v0.x-release/xiangbianpangde/vibe-coding-wiki" alt="Latest Release"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/actions"><img src="https://img.shields.io/badge/pages%20build-passing-brightgreen" alt="Pages Build"></a>
+  <a href="https://xiangbianpangde.github.io/vibe-coding-wiki/sitemap.xml"><img src="https://img.shields.io/badge/sitemap-186%20URLs-blue" alt="Sitemap"></a>
+  <a href="https://xiangbianpangde.github.io/vibe-coding-wiki/rss.xml"><img src="https://img.shields.io/badge/RSS-feed-orange" alt="RSS"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/blob/main/website/manifest.webmanifest"><img src="https://img.shields.io/badge/PWA-installable-purple" alt="PWA"></a>
+  <a href="https://github.com/xiangbianpangde/vibe-coding-wiki/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions"></a>
+</p>
+
 AI coding doesn't have a vocabulary problem. It has a **taxonomy problem**.
 
 [`vibe coding`](https://xiangbianpangde.github.io/vibe-coding-wiki/term.html?id=vibe-coding), agentic coding, context engineering, MCP, spec-driven development, cognitive debt, guardrails, YOLO mode — the terms are spreading across blog posts, documentation, papers, and tool communities, but I couldn't find one place that shows how they relate.
@@ -32,6 +44,13 @@ So I built a taxonomy rather than another list.
 - 🎨 **Chinese traditional color design system** — paper background, serif type, sharp corners
 
 ## Coverage
+
+| Field | Coverage |
+|---|---|
+| `examples` (code samples) | 137 / 178 (77%) |
+| `quotes` (primary-source citations) | 135 / 178 (76%) |
+| `seeAlso` (external references) | 140 / 178 (79%) |
+| `enShortDesc` / `enLongDesc` | 178 / 178 (100%) |
 
 Each term targets high-quality content:
 

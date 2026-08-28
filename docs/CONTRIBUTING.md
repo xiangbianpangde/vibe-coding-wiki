@@ -40,6 +40,20 @@ npm test
 
 # 7. Commit + push
 git commit -m "feat: add term XYZ with examples"
+```
+
+### 🆕 Or: file an issue first
+
+Not ready to code? File an issue using our templates:
+
+| Type | Template |
+|---|---|
+| 📚 Propose a new term | [`.github/ISSUE_TEMPLATE/new_term.md`](../.github/ISSUE_TEMPLATE/new_term.md) |
+| 🔍 Fix a citation | [`.github/ISSUE_TEMPLATE/citation_fix.md`](../.github/ISSUE_TEMPLATE/citation_fix.md) |
+| 🌐 Improve translation | [`.github/ISSUE_TEMPLATE/translation.md`](../.github/ISSUE_TEMPLATE/translation.md) |
+| 🐛 Report a bug | [`.github/ISSUE_TEMPLATE/bug_report.md`](../.github/ISSUE_TEMPLATE/bug_report.md) |
+| 💡 Suggest a feature | [`.github/ISSUE_TEMPLATE/feature_request.md`](../.github/ISSUE_TEMPLATE/feature_request.md) |
+| 📝 Submit code change | [`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md) |
 git push origin feat/your-contribution
 
 # 8. Open Pull Request on GitHub
