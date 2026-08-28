@@ -119,8 +119,8 @@
         "cite": "Anthropic engineering"
       }
     ],
-    "enShortDesc": "The engineering discipline of managing everything that enters the LLM's context window: instructions, tools, history, files.",
-    "enLongDesc": "<p><strong>Context engineering</strong> (Anthropic) is the discipline of curating what goes into the context window: system prompt, retrieved documents, tool definitions, conversation history, and file contents.</p><p>Related to but broader than prompt engineering.</p>"
+    "enShortDesc": "The engineering discipline of managing everything that enters an LLM's context window — instructions, tool definitions, history, files — so the model always reasons from the right context.",
+    "enLongDesc": "<p><strong>Context engineering</strong> — a term from Anthropic — is the discipline of managing everything that enters an LLM's context window: <strong>instructions, tool definitions, conversation history, file reads, search results, and the current task</strong>.</p>\n<p>The discipline rests on one observation:</p>\n<blockquote>\"The agent loop rebuilds context each turn. Instructions, tool definitions, conversation history, file reads, search results, and your current task — everything enters the same window, and the model predicts from all of it.\"</blockquote>\n<p><strong>How it compares with prompt engineering:</strong></p>\n<ul>\n<li>Prompt engineering: optimizing the <strong>instruction text</strong></li>\n<li>Context engineering: optimizing <strong>the entire context window</strong></li>\n</ul>"
   },
   {
     "id": "plan-verify-build",

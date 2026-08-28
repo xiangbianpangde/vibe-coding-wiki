@@ -52,8 +52,8 @@
         "url": "https://simonwillison.net/tags/vibe-coding/"
       }
     ],
-    "enShortDesc": "Vibe coding: an AI-assisted programming style where developers describe goals in natural language and accept AI-generated code without deep review.",
-    "enLongDesc": "<p><strong>Vibe coding</strong> is a term coined by Andrej Karpathy in February 2025, describing an AI-assisted programming style where developers describe goals in natural language and let LLMs generate the code.</p><p>Core practice: <strong>describe → LLM writes code → run → paste errors back → iterate</strong>. Read diffs, skip deep review—prioritize speed.</p><p><strong>Best for:</strong> throwaway prototypes, personal scripts, hackathon projects.<br><strong>Avoid for:</strong> production code, long-lived systems, security-sensitive code.</p>"
+    "enShortDesc": "Coined by Andrej Karpathy (Feb 2025): describe what you want in plain language, let the LLM write the code, and \"forget that the code even exists.\"",
+    "enLongDesc": "<p>In February 2025, OpenAI co-founder <strong>Andrej Karpathy</strong> coined <strong>vibe coding</strong> on X: a style of building software where you describe what you want in plain language, the LLM generates the code, and you don't dig into how it works.</p>\n<p><strong>The loop:</strong> <strong>describe → LLM writes code → run it → paste the errors back → iterate</strong>. Clicking \"Accept All\", skipping the diff, and not understanding the syntax are all signature vibe-coding moves.</p>\n<p><strong>Where it fits:</strong> throwaway prototypes, personal tools, hacking projects.<br>\n<strong>Where it doesn't:</strong> production code, long-lived systems, security-sensitive work.</p>"
   },
   {
     "id": "agentic-programming",
@@ -98,8 +98,8 @@
         "cite": "Simon Willison"
       }
     ],
-    "enShortDesc": "Agentic Programming: using LLMs to write all code while still reviewing code and caring about structure (Martin Fowler).",
-    "enLongDesc": "<p>Software engineering luminary <strong>Martin Fowler</strong> coined this term to draw a sharp boundary with vibe coding.</p><p><strong>Agentic programming</strong> means using LLMs to write all code, but you still <strong>read diffs, care about structure, and review design</strong>.</p><p>Key differentiator from vibe coding: <strong>human accountability stays</strong>."
+    "enShortDesc": "Martin Fowler's term for the disciplined counterpart to vibe coding: LLMs write all the code, but you still review and care about it.",
+    "enLongDesc": "<p>Software luminary <strong>Martin Fowler</strong> coined <strong>agentic programming</strong> to draw a hard line against vibe coding.</p>\n<p>Here, LLMs write all the code — but the developer <strong>still reads the diff, reviews the code, and cares about internal structure, maintainability, and design</strong>.</p>\n<p><strong>Fowler's litmus test:</strong> do you read the diff, review the code, and keep the structure in mind? That habit is the deciding difference between agentic programming and vibe coding.</p>\n<p>Fowler calls the widespread conflation of the two terms <strong>semantic diffusion</strong> and insists the distinction matters.</p>"
   },
   {
     "id": "vibe-engineering",
@@ -190,8 +190,8 @@
         "url": "https://martinfowler.com/articles/exploring-gen-ai.html"
       }
     ],
-    "enShortDesc": "Agentic Engineering (Karpathy 2026-02): the mature form of vibe coding, \"more like engineering\".",
-    "enLongDesc": "<p>2026-02, Karpathy announced he wants to retire <strong>vibe coding</strong> and replace it with <strong>agentic engineering</strong>.</p><p>Core idea: <strong>let AI agents work while engineers stay accountable</strong>. Emphasizes spec-driven, guardrails, test-first, verifiable acceptance criteria."
+    "enShortDesc": "Karpathy's Feb 2026 successor to vibe coding: AI agents do the work while engineers stay accountable — \"more like engineering.\"",
+    "enLongDesc": "<p>In February 2026, <strong>Andrej Karpathy</strong> announced on X that he wants to <strong>retire the term \"vibe coding\"</strong> and use <strong>agentic engineering</strong> instead.</p>\n<p><strong>Why:</strong> vibe coding's low barrier to entry invited overuse and a wave of low-quality code. Practitioners such as Shimmin, Agarwal, and Hunt pushed for discipline — agentic engineering is the response.</p>\n<p><strong>The core idea:</strong> let AI agents do the work <strong>while engineers stay accountable</strong>. The practice is <strong>spec-driven and test-first</strong>, with guardrails and verifiable acceptance criteria.</p>\n<p><strong>The arc:</strong> vibe coding → vibe engineering → agentic engineering.</p>"
   },
   {
     "id": "ai-assisted",

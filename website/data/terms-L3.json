@@ -38,8 +38,8 @@
         "cite": "Andrej Karpathy"
       }
     ],
-    "enShortDesc": "Large Language Model: a function from text to text, trained on a large corpus. The foundation of modern AI assistants.",
-    "enLongDesc": "<p>An <strong>LLM</strong> is a neural network trained on massive text corpora to predict the next token. Modern LLMs (GPT-4, Claude, Gemini) have hundreds of billions of parameters and exhibit emergent capabilities like reasoning and code generation.</p>"
+    "enShortDesc": "Large language model: a Transformer-based neural network trained on massive text corpora to predict the next token — the engine behind vibe coding.",
+    "enLongDesc": "<p>A <strong>large language model (LLM)</strong> is a Transformer-based neural network trained on a massive text corpus to <strong>predict the next token</strong>.</p>\n<p>That single trick — next-token prediction at scale — is the engine behind vibe coding: it's what powers modern AI coding agents.</p>\n<p><strong>Representative models:</strong> Claude Opus 4.6 / Sonnet 4.6 / Haiku 4.5; GPT-5 / GPT-5.2; Gemini 3 Pro; DeepSeek V3.2; Qwen 3; Llama 4.</p>"
   },
   {
     "id": "transformer",
@@ -464,8 +464,8 @@
         "cite": "Anthropic"
       }
     ],
-    "enShortDesc": "Model Context Protocol: Anthropic's open standard for connecting AI tools to external data sources and services.",
-    "enLongDesc": "<p><strong>MCP</strong> is an open protocol (Anthropic, 2024) for connecting LLM applications to external tools and data. Standardizes how AI agents discover and invoke tools across vendors.</p>"
+    "enShortDesc": "MCP (Model Context Protocol): Anthropic's Nov 2024 open standard for connecting AI agents to external tools and data sources — \"the USB-C port for AI applications.\"",
+    "enLongDesc": "<p><strong>MCP (Model Context Protocol)</strong> is the open standard Anthropic released in November 2024 for connecting AI agents to external tools and data sources. Think of it as <strong>the USB / OpenAPI of the AI era</strong>: one standard that replaces per-tool integrations.</p>\n<p><strong>The core pieces:</strong></p>\n<ul>\n<li><strong>MCP server</strong>: a process that exposes tools</li>\n<li><strong>MCP client</strong>: the client built into the agent</li>\n<li><strong>The protocol</strong>: JSON-RPC over stdio / HTTP</li>\n</ul>\n<p><strong>MCP Tool Search:</strong> tool schemas load on demand so they don't eat the context window.</p>"
   },
   {
     "id": "mcp-server",
@@ -686,8 +686,8 @@
         "url": "https://docs.llamaindex.ai/en/stable/getting_started/concepts/"
       }
     ],
-    "enShortDesc": "Retrieval-Augmented Generation: retrieve relevant documents, then have the LLM generate an answer based on the retrieved context.",
-    "enLongDesc": "<p><strong>RAG</strong> augments LLM outputs with retrieved knowledge from a vector database or search index, reducing hallucinations and improving factual accuracy.</p><p>Original paper: Lewis et al. 2020.</p>"
+    "enShortDesc": "Retrieve relevant documents from your knowledge base, then let the LLM generate an answer grounded in what was retrieved.",
+    "enLongDesc": "<p><strong>RAG (retrieval-augmented generation)</strong> strengthens LLM output by <strong>retrieving from an external knowledge base</strong> first — grounding the model in fresh facts and cutting down on hallucinations and stale information.</p>\n<p><strong>How it works:</strong></p>\n<ol>\n<li>Query → embedding</li>\n<li>Retrieve similar documents from a vector database</li>\n<li>Inject the documents into the prompt as context</li>\n<li>The LLM generates the answer from those documents</li>\n</ol>\n<p><strong>Variants:</strong> GraphRAG / HyDE / Self-RAG / CRAG</p>\n<p>The technique comes from Lewis et al., 2020 (\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\").</p>"
   },
   {
     "id": "vector-database",

@@ -42,8 +42,8 @@
         "url": "https://cursor.com/blog/composer-1"
       }
     ],
-    "enShortDesc": "AI-first IDE based on a VS Code fork. Flagship vibe coding tool.",
-    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a VS Code fork. Features Tab autocomplete, Chat (@code), Composer (multi-file agent), and Agent Mode. Supports Claude, GPT, Gemini.</p>"
+    "enShortDesc": "AI-first IDE built on a VS Code fork — Tab autocomplete, Chat, Composer, Agent Mode. The flagship tool of the vibe-coding era.",
+    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a fork of VS Code — and it became the flagship tool of the vibe-coding wave.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li><strong>Tab</strong>: inline autocomplete, Copilot-style</li>\n<li><strong>Chat (<code>@code</code>)</strong>: conversational interaction</li>\n<li><strong>Composer</strong>: multi-file edits with agent orchestration</li>\n<li><strong>Apply / Edit</strong>: batch edits across files</li>\n<li><strong>Agent Mode</strong>: autonomous agents</li>\n</ul>\n<p><strong>Models:</strong> works with Claude, GPT, and Gemini.</p>"
   },
   {
     "id": "cursor-composer",
@@ -130,8 +130,8 @@
         "cite": "Claude Code Docs"
       }
     ],
-    "enShortDesc": "Anthropic's CLI agent for the terminal. Recommended by Karpathy.",
-    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's terminal-based coding agent. Uses Claude models with tool use (Read, Edit, Bash), subagents, checkpoints, hooks, and CLAUDE.md for persistence.</p>"
+    "enShortDesc": "Anthropic's CLI coding agent (Feb 2025): works in your terminal, edits files, runs shell commands, and delegates to subagents. Recommended by Karpathy.",
+    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's CLI coding agent, released in February 2025, and it lives entirely in your terminal.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li>Edits your local filesystem directly</li>\n<li>Runs shell commands</li>\n<li>Dispatches subagents via the Task tool</li>\n<li>Plan mode and Build mode</li>\n<li>Slash commands like <code>/init</code> and <code>/specify</code></li>\n<li>Native MCP support</li>\n</ul>\n<p><strong>Agentic harness:</strong> Claude Code is the harness, Claude is the model.</p>"
   },
   {
     "id": "windsurf",
@@ -263,8 +263,8 @@
         "cite": "Aider docs"
       }
     ],
-    "enShortDesc": "AI pair programmer in the terminal. Open source. Multi-LLM backend.",
-    "enLongDesc": "<p><strong>Aider</strong> is a terminal-based AI pair programming tool. Reads git-tracked files, edits, and auto-commits. Supports many LLM backends.</p>"
+    "enShortDesc": "Open-source AI pair programmer for the terminal: edits files in your git repo and auto-commits. Works with Claude, GPT, DeepSeek, or local models.",
+    "enLongDesc": "<p><strong>Aider</strong> is an open-source AI pair programmer that lives in your terminal: describe a change, and it edits the files in your git repository for you.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li>Edits files in your git repo directly</li>\n<li>Writes commit messages automatically</li>\n<li>Multiple LLM backends: Claude / GPT / DeepSeek / local models</li>\n<li><strong>Repo map</strong>: injects a map of your entire repository into the context, so the model knows the codebase</li>\n</ul>"
   },
   {
     "id": "replit-agent",
