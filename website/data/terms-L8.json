@@ -57,15 +57,18 @@
     "seeAlso": [
       {
         "name": "Lovable",
-        "url": "https://lovable.dev"
+        "url": "https://lovable.dev",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "v0",
-        "url": "https://v0.dev"
+        "url": "https://v0.dev",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Simon Willison: Software for One",
-        "url": "https://simonwillison.net/tags/software-for-one/"
+        "url": "https://simonwillison.net/tags/software-for-one/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -134,11 +137,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Subagents",
-        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Martin Fowler: Refactoring",
-        "url": "https://martinfowler.com/books/refactoring.html"
+        "url": "https://martinfowler.com/books/refactoring.html",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -173,7 +178,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Lethal Trifecta",
-        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -212,7 +218,8 @@
     "seeAlso": [
       {
         "name": "Anthropic Prompt Library",
-        "url": "https://docs.anthropic.com/en/resources/prompt-library/library"
+        "url": "https://docs.anthropic.com/en/resources/prompt-library/library",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -259,11 +266,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Memory",
-        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+        "url": "https://docs.claude.com/en/docs/claude-code/memory",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-28"
       }
     ]
   },
@@ -294,11 +303,13 @@
     "seeAlso": [
       {
         "name": "pytest",
-        "url": "https://docs.pytest.org"
+        "url": "https://docs.pytest.org",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt: Test Generation",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -335,7 +346,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Slash Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands"
+        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -372,7 +384,8 @@
     "seeAlso": [
       {
         "name": "Google Python Style Guide",
-        "url": "https://google.github.io/styleguide/pyguide.html"
+        "url": "https://google.github.io/styleguide/pyguide.html",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -409,11 +422,13 @@
     "seeAlso": [
       {
         "name": "Lovable",
-        "url": "https://lovable.dev"
+        "url": "https://lovable.dev",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "v0",
-        "url": "https://v0.dev"
+        "url": "https://v0.dev",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -450,11 +465,13 @@
     "seeAlso": [
       {
         "name": "LangChain SQL Agent",
-        "url": "https://python.langchain.com/docs/how_to/sql_agent"
+        "url": "https://python.langchain.com/docs/how_to/sql_agent",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Code Interpreter",
-        "url": "https://platform.openai.com/docs/assistants/tools/code-interpreter"
+        "url": "https://platform.openai.com/docs/assistants/tools/code-interpreter",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -491,7 +508,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: /init",
-        "url": "https://docs.claude.com/en/docs/claude-code/init"
+        "url": "https://docs.claude.com/en/docs/claude-code/init",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -528,7 +546,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Agent Teams",
-        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams"
+        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [

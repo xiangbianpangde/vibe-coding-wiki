@@ -26,11 +26,13 @@
     "seeAlso": [
       {
         "name": "GitHub Spec Kit",
-        "url": "https://github.github.io/spec-kit/"
+        "url": "https://github.github.io/spec-kit/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Spec Coding Manifesto",
-        "url": "https://spec-coding.dev"
+        "url": "https://spec-coding.dev",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -61,11 +63,13 @@
     "seeAlso": [
       {
         "name": "GitHub Spec Kit",
-        "url": "https://github.github.io/spec-kit/"
+        "url": "https://github.github.io/spec-kit/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Spec Coding Manifesto",
-        "url": "https://spec-coding.dev"
+        "url": "https://spec-coding.dev",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -110,7 +114,8 @@
     "seeAlso": [
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -119,8 +124,8 @@
         "cite": "Anthropic engineering"
       }
     ],
-    "enShortDesc": "The engineering discipline of managing everything that enters the LLM's context window: instructions, tools, history, files.",
-    "enLongDesc": "<p><strong>Context engineering</strong> (Anthropic) is the discipline of curating what goes into the context window: system prompt, retrieved documents, tool definitions, conversation history, and file contents.</p><p>Related to but broader than prompt engineering.</p>"
+    "enShortDesc": "The engineering discipline of managing everything that enters an LLM's context window — instructions, tool definitions, history, files — so the model always reasons from the right context.",
+    "enLongDesc": "<p><strong>Context engineering</strong> — a term from Anthropic — is the discipline of managing everything that enters an LLM's context window: <strong>instructions, tool definitions, conversation history, file reads, search results, and the current task</strong>.</p>\n<p>The discipline rests on one observation:</p>\n<blockquote>\"The agent loop rebuilds context each turn. Instructions, tool definitions, conversation history, file reads, search results, and your current task — everything enters the same window, and the model predicts from all of it.\"</blockquote>\n<p><strong>How it compares with prompt engineering:</strong></p>\n<ul>\n<li>Prompt engineering: optimizing the <strong>instruction text</strong></li>\n<li>Context engineering: optimizing <strong>the entire context window</strong></li>\n</ul>"
   },
   {
     "id": "plan-verify-build",
@@ -153,11 +158,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
+        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "The core agent loop: plan, verify, build. The minimal viable workflow for AI coding.",
@@ -182,11 +189,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LangChain: Iterative refinement",
-        "url": "https://python.langchain.com/docs/how_to/iterative_refinement/"
+        "url": "https://python.langchain.com/docs/how_to/iterative_refinement/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -223,11 +232,13 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: BDD",
-        "url": "https://martinfowler.com/bliki/GivenWhenThen.html"
+        "url": "https://martinfowler.com/bliki/GivenWhenThen.html",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "GitHub Spec Kit",
-        "url": "https://github.github.io/spec-kit/"
+        "url": "https://github.github.io/spec-kit/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -265,11 +276,13 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: TDD",
-        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Kent Beck: TDD by Example",
-        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -320,11 +333,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: CLAUDE.md 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+        "url": "https://docs.claude.com/en/docs/claude-code/memory",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Caching",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Claude Code's project-level persistent instruction file. Auto-loaded at every session start.",
@@ -350,7 +365,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Memory",
-        "url": "https://docs.claude.com/en/docs/claude-code/memory"
+        "url": "https://docs.claude.com/en/docs/claude-code/memory",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -400,11 +416,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Compaction 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code/compaction"
+        "url": "https://docs.claude.com/en/docs/claude-code/compaction",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Context Engineering",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Auto-summarize the conversation when approaching the context window limit. Preserves context while freeing tokens.",
@@ -436,7 +454,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Checkpoints",
-        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints"
+        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -475,7 +494,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Permissions",
-        "url": "https://docs.claude.com/en/docs/claude-code/permissions"
+        "url": "https://docs.claude.com/en/docs/claude-code/permissions",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -520,11 +540,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode"
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Safety",
-        "url": "https://docs.claude.com/en/docs/claude-code/security"
+        "url": "https://docs.claude.com/en/docs/claude-code/security",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Background classifier that reviews operations. uses safety classifier + defense-in-depth, reduces prompt injection risk but doesn't guarantee absolute safety.",
@@ -557,7 +579,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Bare Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode"
+        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -601,11 +624,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Extended Thinking",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking"
+        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Claude's visible step-by-step reasoning before responding. Tunable via effort level.",
@@ -637,7 +662,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Effort",
-        "url": "https://docs.claude.com/en/docs/claude-code/effort"
+        "url": "https://docs.claude.com/en/docs/claude-code/effort",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -674,7 +700,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Output Styles",
-        "url": "https://docs.claude.com/en/docs/claude-code/output-styles"
+        "url": "https://docs.claude.com/en/docs/claude-code/output-styles",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -712,11 +739,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Hooks",
-        "url": "https://docs.claude.com/en/docs/claude-code/hooks"
+        "url": "https://docs.claude.com/en/docs/claude-code/hooks",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Husky Git hooks",
-        "url": "https://typicode.github.io/husky/"
+        "url": "https://typicode.github.io/husky/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -753,7 +782,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Skills",
-        "url": "https://docs.claude.com/en/docs/claude-code/skills"
+        "url": "https://docs.claude.com/en/docs/claude-code/skills",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -784,11 +814,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Custom Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/custom-commands"
+        "url": "https://docs.claude.com/en/docs/claude-code/custom-commands",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Slash commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands"
+        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [

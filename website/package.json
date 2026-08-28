@@ -18,7 +18,8 @@
     "enrich:priority-3": "node scripts/enrich-priority-3.cjs",
     "enrich:priority-4": "node scripts/enrich-priority-4.cjs",
     "enrich:priority-5": "node scripts/enrich-priority-5.cjs",
-    "fix:orphan-related": "node scripts/fix-orphan-related.cjs"
+    "fix:orphan-related": "node scripts/fix-orphan-related.cjs",
+    "audit:citations": "node scripts/citation-stale-audit.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

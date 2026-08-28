@@ -25,11 +25,13 @@
     "seeAlso": [
       {
         "name": "Andrej Karpathy: Intro to LLMs",
-        "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+        "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI: LLM 介绍",
-        "url": "https://platform.openai.com/docs/introduction"
+        "url": "https://platform.openai.com/docs/introduction",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -38,8 +40,8 @@
         "cite": "Andrej Karpathy"
       }
     ],
-    "enShortDesc": "Large Language Model: a function from text to text, trained on a large corpus. The foundation of modern AI assistants.",
-    "enLongDesc": "<p>An <strong>LLM</strong> is a neural network trained on massive text corpora to predict the next token. Modern LLMs (GPT-4, Claude, Gemini) have hundreds of billions of parameters and exhibit emergent capabilities like reasoning and code generation.</p>"
+    "enShortDesc": "Large language model: a Transformer-based neural network trained on massive text corpora to predict the next token — the engine behind vibe coding.",
+    "enLongDesc": "<p>A <strong>large language model (LLM)</strong> is a Transformer-based neural network trained on a massive text corpus to <strong>predict the next token</strong>.</p>\n<p>That single trick — next-token prediction at scale — is the engine behind vibe coding: it's what powers modern AI coding agents.</p>\n<p><strong>Representative models:</strong> Claude Opus 4.6 / Sonnet 4.6 / Haiku 4.5; GPT-5 / GPT-5.2; Gemini 3 Pro; DeepSeek V3.2; Qwen 3; Llama 4.</p>"
   },
   {
     "id": "transformer",
@@ -66,15 +68,18 @@
     "seeAlso": [
       {
         "name": "Attention Is All You Need (原论文)",
-        "url": "https://arxiv.org/abs/1706.03762"
+        "url": "https://arxiv.org/abs/1706.03762",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "The Illustrated Transformer",
-        "url": "https://jalammar.github.io/illustrated-transformer/"
+        "url": "https://jalammar.github.io/illustrated-transformer/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Andrej Karpathy: Let's build GPT",
-        "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY"
+        "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -117,11 +122,13 @@
     "seeAlso": [
       {
         "name": "Attention Is All You Need 论文",
-        "url": "https://arxiv.org/abs/1706.03762"
+        "url": "https://arxiv.org/abs/1706.03762",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "The Illustrated Attention",
-        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/"
+        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "The mechanism that lets models weigh the relevance of different input tokens to each other. Foundation of the Transformer.",
@@ -152,11 +159,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Context Windows",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Google Gemini 2.5 Pro 2M",
-        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
+        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -193,15 +202,18 @@
     "seeAlso": [
       {
         "name": "OpenAI Tokenizer",
-        "url": "https://platform.openai.com/tokenizer"
+        "url": "https://platform.openai.com/tokenizer",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "tiktoken GitHub",
-        "url": "https://github.com/openai/tiktoken"
+        "url": "https://github.com/openai/tiktoken",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Context Windows",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -245,11 +257,13 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Hallucinations 词条",
-        "url": "https://simonwillison.net/tags/hallucinations/"
+        "url": "https://simonwillison.net/tags/hallucinations/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Reducing hallucinations",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "When an LLM confidently states false information. The #1 reliability problem with LLMs.",
@@ -281,11 +295,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code agent loop 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code/how-claude-code-works"
+        "url": "https://docs.claude.com/en/docs/claude-code/how-claude-code-works",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -326,11 +342,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Subagents",
-        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -368,11 +386,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Agent Teams",
-        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams"
+        "url": "https://docs.claude.com/en/docs/claude-code/agent-teams",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Subagents",
-        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+        "url": "https://docs.claude.com/en/docs/claude-code/sub-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -409,11 +429,13 @@
     "seeAlso": [
       {
         "name": "Anthropic Tool Use",
-        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Function Calling",
-        "url": "https://platform.openai.com/docs/guides/function-calling"
+        "url": "https://platform.openai.com/docs/guides/function-calling",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -455,7 +477,8 @@
     "seeAlso": [
       {
         "name": "MCP 官方文档",
-        "url": "https://modelcontextprotocol.io"
+        "url": "https://modelcontextprotocol.io",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -464,8 +487,8 @@
         "cite": "Anthropic"
       }
     ],
-    "enShortDesc": "Model Context Protocol: Anthropic's open standard for connecting AI tools to external data sources and services.",
-    "enLongDesc": "<p><strong>MCP</strong> is an open protocol (Anthropic, 2024) for connecting LLM applications to external tools and data. Standardizes how AI agents discover and invoke tools across vendors.</p>"
+    "enShortDesc": "MCP (Model Context Protocol): Anthropic's Nov 2024 open standard for connecting AI agents to external tools and data sources — \"the USB-C port for AI applications.\"",
+    "enLongDesc": "<p><strong>MCP (Model Context Protocol)</strong> is the open standard Anthropic released in November 2024 for connecting AI agents to external tools and data sources. Think of it as <strong>the USB / OpenAPI of the AI era</strong>: one standard that replaces per-tool integrations.</p>\n<p><strong>The core pieces:</strong></p>\n<ul>\n<li><strong>MCP server</strong>: a process that exposes tools</li>\n<li><strong>MCP client</strong>: the client built into the agent</li>\n<li><strong>The protocol</strong>: JSON-RPC over stdio / HTTP</li>\n</ul>\n<p><strong>MCP Tool Search:</strong> tool schemas load on demand so they don't eat the context window.</p>"
   },
   {
     "id": "mcp-server",
@@ -498,15 +521,18 @@
     "seeAlso": [
       {
         "name": "MCP 官方文档",
-        "url": "https://modelcontextprotocol.io"
+        "url": "https://modelcontextprotocol.io",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "MCP Server SDK (TypeScript)",
-        "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+        "url": "https://github.com/modelcontextprotocol/typescript-sdk",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "MCP Server SDK (Python)",
-        "url": "https://github.com/modelcontextprotocol/python-sdk"
+        "url": "https://github.com/modelcontextprotocol/python-sdk",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "A server implementation of MCP that exposes tools, prompts, or resources to MCP-compatible clients like Claude Code.",
@@ -538,11 +564,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Tool Search",
-        "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+        "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "MCP 文档",
-        "url": "https://modelcontextprotocol.io"
+        "url": "https://modelcontextprotocol.io",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -579,11 +607,13 @@
     "seeAlso": [
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Prompt Engineering",
-        "url": "https://platform.openai.com/docs/guides/prompt-engineering"
+        "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -622,11 +652,13 @@
     "seeAlso": [
       {
         "name": "OpenAI Embeddings 指南",
-        "url": "https://platform.openai.com/docs/guides/embeddings"
+        "url": "https://platform.openai.com/docs/guides/embeddings",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "HuggingFace sentence-transformers",
-        "url": "https://huggingface.co/sentence-transformers"
+        "url": "https://huggingface.co/sentence-transformers",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -675,19 +707,22 @@
     "seeAlso": [
       {
         "name": "Lewis et al. 2020 RAG 原始论文",
-        "url": "https://arxiv.org/abs/2005.11401"
+        "url": "https://arxiv.org/abs/2005.11401",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Cookbook: RAG",
-        "url": "https://cookbook.openai.com/examples/question_answering_using_embeddings"
+        "url": "https://cookbook.openai.com/examples/question_answering_using_embeddings",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LlamaIndex RAG 指南",
-        "url": "https://docs.llamaindex.ai/en/stable/getting_started/concepts/"
+        "url": "https://docs.llamaindex.ai/en/stable/getting_started/concepts/",
+        "lastVerified": "2026-08-28"
       }
     ],
-    "enShortDesc": "Retrieval-Augmented Generation: retrieve relevant documents, then have the LLM generate an answer based on the retrieved context.",
-    "enLongDesc": "<p><strong>RAG</strong> augments LLM outputs with retrieved knowledge from a vector database or search index, reducing hallucinations and improving factual accuracy.</p><p>Original paper: Lewis et al. 2020.</p>"
+    "enShortDesc": "Retrieve relevant documents from your knowledge base, then let the LLM generate an answer grounded in what was retrieved.",
+    "enLongDesc": "<p><strong>RAG (retrieval-augmented generation)</strong> strengthens LLM output by <strong>retrieving from an external knowledge base</strong> first — grounding the model in fresh facts and cutting down on hallucinations and stale information.</p>\n<p><strong>How it works:</strong></p>\n<ol>\n<li>Query → embedding</li>\n<li>Retrieve similar documents from a vector database</li>\n<li>Inject the documents into the prompt as context</li>\n<li>The LLM generates the answer from those documents</li>\n</ol>\n<p><strong>Variants:</strong> GraphRAG / HyDE / Self-RAG / CRAG</p>\n<p>The technique comes from Lewis et al., 2020 (\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\").</p>"
   },
   {
     "id": "vector-database",
@@ -715,15 +750,18 @@
     "seeAlso": [
       {
         "name": "Pinecone 官网",
-        "url": "https://www.pinecone.io"
+        "url": "https://www.pinecone.io",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "ChromaDB 文档",
-        "url": "https://docs.trychroma.com"
+        "url": "https://docs.trychroma.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Qdrant 文档",
-        "url": "https://qdrant.tech/documentation/"
+        "url": "https://qdrant.tech/documentation/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -761,11 +799,13 @@
     "seeAlso": [
       {
         "name": "Wikipedia: Cosine similarity",
-        "url": "https://en.wikipedia.org/wiki/Cosine_similarity"
+        "url": "https://en.wikipedia.org/wiki/Cosine_similarity",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "NumPy: np.dot",
-        "url": "https://numpy.org/doc/stable/reference/generated/numpy.dot.html"
+        "url": "https://numpy.org/doc/stable/reference/generated/numpy.dot.html",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -802,11 +842,13 @@
     "seeAlso": [
       {
         "name": "LangChain Text Splitters",
-        "url": "https://python.langchain.com/docs/how_to/text_splitters/"
+        "url": "https://python.langchain.com/docs/how_to/text_splitters/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LlamaIndex Node Parsers",
-        "url": "https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/"
+        "url": "https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -837,11 +879,13 @@
     "seeAlso": [
       {
         "name": "Cohere Rerank 文档",
-        "url": "https://docs.cohere.com/docs/rerank-2"
+        "url": "https://docs.cohere.com/docs/rerank-2",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Sentence-BERT Cross-Encoder",
-        "url": "https://www.sbert.net/examples/applications/cross-encoder/README.html"
+        "url": "https://www.sbert.net/examples/applications/cross-encoder/README.html",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -879,15 +923,18 @@
     "seeAlso": [
       {
         "name": "Microsoft GraphRAG",
-        "url": "https://microsoft.github.io/graphrag/"
+        "url": "https://microsoft.github.io/graphrag/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "GraphRAG 论文",
-        "url": "https://arxiv.org/abs/2404.16130"
+        "url": "https://arxiv.org/abs/2404.16130",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Microsoft GraphRAG GitHub",
-        "url": "https://github.com/microsoft/graphrag"
+        "url": "https://github.com/microsoft/graphrag",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -919,7 +966,8 @@
     "seeAlso": [
       {
         "name": "HyDE 论文 (Gao et al. 2022)",
-        "url": "https://arxiv.org/abs/2212.10496"
+        "url": "https://arxiv.org/abs/2212.10496",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -950,7 +998,8 @@
     "seeAlso": [
       {
         "name": "Anthropic: Prompt Caching",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Cache prompt prefix to avoid recomputing KV cache on every request. Cuts cost by up to 90% for repeated system prompts.",
@@ -987,11 +1036,13 @@
     "seeAlso": [
       {
         "name": "vLLM: PagedAttention 论文",
-        "url": "https://arxiv.org/abs/2309.06180"
+        "url": "https://arxiv.org/abs/2309.06180",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "DAIR.ai: KV Cache 解释",
-        "url": "https://dair.ai"
+        "url": "https://dair.ai",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Cache of key/value matrices from previous tokens during autoregressive generation. Reduces per-token computation from O(n²) to O(n).",
@@ -1021,11 +1072,13 @@
     "seeAlso": [
       {
         "name": "PagedAttention 论文 (Kwon et al. 2023)",
-        "url": "https://arxiv.org/abs/2309.06180"
+        "url": "https://arxiv.org/abs/2309.06180",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "vLLM 文档",
-        "url": "https://docs.vllm.ai"
+        "url": "https://docs.vllm.ai",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1062,7 +1115,8 @@
     "seeAlso": [
       {
         "name": "Speculative Decoding 论文",
-        "url": "https://arxiv.org/abs/2211.17192"
+        "url": "https://arxiv.org/abs/2211.17192",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1099,15 +1153,18 @@
     "seeAlso": [
       {
         "name": "Flash Attention 论文 (Dao et al. 2022)",
-        "url": "https://arxiv.org/abs/2205.14135"
+        "url": "https://arxiv.org/abs/2205.14135",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Flash Attention GitHub",
-        "url": "https://github.com/Dao-AILab/flash-attention"
+        "url": "https://github.com/Dao-AILab/flash-attention",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Flash Attention 3 论文",
-        "url": "https://arxiv.org/abs/2407.08608"
+        "url": "https://arxiv.org/abs/2407.08608",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1150,11 +1207,13 @@
     "seeAlso": [
       {
         "name": "Switch Transformer 论文",
-        "url": "https://arxiv.org/abs/2101.03961"
+        "url": "https://arxiv.org/abs/2101.03961",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "DeepSeek V3 技术报告",
-        "url": "https://arxiv.org/abs/2412.19437"
+        "url": "https://arxiv.org/abs/2412.19437",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Sparse model architecture: many 'experts' but only top-k activated per token. DeepSeek V3: 671B params, 37B active.",
@@ -1184,11 +1243,13 @@
     "seeAlso": [
       {
         "name": "FrugalGPT 论文",
-        "url": "https://arxiv.org/abs/2305.05176"
+        "url": "https://arxiv.org/abs/2305.05176",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Switch Transformer",
-        "url": "https://arxiv.org/abs/2101.03961"
+        "url": "https://arxiv.org/abs/2101.03961",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1231,11 +1292,13 @@
     "seeAlso": [
       {
         "name": "Mamba 原论文 (Gu & Dao 2023)",
-        "url": "https://arxiv.org/abs/2312.00752"
+        "url": "https://arxiv.org/abs/2312.00752",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Mamba GitHub",
-        "url": "https://github.com/state-spaces/mamba"
+        "url": "https://github.com/state-spaces/mamba",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "State Space Model alternative to Transformers. Linear O(n) complexity instead of quadratic. Strong for long sequences.",
@@ -1272,7 +1335,8 @@
     "seeAlso": [
       {
         "name": "RoPE 原论文 (Su et al. 2021)",
-        "url": "https://arxiv.org/abs/2104.09864"
+        "url": "https://arxiv.org/abs/2104.09864",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Rotary Position Embedding: encodes position by rotating query/key vectors. Better length extrapolation than absolute positions.",
@@ -1303,7 +1367,8 @@
     "seeAlso": [
       {
         "name": "ALiBi 论文 (Press et al. 2022)",
-        "url": "https://arxiv.org/abs/2108.12409"
+        "url": "https://arxiv.org/abs/2108.12409",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1340,19 +1405,23 @@
     "seeAlso": [
       {
         "name": "bitsandbytes",
-        "url": "https://github.com/TimDettmers/bitsandbytes"
+        "url": "https://github.com/TimDettmers/bitsandbytes",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "HuggingFace: Quantization",
-        "url": "https://huggingface.co/docs/transformers/quantization"
+        "url": "https://huggingface.co/docs/transformers/quantization",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "bitsandbytes 文档",
-        "url": "https://huggingface.co/docs/bitsandbytes"
+        "url": "https://huggingface.co/docs/bitsandbytes",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "AWQ 论文",
-        "url": "https://arxiv.org/abs/2306.00978"
+        "url": "https://arxiv.org/abs/2306.00978",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1389,11 +1458,13 @@
     "seeAlso": [
       {
         "name": "AWQ 论文",
-        "url": "https://arxiv.org/abs/2306.00978"
+        "url": "https://arxiv.org/abs/2306.00978",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "AutoAWQ GitHub",
-        "url": "https://github.com/casper-hansen/AutoAWQ"
+        "url": "https://github.com/casper-hansen/AutoAWQ",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1430,11 +1501,13 @@
     "seeAlso": [
       {
         "name": "GPTQ 论文 (Frantar et al. 2022)",
-        "url": "https://arxiv.org/abs/2210.17323"
+        "url": "https://arxiv.org/abs/2210.17323",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "AutoGPTQ GitHub",
-        "url": "https://github.com/AutoGPTQ/AutoGPTQ"
+        "url": "https://github.com/AutoGPTQ/AutoGPTQ",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1495,11 +1568,13 @@
     "seeAlso": [
       {
         "name": "Stanford CRFM: Frontier Model Definition",
-        "url": "https://crfm.stanford.edu"
+        "url": "https://crfm.stanford.edu",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Models",
-        "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+        "url": "https://docs.anthropic.com/en/docs/about-claude/models",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1537,11 +1612,13 @@
     "seeAlso": [
       {
         "name": "Qwen2.5-Coder",
-        "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/"
+        "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "SWE-bench Leaderboard",
-        "url": "https://www.swebench.com"
+        "url": "https://www.swebench.com",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1579,11 +1656,13 @@
     "seeAlso": [
       {
         "name": "HuggingFace PEFT",
-        "url": "https://huggingface.co/docs/peft/index"
+        "url": "https://huggingface.co/docs/peft/index",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LoRA 原论文",
-        "url": "https://arxiv.org/abs/2106.09685"
+        "url": "https://arxiv.org/abs/2106.09685",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1614,11 +1693,13 @@
     "seeAlso": [
       {
         "name": "LoRA 原论文",
-        "url": "https://arxiv.org/abs/2106.09685"
+        "url": "https://arxiv.org/abs/2106.09685",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "PEFT 文档",
-        "url": "https://huggingface.co/docs/peft/conceptual_guides/lora"
+        "url": "https://huggingface.co/docs/peft/conceptual_guides/lora",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1655,11 +1736,13 @@
     "seeAlso": [
       {
         "name": "QLoRA 论文",
-        "url": "https://arxiv.org/abs/2305.14314"
+        "url": "https://arxiv.org/abs/2305.14314",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "bitsandbytes",
-        "url": "https://github.com/TimDettmers/bitsandbytes"
+        "url": "https://github.com/TimDettmers/bitsandbytes",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1696,7 +1779,8 @@
     "seeAlso": [
       {
         "name": "HuggingFace PEFT",
-        "url": "https://huggingface.co/docs/peft/index"
+        "url": "https://huggingface.co/docs/peft/index",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -1729,11 +1813,13 @@
     "seeAlso": [
       {
         "name": "InstructGPT 论文 (RLHF 应用)",
-        "url": "https://arxiv.org/abs/2203.02155"
+        "url": "https://arxiv.org/abs/2203.02155",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Constitutional AI",
-        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems"
+        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1771,11 +1857,13 @@
     "seeAlso": [
       {
         "name": "DPO 原论文",
-        "url": "https://arxiv.org/abs/2305.18290"
+        "url": "https://arxiv.org/abs/2305.18290",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "TRL DPO Trainer",
-        "url": "https://huggingface.co/docs/trl/main/en/dpo_trainer"
+        "url": "https://huggingface.co/docs/trl/main/en/dpo_trainer",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1813,7 +1901,8 @@
     "seeAlso": [
       {
         "name": "RLAIF 论文 (Lee et al. 2023)",
-        "url": "https://arxiv.org/abs/2309.00267"
+        "url": "https://arxiv.org/abs/2309.00267",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -1844,7 +1933,8 @@
     "seeAlso": [
       {
         "name": "ORPO 论文 (Hong et al. 2024)",
-        "url": "https://arxiv.org/abs/2403.07691"
+        "url": "https://arxiv.org/abs/2403.07691",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Odds Ratio Preference Optimization: combines SFT and DPO in one step. No reference model needed.",
@@ -1869,7 +1959,8 @@
     "seeAlso": [
       {
         "name": "IPO 论文 (Azar et al. 2023)",
-        "url": "https://arxiv.org/abs/2310.12036"
+        "url": "https://arxiv.org/abs/2310.12036",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Identity Preference Optimization: fixes DPO's overfitting by using an identity instead of a log-sigmoid.",
@@ -1904,11 +1995,13 @@
     "seeAlso": [
       {
         "name": "OpenAI Function Calling 指南",
-        "url": "https://platform.openai.com/docs/guides/function-calling"
+        "url": "https://platform.openai.com/docs/guides/function-calling",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Tool Use 文档",
-        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1945,11 +2038,13 @@
     "seeAlso": [
       {
         "name": "OpenAI Structured Outputs",
-        "url": "https://platform.openai.com/docs/guides/structured-outputs"
+        "url": "https://platform.openai.com/docs/guides/structured-outputs",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Tool Use (结构化输出)",
-        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -1980,7 +2075,8 @@
     "seeAlso": [
       {
         "name": "Outlines 库",
-        "url": "https://github.com/outlines-dev/outlines"
+        "url": "https://github.com/outlines-dev/outlines",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -2010,7 +2106,8 @@
     "seeAlso": [
       {
         "name": "HuggingFace: Generation 策略",
-        "url": "https://huggingface.co/docs/transformers/generation_strategies"
+        "url": "https://huggingface.co/docs/transformers/generation_strategies",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -2048,11 +2145,13 @@
     "seeAlso": [
       {
         "name": "Anthropic Computer Use 公告",
-        "url": "https://www.anthropic.com/news/computer-use"
+        "url": "https://www.anthropic.com/news/computer-use",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Computer Use 文档",
-        "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/computer-use-tool"
+        "url": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/computer-use-tool",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -2090,15 +2189,18 @@
     "seeAlso": [
       {
         "name": "browser-use 官网",
-        "url": "https://browser-use.com"
+        "url": "https://browser-use.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "browser-use GitHub",
-        "url": "https://github.com/browser-use/browser-use"
+        "url": "https://github.com/browser-use/browser-use",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Claude for Chrome",
-        "url": "https://www.anthropic.com/news/claude-for-chrome"
+        "url": "https://www.anthropic.com/news/claude-for-chrome",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [

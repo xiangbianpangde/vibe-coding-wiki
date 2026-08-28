@@ -31,11 +31,13 @@
     "seeAlso": [
       {
         "name": "Wei et al. 2022 CoT 论文",
-        "url": "https://arxiv.org/abs/2201.11903"
+        "url": "https://arxiv.org/abs/2201.11903",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Chain-of-Thought: let the LLM 'think before responding'. For complex tasks.",
@@ -68,7 +70,8 @@
     "seeAlso": [
       {
         "name": "ToT Paper",
-        "url": "https://arxiv.org/abs/2305.10601"
+        "url": "https://arxiv.org/abs/2305.10601",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -109,11 +112,13 @@
     "seeAlso": [
       {
         "name": "Yao et al. ReAct 论文",
-        "url": "https://arxiv.org/abs/2210.03629"
+        "url": "https://arxiv.org/abs/2210.03629",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LangChain ReAct",
-        "url": "https://python.langchain.com/docs/how_to/agent_react/"
+        "url": "https://python.langchain.com/docs/how_to/agent_react/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Reason + Act loop: alternate thinking with tool calls. The agent paradigm.",
@@ -171,7 +176,8 @@
     "seeAlso": [
       {
         "name": "Reflexion Paper",
-        "url": "https://arxiv.org/abs/2303.11381"
+        "url": "https://arxiv.org/abs/2303.11381",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -212,11 +218,13 @@
     "seeAlso": [
       {
         "name": "Brown et al. 2020 GPT-3 论文",
-        "url": "https://arxiv.org/abs/2005.14165"
+        "url": "https://arxiv.org/abs/2005.14165",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Include a few examples in the prompt. Let the model imitate the pattern.",
@@ -247,11 +255,13 @@
     "seeAlso": [
       {
         "name": "GPT-3 Paper",
-        "url": "https://arxiv.org/abs/2005.14165"
+        "url": "https://arxiv.org/abs/2005.14165",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "FLAN-T5 (zero-shot generalization)",
-        "url": "https://arxiv.org/abs/2210.11416"
+        "url": "https://arxiv.org/abs/2210.11416",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -284,7 +294,8 @@
     "seeAlso": [
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -321,7 +332,8 @@
     "seeAlso": [
       {
         "name": "Least-to-Most Prompting (Zhou et al. 2022)",
-        "url": "https://arxiv.org/abs/2205.10625"
+        "url": "https://arxiv.org/abs/2205.10625",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -359,7 +371,8 @@
     "seeAlso": [
       {
         "name": "Constitutional AI",
-        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems"
+        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -396,11 +409,13 @@
     "seeAlso": [
       {
         "name": "Anthropic Tool Use",
-        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Function Calling",
-        "url": "https://platform.openai.com/docs/guides/function-calling"
+        "url": "https://platform.openai.com/docs/guides/function-calling",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -437,15 +452,18 @@
     "seeAlso": [
       {
         "name": "DSPy",
-        "url": "https://dspy.ai"
+        "url": "https://dspy.ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OPRO (Google)",
-        "url": "https://arxiv.org/abs/2309.03409"
+        "url": "https://arxiv.org/abs/2309.03409",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -482,11 +500,13 @@
     "seeAlso": [
       {
         "name": "Anthropic: Extended Thinking",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking"
+        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -523,11 +543,13 @@
     "seeAlso": [
       {
         "name": "OWASP LLM Top 10",
-        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Injection Defense",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -562,11 +584,13 @@
     "seeAlso": [
       {
         "name": "Anthropic System Prompts",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI System Messages",
-        "url": "https://platform.openai.com/docs/guides/text-generation"
+        "url": "https://platform.openai.com/docs/guides/text-generation",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -601,11 +625,13 @@
     "seeAlso": [
       {
         "name": "GPT-3 Few-Shot Learners",
-        "url": "https://arxiv.org/abs/2005.14165"
+        "url": "https://arxiv.org/abs/2005.14165",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic Prompt Engineering",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [

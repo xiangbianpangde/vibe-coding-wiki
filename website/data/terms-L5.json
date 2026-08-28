@@ -68,11 +68,13 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: Verification",
-        "url": "https://martinfowler.com/articles/verification.html"
+        "url": "https://martinfowler.com/articles/verification.html",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode"
+        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Mechanical Verification Pipeline: use the compiler, diff, and test suite as the referee.",
@@ -107,11 +109,13 @@
     "seeAlso": [
       {
         "name": "nazarboyko.com",
-        "url": "https://nazarboyko.com"
+        "url": "https://nazarboyko.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Martin Fowler: TDD",
-        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -149,11 +153,13 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: TDD",
-        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+        "url": "https://martinfowler.com/bliki/TestDrivenDevelopment.html",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Kent Beck: TDD by Example",
-        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+        "url": "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -200,7 +206,8 @@
     "seeAlso": [
       {
         "name": "Working Effectively with Legacy Code",
-        "url": "https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052"
+        "url": "https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Build a testing safety net: enough tests to make AI changes safe.",
@@ -231,7 +238,8 @@
     "seeAlso": [
       {
         "name": "GitHub Pull Request 文档",
-        "url": "https://docs.github.com/en/pull-requests"
+        "url": "https://docs.github.com/en/pull-requests",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -268,7 +276,8 @@
     "seeAlso": [
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -310,7 +319,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode"
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -352,7 +362,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Vibe Coding tags",
-        "url": "https://simonwillison.net/tags/vibe-coding/"
+        "url": "https://simonwillison.net/tags/vibe-coding/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Vibe coding with continuous review. The opposite of YOLO is engaged review, not 'no agent'.",
@@ -383,7 +394,8 @@
     "seeAlso": [
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -420,7 +432,8 @@
     "seeAlso": [
       {
         "name": "GitHub Spec Kit",
-        "url": "https://github.github.io/spec-kit/"
+        "url": "https://github.github.io/spec-kit/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -457,7 +470,8 @@
     "seeAlso": [
       {
         "name": "npm package.json 文档",
-        "url": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json"
+        "url": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -494,7 +508,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto Mode Safety",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety"
+        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results; uses defense-in-depth to reduce prompt injection risk but doesn't guarantee absolute safety.",
@@ -524,7 +539,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Settings",
-        "url": "https://docs.claude.com/en/docs/claude-code/settings"
+        "url": "https://docs.claude.com/en/docs/claude-code/settings",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [

@@ -30,15 +30,18 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: Technical Debt",
-        "url": "https://martinfowler.com/articles/isomorphism.html"
+        "url": "https://martinfowler.com/articles/isomorphism.html",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Steve McConnell: Technical Debt",
-        "url": "https://stevemcconnell.com/articles/technical-debt-management/"
+        "url": "https://stevemcconnell.com/articles/technical-debt-management/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt"
+        "url": "https://www.huntthought.com/2026/cognitive-debt",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Long-term maintenance burden accumulated in code. Vibe coding dramatically increases it.",
@@ -70,11 +73,13 @@
     "seeAlso": [
       {
         "name": "Andrew Hunt: Cognitive Debt 详细",
-        "url": "https://www.huntthought.com/2026/cognitive-debt-detail"
+        "url": "https://www.huntthought.com/2026/cognitive-debt-detail",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Hunt: Tech Debt is Still Real",
-        "url": "https://www.huntthought.com/2026/tech-debt"
+        "url": "https://www.huntthought.com/2026/tech-debt",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -156,11 +161,13 @@
     "seeAlso": [
       {
         "name": "Mario Zechner: Software rot 演讲",
-        "url": "https://mariosblog.com/infrastructure-falling-apart/"
+        "url": "https://mariosblog.com/infrastructure-falling-apart/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Vibe Coding Kills Open Source",
-        "url": "https://arxiv.org/abs/2601.15494"
+        "url": "https://arxiv.org/abs/2601.15494",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Mario Zechner's term: low-quality, hard-to-maintain code produced by vibe coding.",
@@ -236,11 +243,13 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Lethal trifecta",
-        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OWASP LLM Top 10",
-        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Simon Willison's three-factor risk: private data + untrusted content + external communication. Any two is dangerous; all three is lethal.",
@@ -295,11 +304,13 @@
     "seeAlso": [
       {
         "name": "Vibe Coding Kills Open Source 论文",
-        "url": "https://arxiv.org/abs/2601.15494"
+        "url": "https://arxiv.org/abs/2601.15494",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "GitClear: 2024 Code Quality Report (Code Clones + Refactor sections)",
-        "url": "https://gitclear.com/reports/code-quality-2024"
+        "url": "https://gitclear.com/reports/code-quality-2024",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
@@ -336,11 +347,13 @@
     "seeAlso": [
       {
         "name": "Koren et al. 2026-01 论文",
-        "url": "https://arxiv.org/abs/2601.15494"
+        "url": "https://arxiv.org/abs/2601.15494",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Vibe Coding Kills Open Source",
-        "url": "https://github.com/vibe-coding-kills-open-source/paper"
+        "url": "https://github.com/vibe-coding-kills-open-source/paper",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "2026-01 paper: vibe coding weakens open source maintainer engagement and revenue.",
@@ -404,15 +417,18 @@
     "seeAlso": [
       {
         "name": "OWASP LLM Top 10",
-        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Simon Willison: Prompt injection 词条",
-        "url": "https://simonwillison.net/tags/prompt-injection/"
+        "url": "https://simonwillison.net/tags/prompt-injection/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Prompt injection 指南",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense"
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Malicious content injected into an LLM's input stream to manipulate its behavior.",
@@ -468,7 +484,8 @@
     "seeAlso": [
       {
         "name": "METR 报告",
-        "url": "https://metr.org"
+        "url": "https://metr.org",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "METR 2025-07 study: 16 developers + 246 tasks, AI tools increased completion time by 19% (developers predicted -24%).",
@@ -504,11 +521,13 @@
     "seeAlso": [
       {
         "name": "Stack Overflow 2025 AI 调查",
-        "url": "https://survey.stackoverflow.co/2025/ai"
+        "url": "https://survey.stackoverflow.co/2025/ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "METR 2025-07 研究",
-        "url": "https://metr.org"
+        "url": "https://metr.org",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "AI speeds development but developers spend more total time — METR + Stack Overflow data.",
@@ -546,11 +565,13 @@
     "seeAlso": [
       {
         "name": "Stack Overflow 2025 AI 调查全文",
-        "url": "https://survey.stackoverflow.co/2025/ai"
+        "url": "https://survey.stackoverflow.co/2025/ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Stack Overflow 2025 主报告",
-        "url": "https://survey.stackoverflow.co/2025"
+        "url": "https://survey.stackoverflow.co/2025",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Stack Overflow 2025 developer survey: 84% use AI, 51% daily, 72% don't use AI for deployment.",

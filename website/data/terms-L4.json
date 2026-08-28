@@ -31,19 +31,22 @@
     "seeAlso": [
       {
         "name": "Cursor 官网",
-        "url": "https://cursor.com"
+        "url": "https://cursor.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Cursor Docs",
-        "url": "https://docs.cursor.com"
+        "url": "https://docs.cursor.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Cursor Composer 介绍",
-        "url": "https://cursor.com/blog/composer-1"
+        "url": "https://cursor.com/blog/composer-1",
+        "lastVerified": "2026-08-28"
       }
     ],
-    "enShortDesc": "AI-first IDE based on a VS Code fork. Flagship vibe coding tool.",
-    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a VS Code fork. Features Tab autocomplete, Chat (@code), Composer (multi-file agent), and Agent Mode. Supports Claude, GPT, Gemini.</p>"
+    "enShortDesc": "AI-first IDE built on a VS Code fork — Tab autocomplete, Chat, Composer, Agent Mode. The flagship tool of the vibe-coding era.",
+    "enLongDesc": "<p><strong>Cursor</strong> is an AI-first IDE built on a fork of VS Code — and it became the flagship tool of the vibe-coding wave.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li><strong>Tab</strong>: inline autocomplete, Copilot-style</li>\n<li><strong>Chat (<code>@code</code>)</strong>: conversational interaction</li>\n<li><strong>Composer</strong>: multi-file edits with agent orchestration</li>\n<li><strong>Apply / Edit</strong>: batch edits across files</li>\n<li><strong>Agent Mode</strong>: autonomous agents</li>\n</ul>\n<p><strong>Models:</strong> works with Claude, GPT, and Gemini.</p>"
   },
   {
     "id": "cursor-composer",
@@ -70,11 +73,13 @@
     "seeAlso": [
       {
         "name": "Cursor Composer 介绍",
-        "url": "https://cursor.com/blog/composer-1"
+        "url": "https://cursor.com/blog/composer-1",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Cursor Docs: Composer",
-        "url": "https://docs.cursor.com/composer"
+        "url": "https://docs.cursor.com/composer",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -117,7 +122,8 @@
     "seeAlso": [
       {
         "name": "Claude Code Docs",
-        "url": "https://docs.claude.com/en/docs/claude-code"
+        "url": "https://docs.claude.com/en/docs/claude-code",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -130,8 +136,8 @@
         "cite": "Claude Code Docs"
       }
     ],
-    "enShortDesc": "Anthropic's CLI agent for the terminal. Recommended by Karpathy.",
-    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's terminal-based coding agent. Uses Claude models with tool use (Read, Edit, Bash), subagents, checkpoints, hooks, and CLAUDE.md for persistence.</p>"
+    "enShortDesc": "Anthropic's CLI coding agent (Feb 2025): works in your terminal, edits files, runs shell commands, and delegates to subagents. Recommended by Karpathy.",
+    "enLongDesc": "<p><strong>Claude Code</strong> is Anthropic's CLI coding agent, released in February 2025, and it lives entirely in your terminal.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li>Edits your local filesystem directly</li>\n<li>Runs shell commands</li>\n<li>Dispatches subagents via the Task tool</li>\n<li>Plan mode and Build mode</li>\n<li>Slash commands like <code>/init</code> and <code>/specify</code></li>\n<li>Native MCP support</li>\n</ul>\n<p><strong>Agentic harness:</strong> Claude Code is the harness, Claude is the model.</p>"
   },
   {
     "id": "windsurf",
@@ -159,11 +165,13 @@
     "seeAlso": [
       {
         "name": "Windsurf 官网",
-        "url": "https://codeium.com/windsurf"
+        "url": "https://codeium.com/windsurf",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Windsurf Docs",
-        "url": "https://docs.codeium.com/windsurf/getting-started"
+        "url": "https://docs.codeium.com/windsurf/getting-started",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -200,15 +208,18 @@
     "seeAlso": [
       {
         "name": "GitHub Copilot 官网",
-        "url": "https://github.com/features/copilot"
+        "url": "https://github.com/features/copilot",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Copilot Docs",
-        "url": "https://docs.github.com/en/copilot"
+        "url": "https://docs.github.com/en/copilot",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Copilot Chat 使用指南",
-        "url": "https://docs.github.com/en/copilot/github-copilot-chat"
+        "url": "https://docs.github.com/en/copilot/github-copilot-chat",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -254,7 +265,8 @@
     "seeAlso": [
       {
         "name": "Aider GitHub",
-        "url": "https://github.com/Aider-AI/aider"
+        "url": "https://github.com/Aider-AI/aider",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -263,8 +275,8 @@
         "cite": "Aider docs"
       }
     ],
-    "enShortDesc": "AI pair programmer in the terminal. Open source. Multi-LLM backend.",
-    "enLongDesc": "<p><strong>Aider</strong> is a terminal-based AI pair programming tool. Reads git-tracked files, edits, and auto-commits. Supports many LLM backends.</p>"
+    "enShortDesc": "Open-source AI pair programmer for the terminal: edits files in your git repo and auto-commits. Works with Claude, GPT, DeepSeek, or local models.",
+    "enLongDesc": "<p><strong>Aider</strong> is an open-source AI pair programmer that lives in your terminal: describe a change, and it edits the files in your git repository for you.</p>\n<p><strong>Core features:</strong></p>\n<ul>\n<li>Edits files in your git repo directly</li>\n<li>Writes commit messages automatically</li>\n<li>Multiple LLM backends: Claude / GPT / DeepSeek / local models</li>\n<li><strong>Repo map</strong>: injects a map of your entire repository into the context, so the model knows the codebase</li>\n</ul>"
   },
   {
     "id": "replit-agent",
@@ -292,11 +304,13 @@
     "seeAlso": [
       {
         "name": "Replit Agent 官网",
-        "url": "https://replit.com/agent"
+        "url": "https://replit.com/agent",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Replit Docs",
-        "url": "https://docs.replit.com"
+        "url": "https://docs.replit.com",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -334,11 +348,13 @@
     "seeAlso": [
       {
         "name": "Lovable 官网",
-        "url": "https://lovable.dev"
+        "url": "https://lovable.dev",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Lovable Docs",
-        "url": "https://docs.lovable.dev"
+        "url": "https://docs.lovable.dev",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -375,11 +391,13 @@
     "seeAlso": [
       {
         "name": "Codeium 官网",
-        "url": "https://codeium.com"
+        "url": "https://codeium.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Codeium Docs",
-        "url": "https://docs.codeium.com"
+        "url": "https://docs.codeium.com",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -416,11 +434,13 @@
     "seeAlso": [
       {
         "name": "Tabnine 官网",
-        "url": "https://www.tabnine.com"
+        "url": "https://www.tabnine.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Tabnine Docs",
-        "url": "https://docs.tabnine.com"
+        "url": "https://docs.tabnine.com",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -457,11 +477,13 @@
     "seeAlso": [
       {
         "name": "Cline GitHub",
-        "url": "https://github.com/cline/cline"
+        "url": "https://github.com/cline/cline",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Roo Code (Cline fork)",
-        "url": "https://github.com/RooCodeInc/Roo-Code"
+        "url": "https://github.com/RooCodeInc/Roo-Code",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -498,11 +520,13 @@
     "seeAlso": [
       {
         "name": "Cognition AI 官网",
-        "url": "https://www.cognition.ai"
+        "url": "https://www.cognition.ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Devin 介绍博客",
-        "url": "https://www.cognition.ai/blog/introducing-devin"
+        "url": "https://www.cognition.ai/blog/introducing-devin",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -540,11 +564,13 @@
     "seeAlso": [
       {
         "name": "v0.dev 官网",
-        "url": "https://v0.dev"
+        "url": "https://v0.dev",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "v0 文档",
-        "url": "https://v0.dev/docs"
+        "url": "https://v0.dev/docs",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -581,7 +607,8 @@
     "seeAlso": [
       {
         "name": "CodeRabbit 官网",
-        "url": "https://www.coderabbit.ai"
+        "url": "https://www.coderabbit.ai",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "AI code review agent for GitHub PRs. Research shows it increases security vulnerabilities.",
@@ -611,7 +638,8 @@
     "seeAlso": [
       {
         "name": "Veracode: 2025 GenAI Code Security Report",
-        "url": "https://www.veracode.com/blog/2025-genai-code-security-report/"
+        "url": "https://www.veracode.com/blog/2025-genai-code-security-report/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Application security testing platform. Veracode 2025-10 report: security pass rate 2023-2025 plateaued in 45-55% range; model size uncorrelated with pass rate.",
@@ -644,15 +672,18 @@
     "seeAlso": [
       {
         "name": "GitHub Spec Kit Repo",
-        "url": "https://github.com/github/spec-kit"
+        "url": "https://github.com/github/spec-kit",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Spec Kit 文档",
-        "url": "https://github.github.io/spec-kit/"
+        "url": "https://github.github.io/spec-kit/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Spec Kit 介绍博客",
-        "url": "https://github.blog/developer-skills/github/how-to-use-spec-kit-with-your-ai-assistant/"
+        "url": "https://github.blog/developer-skills/github/how-to-use-spec-kit-with-your-ai-assistant/",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -690,7 +721,8 @@
     "seeAlso": [
       {
         "name": "Gemini CLI GitHub",
-        "url": "https://github.com/google-gemini/gemini-cli"
+        "url": "https://github.com/google-gemini/gemini-cli",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -728,7 +760,8 @@
     "seeAlso": [
       {
         "name": "OpenAI Codex CLI",
-        "url": "https://github.com/openai/codex"
+        "url": "https://github.com/openai/codex",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -766,15 +799,18 @@
     "seeAlso": [
       {
         "name": "Claude Code 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code"
+        "url": "https://docs.claude.com/en/docs/claude-code",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "OpenAI Codex CLI",
-        "url": "https://github.com/openai/codex"
+        "url": "https://github.com/openai/codex",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "Anthropic: Building effective agents",
-        "url": "https://www.anthropic.com/research/building-effective-agents"
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "lastVerified": "2026-08-28"
       }
     ],
     "quotes": [
@@ -831,15 +867,18 @@
     "seeAlso": [
       {
         "name": "LangChain 官网",
-        "url": "https://langchain.com"
+        "url": "https://langchain.com",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LangChain Docs",
-        "url": "https://python.langchain.com/docs/introduction/"
+        "url": "https://python.langchain.com/docs/introduction/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LangGraph Repo",
-        "url": "https://github.com/langchain-ai/langgraph"
+        "url": "https://github.com/langchain-ai/langgraph",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -875,19 +914,23 @@
     "seeAlso": [
       {
         "name": "LlamaIndex 官网",
-        "url": "https://llamaindex.ai"
+        "url": "https://llamaindex.ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LlamaIndex Docs",
-        "url": "https://docs.llamaindex.ai/en/stable/"
+        "url": "https://docs.llamaindex.ai/en/stable/",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LlamaIndex GitHub",
-        "url": "https://github.com/run-llama/llama_index"
+        "url": "https://github.com/run-llama/llama_index",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "LlamaIndex Docs",
-        "url": "https://docs.llamaindex.ai"
+        "url": "https://docs.llamaindex.ai",
+        "lastVerified": "2026-08-28"
       }
     ],
     "examples": [
@@ -940,15 +983,18 @@
     "seeAlso": [
       {
         "name": "DSPy 官网",
-        "url": "https://dspy.ai"
+        "url": "https://dspy.ai",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "DSPy GitHub",
-        "url": "https://github.com/stanfordnlp/dspy"
+        "url": "https://github.com/stanfordnlp/dspy",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "DSPy 论文 (Khattab et al. 2023)",
-        "url": "https://arxiv.org/abs/2310.03714"
+        "url": "https://arxiv.org/abs/2310.03714",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Stanford's LLM program optimization framework. Prompts as compilable code.",
@@ -984,15 +1030,18 @@
     "seeAlso": [
       {
         "name": "Hugging Face 官网",
-        "url": "https://huggingface.co"
+        "url": "https://huggingface.co",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "transformers 文档",
-        "url": "https://huggingface.co/docs/transformers/index"
+        "url": "https://huggingface.co/docs/transformers/index",
+        "lastVerified": "2026-08-28"
       },
       {
         "name": "HuggingFace Hub",
-        "url": "https://huggingface.co/docs/hub/index"
+        "url": "https://huggingface.co/docs/hub/index",
+        "lastVerified": "2026-08-28"
       }
     ],
     "enShortDesc": "Open-source ML model and dataset platform. Home of the Transformers library.",
