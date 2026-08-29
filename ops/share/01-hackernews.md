@@ -35,14 +35,20 @@ I built this because the vocabulary around AI-assisted programming is getting di
 
 So I started building a taxonomy rather than another list.
 
-It currently has 178 terms organized into 8 layers:
+It currently has 178 official terms organized into 8 layers (plus 1 community proposal on the pending track):
 Paradigms → Methodologies → Technologies → Tools → Quality → Risks → Prompting → Scenarios.
 
-For each term I'm trying to include the definition, examples, primary-source quotes, related terms and references. Current coverage is roughly 77% examples, 76% quotes and 79% external references.
+For each term I'm trying to include the definition, examples, primary-source quotes, related terms and references. Current coverage: ~88% of terms have examples, ~87% have quotes, ~90% have external references.
 
-The site is deliberately simple: static HTML/CSS/JS, per-layer async loading, offline caching, full-text search, relationship views and an early Chinese/English mode. No account or backend.
+The site is deliberately simple: static HTML/CSS/JS, per-layer async loading, offline caching, full-text search, relationship views and full Chinese/English mode (every entry is bilingual). No account or backend.
 
-The biggest unfinished part is English. The original knowledge base was written in Chinese; L1 is translated and the remaining layers are being reviewed now.
+Two things I put real effort into because glossaries live or die by trust:
+
+1. Citation hygiene. All 295 external references carry lastVerified timestamps, and a 90-day re-verification audit flags anything that drifts stale (currently 0 stale). I don't claim the links are never broken — I claim the audit catches it when they break.
+
+2. Example honesty. Every code example is syntax-checked by a guardrail in CI (72 checked: 50 python / 8 js / 10 bash / 4 json — all passing). Made-up snippets are exactly the thing that would poison a reference like this.
+
+The English layer is my current focus. The zh→en coverage is complete (179/179 entries), and the 10 core terms were rewritten English-first against their primary sources; I'm extending that treatment to the rest of the glossary.
 
 I'd especially appreciate feedback on:
 - terms that are missing
@@ -50,7 +56,7 @@ I'd especially appreciate feedback on:
 - incorrect attribution or sources
 - terminology that shouldn't exist as a separate entry
 
-The repo is MIT licensed and contributions/corrections are welcome.
+The repo is MIT licensed, and contributions/corrections are welcome — new terms can enter through the pending track (⏳ badge) and get promoted after verification.
 ```
 
 ## Key Properties of This Body
@@ -59,7 +65,8 @@ The repo is MIT licensed and contributions/corrections are welcome.
 |---|---|
 | **Problem framing** | "vocabulary is getting difficult to keep straight" — not "I built a thing" |
 | **Specific terms listed** | "vibe coding, agentic coding, context engineering, MCP, spec-driven development, cognitive debt, guardrails, YOLO mode" |
-| **Honest limitation** | "biggest unfinished part is English" |
+| **Honest limitation** | "The English layer is my current focus" + audit caveat: "I don't claim the links are never broken — I claim the audit catches it when they break" |
+| **Trust signals** | trust-mechanics beat feature lists: citation timestamps, syntax-checked examples, pending track |
 | **Invites critique** | 4 specific feedback questions |
 | **Low ego** | "MIT licensed and contributions/corrections are welcome" |
 
@@ -77,8 +84,8 @@ The repo is MIT licensed and contributions/corrections are welcome.
 
 HN 用户会问你 3 个问题：
 1. **Why a taxonomy, not a list?** → 你可回答 "因为 taxonomy 显示关系，list 只是堆砌"
-2. **Why 178 not 1000?** → 你可回答 "v2.3 计划扩到 250+；178 是 70%+ 富内容门槛"
-3. **为什么不自动收录新词?** → 引出 Citation Red Team 这就是为什么
+2. **Why 178 not 1000?** → 你可回答 "178 官方词条是 80%+ 富内容门槛；另有 1 个 community proposal 走 pending 轨道（software-3.0），验证晋升后才计入官方"
+3. **为什么引用可信?** → "295 条引用全部带 lastVerified 时间戳 + 90 天复审审计；示例代码经语法 guardrail（50 py / 8 js / 10 bash / 4 json 全过）— 这就是回答"
 
 ## Timing
 
@@ -116,11 +123,11 @@ gh api -X POST https://hacker-news.firebaseio.com/v0/item/30597874.json \
 ```text
 Author here. A few clarifications:
 
-1. The terms are deliberately limited (~178) because my goal is depth, not breadth. Each term has on average 2.9 sourced content pieces (examples, quotes, references).
+1. The terms are deliberately limited (178 official) because my goal is depth, not breadth. Each term has on average ~3.5 sourced content pieces (examples, quotes, references).
 
-2. The biggest deliberate gap is English. The original was Chinese — I'm doing the translation layer by layer with primary-source verification, not machine translation.
+2. The glossary is fully bilingual zh/en. The core 10 terms were rewritten English-first against primary sources; that treatment is now spreading to the remaining entries.
 
-3. I'm specifically NOT doing this with an LLM-only workflow. Every citation is a primary source (author blog, official docs, original paper). You can verify any quote by clicking the source link.
+3. I'm specifically NOT doing this with an LLM-only workflow. Citations point to first-party sources (author blogs, official docs, papers), all 295 of them timestamped and re-verified every 90 days. Code examples are syntax-checked, not hallucinated.
 
 4. Yes, this is mostly me, an AI agent team (coordinator + data enricher + auditor). The architecture choices are documented in /docs/ARCHITECTURE.md.
 

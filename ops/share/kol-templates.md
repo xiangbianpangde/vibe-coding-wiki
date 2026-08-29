@@ -15,7 +15,9 @@
 **Mention template** (publish on his timeline):
 
 ```
-@vibe-coding-wiki just shipped an open taxonomy of 178 terms across 8 layers, all sourced from your original vocabulary (vibe coding, vibe engineering, agentic engineering) + Willison + Anthropic.
+@vibe-coding-wiki just shipped an open taxonomy of 178 official terms across 8 layers (plus a community pending track), all sourced from your original vocabulary (vibe coding, vibe engineering, agentic engineering) + Willison + Anthropic.
+
+Every attribution carries a lastVerified timestamp and a 90-day re-audit, so the mapping stays honest over time.
 
 If you ever want to see how your terminology gets mapped + cross-referenced with prompt engineering / Claude Code / Cursor concepts, it's here:
 https://xiangbianpangde.github.io/vibe-coding-wiki/
@@ -41,7 +43,7 @@ Happy to fix anything that misrepresents your original intent.
 ```
 @simonw — built an open-source bilingual glossary for AI-assisted programming. Your "vibe engineering" + "lethal trifecta" are in there, properly cited to your blog posts.
 
-Taxonomy of 178 terms, 8 layers (paradigm → method → tech → tools → quality → risk → prompt → scenarios), bilingual (zh/en).
+Taxonomy of 178 official terms (+1 pending proposal), 8 layers (paradigm → method → tech → tools → quality → risk → prompt → scenarios), fully bilingual (zh/en).
 
 https://xiangbianpangde.github.io/vibe-coding-wiki/
 
@@ -65,7 +67,7 @@ Would value your feedback if any term attribution is off.
 ```
 @AnthropicAI — open-sourced a bilingual glossary for AI-assisted programming. We documented all Claude Code vocabulary (compaction, hooks, MCP, CLAUDE.md, agentic harness, permission modes, etc.) with primary-source citations to your docs.
 
-178 terms, 8 layers, EN/ZH bilingual. Static site, MIT, GitHub Pages.
+178 official terms, 8 layers, EN/ZH bilingual. Every citation timestamped + re-audited. Static site, MIT, GitHub Pages.
 
 https://xiangbianpangde.github.io/vibe-coding-wiki/
 
@@ -94,6 +96,8 @@ Uses:
 - Service Worker offline cache
 - JSON-LD WebSite + BreadcrumbList + DefinedTermSet
 - Round-trip bilingual (zh ↔ en) with localStorage
+- 90-day citation re-verification audit (295 citations, all timestamped)
+- Example syntax guardrail in CI (72 checks, 0 failures)
 
 Code: github.com/xiangbianpangde/vibe-coding-wiki
 Live: xiangbianpangde.github.io/vibe-coding-wiki/
@@ -110,9 +114,9 @@ Live: xiangbianpangde.github.io/vibe-coding-wiki/
 **Mention template**:
 
 ```
-@swyx — built an open-source bilingual glossary. Your circles' work is in there: cognitive debt (Hunt 2026), function vectors, in-context learning mechanisms. Properly cited to arxiv where available.
+@swyx — built an open-source bilingual glossary. Your circles' work is in there: cognitive debt (Hunt 2026), function vectors, in-context learning mechanisms. Properly cited to arxiv where available, with timestamped sources on a 90-day audit.
 
-178 terms, 8 layers (paradigm → scenarios), EN/ZH bilingual, MIT.
+178 official terms (+1 pending), 8 layers (paradigm → scenarios), EN/ZH bilingual, MIT.
 
 https://xiangbianpangde.github.io/vibe-coding-wiki/
 ```
