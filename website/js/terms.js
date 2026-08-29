@@ -89,8 +89,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2025/Oct/14/agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Building effective agents",
@@ -142,8 +142,8 @@ window.VC_TERMS = [
       },
       {
         "name": "Vibe Coding 词条",
-        "url": "https://simonwillison.net/2025/Feb/2/simulating-pi-with-100-million-lines-of-code/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/tags/vibe-coding/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -183,8 +183,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2026/Mar/15/agentic-engineering/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2025/Oct/14/agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Martin Fowler: AI-Assisted Engineering",
@@ -233,8 +233,8 @@ window.VC_TERMS = [
       },
       {
         "name": "GitHub Copilot 研究",
-        "url": "https://github.blog/news-insights/research/research-the-impact-of-github-copilot/",
-        "lastVerified": "2026-08-28"
+        "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -271,8 +271,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Simon Willison tags",
-        "url": "https://simonwillison.net/tags/prompt-driven-development/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/tags/prompt-to-app/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -315,8 +315,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Martin Fowler: Pair Programming",
-        "url": "https://martinfowler.com/articles/onPairProgramming.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/articles/on-pair-programming.html",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Kent Beck: TDD",
@@ -359,8 +359,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Simon Willison: Software for one",
-        "url": "https://simonwillison.net/tags/software-for-one/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Lovable 官网",
@@ -405,13 +405,13 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Andrew Hunt: Cognitive Debt 词条",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Hunt: Technical Debt is Still Real",
-        "url": "https://www.huntthought.com/2026/tech-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2603.22106",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -447,8 +447,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Don Norman: Emotional Design",
-        "url": "https://www.jnd.org/dn.ms/EmotionalDesign.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://jnd.org/books/emotional-design-why-we-love-or-hate-everyday-things/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -610,13 +610,13 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Martin Fowler: Technical Debt",
-        "url": "https://martinfowler.com/articles/isomorphism.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/bliki/TechnicalDebt.html",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -686,8 +686,8 @@ window.VC_TERMS = [
     seeAlso: [
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -877,8 +877,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Building effective agents",
@@ -1136,8 +1136,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Compaction 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code/compaction",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/context-window",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Context Engineering",
@@ -1180,8 +1180,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Checkpoints",
-        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/checkpointing",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1258,8 +1258,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Auto Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Claude Code: Safety",
@@ -1304,8 +1304,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Bare Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/headless",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1348,8 +1348,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1385,8 +1385,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Effort",
-        "url": "https://docs.claude.com/en/docs/claude-code/effort",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1545,13 +1545,13 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Custom Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/custom-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/skills",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Claude Code: Slash commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/commands",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1686,8 +1686,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "The Illustrated Attention",
-        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/",
-        "lastVerified": "2026-08-28"
+        "url": "https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -1827,8 +1827,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Anthropic: Reducing hallucinations",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -3364,8 +3364,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Anthropic: Constitutional AI",
-        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.anthropic.com/index/constitutional-ai-harmlessness-from-ai-feedback",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -3654,8 +3654,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Anthropic Computer Use 公告",
-        "url": "https://www.anthropic.com/news/computer-use",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Computer Use 文档",
@@ -3967,8 +3967,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Copilot Chat 使用指南",
-        "url": "https://docs.github.com/en/copilot/github-copilot-chat",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/copilot/how-tos/chat-with-copilot",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -4395,8 +4395,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Spec Kit 介绍博客",
-        "url": "https://github.blog/developer-skills/github/how-to-use-spec-kit-with-your-ai-assistant/",
-        "lastVerified": "2026-08-28"
+        "url": "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -4864,13 +4864,13 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Martin Fowler: Verification",
-        "url": "https://martinfowler.com/articles/verification.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/bliki/SelfTestingCode.html",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5063,8 +5063,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5103,8 +5103,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Auto mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5286,8 +5286,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Claude Code: Auto Mode Safety",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/auto-mode-config",
+        "lastVerified": "2026-08-29"
       }
     ],
   },
@@ -5355,18 +5355,18 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Martin Fowler: Technical Debt",
-        "url": "https://martinfowler.com/articles/isomorphism.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/bliki/TechnicalDebt.html",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Steve McConnell: Technical Debt",
-        "url": "https://stevemcconnell.com/articles/technical-debt-management/",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.construx.com/resources/whitepaper-managing-technical-debt/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5397,13 +5397,13 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Andrew Hunt: Cognitive Debt 详细",
-        "url": "https://www.huntthought.com/2026/cognitive-debt-detail",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Hunt: Tech Debt is Still Real",
-        "url": "https://www.huntthought.com/2026/tech-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2603.22106",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5465,8 +5465,8 @@ Build  → 写代码、运行命令、调用工具</pre>
     seeAlso: [
       {
         "name": "Mario Zechner: Software rot 演讲",
-        "url": "https://mariosblog.com/infrastructure-falling-apart/",
-        "lastVerified": "2026-08-28"
+        "url": "https://mariozechner.at/posts/2025-12-22-year-in-review-2025/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Vibe Coding Kills Open Source",
@@ -5607,8 +5607,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "GitClear: 2024 Code Quality Report (Code Clones + Refactor sections)",
-        "url": "https://gitclear.com/reports/code-quality-2024",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.gitclear.com/research_studies",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -5642,11 +5642,6 @@ Build  → 写代码、运行命令、调用工具</pre>
       {
         "name": "Koren et al. 2026-01 论文",
         "url": "https://arxiv.org/abs/2601.15494",
-        "lastVerified": "2026-08-28"
-      },
-      {
-        "name": "Vibe Coding Kills Open Source",
-        "url": "https://github.com/vibe-coding-kills-open-source/paper",
         "lastVerified": "2026-08-28"
       }
     ],
@@ -5717,8 +5712,8 @@ Build  → 写代码、运行命令、调用工具</pre>
       },
       {
         "name": "Anthropic: Prompt injection 指南",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6235,8 +6230,8 @@ Observation: ... (重复直到完成)</pre>`,
     seeAlso: [
       {
         "name": "Constitutional AI",
-        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.anthropic.com/index/constitutional-ai-harmlessness-from-ai-feedback",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6359,8 +6354,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6402,8 +6397,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "Anthropic Prompt Injection Defense",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6434,8 +6429,8 @@ Observation: ... (重复直到完成)</pre>`,
     seeAlso: [
       {
         "name": "Anthropic System Prompts",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "OpenAI System Messages",
@@ -6550,8 +6545,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "Simon Willison: Software for One",
-        "url": "https://simonwillison.net/tags/software-for-one/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6729,8 +6724,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6768,8 +6763,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "Anthropic Prompt: Test Generation",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6803,8 +6798,8 @@ Observation: ... (重复直到完成)</pre>`,
     seeAlso: [
       {
         "name": "Claude Code: Slash Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/commands",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6915,8 +6910,8 @@ Observation: ... (重复直到完成)</pre>`,
       },
       {
         "name": "OpenAI Code Interpreter",
-        "url": "https://platform.openai.com/docs/assistants/tools/code-interpreter",
-        "lastVerified": "2026-08-28"
+        "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [
@@ -6948,8 +6943,8 @@ Observation: ... (重复直到完成)</pre>`,
     seeAlso: [
       {
         "name": "Claude Code: /init",
-        "url": "https://docs.claude.com/en/docs/claude-code/init",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/memory",
+        "lastVerified": "2026-08-29"
       }
     ],
     examples: [

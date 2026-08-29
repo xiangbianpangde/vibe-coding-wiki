@@ -45,10 +45,21 @@ const KNOWN_FALSE_POSITIVES = [
     reason: 'anti-bot wall: 403 on automated HEAD (OpenAI tokenizer), reachable in browser',
     addedDate: '2026-08-29',
   },
-  // TODO(e756): the function-calling citation (platform.openai.com/docs/guides/
-  // function-calling) returns 200 in a browser but fails automated HEAD — same
-  // platform.openai.com anti-bot as the tokenizer. Add its exact URL pattern
-  // once the R6 report pins down the failing URL/status.
+  {
+    urlPattern: 'platform.openai.com',
+    reason: 'Cloudflare anti-bot: 403 on automated HEAD, GET 200 (R6-verified, covers function-calling guide)',
+    addedDate: '2026-08-29',
+  },
+  {
+    urlPattern: 'huggingface.co',
+    reason: 'HEAD burst rate-limit: ECONNRESET under concurrency, pages exist (R6-verified)',
+    addedDate: '2026-08-29',
+  },
+  {
+    urlPattern: 'gitclear',
+    reason: 'HEAD rejected with 403, GET 200 (R6-verified)',
+    addedDate: '2026-08-29',
+  },
 ];
 
 // ---------------------------------------------------------------------------
