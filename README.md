@@ -45,21 +45,16 @@ So I built a taxonomy rather than another list.
 
 ## Coverage
 
-| Field | Coverage |
-|---|---|
-| `examples` (code samples) | 137 / 178 (77%) |
-| `quotes` (primary-source citations) | 135 / 178 (76%) |
-| `seeAlso` (external references) | 140 / 178 (79%) |
-| `enShortDesc` / `enLongDesc` | 178 / 178 (100%) |
-
 Each term targets high-quality content:
 
 | Field | Coverage |
 |---|---|
-| `examples` (code samples) | 137 / 178 (77%) |
-| `quotes` (primary-source citations) | 135 / 178 (76%) |
-| `seeAlso` (external references) | 140 / 178 (79%) |
+| `examples` (code samples) | 158 / 178 (88%) |
+| `quotes` (primary-source citations) | 155 / 178 (87%) |
+| `seeAlso` (external references) | 161 / 178 (90%) |
 | `enShortDesc` / `enLongDesc` | 178 / 178 (100%) |
+
+Plus trust mechanics: every `seeAlso` citation carries a `lastVerified` date with 90-day re-audit, and all code examples pass syntax checks (CI guardrail).
 
 ## Try it
 
