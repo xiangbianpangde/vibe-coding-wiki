@@ -10,9 +10,12 @@
 | R2 | `seeAlso.lastVerified` schema + 90-day stale audit script | ✅ merged (`b453a88`) — 295/295 citations stamped; first `--check` scan found 35×4xx + 4×DNS-dead → spawned R6 |
 | R4 | EN-first pilot, 10 core terms | ✅ merged (`f722f90` → `9e3ebc0`) — observation period starts; scale decision waits for community signal |
 | R5 | example compile CI | ✅ merged (`46043e1` → `2e89130`) — report-only guardrail; immediately caught 3 real python syntax errors (fixed in `4a42ae0`) |
-| R6 | dead-link citation repair (from first audit) | 🔨 in flight (`feat/deadlink-repair`) |
-| R7 | dual-track pending badge + demo term | 🔨 in flight (`feat/pending-terms`) |
-| R8 | weekly citation-audit cron workflow + "how to verify" note | 🔨 in flight (`feat/verify-note`) |
+| R6 | dead-link citation repair (from first audit) | ✅ merged (`364e0f1`+`c65aacf` → `196902f`) — 34 source URLs fixed / 51 refs re-verified; **14 fabricated citations purged** (huntthought.com ×4, mariosblog.com, simonwillison ×5, martinfowler ×2, etc.); post-fix: 4xx 52→12, DNS 0, timeout 0 |
+| R7 | dual-track pending badge + demo term | ✅ merged (`a5edf5b` → `fdf9312`) — software-3.0 as demo; unit tests 24→27 |
+| R8 | weekly citation-audit cron workflow + "how to verify" note | ✅ merged (`237f635` → `85e99e4`) |
+| R9 | launch copy refresh (trust-moat signals) | ✅ merged (`d94cbf6` → `f5f2c98`) — all numbers script-verified |
+| R10 | audit false-positive whitelist | ✅ merged (`a875bca` → `d57f334`) + R6 batch (platform.openai.com / huggingface.co / gitclear) |
+| — | pre-launch acceptance gate | ✅ `ops/pre-launch-check.sh` — 7/7 green incl. --live smoke (2026-08-29) |
 | R1 | content scale wave (L8 first) | ⏸️ deferred per "observation first" — no expansion before week-4 signal |
 | R3 | good-first-issue triage | ✅ done in Round 6d (templates + labels) |
 
