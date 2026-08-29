@@ -59,6 +59,34 @@ git push origin feat/your-contribution
 # 8. Open Pull Request on GitHub
 ```
 
+## 🛤️ Dual-Track Submission (R7)
+
+Every term follows a two-track lifecycle: **自由提案 → pending 展示 → 验证晋升正式**。
+
+```
+Free proposal (issue / PR)   →   status: "pending"   →   verification   →   official entry
+(no status field needed)          displayed with ⏳ badge      (source + citation      (remove "status")
+                                  after official terms          checked by maintainer)
+```
+
+### How the pending badge works
+
+- A term JSON with top-level `"status": "pending"` is treated as **proposed, not yet verified**
+- On **term detail pages**: the title shows a `⏳ 待验证 / Pending review` badge (follows the lang toggle)
+- On the **A-Z glossary**: pending terms are sorted **after** official terms within each letter group and carry the same badge
+- **Official counts never change**: stats page / home metrics count only official terms (178).
+  The glossary count line shows official terms plus a separate pending count.
+
+### Verification → promotion
+
+When a pending term's wording, sources, and facts are verified:
+
+1. Remove the `"status": "pending"` field from its JSON
+2. Enrich it to the full schema (quotes / examples / seeAlso per Workflow 2)
+3. Rebuild (`node website/scripts/rebuild-terms.cjs` + `rebuild-index.cjs`) and commit
+
+---
+
 ## 📝 Workflow 1: Add a New Term
 
 New terms are added as JSON in `website/data/terms-L{1-8}.json` (one file per layer).
@@ -116,6 +144,10 @@ Append to the appropriate layer JSON file. Required fields:
   ]
 }
 ```
+
+> 🛤️ **Proposing an unverified term?** Add top-level `"status": "pending"` — it will render
+> with the ⏳ badge, sort after official terms, and stay out of official counts until
+> promoted. See the Dual-Track Submission section above.
 
 ### Step 4: Rebuild terms.js
 

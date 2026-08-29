@@ -191,6 +191,23 @@
   font-weight: 700;
 }
 
+/* R7 dual-track: pending review badge (next to title) */
+.term-header__pending {
+  display: inline-block;
+  margin-left: 14px;
+  padding: 4px 12px;
+  vertical-align: middle;
+  font-family: var(--font-rounded);
+  font-size: 0.32em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--c-ink);
+  background: var(--c-wash-yellow);
+  border: 1px dashed var(--c-liujin);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
 /* ============ 段落 ============ */
 .term-section {
   margin-bottom: 40px;

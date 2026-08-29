@@ -65,6 +65,18 @@ function initTermPage() {
 
   // i18n: pick description based on current language
   const isEnglish = document.documentElement.getAttribute('data-lang') === 'en';
+
+  // R7 dual-track: pending badge next to title (bilingual, follows lang-toggle via page reload)
+  if (term.status === 'pending') {
+    const pendingBadge = document.createElement('span');
+    pendingBadge.className = 'term-header__pending';
+    pendingBadge.textContent = isEnglish ? '⏳ Pending review' : '⏳ 待验证';
+    pendingBadge.title = isEnglish
+      ? 'Proposed by the community; not yet verified'
+      : '社区提案，尚未通过验证';
+    termTitle.appendChild(pendingBadge);
+  }
+
   const shortDesc = isEnglish && term.enShortDesc ? term.enShortDesc : term.shortDesc;
   const longDesc = isEnglish && term.enLongDesc ? term.enLongDesc : term.longDesc;
 

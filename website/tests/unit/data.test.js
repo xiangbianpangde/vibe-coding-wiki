@@ -23,8 +23,28 @@ beforeAll(() => {
 });
 
 describe('Data integrity', () => {
-  it('loads all 178 terms across 8 layer files', () => {
-    expect(allTerms.length).toBe(178);
+  it('loads all terms: 178 official + demo pending term', () => {
+    const pending = allTerms.filter(t => t.status === 'pending');
+    const official = allTerms.filter(t => t.status !== 'pending');
+    expect(official.length).toBe(178);
+    expect(pending.length).toBe(1);
+    expect(allTerms.length).toBe(179);
+  });
+
+  it('official term count stays 178 (status defaults to official)', () => {
+    expect(allTerms.filter(t => t.status !== 'pending').length).toBe(178);
+  });
+
+  it('status, when present, is a known value (R7 dual-track)', () => {
+    const bad = allTerms.filter(t => t.status !== undefined && t.status !== 'pending');
+    expect(bad.map(t => `${t.id}: status=${t.status}`)).toEqual([]);
+  });
+
+  it('pending terms carry a source (proposal trail for verification)', () => {
+    const bad = allTerms
+      .filter(t => t.status === 'pending')
+      .filter(t => typeof t.source !== 'string' || t.source.length < 10);
+    expect(bad.map(t => t.id)).toEqual([]);
   });
 
   it('every term has all required fields', () => {

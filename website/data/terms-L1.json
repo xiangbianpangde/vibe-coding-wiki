@@ -722,5 +722,31 @@
     ],
     "enShortDesc": "Machine Speed: the rate at which AI agents generate technical debt. Faster than human by orders of magnitude.",
     "enLongDesc": "<p>Agarwal coined: without engineering practices, AI agent workflows generate technical debt at <strong>machine speed</strong>—orders of magnitude faster than human.</p><p>Analogy: \"machine speed debt\" describes the AI-era accumulation rate of poor-quality code.</p>"
+  },
+  {
+    "id": "software-3.0",
+    "name": "Software 3.0",
+    "zh": "Software 3.0",
+    "layer": "L1",
+    "status": "pending",
+    "category": "paradigm",
+    "tags": [
+      "karpathy",
+      "paradigm",
+      "origin"
+    ],
+    "shortDesc": "Karpathy 2025 年提出的框架：用自然语言\"编程\"LLM 来构建软件，接续 Software 1.0（手写代码）与 Software 2.0（数据训练权重）。",
+    "longDesc": "<p>2025-06-17，Andrej Karpathy 在 AI Startup School 演讲《Software Is Changing (Again)》中提出 <strong>Software 3.0</strong>：LLM 本身成为可编程的\"计算机\"，开发者用自然语言——prompts、示例、上下文——指导模型完成软件任务。</p>\n<p><strong>演进脉络：</strong>Software 1.0（手写代码）→ Software 2.0（用数据训练出权重）→ Software 3.0（用自然语言编程 LLM）。</p>\n<p><strong>与本站的关系：</strong>Software 3.0 是 vibe coding 与 agentic engineering 所处的更大历史框架。本词条为社区提案，处于待验证（pending）状态。</p>",
+    "related": [
+      "vibe-coding",
+      "agentic-programming",
+      "agentic-engineering",
+      "llm"
+    ],
+    "source": "Karpathy, AI Startup School talk 'Software Is Changing (Again)', 2025-06-17",
+    "coinedBy": "Andrej Karpathy",
+    "coinedDate": "2025-06",
+    "enShortDesc": "Karpathy's 2025 framing: software built by steering LLMs with natural language — the successor to Software 1.0 (hand-written code) and Software 2.0 (learned weights).",
+    "enLongDesc": "<p>On 2025-06-17, <strong>Andrej Karpathy</strong> laid out <strong>Software 3.0</strong> in his AI Startup School talk \"<em>Software Is Changing (Again)</em>\": the LLM itself becomes the programmable computer, and developers steer it with natural language — prompts, examples, and context — instead of writing all the code by hand.</p>\n<p><strong>The progression:</strong> Software 1.0 (hand-written code) → Software 2.0 (weights learned from data) → Software 3.0 (LLMs programmed in natural language).</p>\n<p><strong>Where it sits here:</strong> Software 3.0 is the bigger historical frame that vibe coding and agentic engineering live in. This entry is <strong>pending</strong> — proposed by the community, awaiting verification before promotion.</p>"
   }
 ]

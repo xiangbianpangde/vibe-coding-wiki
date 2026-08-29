@@ -1,8 +1,8 @@
 {
   "meta": {
-    "total": 178,
+    "total": 179,
     "byLayer": {
-      "L1": 16,
+      "L1": 17,
       "L2": 20,
       "L3": 53,
       "L4": 28,
@@ -217,6 +217,19 @@
       "tags": [
         "paradigm",
         "speed"
+      ]
+    },
+    {
+      "id": "software-3.0",
+      "name": "Software 3.0",
+      "zh": "Software 3.0",
+      "layer": "L1",
+      "shortDesc": "Karpathy 2025 年提出的框架：用自然语言\"编程\"LLM 来构建软件，接续 Software 1.0（手写代码）与 Software 2.0（数据训练权重）。",
+      "category": "paradigm",
+      "tags": [
+        "karpathy",
+        "paradigm",
+        "origin"
       ]
     },
     {

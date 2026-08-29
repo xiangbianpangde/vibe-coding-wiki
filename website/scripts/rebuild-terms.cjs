@@ -39,7 +39,7 @@ for (const l of layers) {
   for (const t of items) {
     output += `  {\n`;
     // Output fields in stable order
-    const fields = ['id', 'name', 'zh', 'layer', 'category', 'tags', 'shortDesc', 'longDesc', 'enShortDesc', 'enLongDesc', 'related', 'source', 'coinedBy', 'coinedDate', 'quotes', 'seeAlso', 'examples', 'version'];
+    const fields = ['id', 'name', 'zh', 'layer', 'status', 'category', 'tags', 'shortDesc', 'longDesc', 'enShortDesc', 'enLongDesc', 'related', 'source', 'coinedBy', 'coinedDate', 'quotes', 'seeAlso', 'examples', 'version'];
     for (const f of fields) {
       if (!(f in t)) continue;
       let val = t[f];
