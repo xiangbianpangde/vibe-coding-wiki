@@ -1,0 +1,35 @@
+name: Citation audit (weekly)
+
+on:
+  schedule:
+    # Every Monday 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  citation-audit:
+    name: Citation staleness + link audit (report-only)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # citation-stale-audit.cjs prints a markdown report to stdout and always
+      # exits 0 (report tool, not a CI gate) — no --out flag, so we redirect.
+      - name: Run citation audit
+        run: node website/scripts/citation-stale-audit.cjs --check > citation-audit-report.md
+
+      - name: Show report summary
+        if: always()
+        run: tail -n 40 citation-audit-report.md
+
+      - name: Upload citation audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: citation-audit-report
+          path: citation-audit-report.md
+          retention-days: 30

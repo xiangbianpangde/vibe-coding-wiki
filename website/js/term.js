@@ -198,6 +198,13 @@ function initTermPage() {
     seeAlsoEl.style.display = 'none';
   }
 
+  // Citation-verify note: only meaningful when the section actually has citations.
+  const verifyNoteEl = document.getElementById('citation-verify-note');
+  if (verifyNoteEl) {
+    const hasCitations = Boolean(term.source) || Boolean(term.seeAlso && term.seeAlso.length);
+    verifyNoteEl.style.display = hasCitations ? '' : 'none';
+  }
+
   // ======== 常见误解（自动生成） ========
   const misconceptionsEl = document.getElementById('term-misconceptions');
   const misconceptionsSection = document.getElementById('section-misconceptions');

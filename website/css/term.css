@@ -687,3 +687,60 @@
 [data-theme="dark"] .example-card__code code {
   color: var(--c-ink-soft);
 }
+/* ============ 引用验证说明（可折叠，双语随 lang-toggle） ============ */
+.citation-verify {
+  margin-top: 12px;
+  background: var(--c-paper-deep);
+  border: 1px solid var(--c-line-soft);
+  font-size: 13px;
+}
+
+.citation-verify summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-ink-soft);
+  transition: color 0.15s;
+}
+
+.citation-verify summary:hover {
+  color: var(--c-shihqing);
+}
+
+.citation-verify__body {
+  padding: 2px 14px 12px;
+  line-height: 1.7;
+  color: var(--c-ink-soft);
+}
+
+.citation-verify__body p {
+  margin: 0 0 6px;
+}
+
+.citation-verify__body code {
+  font-size: 12px;
+  padding: 1px 5px;
+  background: var(--c-panel-soft);
+  border: 1px solid var(--c-line-soft);
+}
+
+.citation-verify__body a {
+  color: var(--c-shihqing);
+  text-decoration: underline;
+}
+
+/* 双语显隐：默认中文；i18n.js 在 <html> 上设置 data-lang="en" 时切换为英文 */
+.citation-verify .lang-en {
+  display: none;
+}
+
+html[data-lang="en"] .citation-verify .lang-zh {
+  display: none;
+}
+
+html[data-lang="en"] .citation-verify .lang-en {
+  display: revert;
+}
