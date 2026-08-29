@@ -1,8 +1,20 @@
 # What's Next for Vibe Coding Wiki · Post-Launch Roadmap (Draft)
 
-> 📌 **Status**: DRAFT — prepared during launch freeze (2026-08-17), not yet committed.
+> 📌 **Status**: IN EXECUTION — committed 2026-08-28, execution log below.
 > Purpose: coordinator + audit to review and decide what lands in v3.0+.
-> This is an unreviewed draft. Do not treat as final roadmap.
+
+## Execution log (coordinator)
+
+| Task | Content | Status (2026-08-28) |
+|---|---|---|
+| R2 | `seeAlso.lastVerified` schema + 90-day stale audit script | ✅ merged (`b453a88`) — 295/295 citations stamped; first `--check` scan found 35×4xx + 4×DNS-dead → spawned R6 |
+| R4 | EN-first pilot, 10 core terms | ✅ merged (`f722f90` → `9e3ebc0`) — observation period starts; scale decision waits for community signal |
+| R5 | example compile CI | ✅ merged (`46043e1` → `2e89130`) — report-only guardrail; immediately caught 3 real python syntax errors (fixed in `4a42ae0`) |
+| R6 | dead-link citation repair (from first audit) | 🔨 in flight (`feat/deadlink-repair`) |
+| R7 | dual-track pending badge + demo term | 🔨 in flight (`feat/pending-terms`) |
+| R8 | weekly citation-audit cron workflow + "how to verify" note | 🔨 in flight (`feat/verify-note`) |
+| R1 | content scale wave (L8 first) | ⏸️ deferred per "observation first" — no expansion before week-4 signal |
+| R3 | good-first-issue triage | ✅ done in Round 6d (templates + labels) |
 
 ---
 
@@ -80,13 +92,7 @@ Keep "**the canonical, community-trustworthy glossary**" positioning:
 
 ---
 
-## Draft tasks (ready to execute on dispatch)
-
-- [ ] R1: content scale wave (L8 first) — 1-2 sessions
-- [ ] R2: `sources.lastVerified` schema + monthly stale script
-- [ ] R3: good-first-issue triage template (+ label config)
-- [ ] R4: EN-first writing pilot for 10 terms, compare quality
-- [ ] R5: example compile CI (guardrails for examples)
+## Draft tasks → see Execution log above (R1 deferred, R2-R8 dispatched/done)
 
 ---
 
