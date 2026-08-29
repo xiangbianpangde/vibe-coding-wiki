@@ -7,6 +7,8 @@
  *   node scripts/citation-stale-audit.cjs --check   # additionally HTTP-HEAD every seeAlso URL
  *                                                   # (10s timeout, concurrency 5), report
  *                                                   # 4xx/5xx/timeout/error items; exit 0 always
+ *                                                   # URLs matching KNOWN_FALSE_POSITIVES are
+ *                                                   # listed in a separate skipped section
  *   node scripts/citation-stale-audit.cjs --days=60 # override the 90-day staleness threshold
  *
  * Exit code is always 0: this is a report tool, not a CI gate. Problems are flagged
@@ -20,6 +22,34 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 const DEFAULT_STALE_DAYS = 90;
 const HEAD_TIMEOUT_MS = 10_000;
 const CONCURRENCY = 5;
+
+// ---------------------------------------------------------------------------
+// Known false positives — URLs that fail automated HEAD checks but are actually
+// fine in a browser (anti-bot walls, rate limiting, login walls). Seeded from
+// the R6 dead-link sweep (2026-08-29). Substring match against the URL.
+// Add entries sparingly: each one silences ALL matching URLs in every cron run.
+// ---------------------------------------------------------------------------
+const KNOWN_FALSE_POSITIVES = [
+  {
+    urlPattern: 'lovable.dev',
+    reason: 'anti-bot wall: HEAD blocked with 403, site reachable in browser',
+    addedDate: '2026-08-29',
+  },
+  {
+    urlPattern: 'codeium',
+    reason: 'rate limiting: 429 on automated HEAD, site reachable in browser',
+    addedDate: '2026-08-29',
+  },
+  {
+    urlPattern: 'openai.com/tokenizer',
+    reason: 'anti-bot wall: 403 on automated HEAD (OpenAI tokenizer), reachable in browser',
+    addedDate: '2026-08-29',
+  },
+  // TODO(e756): the function-calling citation (platform.openai.com/docs/guides/
+  // function-calling) returns 200 in a browser but fails automated HEAD — same
+  // platform.openai.com anti-bot as the tokenizer. Add its exact URL pattern
+  // once the R6 report pins down the failing URL/status.
+];
 
 // ---------------------------------------------------------------------------
 // args
@@ -181,7 +211,11 @@ async function checkReport(rows) {
   const results = await checkAll(urls);
   const byUrl = new Map(results.map((r) => [r.url, r]));
 
-  const bad = results.filter((r) => !r.ok);
+  // Known false positives fail HEAD but are fine in a browser — keep them out of
+  // the problem list and surface them in their own section instead.
+  const whitelistHit = (url) => KNOWN_FALSE_POSITIVES.find((w) => url.includes(w.urlPattern)) || null;
+  const bad = results.filter((r) => !r.ok && !whitelistHit(r.url));
+  const skipped = results.filter((r) => !r.ok && whitelistHit(r.url));
   const lines = [];
   lines.push('# Citation link check');
   lines.push('');
@@ -205,6 +239,18 @@ async function checkReport(rows) {
     lines.push('## ✅ All URLs reachable');
   }
   lines.push('');
+  if (skipped.length) {
+    lines.push(`## 🔕 Known false positives — skipped (${skipped.length})`);
+    lines.push('');
+    lines.push('These URLs fail automated HEAD checks (anti-bot / rate-limit / login wall) but are known to be reachable in a browser. Excluded from the problem list above.');
+    lines.push('');
+    lines.push('| url | reason |');
+    lines.push('|---|---|');
+    for (const r of skipped) {
+      lines.push(`| ${r.url} | ${whitelistHit(r.url).reason} |`);
+    }
+    lines.push('');
+  }
   lines.push('## Summary');
   lines.push('');
   lines.push('| metric | value |');
@@ -215,8 +261,15 @@ async function checkReport(rows) {
   lines.push(`| 5xx | ${results.filter((r) => !r.ok && !r.error && r.status >= 500).length} |`);
   lines.push(`| timeout | ${results.filter((r) => r.error === 'timeout').length} |`);
   lines.push(`| network error | ${results.filter((r) => r.error && r.error !== 'timeout').length} |`);
+  lines.push(`| whitelist-skipped | ${skipped.length} |`);
   lines.push('');
-  lines.push(bad.length ? '**Note:** dead/stale links found — see table above. (Report-only; exit code 0.)' : '');
+  lines.push(
+    bad.length
+      ? '**Note:** dead/stale links found — see table above. (Report-only; exit code 0.)'
+      : skipped.length
+        ? `**Note:** no actionable problems — ${skipped.length} URL(s) skipped via known-false-positive whitelist. (Report-only; exit code 0.)`
+        : ''
+  );
   return lines.join('\n');
 }
 
