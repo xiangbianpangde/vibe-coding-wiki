@@ -7,8 +7,8 @@ test.describe('Search modal', () => {
     await page.keyboard.press('Meta+k');
     const modal = page.locator('#search-modal');
     await expect(modal).toHaveClass(/open/);
-    const focused = await page.evaluate(() => document.activeElement?.id);
-    expect(focused).toBe('search-input');
+    // Focus is set asynchronously after open — poll instead of a single read
+    await expect.poll(() => page.evaluate(() => document.activeElement?.id)).toBe('search-input');
   });
 
   test('Ctrl+K also opens modal (cross-platform)', async ({ page }) => {

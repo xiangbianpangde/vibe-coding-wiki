@@ -1,8 +1,10 @@
 // E2E: mobile hamburger menu (< 768px)
 import { test, expect, devices } from '@playwright/test';
 
-// iPhone 14 emulation for the whole file (top-level: describe-scoped use() is forbidden)
-test.use({ ...devices['iPhone 14'] });
+// iPhone 14 emulation for the whole file (top-level: describe-scoped use() is forbidden).
+// Strip defaultBrowserType (webkit) so the file runs under any project browser.
+const { defaultBrowserType: _ignored, ...iPhone14 } = devices['iPhone 14'];
+test.use(iPhone14);
 
 test.describe('Mobile navigation', () => {
 
