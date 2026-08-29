@@ -505,8 +505,8 @@
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -548,8 +548,8 @@
       },
       {
         "name": "Anthropic Prompt Injection Defense",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -584,8 +584,8 @@
     "seeAlso": [
       {
         "name": "Anthropic System Prompts",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "OpenAI System Messages",

@@ -262,8 +262,8 @@
       },
       {
         "name": "Anthropic: Reducing hallucinations",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "When an LLM confidently states false information. The #1 reliability problem with LLMs.",

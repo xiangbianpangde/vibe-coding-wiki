@@ -73,8 +73,8 @@
       },
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Mechanical Verification Pipeline: use the compiler, diff, and test suite as the referee.",
@@ -319,8 +319,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -508,8 +508,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto Mode Safety",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode-safety",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/auto-mode-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Claude Code Auto Mode's safety design: background classifier never sees tool results; uses defense-in-depth to reduce prompt injection risk but doesn't guarantee absolute safety.",

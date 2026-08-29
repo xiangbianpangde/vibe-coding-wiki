@@ -158,8 +158,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Plan mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/plan-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Building effective agents",
@@ -416,8 +416,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Compaction 文档",
-        "url": "https://docs.claude.com/en/docs/claude-code/compaction",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/context-window",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Context Engineering",
@@ -454,8 +454,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Checkpoints",
-        "url": "https://docs.claude.com/en/docs/claude-code/checkpoints",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/checkpointing",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -540,8 +540,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Auto Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/auto-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Claude Code: Safety",
@@ -579,8 +579,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Bare Mode",
-        "url": "https://docs.claude.com/en/docs/claude-code/bare-mode",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/headless",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -629,8 +629,8 @@
       },
       {
         "name": "Claude Code: Extended Thinking",
-        "url": "https://docs.claude.com/en/docs/claude-code/extended-thinking",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Claude's visible step-by-step reasoning before responding. Tunable via effort level.",
@@ -662,8 +662,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Effort",
-        "url": "https://docs.claude.com/en/docs/claude-code/effort",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/model-config",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -814,13 +814,13 @@
     "seeAlso": [
       {
         "name": "Claude Code: Custom Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/custom-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/skills",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Claude Code: Slash commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/commands",
+        "lastVerified": "2026-08-29"
       }
     ],
     "examples": [
