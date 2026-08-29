@@ -218,8 +218,8 @@
       },
       {
         "name": "Copilot Chat 使用指南",
-        "url": "https://docs.github.com/en/copilot/github-copilot-chat",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/copilot/how-tos/chat-with-copilot",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -682,8 +682,8 @@
       },
       {
         "name": "Spec Kit 介绍博客",
-        "url": "https://github.blog/developer-skills/github/how-to-use-spec-kit-with-your-ai-assistant/",
-        "lastVerified": "2026-08-28"
+        "url": "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "examples": [

@@ -67,8 +67,8 @@
       },
       {
         "name": "Simon Willison: Software for One",
-        "url": "https://simonwillison.net/tags/software-for-one/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -271,8 +271,8 @@
       },
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-29"
       }
     ]
   },
@@ -308,8 +308,8 @@
       },
       {
         "name": "Anthropic Prompt: Test Generation",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-system-prompts",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -346,8 +346,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: Slash Commands",
-        "url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/commands",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -470,8 +470,8 @@
       },
       {
         "name": "OpenAI Code Interpreter",
-        "url": "https://platform.openai.com/docs/assistants/tools/code-interpreter",
-        "lastVerified": "2026-08-28"
+        "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -508,8 +508,8 @@
     "seeAlso": [
       {
         "name": "Claude Code: /init",
-        "url": "https://docs.claude.com/en/docs/claude-code/init",
-        "lastVerified": "2026-08-28"
+        "url": "https://code.claude.com/docs/en/memory",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [

@@ -30,18 +30,18 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: Technical Debt",
-        "url": "https://martinfowler.com/articles/isomorphism.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/bliki/TechnicalDebt.html",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Steve McConnell: Technical Debt",
-        "url": "https://stevemcconnell.com/articles/technical-debt-management/",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.construx.com/resources/whitepaper-managing-technical-debt/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Long-term maintenance burden accumulated in code. Vibe coding dramatically increases it.",
@@ -73,13 +73,13 @@
     "seeAlso": [
       {
         "name": "Andrew Hunt: Cognitive Debt 详细",
-        "url": "https://www.huntthought.com/2026/cognitive-debt-detail",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Hunt: Tech Debt is Still Real",
-        "url": "https://www.huntthought.com/2026/tech-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2603.22106",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -161,8 +161,8 @@
     "seeAlso": [
       {
         "name": "Mario Zechner: Software rot 演讲",
-        "url": "https://mariosblog.com/infrastructure-falling-apart/",
-        "lastVerified": "2026-08-28"
+        "url": "https://mariozechner.at/posts/2025-12-22-year-in-review-2025/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Vibe Coding Kills Open Source",
@@ -309,8 +309,8 @@
       },
       {
         "name": "GitClear: 2024 Code Quality Report (Code Clones + Refactor sections)",
-        "url": "https://gitclear.com/reports/code-quality-2024",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.gitclear.com/research_studies",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "LLM tendency to choose mainstream/large libraries, causing software stack convergence.",
@@ -427,8 +427,8 @@
       },
       {
         "name": "Anthropic: Prompt injection 指南",
-        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-injection-defense",
-        "lastVerified": "2026-08-28"
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Malicious content injected into an LLM's input stream to manipulate its behavior.",

@@ -88,8 +88,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2025/Mar/16/agentic-engineering/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2025/Oct/14/agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Anthropic: Building effective agents",
@@ -141,8 +141,8 @@
       },
       {
         "name": "Vibe Coding 词条",
-        "url": "https://simonwillison.net/2025/Feb/2/simulating-pi-with-100-million-lines-of-code/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/tags/vibe-coding/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -190,8 +190,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Agentic engineering",
-        "url": "https://simonwillison.net/2026/Mar/15/agentic-engineering/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2025/Oct/14/agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Martin Fowler: AI-Assisted Engineering",
@@ -227,8 +227,8 @@
       },
       {
         "name": "GitHub Copilot 研究",
-        "url": "https://github.blog/news-insights/research/research-the-impact-of-github-copilot/",
-        "lastVerified": "2026-08-28"
+        "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -270,8 +270,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison tags",
-        "url": "https://simonwillison.net/tags/prompt-driven-development/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/tags/prompt-to-app/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -319,8 +319,8 @@
     "seeAlso": [
       {
         "name": "Martin Fowler: Pair Programming",
-        "url": "https://martinfowler.com/articles/onPairProgramming.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/articles/on-pair-programming.html",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Kent Beck: TDD",
@@ -362,8 +362,8 @@
     "seeAlso": [
       {
         "name": "Simon Willison: Software for one",
-        "url": "https://simonwillison.net/tags/software-for-one/",
-        "lastVerified": "2026-08-28"
+        "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Lovable 官网",
@@ -417,13 +417,13 @@
     "seeAlso": [
       {
         "name": "Andrew Hunt: Cognitive Debt 词条",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Hunt: Technical Debt is Still Real",
-        "url": "https://www.huntthought.com/2026/tech-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2603.22106",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "Cognitive Debt (Hunt 2026): accumulated cost of AI interactions—context loss, unreliable agent behavior—surpassing technical debt.",
@@ -449,8 +449,8 @@
     "seeAlso": [
       {
         "name": "Don Norman: Emotional Design",
-        "url": "https://www.jnd.org/dn.ms/EmotionalDesign.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://jnd.org/books/emotional-design-why-we-love-or-hate-everyday-things/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -616,13 +616,13 @@
     "seeAlso": [
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Martin Fowler: Technical Debt",
-        "url": "https://martinfowler.com/articles/isomorphism.html",
-        "lastVerified": "2026-08-28"
+        "url": "https://martinfowler.com/bliki/TechnicalDebt.html",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -704,8 +704,8 @@
     "seeAlso": [
       {
         "name": "Andrew Hunt: Cognitive Debt",
-        "url": "https://www.huntthought.com/2026/cognitive-debt",
-        "lastVerified": "2026-08-28"
+        "url": "https://arxiv.org/abs/2506.08872",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
