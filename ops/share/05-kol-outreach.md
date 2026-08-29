@@ -67,7 +67,9 @@
 introduced in 2025-2026 — vibe coding, vibe engineering, agentic
 engineering, cognitive debt, lethal trifecta, etc.
 
-178 terms · 8 layers · MIT licensed
+178 official terms · 8 layers · fully bilingual zh/en · MIT licensed
+295 citations, all timestamped + re-verified on a 90-day audit
+
 Open source: https://github.com/xiangbianpangde/vibe-coding-wiki
 
 Hope it's useful for the community.
@@ -79,7 +81,10 @@ Hope it's useful for the community.
 @<handle> Compiled all the Claude Code terminology into an open-source
 glossary — compaction, hooks, MCP, permission modes, etc.
 
-178 terms total, MIT licensed, free to extend.
+178 official terms (+1 pending proposal), MIT licensed, free to extend.
+Every citation carries a lastVerified timestamp and a 90-day audit
+keeps them fresh.
+
 Repo: github.com/xiangbianpangde/vibe-coding-wiki
 
 Let me know if useful for your docs.
@@ -92,12 +97,15 @@ Subject: Vibe Coding Wiki — 178-term glossary for AI-assisted programming
 
 Hi <name>,
 
-I built a curated glossary for the AI programming era — 178 terms across
-8 layers (paradigm / methodology / technical / tools / quality / risk /
-prompt / scenarios).
+I built a curated glossary for the AI programming era — 178 official
+terms (plus 1 pending community proposal) across 8 layers (paradigm /
+methodology / technical / tools / quality / risk / prompt / scenarios).
 
 Each term has real examples, original quotes, and authoritative
-references. Coverage is ~55-60% currently, working toward 70%.
+references. Coverage today: 88% examples / 87% quotes / 90% references.
+All 295 citations carry lastVerified timestamps and are re-verified
+on a 90-day rolling audit; code examples are syntax-checked in CI.
+The whole glossary is bilingual zh/en.
 
 Live: https://xiangbianpangde.github.io/vibe-coding-wiki/
 Code: https://github.com/xiangbianpangde/vibe-coding-wiki

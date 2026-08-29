@@ -8,7 +8,7 @@
 ## 标题候选（选 1 个）
 
 A. **I curated 178 AI programming terms — here's what I learned about the Vibe Coding era**
-B. Why I built a Wikipedia-style glossary for Vibe Coding, Agentic Engineering, and 178 other terms
+B. Why I built a 178-term glossary for Vibe Coding, Agentic Engineering, and the AI programming vocabulary
 C. The Vibe Coding era glossary: from Karpathy's "vibe coding" to "agentic engineering" in 12 months
 
 ---
@@ -35,7 +35,7 @@ Worse: the terms evolve. "Vibe coding" → "vibe engineering" → "agentic engin
 
 ### What I built (300 字)
 
-[Vibe Coding Wiki](https://xiangbianpangde.github.io/vibe-coding-wiki/) — 178 curated terms, 8 layers, 14 use-case scenarios.
+[Vibe Coding Wiki](https://xiangbianpangde.github.io/vibe-coding-wiki/) — 178 official curated terms (plus 1 on the pending track), 8 layers, 14 use-case scenarios.
 
 **Coverage by layer:**
 - L1 Paradigm: Vibe Coding / Agentic Engineering / Cognitive Debt (16 terms)
@@ -48,11 +48,11 @@ Worse: the terms evolve. "Vibe coding" → "vibe engineering" → "agentic engin
 - L8 Scenarios: Prototype / Production / Refactor / Security (14 terms)
 
 Each term includes:
-- **Examples**: Real code/prompts (not made up)
+- **Examples**: Real code/prompts (not made up) — syntax-checked by a CI guardrail, currently 72/72 passing
 - **Quotes**: Original Karpathy / Willison / Anthropic citations
-- **See Also**: Authoritative external links (Wikipedia, arXiv, official docs)
+- **See Also**: Authoritative external links (Wikipedia, arXiv, official docs), each with a lastVerified timestamp
 
-**Coverage now**: 54% of terms have examples, 60% have quotes, 57% have external references. Working toward 70%.
+**Coverage now**: 88% of terms have examples, 87% have direct quotes, 90% have external references. Full zh/en bilingual coverage — all 179 entries ship in both languages.
 
 ### Engineering decisions (300 字)
 
@@ -66,13 +66,19 @@ Some choices worth explaining:
 
 **JSON-LD everywhere.** WebSite + BreadcrumbList + DefinedTermSet schema. Helps Google understand the content structure for rich results.
 
-**Static, but tested.** Playwright smoke tests verify the 8 critical user flows work after every change.
+**Static, but tested.** Playwright end-to-end suites and vitest data-integrity tests run against every change (term-detail smoke across all 179 ids included). Two more guardrails protect the data itself:
+
+**Example syntax guardrail.** Every code example runs through `npm run check:examples` — Python via `py_compile`, JS via `node --check`, bash via `bash -n`, JSON via `JSON.parse`. 72 checked so far (50 python / 8 js / 10 bash / 4 json), 0 failures. A glossary that ships hallucinated code examples would poison its own reason to exist.
+
+**Citation recency audit.** All 295 external references carry per-citation lastVerified timestamps, and `npm run audit:citations` re-verifies against a 90-day threshold (with optional HTTP link checks). The audit is a report tool rather than a gate — but it means citation rot gets found, not assumed away. I deliberately don't claim "zero dead links"; I claim the mechanism that catches them when they appear.
+
+**Dual-track contributions.** Term proposals land with a ⏳ pending badge (visible on the site, sorted after official entries) and are promoted to official only after their wording and sources are verified. The official count stays clean — currently 178 official + 1 pending (software-3.0).
 
 ### What's next (200 字)
 
 The roadmap:
-- **Service Worker** for offline browsing and sub-100ms repeat visits
-- **i18n** for English translation (currently Chinese-primary)
+- **EN-first polish rollout** — the 10 core terms were rewritten English-first rather than translated; extending that to all 179 entries
+- **Community pending track** — proposals with ⏳ badges are already live; growing contributor inflow through easier templates
 - **RSS / Atom** for term update notifications
 - **Lighthouse 95+** across the board
 

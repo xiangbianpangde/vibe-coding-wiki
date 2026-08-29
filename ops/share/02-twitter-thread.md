@@ -13,7 +13,7 @@ I curated 178 terms for the Vibe Coding era 🧵
 From Karpathy's "vibe coding" (2025-02)
 to "agentic engineering" (2026-02)
 
-8 layers · 14 scenarios · 30+ authoritative sources
+8 layers · 14 scenarios · 295 timestamped citations
 
 Live: https://xiangbianpangde.github.io/vibe-coding-wiki/
 Code: github.com/xiangbianpangde/vibe-coding-wiki
@@ -43,7 +43,7 @@ But no canonical glossary exists
 ```
 What you'll find:
 
-✅ 178 terms, 8 layers
+✅ 178 official terms + 1 pending proposal, 8 layers
    L1 Paradigm → L8 Scenarios
 
 ✅ Each term has:
@@ -52,9 +52,14 @@ What you'll find:
    - Authoritative see-also links (Wikipedia, arXiv, official)
 
 ✅ Coverage:
-   - 87 terms with code examples (49%)
-   - 106 with direct quotes (60%)
-   - 101 with external links (57%)
+   - 88% of terms with code examples
+   - 87% with direct quotes
+   - 90% with external links
+
+✅ Trust mechanics:
+   - 295 citations, each with a lastVerified timestamp
+   - 90-day re-verification audit
+   - Code examples syntax-checked (72/72 passing)
 ```
 
 ---
@@ -79,12 +84,17 @@ Total: ~200KB
 ```
 Engineering highlights:
 
+🔒 Example syntax guardrail in CI — 72 checked, 0 fail
+   (50 python / 8 js / 10 bash / 4 json)
+✅ 295 citations with lastVerified + 90-day re-audit
+🛤️ Dual-track terms: proposals enter with a ⏳ pending badge,
+   promoted to official only after verification
 🔍 JSON-LD: WebSite + BreadcrumbList + DefinedTermSet
 🌓 Dark mode with system preference detection
 📱 Mobile hamburger menu
 ⌨️ Keyboard nav + ARIA + skip-link
 🗺️ Mermaid relationship graph
-📊 6 sub-pages: glossary, layers, scenarios, graph, compare, stats
+📊 7 sub-pages: glossary, layers, scenarios, graph, compare, stats, citations
 ```
 
 ---
@@ -99,6 +109,10 @@ Try it:
 If you're building with Claude Code / Cursor / Copilot,
 this is the canonical reference for terms like
 "compaction", "agentic harness", "context engineering".
+
+All 179 entries are bilingual zh/en.
+Got a term that's missing? Submit it — it'll show up
+with a ⏳ pending badge until it's verified.
 
 ⭐ Star if useful
 🤝 PRs welcome — adding terms is just editing JSON

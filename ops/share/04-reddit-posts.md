@@ -38,34 +38,37 @@
 I built a Wikipedia-style glossary for Vibe Coding / AI-assisted programming:
 https://xiangbianpangde.github.io/vibe-coding-wiki/
 
-178 terms across 8 layers:
+178 official terms (plus 1 pending community proposal) across 8 layers:
 - L1 Paradigm: vibe coding, agentic engineering, cognitive debt
 - L2 Methodology: SDD, context engineering, plan-verify-build
 - L3 Technical: LLM, agent loop, MCP, hallucination
-- L4 Tools: Cursor, Claude Code, Windsurf, Aider (30+ tools)
+- L4 Tools: Cursor, Claude Code, Windsurf, Aider (28 entries)
 - L5 Quality: guardrails, YOLO mode, MVP
 - L6 Risk: technical debt, vibe slop, lethal trifecta
 - L7 Prompt: few-shot, CoT, ReAct
 - L8 Scenarios: prototype, production, refactor, security
 
 Each term has:
-- Real examples (code, prompts)
+- Real examples (code, prompts) — syntax-checked by a CI guardrail (72/72 passing)
 - Original quotes (Karpathy, Willison, Anthropic, etc.)
-- Authoritative see-also (Wikipedia, arXiv, official docs)
+- Authoritative see-also (Wikipedia, arXiv, official docs), 295 citations total,
+  every one with a lastVerified timestamp + 90-day re-verification audit
 
 Coverage:
-- 54% have examples
-- 60% have direct quotes
-- 57% have external links
+- 88% have examples
+- 87% have direct quotes
+- 90% have external links
 
 Engineering:
 - Pure static site, no build step
-- First-paint JS: 220KB → 30KB via per-layer async loading
+- Per-layer async loading keeps first paint light
 - Chinese traditional color design system
 - Full JSON-LD / OG / sitemap
 - GitHub Pages, MIT licensed
+- Full zh/en bilingual (all 179 entries)
+- Dual-track terms: proposals show up with a ⏳ pending badge, promoted after verification
 
-I want this to be the canonical glossary for the AI programming era — like MDN for the web, Wikipedia for general knowledge. Currently working toward 70% data coverage.
+I want this to be the canonical glossary for the AI programming era — like MDN for the web, Wikipedia for general knowledge.
 
 Feedback welcome. PRs especially welcome — adding terms is just editing JSON.
 
@@ -100,7 +103,7 @@ Plus AI-programming tools and concepts:
 - Prompt engineering / Few-shot / CoT / ReAct / TOT
 - Empirical studies: METR RCT, CodeRabbit, GitClear, Stack Overflow 2025
 
-Each entry has examples + quotes + external references.
+Each entry has examples + quotes + external references — 88% example coverage, 295 timestamped citations with a 90-day re-verification audit.
 Code: github.com/xiangbianpangde/vibe-coding-wiki
 MIT licensed, free to fork and extend.
 ```
@@ -125,7 +128,7 @@ While learning Claude Code I kept hitting terms that weren't in the official doc
 
 So I made a glossary: https://xiangbianpangde.github.io/vibe-coding-wiki/
 
-178 terms total, with examples and authoritative see-also links.
+178 official terms (plus 1 pending proposal), full zh/en bilingual, with examples and authoritative see-also links.
 Especially useful if you're coming to Claude Code from Cursor / Copilot.
 
 Code: github.com/xiangbianpangde/vibe-coding-wiki
@@ -147,13 +150,15 @@ GitHub: https://github.com/xiangbianpangde/vibe-coding-wiki
 Live: https://xiangbianpangde.github.io/vibe-coding-wiki/
 
 A Wikipedia-style glossary for the AI programming era:
-- 178 terms, 8 layers, 14 use-case scenarios
-- 30+ authoritative sources (Karpathy, Willison, Anthropic, ...)
+- 178 official terms (+1 pending proposal), 8 layers, 14 use-case scenarios
+- 295 timestamped citations, 90-day re-verification audit
+- Example syntax guardrail in CI (72/72 passing)
 - Pure static site, GitHub Pages, MIT
-- 85% first-paint JS reduction via per-layer async loading
+- Per-layer async loading for light first paint
 - JSON-LD / OG / sitemap / full SEO
 
-Looking for contributors — adding terms is just JSON editing.
+Looking for contributors — adding terms is just JSON editing, and
+proposals enter through the pending track (⏳ badge) until verified.
 ```
 
 ---
@@ -174,14 +179,15 @@ What's interesting about it (imho):
 1. The vocabulary of AI programming is exploding (vibe coding → vibe engineering
    → agentic engineering in 12 months) and needs a canonical home.
 2. Each term has real examples + original quotes + external references —
-   not just a Wikipedia stub.
-3. Engineering choices: pure static, 85% first-paint JS reduction, Chinese
-   color design system.
+   not just a Wikipedia stub. Examples are syntax-checked in CI;
+   295 citations carry lastVerified timestamps with a 90-day audit.
+3. Engineering choices: pure static, per-layer async loading, Chinese
+   color design system. Fully bilingual zh/en (179/179 entries).
 
 Looking for:
-- Contributors to add terms (JSON editing)
+- Contributors to add terms (JSON editing; proposals land on a ⏳ pending track)
 - Feedback on the curation
-- Co-maintainers for translation (English version incoming)
+- Co-maintainers for the English-first polish rollout
 
 GitHub: github.com/xiangbianpangde/vibe-coding-wiki
 ```

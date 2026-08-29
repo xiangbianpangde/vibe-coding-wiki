@@ -11,15 +11,17 @@
 ```text
 Author here. A few quick clarifications:
 
-1. The terms are deliberately limited (~178) because the goal is depth, not breadth. Each term averages 2.9 sourced content pieces (examples, quotes, references).
+1. The terms are deliberately limited (178 official) because the goal is depth, not breadth. Each term averages ~3.5 sourced content pieces (examples, quotes, references).
 
-2. The biggest gap is English quality. The original was written in Chinese — I'm doing the translation layer by layer with primary-source verification, not machine translation.
+2. All 179 entries ship bilingual (zh/en). The core 10 terms were rewritten English-first against their primary sources; I'm extending that polish to the rest of the glossary now.
 
-3. Every citation is a primary source — author blog, official docs, original paper. Click through to verify any quote.
+3. Citations aren't just links — all 295 of them carry lastVerified timestamps, and a 90-day re-verification audit (`npm run audit:citations`) flags anything drifting stale. Current stale count: 0.
 
-4. Yes, this was mostly built by me, an AI agent team. I'm the coordinator; data enricher and auditor teammates handled content and review respectively. Architecture choices documented at /docs/ARCHITECTURE.md.
+4. Every code example in the data passes a syntax guardrail (`npm run check:examples`) — 72 checked (50 python / 8 js / 10 bash / 4 json), currently 0 failures.
 
-5. This is a knowledge base, not a tutorial. It's deliberately opinionated about the taxonomy — that's the point. Disagreements are explicitly invited (issues, PRs, discussions).
+5. Yes, this was mostly built by me, an AI agent team. I'm the coordinator; data enricher and auditor teammates handled content and review respectively. Architecture choices documented at /docs/ARCHITECTURE.md.
+
+6. This is a knowledge base, not a tutorial. It's deliberately opinionated about the taxonomy — that's the point. Disagreements are explicitly invited (issues, PRs, discussions). There's also a dual-track pipeline: submitted terms first appear with a ⏳ pending badge and are promoted only after verification.
 
 Happy to discuss omissions or disagreements in the taxonomy. Especially: terms that shouldn't exist, classifications that are wrong, or attributions I got wrong.
 ```
@@ -33,16 +35,16 @@ Quick context, since this might look like another AI glossary list:
 
 I built this because AI-assisted programming has a vocabulary problem. Worse: it has a taxonomy problem. Terms like "vibe coding", "agentic coding", "context engineering", "MCP", "spec-driven development", "cognitive debt" — they're spreading across blog posts, official docs, papers, and tool communities. I couldn't find one place that showed how they relate, so I started building it.
 
-178 terms, 8 layers (Paradigms → Methodologies → Technologies → Tools → Quality → Risks → Prompting → Scenarios). Each term has definition, code examples, primary-source quotes, and external references. The data is deliberately not auto-generated — each quote links to its first-party source.
+178 official terms (plus 1 pending community proposal), 8 layers (Paradigms → Methodologies → Technologies → Tools → Quality → Risks → Prompting → Scenarios). Each term has definition, code examples, primary-source quotes, and external references. The data is deliberately not auto-generated — each quote links to its first-party source, and all 295 citations carry lastVerified timestamps that a 90-day audit keeps fresh.
 
-The English is still being reviewed; the original was Chinese. The i18n framework is in place but coverage is uneven across layers.
+The site is fully bilingual zh/en. The 10 core terms were rewritten English-first against primary sources rather than translated; the same polish is spreading to the remaining entries layer by layer.
 
 A few things I'd especially want feedback on:
 - Classifications you disagree with (e.g. is claude-code L4 tool or L3 tech?)
 - Attributions that are wrong
 - Terms that shouldn't exist as separate entries
 
-Repo is MIT. Open to PRs, issues, taxonomy arguments.
+Repo is MIT. Open to PRs, issues, taxonomy arguments — new terms can enter through the pending track (⏳ badge until verified).
 ```
 
 ---
@@ -50,7 +52,7 @@ Repo is MIT. Open to PRs, issues, taxonomy arguments.
 ## 模板 3：极简版（适合 HN 高质量帖子）
 
 ```text
-Author. 178 terms × 8 layers × ~2.9 sourced content pieces each, primary-source citations only (not LLM-generated), MIT licensed, ~12k LOC static site with per-layer async loading + offline cache + bilingual support.
+Author. 178 official terms × 8 layers × ~3.5 sourced content pieces each, first-party citations only (not LLM-generated), MIT licensed, ~15k LOC static site with per-layer async loading + offline cache + full zh/en bilingual support. Trust-mechanics: 295 citations timestamped and re-audited every 90 days; 72 syntax-checked code examples, all passing; proposals enter via a pending badge until verified.
 
 The "taxonomy, not a list" framing is intentional — I want disagreements in the comments, that's the actual point.
 
