@@ -181,6 +181,14 @@
   color: var(--c-ink);
 }
 
+/* R7 dual-track: pending badges stay gold-on-dark */
+[data-theme="dark"] .term-header__pending,
+[data-theme="dark"] .pending-badge {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: var(--c-liujin);
+  color: var(--c-liujin);
+}
+
 [data-theme="dark"] .badge--core { background: var(--c-wash-yellow); color: var(--c-ink); }
 [data-theme="dark"] .badge--method { background: var(--c-wash-blue); color: var(--c-ink); }
 [data-theme="dark"] .badge--tech { background: var(--c-wash-green); color: var(--c-ink); }

@@ -35,6 +35,20 @@
   white-space: nowrap;
 }
 
+/* R7 dual-track: pending review badge on glossary cards */
+.pending-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-family: var(--font-rounded);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--c-ink);
+  background: var(--c-wash-yellow);
+  border: 1px dashed var(--c-liujin);
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .term-cards-grid { grid-template-columns: 1fr; }
 }

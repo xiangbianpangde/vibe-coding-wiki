@@ -195,12 +195,15 @@
       });
     
       function render() {
+        const isEn = document.documentElement.getAttribute('data-lang') === 'en';
         const items = data.filter(x => {
           if (currentLayer !== 'all' && x.layer !== currentLayer) return false;
           if (urlTag && !(x.tags || []).includes(urlTag)) return false;
           return true;
         });
-        termCount.textContent = `共 ${items.length} 条词条` + (urlTag ? ` · 标签 #${urlTag}` : '');
+        const pendingCount = items.filter(x => x.status === 'pending').length;
+        const officialCount = items.length - pendingCount;
+        termCount.textContent = `共 ${officialCount} 条词条` + (pendingCount ? ` · 另有 ${pendingCount} 条⏳待验证` : '') + (urlTag ? ` · 标签 #${urlTag}` : '');
     
         // 分组按字母
         const grouped = {};
@@ -211,17 +214,24 @@
         });
     
         const letters = Object.keys(grouped).sort();
-        termList.innerHTML = letters.map(letter => `
+        termList.innerHTML = letters.map(letter => {
+          // R7 dual-track: pending terms sort after official terms within each letter group
+          const entries = grouped[letter].slice().sort((a, b) =>
+            (a.status === 'pending' ? 1 : 0) - (b.status === 'pending' ? 1 : 0));
+          return `
           <div style="margin-bottom:32px;">
             <div style="font-family:var(--font-rounded);font-weight:700;font-size:14px;color:var(--c-shihqing);letter-spacing:0.06em;border-bottom:1px solid var(--c-line);padding-bottom:8px;margin-bottom:12px;">${letter}</div>
             <div class="term-cards-grid">
-              ${grouped[letter].map(t => {
+              ${entries.map(t => {
                 const layer = layers[t.layer] || { color: '#777', name: t.layer };
                 return `
                 <a id="${t.id}" href="../term.html?id=${t.id}" class="term-card" style="border-left:3px solid ${layer.color};">
                   <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px;">
                     <strong style="font-family:var(--font-title);font-size:16px;font-weight:700;color:var(--c-ink);">${t.zh}</strong>
-                    <span class="layer-badge" style="background:${layer.color};">${layer.name}</span>
+                    <span style="display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+                      <span class="layer-badge" style="background:${layer.color};">${layer.name}</span>
+                      ${t.status === 'pending' ? `<span class="pending-badge">${isEn ? '⏳ Pending review' : '⏳ 待验证'}</span>` : ''}
+                    </span>
                   </div>
                   <div style="font-size:12px;color:var(--c-muted);font-family:var(--font-mono);margin-bottom:8px;">${t.name}</div>
                   <p style="font-size:13px;color:var(--c-ink-soft);line-height:1.6;margin:0;">${t.shortDesc.substring(0, 140)}${t.shortDesc.length > 140 ? '...' : ''}</p>
@@ -230,10 +240,14 @@
               }).join('')}
             </div>
           </div>
-        `).join('');
+        `;
+        }).join('');
       }
     
       render();
+    
+      // R7 dual-track: re-render on language toggle so pending badges follow lang
+      window.addEventListener('vclang-change', render);
     
   });
 </script>
