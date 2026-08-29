@@ -127,8 +127,8 @@
       },
       {
         "name": "The Illustrated Attention",
-        "url": "https://jalammar.github.io/visualizing-attention-mechanism-in-machine-translation/",
-        "lastVerified": "2026-08-28"
+        "url": "https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/",
+        "lastVerified": "2026-08-29"
       }
     ],
     "enShortDesc": "The mechanism that lets models weigh the relevance of different input tokens to each other. Foundation of the Transformer.",
@@ -1818,8 +1818,8 @@
       },
       {
         "name": "Anthropic: Constitutional AI",
-        "url": "https://www.anthropic.com/news/constitutional-ai-harmless-ai-systems",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.anthropic.com/index/constitutional-ai-harmlessness-from-ai-feedback",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
@@ -2145,8 +2145,8 @@
     "seeAlso": [
       {
         "name": "Anthropic Computer Use 公告",
-        "url": "https://www.anthropic.com/news/computer-use",
-        "lastVerified": "2026-08-28"
+        "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+        "lastVerified": "2026-08-29"
       },
       {
         "name": "Computer Use 文档",

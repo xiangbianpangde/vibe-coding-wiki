@@ -271,8 +271,8 @@
       },
       {
         "name": "GitHub CODEOWNERS",
-        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-rules/customizing-your-repository/about-code-owners",
-        "lastVerified": "2026-08-28"
+        "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+        "lastVerified": "2026-08-29"
       }
     ]
   },
@@ -470,8 +470,8 @@
       },
       {
         "name": "OpenAI Code Interpreter",
-        "url": "https://platform.openai.com/docs/assistants/tools/code-interpreter",
-        "lastVerified": "2026-08-28"
+        "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter",
+        "lastVerified": "2026-08-29"
       }
     ],
     "quotes": [
