@@ -27,8 +27,26 @@ test.describe('Home page', () => {
 
   test('topnav links navigate correctly', async ({ page }) => {
     await page.goto('/index.html');
-    // Click "词条 A-Z" link
-    await page.click('a[href="pages/glossary.html"]');
+    // Responsive branch mirroring the CSS breakpoint (style.css @media
+    // max-width: 960px): on mobile .topnav__links is display:none and the
+    // injected .vc-nav-toggle (☰) hamburger is the real navigation path.
+    // Both branches execute the same navigation semantics and assert the URL.
+    const width = page.viewportSize()?.width ?? 1280;
+    if (width <= 960) {
+      // Mobile layout: open the hamburger menu first (js/nav.js)
+      const toggle = page.locator('.vc-nav-toggle');
+      await expect(toggle).toBeVisible();
+      await toggle.click();
+      // Menu expanded: .vc-nav-open restores display:flex on .topnav__links
+      await expect(page.locator('.topnav__links')).toHaveClass(/vc-nav-open/);
+      await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+      // Click the same glossary link, scoped to the opened nav
+      // (mobile.spec.js precedent; guards against future DOM reordering)
+      await page.click('.topnav__links a[href="pages/glossary.html"]');
+    } else {
+      // Desktop layout: topnav links are directly clickable
+      await page.click('a[href="pages/glossary.html"]');
+    }
     await expect(page).toHaveURL(/glossary\.html/);
   });
 
