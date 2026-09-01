@@ -28,3 +28,8 @@ autoresearch/
 
 # Build artifacts
 _site/
+
+# Test artifacts
+website/playwright-report/
+website/test-results/
+website/coverage/
