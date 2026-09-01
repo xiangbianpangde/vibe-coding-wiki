@@ -98,7 +98,7 @@ I'm especially looking for feedback on:
 - **Incorrect attribution or sources** — quote attributions need verification
 - **Terminology that shouldn't be a separate entry** — merge candidates?
 
-The Chinese original was written first; the English is recent. Primary-source citations (76% coverage) are from author blogs, official docs, and original papers — but I have not done a full citation red team yet.
+The Chinese original was written first; the English is recent. Primary-source citations (76% coverage) are from author blogs, official docs, and original papers — the first citation red team round is complete (R6: 14 fabricated citations purged, 34 dead links repaired), backed by a weekly automated citation audit cron with an allowlist, and citations carry `lastVerified` dates for 90-day re-checks.
 
 Contributions and corrections welcome — see [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 
@@ -111,8 +111,8 @@ Contributions and corrections welcome — see [CONTRIBUTING.md](./docs/CONTRIBUT
 - ✅ Service Worker offline cache
 - ✅ A11y (WCAG 2.1 AA target)
 - ✅ SEO + JSON-LD + sitemap
-- 🔜 Citation Red Team (Karpathy / Anthropic / Willison / Fowler attributions audit)
-- 🔜 GitHub Topics + Homepage + good first issue (launch packaging)
+- ✅ Citation Red Team (Karpathy / Anthropic / Willison / Fowler attributions audit)
+- ✅ GitHub Topics + Homepage + good first issue (launch packaging)
 
 ### v3.0 (post-launch)
 - Content scale to 250+ terms
