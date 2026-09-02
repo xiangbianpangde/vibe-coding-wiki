@@ -23,16 +23,16 @@ beforeAll(() => {
 });
 
 describe('Data integrity', () => {
-  it('loads all terms: 178 official + demo pending term', () => {
+  it('loads all terms: 189 official, 0 pending', () => {
     const pending = allTerms.filter(t => t.status === 'pending');
     const official = allTerms.filter(t => t.status !== 'pending');
-    expect(official.length).toBe(178);
-    expect(pending.length).toBe(1);
-    expect(allTerms.length).toBe(179);
+    expect(official.length).toBe(189);
+    expect(pending.length).toBe(0);
+    expect(allTerms.length).toBe(189);
   });
 
-  it('official term count stays 178 (status defaults to official)', () => {
-    expect(allTerms.filter(t => t.status !== 'pending').length).toBe(178);
+  it('official term count stays 189 (status defaults to official)', () => {
+    expect(allTerms.filter(t => t.status !== 'pending').length).toBe(189);
   });
 
   it('status, when present, is a known value (R7 dual-track)', () => {

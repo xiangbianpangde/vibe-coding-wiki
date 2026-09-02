@@ -337,6 +337,14 @@
       {
         "text": "Subagents are a key tool for getting good results out of a coding agent.",
         "cite": "Simon Willison"
+      },
+      {
+        "text": "Subagents are specialized AI assistants that handle specific types of tasks. Use one when a side task would flood your main conversation with search results, logs, or file contents you won't reference again: the subagent does that work in its own context and returns only the summary.",
+        "cite": "Claude Code Docs《Create custom subagents》, 2026-09-01 检索"
+      },
+      {
+        "text": "When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.",
+        "cite": "VS Code Docs《Subagents in Visual Studio Code》, 2026-09-01 检索"
       }
     ],
     "seeAlso": [
@@ -349,6 +357,16 @@
         "name": "Anthropic: Building effective agents",
         "url": "https://www.anthropic.com/research/building-effective-agents",
         "lastVerified": "2026-08-28"
+      },
+      {
+        "name": "Create custom subagents - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/sub-agents",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Subagents in Visual Studio Code - VS Code Docs",
+        "url": "https://code.visualstudio.com/docs/agents/run/subagents",
+        "lastVerified": "2026-09-01"
       }
     ],
     "examples": [
@@ -2211,5 +2229,133 @@
     ],
     "enShortDesc": "AI agent capability to control a web browser. Anthropic Claude for Chrome, browser-use open source library, OpenAI Operator.",
     "enLongDesc": "<p><strong>Browser use</strong> lets AI agents automate web browsers via DOM, screenshots, or accessibility APIs. Examples: Claude for Chrome, the browser-use Python library, OpenAI Operator.</p>"
+  },
+  {
+    "id": "context-rot",
+    "name": "Context Rot",
+    "zh": "上下文腐烂",
+    "layer": "L3",
+    "category": "tech",
+    "tags": [
+      "llm",
+      "long-context",
+      "reliability",
+      "degradation",
+      "evaluation"
+    ],
+    "shortDesc": "Context Rot 指输入上下文变长后，即使任务复杂度不变，LLM 输出质量与可靠性也显著下降的现象。Chroma 2025 年 7 月的技术报告系统评估了 18 个模型，使该术语广泛流行。",
+    "longDesc": "<p><strong>定义：</strong>Context Rot 描述输入上下文变长后模型性能显著波动、愈发不可靠的现象——即使任务本身复杂度不变。Chroma 技术报告的实验刻意只变输入长度、固定任务复杂度，以隔离“长度”这一变量；报告评估了 18 个 LLM（含 GPT-4.1、Claude 4、Gemini 2.5、Qwen3），结论是模型并不能均匀利用自己的上下文。</p><p><strong>失效机制：</strong>needle 与问题的语义相似度降低时性能骤降；distractor 数量增多、相似度提高会加剧衰减；haystack 结构同样有影响。</p><p><strong>与相近概念的区别：</strong>“Lost in the middle”是位置维度的特例——相关信息处于长上下文中段时性能显著下降；needle in a haystack 测试的高分只反映简单词汇检索能力，不能外推到语义任务。</p><p><strong>对 vibe coding 的意义：</strong>长会话与大仓库场景中 agent“越聊越笨”、遗忘早期指令、改错文件等体验可用该术语解释；实践中常配合 compaction 等上下文管理手段缓解。</p>",
+    "enShortDesc": "Context rot is the degradation of LLM output quality and reliability as input context grows longer, even when task complexity stays constant. Chroma's July 2025 technical report, which evaluated 18 models, popularized the term.",
+    "enLongDesc": "<p><strong>Definition:</strong> Context rot describes how model performance varies significantly and grows increasingly unreliable as input length increases—even when task complexity is held constant. The Chroma technical report deliberately varied only input length while holding task complexity constant to isolate the effect of length; it evaluated 18 LLMs (including GPT-4.1, Claude 4, Gemini 2.5, and Qwen3) and concluded that models do not use their context uniformly.</p><p><strong>Failure mechanisms:</strong> performance drops sharply as the semantic similarity between the needle and the question decreases; more distractors and higher distractor similarity amplify the decay; haystack structure matters as well.</p><p><strong>Related concepts:</strong> \"lost in the middle\" is the positional special case—performance degrades when relevant information sits in the middle of long contexts; high needle-in-a-haystack scores only reflect simple lexical retrieval and do not generalize to semantic tasks.</p><p><strong>Why vibe coders care:</strong> agents \"getting dumber\" over long sessions—forgetting early instructions, editing the wrong files—can be explained by this phenomenon; in practice it is mitigated with context management such as compaction.</p>",
+    "related": [
+      "context-window",
+      "compaction",
+      "llm",
+      "tokens",
+      "model-collapse"
+    ],
+    "coinedBy": "Kelly Hong, Anton Troynikov, Jeff Huber (Chroma)",
+    "coinedDate": "2025-07",
+    "quotes": [
+      {
+        "text": "Large Language Models (LLMs) are typically presumed to process context uniformly—that is, the model should handle the 10,000th token just as reliably as the 100th. However, in practice, this assumption does not hold. We observe that model performance varies significantly as input length changes, even on simple tasks.",
+        "cite": "Kelly Hong et al., Chroma Technical Report, 2025-07-14"
+      },
+      {
+        "text": "In this report, we evaluate 18 LLMs, including the state-of-the-art GPT-4.1, Claude 4, Gemini 2.5, and Qwen3 models. Our results reveal that models do not use their context uniformly; instead, their performance grows increasingly unreliable as input length grows.",
+        "cite": "Kelly Hong et al., Chroma Technical Report, 2025-07-14"
+      },
+      {
+        "text": "[…] we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models",
+        "cite": "Nelson F. Liu et al., arXiv:2307.03172, 2023-07"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Context Rot: How Increasing Input Tokens Impacts LLM Performance",
+        "url": "https://research.trychroma.com/context-rot",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Lost in the Middle: How Language Models Use Long Contexts",
+        "url": "https://arxiv.org/abs/2307.03172",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Context Rot — Redis Blog",
+        "url": "https://redis.io/blog/context-rot/",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Context Rot 测量设计示意（依据 Chroma 报告的实验方法改写，非其原始代码）\n# 固定问答任务复杂度，只增加 filler 长度，以隔离“输入长度”这一变量\nneedle = \"The access code is WV-FE-03.\"\nquestion = \"Question: what is the access code?\"\n\ndef build_prompt(tokens: int) -> str:\n    return \"lorem ipsum \" * (tokens // 3) + needle + question\n\nfor tokens in (100, 1_000, 10_000, 100_000):\n    prompt = build_prompt(tokens)\n    print(tokens, len(prompt))   # 逐条送入被测模型，比较不同输入长度下的答案正确率",
+        "desc": "Context Rot 测量设计示意（依据 Chroma 报告方法改写，非原始代码）：固定 needle 问答任务不变，仅改变 filler 长度，将各长度 prompt 逐条送入被测模型即可观察准确率随输入长度的衰减。"
+      }
+    ]
+  },
+  {
+    "id": "model-collapse",
+    "name": "Model Collapse",
+    "zh": "模型坍塌",
+    "layer": "L3",
+    "category": "tech",
+    "tags": [
+      "training",
+      "synthetic-data",
+      "llm",
+      "degradation",
+      "research"
+    ],
+    "shortDesc": "Model Collapse 指生成模型递归地在含自身产物的数据上训练后，输出分布尾部逐代丢失、多样性与质量发生不可逆退化的现象。术语由 2023 年的 arXiv 论文首创，2024 年 7 月登上 Nature 正刊。",
+    "longDesc": "<p><strong>定义：</strong>Model Collapse 指在训练中不加区分地使用模型生成内容，导致后代模型出现不可逆缺陷、原始内容分布的尾部（低频与边缘信息）逐渐消失的现象。术语由 2023 年 5 月的论文 The Curse of Recursion 首次提出；2024 年 7 月同组作者在 Nature 正刊发表正式版本，以 GMM、VAE 与 LLM 实验加理论模型论证其发生机制。</p><p><strong>与相近概念的区别：</strong>hallucination 是单次推理层面的错误；model collapse 是训练动力学层面的系统性退化，特指合成数据递归引入造成的分布收窄，与 catastrophic forgetting 也不相同。</p><p><strong>对 vibe coding 的意义：</strong>AI 生成代码回流互联网与训练集，可能使后代模型的代码质量与多样性退化；后续研究也对退化的严重程度提出条件化修正——在特定分布与规模假设下退化可能有限。这类引申讨论需与论文实验结论本身区分开。</p>",
+    "enShortDesc": "Model collapse is the irreversible degradation that occurs when generative models are trained recursively on data containing their own outputs: the tails of the original distribution disappear and diversity declines. The term was introduced in a 2023 arXiv paper and defined in Nature in July 2024.",
+    "enLongDesc": "<p><strong>Definition:</strong> model collapse refers to the irreversible defects that arise when model-generated content is used indiscriminately in training: the tails of the original content distribution disappear across successive generations. The term was introduced in the May 2023 paper The Curse of Recursion; the same authors published the definitive version in Nature in July 2024, demonstrating the effect with GMM, VAE, and LLM experiments plus theoretical models.</p><p><strong>Related concepts:</strong> hallucination is a single-inference error; model collapse is a systemic, training-dynamics-level degradation specifically caused by recursive synthetic data narrowing the distribution—and it differs from catastrophic forgetting.</p><p><strong>Why vibe coders care:</strong> AI-generated code flowing back into the internet and training sets may degrade the quality and diversity of future models; follow-up work has also proposed conditional refinements to the severity of the collapse—degradation may be limited under certain distribution and scale assumptions. Such extrapolations should be kept distinct from the papers' experimental findings.</p>",
+    "related": [
+      "distillation",
+      "llm",
+      "fine-tuning",
+      "homogenization",
+      "context-rot"
+    ],
+    "coinedBy": "Ilia Shumailov et al.",
+    "coinedDate": "2023-05",
+    "quotes": [
+      {
+        "text": "We find that indiscriminate use of model-generated content in training causes irreversible defects in the resulting models, in which tails of the original content distribution disappear. We refer to this effect as 'model collapse' and show that it can occur in LLMs as well as in variational autoencoders (VAEs) and Gaussian mixture models (GMMs).",
+        "cite": "Ilia Shumailov et al., Nature, 2024-07-24"
+      },
+      {
+        "text": "We find that use of model-generated content in training causes irreversible defects in the resulting models, where tails of the original content distribution disappear. We refer to this effect as Model Collapse and show that it can occur in Variational Autoencoders, Gaussian Mixture Models and LLMs.",
+        "cite": "Ilia Shumailov et al., arXiv:2305.17493, 2023-05-27"
+      },
+      {
+        "text": "Indeed, the value of data collected about genuine human interactions with systems will be increasingly valuable in the presence of LLM-generated content in data crawled from the Internet.",
+        "cite": "Ilia Shumailov et al., Nature, 2024-07-24"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "AI models collapse when trained on recursively generated data",
+        "url": "https://www.nature.com/articles/s41586-024-07566-y",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "The Curse of Recursion: Training on Generated Data Makes Models Forget",
+        "url": "https://arxiv.org/abs/2305.17493",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "A Note on Shumailov et al. (2024): 'AI Models Collapse…'",
+        "url": "https://arxiv.org/html/2410.12954v2",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# 递归在合成数据上训练导致分布尾部收缩的极简数值示意（非论文原码）\nimport numpy as np\n\ndata = np.random.normal(0.0, 1.0, 10_000)          # 原始人类数据分布\nfor generation in range(5):\n    sample = np.random.choice(data, size=5_000)    # 抽取子集当作下一代“训练数据”\n    data = np.random.normal(sample.mean(), sample.std(), 10_000)  # 用合成分布替代\n    low, high = np.percentile(data, [1, 99])\n    print(f\"gen {generation}: 1%={low:.3f} 99%={high:.3f}\")        # 尾部逐代向均值收缩",
+        "desc": "递归合成数据训练的分布收窄示意（依据论文 GMM 实验思想改写，非原始代码）：每代用当前分布的采样重建“训练数据”，观察 1% 与 99% 分位数逐代向均值收缩，即论文所述“尾部消失”现象的数值类比。"
+      }
+    ]
   }
 ]

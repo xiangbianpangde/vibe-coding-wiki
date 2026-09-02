@@ -322,12 +322,24 @@
       {
         "code": "# 项目根 /CLAUDE.md\n\n# 项目规范\n- 使用 TypeScript strict mode\n- 测试覆盖率 > 80%\n- 所有 API 调用必须 wrap in try/catch\n\n# 不要\n- 不要修改 /tests/ 目录\n- 不要在 production 跑 npm test",
         "desc": "CLAUDE.md 典型内容"
+      },
+      {
+        "code": "@AGENTS.md\n\n## Claude Code\n\nUse plan mode for changes under `src/billing/`.",
+        "desc": "官方 memory 文档给出的 CLAUDE.md 兼容 AGENTS.md 写法:首行 @import 使两个工具读同一份指令,再追加 Claude Code 专属约定。"
       }
     ],
     "quotes": [
       {
         "text": "CLAUDE.md gives Claude persistent instructions. Project CLAUDE.md survives compaction.",
         "cite": "Claude Code Docs"
+      },
+      {
+        "text": "Claude Code reads `CLAUDE.md`, not `AGENTS.md`. If your repository already uses `AGENTS.md` for other coding agents, create a `CLAUDE.md` that imports it so both tools read the same instructions without duplicating them.",
+        "cite": "Claude Code Docs《How Claude remembers your project》, 2026-09-01 检索"
+      },
+      {
+        "text": "CLAUDE.md files can import additional files using `@path/to/import` syntax. Imported files are expanded and loaded into context at launch alongside the CLAUDE.md that references them.",
+        "cite": "Claude Code Docs《How Claude remembers your project》, 2026-09-01 检索"
       }
     ],
     "seeAlso": [
@@ -340,6 +352,16 @@
         "name": "Anthropic Prompt Caching",
         "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
         "lastVerified": "2026-08-28"
+      },
+      {
+        "name": "How Claude remembers your project - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/memory",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "AGENTS.md 官网",
+        "url": "https://agents.md/",
+        "lastVerified": "2026-09-01"
       }
     ],
     "enShortDesc": "Claude Code's project-level persistent instruction file. Auto-loaded at every session start.",
@@ -405,12 +427,24 @@
       {
         "code": "# /compact focus on the API changes\n# 手动压缩，聚焦 API 变化\n# 旧工具输出清除 + 对话摘要",
         "desc": "Claude Code 手动 compaction"
+      },
+      {
+        "code": "/compact          # 手动压缩当前会话\n/autocompact 500k # 把自动压缩阈值窗口设为 500k(Claude Code 官方命令)",
+        "desc": "Claude Code 会话内的手动压缩命令与自动压缩阈值设置:前者把当前会话历史摘要成浓缩表示,后者把自动触发压缩的阈值窗口设为 500k。"
       }
     ],
     "quotes": [
       {
         "text": "When the conversation gets too long, summarize the old parts to make room for new.",
         "cite": "Claude Code Docs"
+      },
+      {
+        "text": "Compaction extends the effective context length for long-running conversations and tasks by automatically summarizing older context when approaching the context window limit. It also keeps the active context small: as a conversation grows, response quality degrades, so compaction replaces older content with a concise summary.",
+        "cite": "Anthropic Claude Platform Docs《Compaction》, 2026-09-01 检索"
+      },
+      {
+        "text": "To support long-running interactions, you can use compaction to reduce context size while preserving state needed for subsequent turns. Compaction helps you balance quality, cost, and latency as conversations grow.",
+        "cite": "OpenAI API Docs《Compaction》, 2026-09-01 检索"
       }
     ],
     "seeAlso": [
@@ -423,6 +457,16 @@
         "name": "Anthropic: Context Engineering",
         "url": "https://www.anthropic.com/research/building-effective-agents",
         "lastVerified": "2026-08-28"
+      },
+      {
+        "name": "Compaction - Anthropic Claude Platform Docs",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/compaction",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Compaction - OpenAI API Docs",
+        "url": "https://developers.openai.com/api/docs/guides/compaction",
+        "lastVerified": "2026-09-01"
       }
     ],
     "enShortDesc": "Auto-summarize the conversation when approaching the context window limit. Preserves context while freeing tokens.",
@@ -746,12 +790,30 @@
         "name": "Husky Git hooks",
         "url": "https://typicode.github.io/husky/",
         "lastVerified": "2026-08-28"
+      },
+      {
+        "name": "Hooks reference - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/hooks",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Automate actions with hooks - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/hooks-guide",
+        "lastVerified": "2026-09-01"
       }
     ],
     "quotes": [
       {
         "text": "Hooks are automated triggers that run before/after tool calls. They enforce guardrails without slowing the agent.",
         "cite": "community"
+      },
+      {
+        "text": "Hooks are user-defined shell commands, HTTP endpoints, MCP tool calls, LLM prompts, or subagents that execute automatically at specific points in Claude Code's lifecycle.",
+        "cite": "Claude Code Docs《Hooks reference》, 2026-09-01 检索"
+      },
+      {
+        "text": "`PreToolUse` hooks fire before any permission-mode check, in every permission mode, including `dontAsk`. A hook that returns `permissionDecision: \"deny\"` blocks the tool even in `bypassPermissions` mode or with `--dangerously-skip-permissions`. This lets you enforce policy that users can't bypass by changing their permission mode.",
+        "cite": "Claude Code Docs《Hooks reference》, 2026-09-01 检索"
       }
     ],
     "enShortDesc": "Handlers (shell/HTTP) that auto-execute at specific points in the Claude Code lifecycle.",
@@ -831,5 +893,275 @@
     ],
     "enShortDesc": "Reusable instructions invoked via /name. Built-in plus user-defined.",
     "enLongDesc": "<p><strong>Commands</strong> are reusable prompts triggered by typing /name. Claude Code has built-in commands; users can add custom ones in .claude/commands/.</p>"
+  },
+  {
+    "id": "plan-mode",
+    "name": "Plan Mode",
+    "zh": "计划模式",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "planning",
+      "read-only",
+      "permission-mode",
+      "workflow",
+      "exploration"
+    ],
+    "shortDesc": "Plan Mode(计划模式)是一种先研究规划、经用户批准后才允许修改代码的会话模式:规划阶段只读探索、编辑被阻塞,批准后才切回可编辑模式执行。它将探索与执行分离,降低直接改错代码的风险。",
+    "longDesc": "<p><strong>Plan Mode(计划模式)</strong>是一种“先研究、后动手”的会话模式:规划阶段 Agent 只读地探索代码库——读文件、运行只读命令、撰写计划——但不改动源码;用户批准计划后,才切回可编辑模式开始执行。它与 default、acceptEdits、bypassPermissions 同属权限/交互模式族,plan 是其中只读规划的一档。</p><p><strong>核心特征:</strong>其一,只读探索,规划期可读文件、运行只读 shell 命令并产出计划,编辑保持阻塞(具备 bypass permissions 的会话除外);其二,批准门禁,计划经用户确认后才落地,界面会提示 plan mode 已开启;其三,它是权限/交互模式而非生成的计划文档本身,计划内容仍可导出编辑。</p><p><strong>典型用例:</strong>适合思路不确定、改动跨多个文件或对代码不熟悉的任务;官方同时提醒 plan mode 会带来额外开销,若一句话就能说清 diff 的小修小补(如改错别字)则不必用。与 spec-driven development 相比,它聚焦单次任务内的探索与执行分离,不要求维护长期规格文件。</p>",
+    "related": [
+      "permission-mode",
+      "plan-verify-build",
+      "auto-mode",
+      "yolo-mode",
+      "sdd"
+    ],
+    "enShortDesc": "Plan Mode is a session mode where the agent researches and proposes a plan first and makes no code changes until the user approves; exploration is read-only, and editing resumes only after the plan is approved.",
+    "enLongDesc": "<p><strong>Plan Mode</strong> is a “research first, act later” session mode: during planning the agent explores the codebase read-only — reading files, running read-only commands, and drafting a plan — without modifying source; only after the user approves the plan does it switch back to an editable mode and begin execution. It belongs to the same family of permission/interaction modes as default, acceptEdits, and bypassPermissions, with plan as the read-only planning tier.</p><p><strong>Key traits:</strong> first, read-only exploration — while planning, the agent may read files, run read-only shell commands, and produce a plan, while edits stay blocked (except in sessions with bypass permissions available); second, an approval gate — the plan takes effect only after the user confirms it, and the interface indicates that plan mode is on; third, it is a permission/interaction mode rather than the generated plan document itself, and the plan content can still be exported and edited.</p><p><strong>Typical use cases:</strong> tasks with an uncertain approach, changes spanning multiple files, or unfamiliar code; the official docs also note that plan mode adds overhead — for small fixes whose diff you could describe in one sentence (such as a typo), skip the plan. Compared with spec-driven development, it separates exploration from execution within a single task and does not require maintaining long-lived spec files.</p>",
+    "quotes": [
+      {
+        "text": "Plan mode tells Claude to research and propose changes without making them. Claude reads files, runs shell commands to explore, and writes a plan, but does not edit your source. Except in sessions with bypass permissions available, edits stay blocked until you approve the plan.",
+        "cite": "Claude Code Docs《Permissions → permission modes》, 2026-09-01"
+      },
+      {
+        "text": "Letting Claude jump straight to coding can produce code that solves the wrong problem. Use plan mode to separate exploration from execution.",
+        "cite": "Claude Code Docs《Best practices》, 2026-09-01"
+      },
+      {
+        "text": "Plan mode is a restricted environment that provides read-only access to your codebase. It's designed for safe exploration, understanding code, and planning changes without making any modifications.",
+        "cite": "Continue Docs《Plan Mode in Continue – Safe, Read-Only Code Exploration》, 2026-09-01"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Permission modes",
+        "url": "https://code.claude.com/docs/en/permission-modes",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Common workflows",
+        "url": "https://code.claude.com/docs/en/common-workflows",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Best practices",
+        "url": "https://code.claude.com/docs/en/best-practices",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Plan Mode in Continue – Safe, Read-Only Code Exploration",
+        "url": "https://docs.continue.dev/ide-extensions/agent/plan-mode",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "claude --permission-mode plan",
+        "desc": "以 plan 权限模式启动 Claude Code 会话,规划阶段只读探索,批准计划后才开始编辑。"
+      },
+      {
+        "code": "# 会话内按 Shift+Tab 循环切换权限模式\n# 或在单条提示前加 /plan 前缀,让该条任务直接进入 plan 模式\n# 用户批准计划后,再切回可编辑模式开始执行",
+        "desc": "会话内进入 plan mode 并在批准后执行的典型操作流程。"
+      }
+    ]
+  },
+  {
+    "id": "harness-engineering",
+    "name": "Harness Engineering",
+    "zh": "外壳工程",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "agent-harness",
+      "coding-agent",
+      "feedback-loop",
+      "steering-loop",
+      "quality-gate"
+    ],
+    "shortDesc": "Harness engineering 指“Agent = Model + Harness”中围绕模型构建系统的工程方法：harness 即模型之外的一切——系统提示、工具、编排、hooks、测试与评审门禁；核心是通过前馈 guides 与反馈 sensors 持续迭代这套外壳，把 agent 输出调节到期望状态。",
+    "longDesc": "<p><strong>定义：</strong>2026 年正式化的工程词汇，一译“脚手架工程”，指围绕模型构建系统的工程方法。Böckeler 于 2026-04-02 在 martinfowler.com 发表专文，LangChain 于 2026-03-10 发表组件解剖文章。核心公式为“Agent = Model + Harness”：harness 指 AI agent 中模型之外的一切。</p><p><strong>组成：</strong>包括系统提示、工具与 Skills、MCP、文件系统与沙箱等捆绑基础设施、编排逻辑（subagent 生成、handoffs、模型路由），以及保证确定性执行的 hooks 与 middleware；coding agent 用户还可构建 outer harness——CLAUDE.md 与规则、hooks、测试、linter、类型检查、评审门禁。</p><p><strong>方法论：</strong>Böckeler 将外层 harness 分为 guides（前馈）与 sensors（反馈），控制方式分计算型（tests、linter、type checker）与推理型（AI code review、“LLM as judge”）。人的职责是经由 steering loop 持续迭代 harness：同类问题反复出现时，改进前馈与反馈控制，降低复发概率乃至根除。</p><p><strong>辨析：</strong>harness 不是单个提示词，也不同于评测框架 lm-evaluation-harness；与 guardrails 的区别：它是前馈加反馈的持续调节系统，不只是一次性拦截，外层 harness 亦被视为 context engineering 的特例。</p>",
+    "enShortDesc": "In \"Agent = Model + Harness\", the harness is everything in an AI agent except the model itself—system prompts, tools, orchestration, hooks, tests, and review gates. Harness engineering is the discipline of designing and continuously iterating these constraints and feedback loops (feedforward guides + feedback sensors) to steer agent output toward the desired state.",
+    "enLongDesc": "<p><strong>Definition:</strong> a term that solidified in 2026 for the discipline of building systems around models. Birgitta Böckeler published an initial memo on 2026-02-17 and the full article \"Harness engineering for coding agent users\" on martinfowler.com on 2026-04-02; LangChain published \"The Anatomy of an Agent Harness\" on 2026-03-10; VS Code official docs also use the word harness naturally. The core formula is \"Agent = Model + Harness\": the harness is everything in an agent except the model itself.</p><p><strong>Composition:</strong> system prompts; tools and skills; MCPs; bundled infrastructure such as filesystems and sandboxes; orchestration logic (subagent spawning, handoffs, model routing); and hooks/middleware for deterministic execution. Coding-agent users can also build an outer harness: CLAUDE.md rules, hooks, tests, linters, type checkers, and review gates.</p><p><strong>Method:</strong> Böckeler splits the outer harness into guides (feedforward) and sensors (feedback), with controls classified as computational (tests, linters, type checkers) or inferential (AI code review, \"LLM as judge\"). The human's job is the steering loop: whenever an issue happens multiple times, improve the feedforward and feedback controls so the issue becomes less probable—or is prevented altogether.</p><p><strong>Distinctions:</strong> a harness is not a single prompt, and differs from evaluation harnesses such as lm-evaluation-harness; unlike guardrails, it is a continuous feedforward-plus-feedback regulation system rather than a one-time interception, and an outer harness is a specific form of context engineering.</p>",
+    "related": [
+      "agentic-engineering",
+      "agent-loop",
+      "claude-code",
+      "plan-verify-build",
+      "verification-asymmetry"
+    ],
+    "quotes": [
+      {
+        "text": "The term harness has emerged as a shorthand to mean everything in an AI agent except the model itself - Agent = Model + Harness.",
+        "cite": "Birgitta Böckeler《Harness engineering for coding agent users》,martinfowler.com,https://martinfowler.com/articles/harness-engineering.html (2026-04-02;2026-09-01 检索)"
+      },
+      {
+        "text": "A harness is every piece of code, configuration, and execution logic that isn't the model itself. A raw model is not an agent. But it becomes one when a harness gives it things like state, tool execution, feedback loops, and enforceable constraints.",
+        "cite": "LangChain Blog《The Anatomy of an Agent Harness》,Vivek Trivedy, March 10, 2026,https://www.langchain.com/blog/the-anatomy-of-an-agent-harness"
+      },
+      {
+        "text": "The human's job in this is to steer the agent by iterating on the harness. Whenever an issue happens multiple times, the feedforward and feedback controls should be improved to make the issue less probable to occur in the future, or even prevent it.",
+        "cite": "Birgitta Böckeler《Harness engineering for coding agent users》,martinfowler.com,https://martinfowler.com/articles/harness-engineering.html (\"The steering loop\" 一节;2026-09-01 检索)"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Harness engineering for coding agent users (Martin Fowler)",
+        "url": "https://martinfowler.com/articles/harness-engineering.html",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "The Anatomy of an Agent Harness (LangChain Blog)",
+        "url": "https://www.langchain.com/blog/the-anatomy-of-an-agent-harness",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Subagents (VS Code Docs)",
+        "url": "https://code.visualstudio.com/docs/agents/run/subagents",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Harness Engineering for AI Coding Agents (Augment Code)",
+        "url": "https://www.augmentcode.com/guides/harness-engineering-ai-coding-agents",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "{\n  \"guides\": [\"CLAUDE.md\", \"rules\"],\n  \"sensors\": [\"tests\", \"linters\", \"type checkers\", \"AI code review\"]\n}",
+        "desc": "依据素材整理的 outer harness（外层外壳）示意结构：Böckeler 将外层约束分为 guides（前馈，如 CLAUDE.md 约定）与 sensors（反馈，如 CI 测试与 linter），控制方式又分计算型（tests、linter、type checker）与推理型（AI code review、“LLM as judge”）；落地组合即 CLAUDE.md 约定作前馈，加上 hooks、CI 测试与 linter、评审门禁作反馈。"
+      }
+    ]
+  },
+  {
+    "id": "worktree-isolation",
+    "name": "Git Worktree Isolation",
+    "zh": "Git Worktree 隔离",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "git",
+      "worktree",
+      "parallelism",
+      "isolation",
+      "claude-code"
+    ],
+    "shortDesc": "利用 git worktree 为每个 agent 会话创建独立工作目录（各自的文件与分支，共享同一仓库历史与远端），使多个并行会话互不踩踏彼此的文件与构建产物。",
+    "longDesc": "<p>多 agent 并行共用同一工作目录时，彼此的编辑会互相覆盖、构建产物与未提交改动互踩，难以同时推进多条任务线。Git Worktree 隔离利用 git 原生的多工作树能力，为每个 agent 会话创建独立的工作目录（各自的文件与分支），同时共享同一仓库历史与远端；一个会话开发新功能时，另一个会话可并行修复 bug，互不干扰。</p><ul><li><strong>隔离范围：</strong>隔离的是文件系统工作区，不是权限或模型上下文；要求 git 仓库，非 git 版本控制系统需用 hooks 实现替代逻辑。</li><li><strong>与 subagent 的区别：</strong>worktree 是工作区级（进程级）隔离，subagent 是同一会话内的上下文级拆分；与多会话调度相比，worktree 是隔离单位而非调度单位。</li><li><strong>工具强化：</strong>Claude Code 提供 --worktree 启动、EnterWorktree 工具、自动清理，并把会话锁定在其 worktree 内。</li></ul>",
+    "related": [
+      "multi-agent-parallelism",
+      "subagent",
+      "agent-teams",
+      "harness-engineering"
+    ],
+    "enShortDesc": "Give each agent session its own git worktree — a separate working directory with its own files and branch, sharing the same repository history and remote — so parallel sessions never touch each other's files.",
+    "enLongDesc": "<p>When multiple agents share one working directory, their edits overwrite each other, uncommitted changes and build artifacts collide, and parallel lines of work become impractical. Git Worktree Isolation uses git's native multi-working-tree capability to give every agent session its own working directory with its own files and branch, while sharing the same repository history and remote — one session can build a feature while a second fixes a bug.</p><ul><li><strong>Scope:</strong> worktrees isolate the filesystem workspace, not permissions or model context; a git repository is required, and non-git VCS needs hooks-based alternatives.</li><li><strong>Vs. subagents:</strong> a worktree is a workspace-level (process-level) isolation unit, while subagents split work inside one session at the context level; a worktree is an isolation unit, not a scheduling unit.</li><li><strong>Tooling:</strong> Claude Code adds --worktree startup, an EnterWorktree tool, automatic cleanup, and enforcement that pins each session inside its worktree.</li></ul>",
+    "quotes": [
+      {
+        "text": "A git repository can support multiple working trees, allowing you to check out more than one branch at a time. With git worktree add a new working tree is associated with the repository, along with additional metadata that differentiates that working tree from others in the same repository. The working tree, along with this metadata, is called a \"worktree\".",
+        "cite": "Git 官方文档《git-worktree》，2026-09-01 检索"
+      },
+      {
+        "text": "A git worktree is a separate working directory with its own files and branch, sharing the same repository history and remote as your main checkout. Running each Claude Code session in its own worktree means edits in one session never touch files in another, so one session can build a feature while a second fixes a bug.",
+        "cite": "Claude Code Docs《Run parallel sessions with worktrees》，2026-09-01 检索"
+      },
+      {
+        "text": "Worktrees: run separate CLI sessions in isolated git checkouts so edits don't collide",
+        "cite": "Claude Code Docs《Best practices》并行工作一节的项目符号，2026-09-01 检索"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Git - git-worktree Documentation",
+        "url": "https://git-scm.com/docs/git-worktree",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Run parallel sessions with worktrees - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/worktrees",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Best practices - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/best-practices",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "git worktree add ../myrepo-feat-auth -b feature-auth",
+        "desc": "git 原生命令：为 feature-auth 分支新建独立工作树，目录位于仓库旁的 ../myrepo-feat-auth，与主检出共享同一仓库历史与远端，两个目录内的编辑互不影响。"
+      },
+      {
+        "code": "claude --worktree feature-auth",
+        "desc": "Claude Code 官方示例：在新建的隔离 worktree 中启动会话，默认在仓库根目录的 .claude/worktrees/ 下创建工作树。"
+      }
+    ]
+  },
+  {
+    "id": "agent-skills",
+    "name": "Agent Skills",
+    "zh": "Agent Skills（可复用技能包）",
+    "layer": "L2",
+    "category": "methodology",
+    "tags": [
+      "open-standard",
+      "skill-md",
+      "progressive-disclosure",
+      "claude-code",
+      "portability"
+    ],
+    "shortDesc": "Agent Skills 是 Anthropic 于 2025 年 10 月推出、同年 12 月开放为跨平台标准的可复用能力包格式：一个技能就是一个文件夹，含必填的 SKILL.md（frontmatter 声明 name 与 description）与可选的 scripts、references、assets；agent 启动时只预载元数据，判定相关才加载全文或调用脚本。",
+    "longDesc": "<p><strong>定义：</strong>Agent Skills 是用文件与文件夹扩展 AI agent 能力的开放格式：一个技能就是一个文件夹，内含必填的 SKILL.md（YAML frontmatter 声明 name 与 description）及可选的 scripts、references、assets。Anthropic 工程博客于 2025 年 10 月 16 日发布该机制，同年 12 月 18 日将其开放为跨平台可移植的开放标准，规范由 agentskills.io 承载。</p><p><strong>与 bundled-skills 的区别：</strong>bundled-skills 指 Claude Code 内置打包、随工具分发的技能（如 /debug、/code-review）；Agent Skills 是开放标准本身，任何工具、任何人都可按 SKILL.md 格式创作技能，跨工具可移植、社区可创作，不绑定单一产品。</p><p><strong>特征：</strong>核心设计原则是渐进式披露：agent 启动只预载 name 与 description，判定相关才读全文或调用脚本，按需加载使其区别于每会话必载的 claude-md。它是过程性知识与资源的打包，不是提供新接口的 MCP 工具协议，也不等于有独立上下文的 subagent；Claude Code 在标准之上另有 invocation control、subagent 执行等扩展。</p><p><strong>适用：</strong>当同样的指令、清单或多步流程被反复粘贴进对话，或 claude-md 某段已长成流程而非事实时，适合沉淀为 skill，用 /skill-name 直接调用。</p>",
+    "enShortDesc": "Agent Skills is an open format for reusable agent capability packages: a skill is a folder with a required SKILL.md (frontmatter declaring name and description) plus optional scripts, references, and assets; the agent preloads only the metadata and loads the full body or runs scripts only when relevant.",
+    "enLongDesc": "<p><strong>Definition:</strong> Agent Skills is an open format for extending AI agent capabilities with files and folders: a skill is a folder containing a required SKILL.md (YAML frontmatter declaring name and description) plus optional scripts, references, and assets. Anthropic's engineering blog introduced the mechanism on October 16, 2025 and published it as an open standard for cross-platform portability on December 18, 2025; the specification lives at agentskills.io.</p><p><strong>Contrast with bundled-skills:</strong> bundled-skills are the skills that ship prepackaged inside Claude Code (such as /debug and /code-review); Agent Skills is the open standard itself — anyone can author a SKILL.md for any tool, making skills portable across tools and creatable by the community rather than tied to one product.</p><p><strong>Characteristics:</strong> the core design principle is progressive disclosure: agents preload only name and description at startup and read the full body or run scripts only when the skill becomes relevant; this on-demand loading distinguishes skills from claude-md, which loads every session. A skill packages procedural knowledge and resources — it is not an MCP tool protocol offering new interfaces, nor a subagent with its own context; Claude Code adds extensions such as invocation control and subagent execution on top of the standard.</p><p><strong>When to use:</strong> when you keep pasting the same instructions, checklists, or multi-step procedures into chat, or when a section of claude-md has grown into a procedure rather than a fact, distill it into a skill and invoke it with /skill-name.</p>",
+    "related": [
+      "bundled-skills",
+      "claude-md",
+      "commands"
+    ],
+    "coinedBy": "Anthropic",
+    "coinedDate": "2025-10-16",
+    "quotes": [
+      {
+        "text": "This led us to create Agent Skills: organized folders of instructions, scripts, and resources that agents can discover and load dynamically to perform better at specific tasks.",
+        "cite": "Anthropic Engineering《Equipping agents for the real world with Agent Skills》, 2025-10-16"
+      },
+      {
+        "text": "Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows. At its core, a skill is a folder containing a SKILL.md file.",
+        "cite": "Agent Skills 标准官网 agentskills.io, 2026-09-01 检索"
+      },
+      {
+        "text": "Skills extend what Claude can do. Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with `/skill-name`.",
+        "cite": "Claude Code Docs《Extend Claude with skills》, 2026-09-01 检索"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Equipping agents for the real world with Agent Skills - Anthropic Engineering",
+        "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Agent Skills 开放标准官网（agentskills.io）",
+        "url": "https://agentskills.io/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Extend Claude with skills - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/skills",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Agent Skills overview - Claude Platform Docs",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# 依 agentskills.io 标准创建技能目录：SKILL.md 必填，scripts、references、assets 可选\nmkdir -p my-skill/scripts my-skill/references my-skill/assets\nprintf '%s\\n' '---' 'name: my-skill' 'description: 一句话说明该技能的用途与适用时机。' '---' > my-skill/SKILL.md",
+        "desc": "按 agentskills.io 标准初始化一个技能目录：my-skill 下 SKILL.md 必填（YAML frontmatter 须声明 name 与 description），scripts（可执行脚本）、references（文档）、assets（模板等资源）均可选；agent 启动时只预载 SKILL.md 的元数据，判定相关后才加载正文或调用脚本，也可用 /skill-name 直接调用。"
+      }
+    ]
   }
 ]

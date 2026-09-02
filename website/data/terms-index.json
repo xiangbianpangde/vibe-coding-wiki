@@ -1,24 +1,24 @@
 {
   "meta": {
-    "total": 179,
+    "total": 189,
     "byLayer": {
       "L1": 17,
-      "L2": 20,
-      "L3": 53,
+      "L2": 24,
+      "L3": 55,
       "L4": 28,
-      "L5": 14,
-      "L6": 17,
+      "L5": 16,
+      "L6": 19,
       "L7": 16,
       "L8": 14
     },
     "stats": {
-      "withExamples": 158,
-      "withQuotes": 155,
-      "withSeeAlso": 161,
-      "totalExamples": 172,
-      "totalQuotes": 163
+      "withExamples": 176,
+      "withQuotes": 175,
+      "withSeeAlso": 181,
+      "totalExamples": 200,
+      "totalQuotes": 238
     },
-    "generated": "2026-08-18T13:37:41.147Z"
+    "generated": "2026-09-01T15:04:46.985Z"
   },
   "summaries": [
     {
@@ -481,6 +481,58 @@
       "tags": [
         "methodology",
         "claude-code"
+      ]
+    },
+    {
+      "id": "plan-mode",
+      "name": "Plan Mode",
+      "zh": "计划模式",
+      "layer": "L2",
+      "shortDesc": "Plan Mode(计划模式)是一种先研究规划、经用户批准后才允许修改代码的会话模式:规划阶段只读探索、编辑被阻塞,批准后才切回可编辑模式执行。它将探索与执行分离,降低直接改错代码的风险。",
+      "category": "methodology",
+      "tags": [
+        "planning",
+        "read-only",
+        "permission-mode"
+      ]
+    },
+    {
+      "id": "harness-engineering",
+      "name": "Harness Engineering",
+      "zh": "外壳工程",
+      "layer": "L2",
+      "shortDesc": "Harness engineering 指“Agent = Model + Harness”中围绕模型构建系统的工程方法：harness 即模型之外的一切——系统提示、工具、编排、hooks、测试与评",
+      "category": "methodology",
+      "tags": [
+        "agent-harness",
+        "coding-agent",
+        "feedback-loop"
+      ]
+    },
+    {
+      "id": "worktree-isolation",
+      "name": "Git Worktree Isolation",
+      "zh": "Git Worktree 隔离",
+      "layer": "L2",
+      "shortDesc": "利用 git worktree 为每个 agent 会话创建独立工作目录（各自的文件与分支，共享同一仓库历史与远端），使多个并行会话互不踩踏彼此的文件与构建产物。",
+      "category": "methodology",
+      "tags": [
+        "git",
+        "worktree",
+        "parallelism"
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "name": "Agent Skills",
+      "zh": "Agent Skills（可复用技能包）",
+      "layer": "L2",
+      "shortDesc": "Agent Skills 是 Anthropic 于 2025 年 10 月推出、同年 12 月开放为跨平台标准的可复用能力包格式：一个技能就是一个文件夹，含必填的 SKILL.md（frontmat",
+      "category": "methodology",
+      "tags": [
+        "open-standard",
+        "skill-md",
+        "progressive-disclosure"
       ]
     },
     {
@@ -1137,6 +1189,32 @@
       ]
     },
     {
+      "id": "context-rot",
+      "name": "Context Rot",
+      "zh": "上下文腐烂",
+      "layer": "L3",
+      "shortDesc": "Context Rot 指输入上下文变长后，即使任务复杂度不变，LLM 输出质量与可靠性也显著下降的现象。Chroma 2025 年 7 月的技术报告系统评估了 18 个模型，使该术语广泛流行。",
+      "category": "tech",
+      "tags": [
+        "llm",
+        "long-context",
+        "reliability"
+      ]
+    },
+    {
+      "id": "model-collapse",
+      "name": "Model Collapse",
+      "zh": "模型坍塌",
+      "layer": "L3",
+      "shortDesc": "Model Collapse 指生成模型递归地在含自身产物的数据上训练后，输出分布尾部逐代丢失、多样性与质量发生不可逆退化的现象。术语由 2023 年的 arXiv 论文首创，2024 年 7 月登上",
+      "category": "tech",
+      "tags": [
+        "training",
+        "synthetic-data",
+        "llm"
+      ]
+    },
+    {
       "id": "cursor",
       "name": "Cursor",
       "zh": "Cursor",
@@ -1655,6 +1733,32 @@
       ]
     },
     {
+      "id": "sandboxed-execution",
+      "name": "Sandboxed Execution",
+      "zh": "沙箱执行",
+      "layer": "L5",
+      "shortDesc": "Sandboxed Execution 指在操作系统层限制编码 agent 及其子进程可访问的文件路径与网络域名：agent 可自主执行常规命令，越界行为由 OS 强制拒绝或触发审批流。",
+      "category": "quality",
+      "tags": [
+        "security",
+        "isolation",
+        "os"
+      ]
+    },
+    {
+      "id": "verification-asymmetry",
+      "name": "Verification Asymmetry",
+      "zh": "验证不对称",
+      "layer": "L5",
+      "shortDesc": "AI 生成代码快而人类可信验证慢的结构性落差：agent 轻易抵达前 80% 的功能里程碑，最后 20% 昂贵且易被低估，验证成本可能反超生成成本。80% problem 与 verification",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "verification",
+        "technical-debt"
+      ]
+    },
+    {
       "id": "tech-debt",
       "name": "Technical Debt",
       "zh": "技术债",
@@ -1684,7 +1788,7 @@
       "name": "Code Churn",
       "zh": "代码 churn",
       "layer": "L6",
-      "shortDesc": "代码被修改/重写/删除的比率。vibe coding 显著推高。",
+      "shortDesc": "代码被修改/重写/删除的比率。GitClear 2021-2024 churn metric 翻倍。",
       "category": "risk",
       "tags": [
         "risk",
@@ -1864,6 +1968,32 @@
         "risk",
         "evidence",
         "data"
+      ]
+    },
+    {
+      "id": "slopsquatting",
+      "name": "Slopsquatting",
+      "zh": "Slopsquatting（幻觉包名抢注）",
+      "layer": "L6",
+      "shortDesc": "Slopsquatting 指攻击者抢先注册 LLM 常见幻觉出的包名、等待开发者按 AI 建议安装恶意包的供应链攻击。与 typosquatting 押注人类拼写错误不同，它押注模型幻觉输出的可重复",
+      "category": "risk",
+      "tags": [
+        "supply-chain-security",
+        "package-hallucination",
+        "llm"
+      ]
+    },
+    {
+      "id": "tool-poisoning",
+      "name": "Tool Poisoning Attack",
+      "zh": "工具投毒",
+      "layer": "L6",
+      "shortDesc": "Tool Poisoning 指攻击者把隐藏指令嵌入 MCP 工具描述，对用户不可见却对模型全文可见，诱导 agent 执行未授权操作的攻击。由 Invariant Labs 于 2025 年 4 月",
+      "category": "risk",
+      "tags": [
+        "mcp",
+        "security",
+        "attack"
       ]
     },
     {

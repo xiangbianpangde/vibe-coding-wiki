@@ -551,5 +551,135 @@
     ],
     "enShortDesc": "Organization-level Claude Code settings. IT/DevOps pushes via admin console to all engineers.",
     "enLongDesc": "<p><strong>Managed settings</strong>: IT-managed Claude Code config. Pushed via MDM to enforce policy across the org: deny lists, model choices, permissions.</p>"
+  },
+  {
+    "id": "sandboxed-execution",
+    "name": "Sandboxed Execution",
+    "zh": "沙箱执行",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "security",
+      "isolation",
+      "os",
+      "defense",
+      "agent-safety"
+    ],
+    "shortDesc": "Sandboxed Execution 指在操作系统层限制编码 agent 及其子进程可访问的文件路径与网络域名：agent 可自主执行常规命令，越界行为由 OS 强制拒绝或触发审批流。",
+    "longDesc": "<p><strong>定义：</strong>Sandboxed Execution 在 OS 层（而非仅靠提示词或权限确认）限制 agent 及其派生进程可访问的文件系统路径与网络域名，使 agent 能自主执行大多数 shell 命令而不必逐条审批，越界时由操作系统强制拒绝或转入审批流。</p><p><strong>双控制面：</strong>sandbox 定义技术边界，approval policy 决定 agent 何时必须停下询问；沙箱作用于派生命令——git、包管理器、测试运行器等子进程继承边界，而非仅限内置文件操作。</p><p><strong>平台实现：</strong>macOS 使用内置的 Seatbelt 框架，无需额外安装；Linux 与 WSL2 依赖两个包并可选 seccomp 过滤；Claude Code 另提供 allowUnsandboxedCommands 逃生阀与 auto-allow 自动放行模式。</p><p><strong>与相近概念的区别：</strong>dev container 与 VM 是整机级隔离（更重）；sandboxed bash 是进程级 OS 强制（更轻、可交互放行域名与路径）；permission 系统只决定“要不要跑”，不限制进程运行后的访问。</p>",
+    "enShortDesc": "Sandboxed execution restricts a coding agent's filesystem paths and network domains at the OS level, so the agent can run routine commands autonomously while boundary crossings are blocked by the OS or routed to an approval flow.",
+    "enLongDesc": "<p><strong>Definition:</strong> sandboxed execution constrains which filesystem paths and network domains an agent and its spawned processes may touch—enforced by the operating system rather than by prompts or permission confirmations alone—so the agent can run most shell commands autonomously while boundary crossings are blocked or routed to an approval flow.</p><p><strong>Two control planes:</strong> the sandbox defines technical boundaries; the approval policy decides when the agent must stop and ask. The sandbox applies to spawned commands—git, package managers, and test runners inherit the boundary—not just to built-in file operations.</p><p><strong>Platform implementations:</strong> macOS uses the built-in Seatbelt framework with nothing to install; Linux and WSL2 rely on two packages with optional seccomp filtering; Claude Code also offers an allowUnsandboxedCommands escape hatch and an auto-allow mode.</p><p><strong>Related concepts:</strong> dev containers and VMs provide heavier machine-level isolation; sandboxed bash is lightweight, process-level OS enforcement with interactive grants; permission systems only decide whether to run, not what a running process can access.</p>",
+    "related": [
+      "permission-mode",
+      "yolo-mode",
+      "auto-mode-safety",
+      "guardrails",
+      "tool-poisoning"
+    ],
+    "quotes": [
+      {
+        "text": "The Bash sandbox lets Claude run most shell commands without stopping to ask permission. Instead of approving each command, you define which files and network domains commands can touch, and the operating system enforces that boundary for every Bash command and its child processes.",
+        "cite": "Claude Code Docs, code.claude.com, 2026-09-01 (访问日期)"
+      },
+      {
+        "text": "On macOS, there is nothing to install: sandboxing uses the built-in Seatbelt framework. On Linux and WSL2, the sandbox relies on two packages, covered in Set up Linux and WSL2.",
+        "cite": "Claude Code Docs, code.claude.com, 2026-09-01 (访问日期)"
+      },
+      {
+        "text": "Sandboxing and approvals are different controls that work together. The sandbox defines technical boundaries. The approval policy decides when the agent must stop and ask before crossing them.",
+        "cite": "OpenAI (ChatGPT/Codex Docs), learn.chatgpt.com, 2026-09-01 (访问日期)"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Configure the sandboxed Bash tool",
+        "url": "https://code.claude.com/docs/en/sandboxing",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Choose a sandbox environment",
+        "url": "https://code.claude.com/docs/en/sandbox-environments",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Sandbox (ChatGPT/Codex Docs)",
+        "url": "https://learn.chatgpt.com/docs/sandboxing",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "/sandbox",
+        "desc": "Claude Code 内置的 /sandbox 命令（在会话内输入，非 shell 命令）：打开沙箱面板，含 Mode、Overrides、Config 标签；Linux 缺少依赖时显示 Dependencies 标签。"
+      }
+    ]
+  },
+  {
+    "id": "verification-asymmetry",
+    "name": "Verification Asymmetry",
+    "zh": "验证不对称",
+    "layer": "L5",
+    "category": "quality",
+    "tags": [
+      "quality",
+      "verification",
+      "technical-debt",
+      "evaluation",
+      "agent-velocity"
+    ],
+    "shortDesc": "AI 生成代码快而人类可信验证慢的结构性落差：agent 轻易抵达前 80% 的功能里程碑，最后 20% 昂贵且易被低估，验证成本可能反超生成成本。80% problem 与 verification asymmetry 是相关而不等同的两个说法。",
+    "longDesc": "<p><strong>定义：</strong>验证不对称指 AI 生成代码的速度与人类可信评估其产出所需代价之间的结构性落差：agent 可以在短时间内生成大量代码、测试与文档，而验证其正确性、安全性与后果的代价可能反超生成成本。最常见的量化表述是 80% problem：前约 80% 的功能里程碑廉价快速，最后 20%（错误处理、安全、可观测、合规与真实重构）昂贵且非线性。</p><p><strong>两个说法的关系：</strong>二者相关而不等同。Addy Osmani 于 2026 年 1 月发表《The 80% Problem in Agentic Coding》，Augment Code 随后给出结构化定义，刻画的是产出分布——80% 容易、20% 昂贵；Keith Klain 在 Quality Remarks 发表《The Verification Asymmetry Problem》，arXiv 论文再以 Verification-Cost Errors 给出学术化表述，刻画的是生成速率与可信评估速率的失衡。前者偏生产曲线，后者偏评价维度，是评审、评估与门禁类词条的“为什么”。</p><p><strong>案例与数据：</strong>Klain 的风险分析以 Replit 删库事件为案例背景：AI 系统可以在不理解组织、客户、监管环境与失败后果的情况下生成海量代码。Osmani 引述的调查数据显示，仅 48% 的开发者会稳定地在提交前检查 AI 辅助代码，38% 认为评审 AI 生成逻辑比评审人写代码更费力。</p><p><strong>辨析：</strong>80/20 是修辞性近似而非精确计量，Osmani 同文亦引述“前 90% 容易、后 10% 可能耗时很久”的说法；RL 语境下的 asymmetry of verification 意为验证比求解容易，与本词条方向相反，须分立叙述。其人力侧后果被称为 comprehension debt，过程表现为 verification bottleneck。</p>",
+    "related": [
+      "metr-rct",
+      "code-review",
+      "test-referee",
+      "productivity-paradox",
+      "guardrails",
+      "harness-engineering"
+    ],
+    "enShortDesc": "The structural gap between how fast AI agents generate code and how slowly humans can credibly verify it: the first 80% milestone comes cheap, while the last 20% is expensive and routinely underestimated.",
+    "enLongDesc": "<p><strong>Definition:</strong> Verification asymmetry is the structural gap between the rate at which AI generates code and the rate at which people and organizations can credibly evaluate it. Its most quoted quantification is the 80% problem: the first ~80% of a working solution comes cheap, while the last 20% (error handling, security, observability, compliance, real refactoring) is expensive and nonlinear.</p><p><strong>Two sayings, related but not identical:</strong> Addy Osmani's \"The 80% Problem in Agentic Coding\" (January 2026), later structured by an Augment Code guide, describes the output distribution; Keith Klain's \"The Verification Asymmetry Problem\" on Quality Remarks, echoed academically as Verification-Cost Errors (arXiv:2608.08709), describes the generation-versus-evaluation imbalance — the \"why\" behind review, evals, and guardrails.</p><p><strong>Evidence:</strong> Klain's risk analysis uses the Replit database-deletion incident as case background. Osmani cites survey data: only 48% of developers consistently check AI-assisted code before committing, and 38% say reviewing AI-generated logic takes more effort than reviewing human-written code. In RL, \"asymmetry of verification\" means the opposite (verifying is easier than solving); the human-side consequence is comprehension debt.</p>",
+    "quotes": [
+      {
+        "text": "AI gets you 80% to an MVP; the last 20% requires patience, learning deeply or hiring engineers.",
+        "cite": "Addy Osmani《The 80% Problem in Agentic Coding》, 2026-01-28"
+      },
+      {
+        "text": "An AI system can generate thousands of lines of code without understanding the organization, the customer, the regulatory environment, the architecture, the operational history or the consequences of failure. And there is tremendous risk in the growing imbalance between the rate at which AI systems can generate code, tests, analysis, documentation and technical decisions, and the rate at which people and organizations can credibly evaluate those outputs.",
+        "cite": "Keith Klain《The Verification Asymmetry Problem》, Quality Remarks, 页面日期 2026-08-12"
+      },
+      {
+        "text": "The reliability of AI generative models is typically measured by output correctness, yet in practice it depends on the effort required to verify those outputs.",
+        "cite": "Viviana Crescitelli et al., arXiv:2608.08709, 2026-08-09 提交"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "The 80% Problem in Agentic Coding",
+        "url": "https://addyo.substack.com/p/the-80-problem-in-agentic-coding",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "The 80% Problem: Why AI Agents Ship Fast But Create Hidden Technical Debt",
+        "url": "https://www.augmentcode.com/guides/the-80-percent-problem-ai-agents-technical-debt",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "The Verification Asymmetry Problem",
+        "url": "https://qualityremarks.com/the-verification-asymmetry-problem/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "AI Evaluation Should Measure Verification Cost, Not Correctness Alone",
+        "url": "https://arxiv.org/abs/2608.08709",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# 《The 80% Problem in Agentic Coding》（Addy Osmani，2026-01-28）报告的成功实践配比：\n# 成功开发者把 70% 的时间花在问题定义与验证策略上，30% 用于执行；\n# 与传统开发的配比倒置，但总时间反而显著下降。\n# 同文检查单项：\"Automated verification at every step (CI/CD, linters, type checkers, tests as guardrails)\"\nVERIFY_RATIO=\"problem-definition+verification-strategy=70, execution=30\"",
+        "desc": "Osmani 同文报告的时间配比与自动化验证检查单项：把大头放在定义问题与验证策略上，并以 CI/CD、linters、类型检查与测试作为每一步的 guardrails，以此压缩验证不对称的代价。"
+      }
+    ]
   }
 ]

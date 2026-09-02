@@ -33,3 +33,6 @@ _site/
 website/playwright-report/
 website/test-results/
 website/coverage/
+# Runtime/plugin artifacts
+.openclaw/
+.mimosa/

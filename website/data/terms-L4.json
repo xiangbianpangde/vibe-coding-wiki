@@ -834,13 +834,55 @@
       "ide"
     ],
     "shortDesc": "Google 推出的 AI IDE（2025）。",
-    "longDesc": "<p>Google 2025 推出的 AI IDE。</p>",
+    "longDesc": "<p>Google 2025 推出的 AI IDE。</p><p><strong>状态：</strong>2025-11-18 官宣；发布时以 public preview 形式免费提供，官方称对 Gemini 3 Pro 用量设有限额。</p>定位加深:Google 于 2025-11-18 官宣 Antigravity 为其 agentic development platform——核心仍是熟悉的 AI-powered IDE 体验(用上 Google 最好的模型),但正向 agent-first 未来演进:浏览器控制能力、异步交互模式与 agent-first 产品形态三者结合,让 agent 能自主规划并执行端到端的复杂软件任务(官方博文原话)。发布策略:上线即 public preview、免费使用,并对 Gemini 3 Pro 用量提供慷慨的速率限制(2025-11-18 官方博文)。",
     "related": [
       "cursor",
       "windsurf"
     ],
     "enShortDesc": "Google's AI IDE released in 2025.",
-    "enLongDesc": "<p><strong>Antigravity</strong> is Google's AI-native IDE released in 2025. Built on VS Code. Competes with Cursor and Windsurf.</p>"
+    "enLongDesc": "<p><strong>Antigravity</strong> is Google's AI-native IDE released in 2025. Built on VS Code. Competes with Cursor and Windsurf.</p><p><strong>Status:</strong> Announced on Nov 18, 2025; at launch it was available in public preview at no charge, with generous rate limits on Gemini 3 Pro usage.</p>Positioning: announced on 2025-11-18, Google Antigravity is Google's agentic development platform — at its core a familiar AI-powered IDE experience with the best of Google's models, evolving the IDE towards an agent-first future with browser control capabilities, asynchronous interaction patterns, and an agent-first product form factor that together enable agents to autonomously plan and execute complex, end-to-end software tasks (official blog wording). Availability: public preview at no charge from day one, with generous rate limits on Gemini 3 Pro usage (2025-11-18 official blog).",
+    "quotes": [
+      {
+        "text": "Today, we are introducing Google Antigravity, our new agentic development platform. While the core is a familiar AI-powered IDE experience with the best of Google's models, Antigravity is evolving the IDE towards an agent-first future with browser control capabilities, asynchronous interaction patterns, and an agent-first product form factor that together, enable agents to autonomously plan and execute complex, end-to-end software tasks.",
+        "cite": "The Antigravity Team, \"Introducing Google Antigravity, a New Era in AI-Assisted Software Development\", Google Antigravity Blog, 2025-11-18"
+      },
+      {
+        "text": "From today, Google Antigravity is available in public preview at no charge, with generous rate limits on Gemini 3 Pro usage.",
+        "cite": "The Antigravity Team, \"Introducing Google Antigravity, a New Era in AI-Assisted Software Development\", Google Antigravity Blog, 2025-11-18"
+      },
+      {
+        "text": "Google Antigravity is our agentic development platform, allowing anyone to build in the agent-first era.",
+        "cite": "—— https://antigravity.google/ ,2026-09-01 抓取(官网定位语)"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Google Antigravity 官网",
+        "url": "https://antigravity.google/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Antigravity Docs: Getting Started",
+        "url": "https://antigravity.google/docs/getting-started",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Introducing Google Antigravity（官方发布博文）",
+        "url": "https://antigravity.google/blog/introducing-google-antigravity",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Google Antigravity 以桌面应用分发，无 CLI 安装命令。\n# 官方文档指引原文：Visit antigravity.google/download to download Google Antigravity 2.0.\nopen \"https://antigravity.google/download\"",
+        "desc": "到官方下载页按平台获取桌面应用（macOS Apple Silicon/Intel、Windows x64/ARM64、Linux x64/ARM64）；此处用 macOS 的 open 命令直接打开下载页，安装后在 IDE 内新建 Project 并关联本地文件夹或 Git 仓库即可开始。"
+      },
+      {
+        "desc": "Antigravity 以桌面应用分发——到 antigravity.google/download 按平台下载(macOS Apple Silicon/Intel、Windows x64/ARM64、Linux x64/ARM64),安装后在 IDE 内新建 Project 并关联本地文件夹或 Git 仓库即可开始。",
+        "code": "# 官方文档安装指引(antigravity.google/docs/getting-started 原文):\n# \"Visit antigravity.google/download to download Google Antigravity 2.0.\"\n# 桌面安装包覆盖: macOS Apple Silicon/Intel、Windows x64/ARM64、Linux x64/ARM64",
+        "cite": "—— Google Antigravity 官方文档安装指引, 2026-09-01 抓取, https://antigravity.google/docs/getting-started"
+      }
+    ]
   },
   {
     "id": "langchain",
@@ -1059,13 +1101,52 @@
       "ecosystem"
     ],
     "shortDesc": "数百个 MCP server 提供 Slack/Jira/数据库/浏览器等集成。",
-    "longDesc": "<p>通过 MCP 协议，Claude Code 可以连接<strong>数百个外部工具</strong>和数据源。</p>\n<p><strong>类别：</strong></p>\n<ul>\n<li><strong>通信</strong>：Slack / Discord / Telegram / iMessage</li>\n<li><strong>协作</strong>：Jira / Linear / Notion</li>\n<li><strong>数据库</strong>：PostgreSQL / MongoDB / Redis</li>\n<li><strong>浏览器</strong>：Browser-Use / Computer Use</li>\n<li><strong>其他</strong>：文件系统 / GitHub / Sentry</li>\n</ul>",
+    "longDesc": "<p>通过 MCP 协议，Claude Code 可以连接<strong>数百个外部工具</strong>和数据源。</p>\n<p><strong>类别：</strong></p>\n<ul>\n<li><strong>通信</strong>：Slack / Discord / Telegram / iMessage</li>\n<li><strong>协作</strong>：Jira / Linear / Notion</li>\n<li><strong>数据库</strong>：PostgreSQL / MongoDB / Redis</li>\n<li><strong>浏览器</strong>：Browser-Use / Computer Use</li>\n<li><strong>其他</strong>：文件系统 / GitHub / Sentry</li>\n</ul><p><strong>状态：</strong>官方文档页面标注当前规范版本为 “Version 2026-07-28 (latest)”；已发布的 MCP server 可在 MCP Registry（registry.modelcontextprotocol.io）浏览，官方参考实现维护于 modelcontextprotocol/servers 仓库。</p>规范与生态加深:MCP(Model Context Protocol)是连接 AI 应用与外部系统的开源标准——让 Claude、ChatGPT 等 AI 应用接入数据源(如本地文件、数据库)、工具(如搜索引擎、计算器)与工作流(如专用 prompts),官方文档以「AI 应用的 USB-C 接口」作类比;截至 2026-09-01,官网标注最新规范版本为 2026-07-28。生态分工:少量官方参考服务器(Everything / Fetch / Filesystem / Git / Memory / Sequential Thinking / Time)由 MCP steering group 维护、集中于 modelcontextprotocol/servers 仓库;全部已发布服务器则在 MCP Registry(registry.modelcontextprotocol.io)检索浏览。",
     "related": [
       "mcp",
       "claude-code"
     ],
     "enShortDesc": "Hundreds of MCP servers provide integrations for Slack, Jira, databases, browsers, etc.",
-    "enLongDesc": "<p>Public <strong>MCP servers</strong> provide tools for common services: filesystem, GitHub, Slack, Postgres, Playwright, etc. Search the MCP registry or build your own.</p>"
+    "enLongDesc": "<p>Public <strong>MCP servers</strong> provide tools for common services: filesystem, GitHub, Slack, Postgres, Playwright, etc. Search the MCP registry or build your own.</p><p><strong>Status:</strong> The official documentation page marks the current specification version as \"Version 2026-07-28 (latest)\". Published MCP servers are browsable on the MCP Registry (registry.modelcontextprotocol.io), and reference implementations are maintained in the modelcontextprotocol/servers repository.</p>Spec and ecosystem depth: MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems — AI applications like Claude or ChatGPT can connect to data sources (e.g. local files, databases), tools (e.g. search engines, calculators) and workflows (e.g. specialized prompts); the official docs liken MCP to 'a USB-C port for AI applications.' As of 2026-09-01, the site marks spec version 2026-07-28 as latest. Ecosystem: only a small number of reference servers (Everything / Fetch / Filesystem / Git / Memory / Sequential Thinking / Time) are maintained by the MCP steering group in the modelcontextprotocol/servers repo, while all published servers can be browsed on the MCP Registry (registry.modelcontextprotocol.io).",
+    "quotes": [
+      {
+        "text": "MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Using MCP, AI applications like Claude or ChatGPT can connect to data sources (e.g. local files, databases), tools (e.g. search engines, calculators) and workflows (e.g. specialized prompts)—enabling them to access key information and perform tasks. Think of MCP like a USB-C port for AI applications.",
+        "cite": "Model Context Protocol 官方文档, \"What is the Model Context Protocol (MCP)?\", 2026-09-01 抓取 (页面标注规范版本 \"Version 2026-07-28 (latest)\")"
+      },
+      {
+        "text": "If you are looking for a list of MCP servers, you can browse published servers on the MCP Registry (https://registry.modelcontextprotocol.io/). The repository served by this README is dedicated to housing just the small number of reference servers maintained by the MCP steering group.",
+        "cite": "modelcontextprotocol/servers 官方仓库 README, GitHub, 2026-09-01 抓取"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Model Context Protocol 官方文档",
+        "url": "https://modelcontextprotocol.io/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "modelcontextprotocol/servers（官方参考服务器仓库）",
+        "url": "https://github.com/modelcontextprotocol/servers",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Connect Claude Code to tools via MCP（Claude Code 官方 MCP 文档）",
+        "url": "https://code.claude.com/docs/en/mcp",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "title": "MCP Registry",
+        "url": "https://registry.modelcontextprotocol.io/",
+        "desc": "官方 MCP 服务器注册表,浏览所有已发布的 MCP servers",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Real example: Connect to Notion\nclaude mcp add --transport http notion https://mcp.notion.com/mcp",
+        "desc": "一条命令即可把 Notion 官方远程 MCP server（HTTP transport）接入 Claude Code，命令与注释均为 Claude Code 官方文档原文；同页还提供 SSE 与本地 stdio 两种接入选项。"
+      }
+    ]
   },
   {
     "id": "orchids",
@@ -1078,13 +1159,54 @@
       "platform"
     ],
     "shortDesc": "vibe coding 平台之一。",
-    "longDesc": "<p>vibe coding 平台之一。</p>",
+    "longDesc": "<p>vibe coding 平台之一。</p><p><strong>状态更新（2026-09 核验）：</strong>Orchids 已停止运营。据官网迁移公告（页面未标年份，2026 为按抓取时间所作推断），Orchids 团队于 2026 年 7 月并入 Figma，产品于 7 月 18 日停止运营（官方措辞 “sunset”）；公告页提供既有项目的下载入口，支持事宜可联系 hello@orchids.app。本词条其余内容保留其停运前的产品定位，作历史参考。</p><p><strong>停运提示（2026-09-01 核验）：</strong>官网 orchids.app 现已替换为迁移公告页——按其 7 月 7 日公告，Orchids 团队已并入 Figma，产品已于 7 月 18 日停止运营（官方措辞为 “sunset”；公告页未标年份，2026 系按抓取时间推断）。公告页提供全部既有项目的下载入口，后续支持可邮件联系 hello@orchids.app；docs.orchids.app 的历史文档目前仍在线，可作停运前产品形态的参考。</p>",
     "related": [
       "lovable",
       "v0"
     ],
     "enShortDesc": "One of several vibe coding platforms.",
-    "enLongDesc": "<p><strong>Orchids</strong> is a vibe coding platform for building apps from natural language prompts.</p>"
+    "enLongDesc": "<p><strong>Orchids</strong> is a vibe coding platform for building apps from natural language prompts.</p><p><strong>Status update (verified 2026-09):</strong> Orchids has been shut down. Per the migration notice currently shown on its website (the page carries no year; 2026 is inferred from the retrieval date), the Orchids team joined Figma in July 2026 and the product was sunset on July 18; the notice offers downloads of existing projects and directs support inquiries to hello@orchids.app. The rest of this entry preserves the product's positioning before the shutdown, for historical reference.</p><p><strong>Discontinued (verified 2026-09-01):</strong> The orchids.app homepage has been replaced by a migration notice — per its July 7 announcement, the Orchids team has joined Figma and the product was sunset on July 18 (official wording: \"sunset\"; the notice page carries no year, and 2026 is inferred from the retrieval date). The notice offers downloads of all existing projects and directs further support to hello@orchids.app; the historical documentation at docs.orchids.app remains online as a reference for the product as it stood before the shutdown.</p>",
+    "quotes": [
+      {
+        "text": "Per our July 7 announcement, the Orchids team has joined Figma and Orchids has been sunset on July 18. You can download any/all of your projects below. Please email hello@orchids.app for any additional support and we are focused on ensuring a smooth migration for all users. Thank you so much for joining us on this journey.",
+        "cite": "Orchids 官网迁移公告, 2026-09-01 抓取 (页面未标年份, 按抓取时间推断为 2026 年)"
+      },
+      {
+        "text": "Orchids is the first AI app builder to build and deploy any app, any stack - web, mobile, chrome extension, slack bot, AI agent, anything. On top of this, you can use your existing AI subscriptions (ChatGPT, Claude Code, Gemini, Github Copilot, and Gemini) or bring any API key to use models at cost.",
+        "cite": "Orchids 官方文档 \"Introduction\" (现仍在线的历史文档), 2026-09-01 抓取"
+      },
+      {
+        "text": "Orchids is an AI development platform that enables users of any skill level to create full-stack applications through natural language. Simply describe what you want, and Orchids builds it for you.",
+        "cite": "Orchids 官方文档 FAQ \"What is Orchids?\", 2026-09-01 抓取, https://docs.orchids.app/faq"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Orchids 官网（现为迁移公告页）",
+        "url": "https://www.orchids.app/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Orchids Docs: Introduction（历史文档，仍在线）",
+        "url": "https://docs.orchids.app/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Orchids Docs: FAQ",
+        "url": "https://docs.orchids.app/faq",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Orchids 无 CLI，以下按官方 FAQ 原文逐句记录网页建项流程：\n# To create a project, simply type a message into the message box on the dashboard.\n# Just describe what you want to build and Orchids will take it from there and generate a starting point for your project.\n# Remember to start small and build in increments!\n# 出错时使用 \"Fix-with-Orchids\" 自动修复（不扣积分），失败可还原到上一可用版本。",
+        "desc": "Orchids 为纯网页产品、无 CLI：在 dashboard 消息框用自然语言描述需求即可生成项目起点，官方建议小步增量构建。产品已于 2026 年 7 月停运，此流程仅作历史参考。"
+      },
+      {
+        "code": "# Orchids 无 CLI，纯网页流程；产品已于 2026-07-18 停运（官网现为迁移公告页）。\n# 历史建项流程（官方 FAQ 原文）：\n# To create a project, simply type a message into the message box on the dashboard.\n# Just describe what you want to build and Orchids will take it from there and generate a starting point for your project.\n# Remember to start small and build in increments!\n# 出错时按 \"Fix-with-Orchids\" 自动修复（不扣积分），失败可还原到上一可用版本。",
+        "desc": "Orchids 为纯网页产品、无 CLI：在 dashboard 消息框用自然语言描述需求即可生成项目起点，官方建议小步增量构建；出错时点 \"Fix-with-Orchids\" 自动修复（不扣积分），失败可还原到上一可用版本。产品已停运，此流程仅作历史参考。"
+      }
+    ]
   },
   {
     "id": "openclaw",
@@ -1097,13 +1219,56 @@
       "ai-agent-system"
     ],
     "shortDesc": "AI agent 系统，包含 \"Pi coding harness\"。Mario Zechner 等创造 vibe slop 术语之地。",
-    "longDesc": "<p><strong>OpenClaw</strong>：AI agent 系统，包含 <code>Pi coding harness</code>。</p>\n<p><strong>关键人物：</strong>Mario Zechner 与 Armin Ronacher 在此项目工作中创造了 <strong>vibe slop</strong> 一词。</p>",
+    "longDesc": "<p><strong>OpenClaw</strong>：AI agent 系统，包含 <code>Pi coding harness</code>。</p>\n<p><strong>关键人物：</strong>Mario Zechner 与 Armin Ronacher 在此项目工作中创造了 <strong>vibe slop</strong> 一词。</p><p><strong>名称沿革：</strong>项目由 Peter Steinberger 创建，最初名为 Warelay（2025-11-24），此后相继更名为 CLAWDIS（2025-12-03）、Clawdbot（2026-01-02）；2026-01-27 因 Anthropic 的商标投诉改名 Moltbot，三天后（2026-01-30）定名为 OpenClaw。官方文档 FAQ 留有旁证：更名前的旧 systemd 单元名 clawdbot-gateway 会被自动迁移。</p>名称沿革与作者:OpenClaw 由 Peter Steinberger 创建,先后用过五个名字——2025-11-24 以 Warelay 起家(original),2025-12-03 改名 CLAWDIS,2026-01-02 改名 Clawdbot,2026-01-27 因 Anthropic 商标投诉而改名 Moltbot(延续龙虾主题),三天后的 2026-01-30 定名 OpenClaw,按 Steinberger 的说法是 Moltbot 这个名字「never quite rolled off the tongue」(名称沿革据 Wikipedia 条目 2026-09-01 抓取版;官方文档 FAQ 留有旁证——更名前的 systemd 单元名 clawdbot-gateway 会被自动迁移)。规模侧写:openclaw.ai 首页转引 @ycombinator 的评价,OpenClaw 从一个周末项目起步,不到 5 个月成为 GitHub 上 star 数最多的软件仓库,346k+ stars(转引口径,2026-09-01 抓取)。",
     "related": [
       "vibe-slop",
       "agent-loop"
     ],
     "enShortDesc": "AI agent system including 'Pi coding harness'. Created by Mario Zechner and others.",
-    "enLongDesc": "<p><strong>OpenClaw</strong> is an open-source AI agent framework that includes the 'Pi coding harness'. Inspired by Anthropic's Claude Code.</p>"
+    "enLongDesc": "<p><strong>OpenClaw</strong> is an open-source AI agent framework that includes the 'Pi coding harness'. Inspired by Anthropic's Claude Code.</p><p><strong>Name history:</strong> Created by Peter Steinberger, the project began as Warelay (Nov 24, 2025) and was renamed CLAWDIS (Dec 3, 2025) and then Clawdbot (Jan 2, 2026); on Jan 27, 2026 it became Moltbot following trademark complaints by Anthropic, and three days later (Jan 30, 2026) it was renamed OpenClaw. The official FAQ preserves a corroboration: the legacy pre-rename systemd unit name clawdbot-gateway is migrated automatically.</p>Name history and author: created by Peter Steinberger, the project has carried five names — launched as Warelay (original, Nov 24, 2025), renamed CLAWDIS (Dec 3, 2025), then Clawdbot (Jan 2, 2026), then Moltbot (Jan 27, 2026, keeping with a lobster theme, following trademark complaints by Anthropic), and finally OpenClaw three days later (Jan 30, 2026) because, per Steinberger, 'Moltbot' never quite rolled off the tongue (per the Wikipedia entry as captured on 2026-09-01; the official docs FAQ corroborates the legacy naming — the pre-rename systemd unit name clawdbot-gateway is migrated automatically). Scale: as quoted on openclaw.ai (via @ycombinator), OpenClaw went from a weekend project to the most-starred software repo on GitHub in under 5 months, with 346k+ stars (as captured on 2026-09-01).",
+    "quotes": [
+      {
+        "text": "OpenClaw is an AI assistant that runs on your devices and meets you in the channels you already use. It connects models, tools, messaging channels, and optional companion apps through one Gateway, for a single operator or for a team whose members trust each other",
+        "cite": "openclaw/openclaw 官方仓库 README, GitHub, 2026-09-01 抓取"
+      },
+      {
+        "text": "Peter Steinberger is the creator of OpenClaw, the open-source AI agent that went from a weekend project to the most-starred software repo on GitHub in under 5 months, with 346k+ stars.",
+        "cite": "—— @ycombinator, 转引自 openclaw.ai 首页 \"What People Say\" 栏目, 2026-09-01 抓取, https://openclaw.ai/"
+      },
+      {
+        "text": "the legacy pre-rename systemd unit name clawdbot-gateway is migrated automatically",
+        "cite": "—— openclaw 官方文档 FAQ, 2026-09-01 抓取, https://docs.openclaw.ai/help/faq"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "OpenClaw 官网",
+        "url": "https://openclaw.ai/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "openclaw/openclaw GitHub 仓库",
+        "url": "https://github.com/openclaw/openclaw",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Wikipedia: OpenClaw",
+        "url": "https://en.wikipedia.org/wiki/OpenClaw",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "title": "OpenClaw 官方文档 FAQ",
+        "url": "https://docs.openclaw.ai/help/faq",
+        "desc": "官方 FAQ,含 clawdbot-gateway 遗留 systemd 单元名自动迁移等更名旁证",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# macOS / Linux / WSL2\ncurl -fsSL https://openclaw.ai/install.sh | bash",
+        "desc": "官方 README Install 节的一键安装脚本，会自动准备所需 Node.js 运行时；Windows PowerShell 对应 iwr -useb https://openclaw.ai/install.ps1 | iex，装完运行 openclaw onboard --install-daemon 完成引导。"
+      }
+    ]
   },
   {
     "id": "superwhisper",
@@ -1116,11 +1281,52 @@
       "voice"
     ],
     "shortDesc": "语音转文字工具，让用户能用语音与 LLM 对话。",
-    "longDesc": "<p>语音转文字工具，让用户能用<strong>语音与 LLM 对话</strong>。</p>\n<p>vibe coding 时代新交互模式。</p>",
+    "longDesc": "<p>语音转文字工具，让用户能用<strong>语音与 LLM 对话</strong>。</p>\n<p>vibe coding 时代新交互模式。</p><p><strong>状态更新（2026-09 核验）：</strong>官方现覆盖 macOS、Windows 与 iOS 三端（不止 macOS），并宣称 SOC 2 Type II 认证与 HIPAA 合规；隐私政策承诺音频在本机转录、不用于模型训练、服务器不留存（该页自述最后更新于 2024-06-19，表述可能滞后）。官方另宣传可配合 Cursor、Claude Code 等 agentic coding 应用以语音驱动编码。</p><p><strong>状态更新（2026-09-01 核验）：</strong>官方现覆盖 macOS、Windows 与 iOS 三端（词条旧述“macOS 语音听写”宜据此更新），并宣称 SOC 2 Type II 认证与 HIPAA 合规；隐私政策（主体为 SuperUltra, Inc.）承诺音频仅在本机转录、不用于任何模型训练、服务器不留存。官网另宣传可与 Cursor、Claude Code、Open Code、Amp、Codex 等 agentic coding 应用配合，全程免键盘以语音驱动编码。</p>",
     "related": [
       "cursor"
     ],
     "enShortDesc": "Speech-to-text tool that lets users talk to LLMs via voice.",
-    "enLongDesc": "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p>"
+    "enLongDesc": "<p><strong>SuperWhisper</strong> is a voice-to-text tool optimized for code and technical conversations. Enables hands-free prompting of LLMs.</p><p><strong>Status update (verified 2026-09):</strong> Superwhisper now covers macOS, Windows, and iOS (not just macOS) and advertises SOC 2 Type II certification and HIPAA compliance. Its privacy policy commits to fully local transcription, no training usage, and no server retention (the page states it was last updated Jun 19, 2024, so wording may lag the product). The official site also promotes voice-driving agentic coding apps such as Cursor and Claude Code.</p><p><strong>Status update (verified 2026-09-01):</strong> Superwhisper now covers macOS, Windows, and iOS (older descriptions of it as macOS-only dictation should be updated accordingly) and advertises SOC 2 Type II certification and HIPAA compliance. Its privacy policy (vendor: SuperUltra, Inc.) commits to transcribing audio locally on the device only, with no usage for model training and no server retention. The official site also promotes pairing it with agentic coding apps such as Cursor, Claude Code, Open Code, Amp, and Codex to code by voice without touching the keyboard.</p>",
+    "quotes": [
+      {
+        "text": "AI powered voice to text for macOS, Windows, and iOS. Dictate in any app with offline and cloud speech recognition, 100+ languages, and custom AI modes. SOC 2 Type II certified. HIPAA compliant.",
+        "cite": "superwhisper.com 首页 meta description, 2026-09-01 抓取"
+      },
+      {
+        "text": "No Training Usage: Your data is not being used for training AI models or any other machine learning purposes. No Server Retention: Your data is not retained on Superwhisper servers. All data is only stored locally on your machine.",
+        "cite": "Superwhisper Privacy Policy, SuperUltra, Inc., 2026-09-01 抓取"
+      },
+      {
+        "text": "Use Superwhisper with Cursor, Claude Code, Open Code, Amp, Codex, or any other agentic coding app, without touching your keyboard.",
+        "cite": "superwhisper.com 首页, 2026-09-01 抓取, https://superwhisper.com/"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Superwhisper 官网",
+        "url": "https://superwhisper.com/",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Superwhisper Privacy Policy",
+        "url": "https://superwhisper.com/privacy",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Superwhisper Download（macOS/Windows/iOS 官方下载入口）",
+        "url": "https://superwhisper.com/download",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# SuperWhisper 无 CLI，以下为官方首页给出的使用流程：\n# Select an app, press ⌥ + space and start dictating to try it out yourself!\n# 松开后，AI 润色后的转录文本经剪贴板自动粘贴进当前应用。\n# （官方原文：Clipboard integration: Your edited transcript is automatically pasted in the app you're using.）",
+        "desc": "安装后在任意目标应用按默认快捷键 ⌥+Space 开始听写，松开后润色文本经剪贴板自动粘贴进当前应用；官方另宣传可语音驱动 Cursor、Claude Code 等 agentic coding 应用。"
+      },
+      {
+        "code": "# Superwhisper 无 CLI，纯应用内快捷键操作；官方主打场景之一：语音驱动编码代理。\n# 官网原文：Use Superwhisper with Cursor, Claude Code, Open Code, Amp, Codex, or any other agentic coding app, without touching your keyboard.\n# 使用流程（官网首页原文）：Select an app, press ⌥ + space and start dictating to try it out yourself!\n# 松开后润色文本经剪贴板自动粘贴进当前应用（官方原文：Clipboard integration: Your edited transcript is automatically pasted in the app you're using.）",
+        "desc": "在 Cursor、Claude Code 等目标应用内按默认快捷键 ⌥+Space 开始听写、说完松开，AI 润色后的文本经剪贴板自动粘贴进当前应用；官方明确宣传可免键盘语音驱动 Cursor、Claude Code、Open Code、Amp、Codex 等 agentic coding 应用（\"Less typing, more building\"）。"
+      }
+    ]
   }
 ]

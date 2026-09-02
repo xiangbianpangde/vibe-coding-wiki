@@ -2,7 +2,7 @@
 // Strategy: cache-first for static assets, network-first for HTML/data
 // Goal: instant repeat visits, offline-first experience
 
-const CACHE_VERSION = 'vc-wiki-v2.2.0';
+const CACHE_VERSION = 'vc-wiki-v3.0.0';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DATA_CACHE = `${CACHE_VERSION}-data`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;

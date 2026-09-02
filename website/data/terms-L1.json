@@ -495,18 +495,40 @@
         "name": "LangGraph 文档",
         "url": "https://langchain-ai.github.io/langgraph/",
         "lastVerified": "2026-08-28"
+      },
+      {
+        "name": "How we built our multi-agent research system - Anthropic Engineering",
+        "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Orchestrate teams of Claude Code sessions - Claude Code Docs",
+        "url": "https://code.claude.com/docs/en/agent-teams",
+        "lastVerified": "2026-09-01"
       }
     ],
     "quotes": [
       {
         "text": "Orchestration of AI agents is the new role for developers: from writing code to managing autonomous collaborators.",
         "cite": "community"
+      },
+      {
+        "text": "Our Research system uses a multi-agent architecture with an orchestrator-worker pattern, where a lead agent coordinates the process while delegating to specialized subagents that operate in parallel.",
+        "cite": "Anthropic Engineering《How we built our multi-agent research system》, 2025-06-13"
+      },
+      {
+        "text": "We found that a multi-agent system with Claude Opus 4 as the lead agent and Claude Sonnet 4 subagents outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval.",
+        "cite": "Anthropic Engineering《How we built our multi-agent research system》, 2025-06-13"
       }
     ],
     "examples": [
       {
         "code": "# Orchestration: 一个 lead agent 协调多个 specialist\n# LangGraph 示例\nfrom langgraph.graph import StateGraph\nfrom typing import TypedDict, List\n\nclass WorkflowState(TypedDict):\n    query: str\n    research: List[str]\n    analysis: str\n    final: str\n\ngraph = StateGraph(WorkflowState)\ngraph.add_node(\"researcher\", research_agent)\ngraph.add_node(\"analyst\", analysis_agent)\ngraph.add_node(\"writer\", writing_agent)\n\ngraph.add_edge(\"__start__\", \"researcher\")\ngraph.add_edge(\"researcher\", \"analyst\")\ngraph.add_edge(\"analyst\", \"writer\")\ngraph.add_edge(\"writer\", \"__end__\")\n\napp = graph.compile()\nresult = app.invoke({\"query\": \"AI safety trends 2026\"})",
         "desc": "LangGraph 多 agent 编排"
+      },
+      {
+        "code": "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude",
+        "desc": "以实验性 agent teams 模式启动 Claude Code(官方文档给定的启用方式;agent teams 默认关闭,也可写入 settings.json 或环境变量)。"
       }
     ],
     "enShortDesc": "Orchestration of AI Agents: the agentic engineering developer role—shift from \"writing code\" to \"managing AI agents\".",
@@ -728,7 +750,6 @@
     "name": "Software 3.0",
     "zh": "Software 3.0",
     "layer": "L1",
-    "status": "pending",
     "category": "paradigm",
     "tags": [
       "karpathy",
@@ -747,6 +768,42 @@
     "coinedBy": "Andrej Karpathy",
     "coinedDate": "2025-06",
     "enShortDesc": "Karpathy's 2025 framing: software built by steering LLMs with natural language — the successor to Software 1.0 (hand-written code) and Software 2.0 (learned weights).",
-    "enLongDesc": "<p>On 2025-06-17, <strong>Andrej Karpathy</strong> laid out <strong>Software 3.0</strong> in his AI Startup School talk \"<em>Software Is Changing (Again)</em>\": the LLM itself becomes the programmable computer, and developers steer it with natural language — prompts, examples, and context — instead of writing all the code by hand.</p>\n<p><strong>The progression:</strong> Software 1.0 (hand-written code) → Software 2.0 (weights learned from data) → Software 3.0 (LLMs programmed in natural language).</p>\n<p><strong>Where it sits here:</strong> Software 3.0 is the bigger historical frame that vibe coding and agentic engineering live in. This entry is <strong>pending</strong> — proposed by the community, awaiting verification before promotion.</p>"
+    "enLongDesc": "<p>On 2025-06-17, <strong>Andrej Karpathy</strong> laid out <strong>Software 3.0</strong> in his AI Startup School talk \"<em>Software Is Changing (Again)</em>\": the LLM itself becomes the programmable computer, and developers steer it with natural language — prompts, examples, and context — instead of writing all the code by hand.</p>\n<p><strong>The progression:</strong> Software 1.0 (hand-written code) → Software 2.0 (weights learned from data) → Software 3.0 (LLMs programmed in natural language).</p>\n<p><strong>Where it sits here:</strong> Software 3.0 is the bigger historical frame that vibe coding and agentic engineering live in. This entry is <strong>pending</strong> — proposed by the community, awaiting verification before promotion.</p>",
+    "quotes": [
+      {
+        "text": "So basically what we have is software 1.0 is the computer code that programs a computer. Software 2.0 are the weights which program neural networks.",
+        "cite": "Andrej Karpathy,《Andrej Karpathy: Software Is Changing (Again)》(AI Startup School 演讲, 2025-06-17；视频发布 2025-06-19), Y Combinator 官方 library 页"
+      },
+      {
+        "text": "It's a new kind of a computer and uh so in my mind it's uh worth giving it a new designation of software 3.0. And basically your prompts are now programs that program the LLM.",
+        "cite": "Andrej Karpathy,《Andrej Karpathy: Software Is Changing (Again)》, Y Combinator 官方 library 页内嵌转写稿（口头演讲逐字,含语气词,未删节）"
+      },
+      {
+        "text": "And suddenly, everyone is a programmer because everyone speaks natural language like English.",
+        "cite": "Andrej Karpathy,《Andrej Karpathy: Software Is Changing (Again)》, Y Combinator 官方 library 页内嵌转写稿"
+      },
+      {
+        "text": "So I don't know if by any chance anyone has heard of vibe coding.",
+        "cite": "Andrej Karpathy,《Andrej Karpathy: Software Is Changing (Again)》, Y Combinator 官方 library 页内嵌转写稿（亲述 vibe coding 梗起源,可与 vibe-coding 词条互链）"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Andrej Karpathy: Software Is Changing (Again) - Y Combinator 官方 library 页（内嵌视频+完整官方转写稿+章节目录）",
+        "url": "https://www.ycombinator.com/library/MW-andrej-karpathy-software-is-changing-again",
+        "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Andrej Karpathy: Software Is Changing (Again) - Y Combinator 官方 YouTube",
+        "url": "https://www.youtube.com/watch?v=LCEmiRjPEtQ",
+        "lastVerified": "2026-09-01"
+      }
+    ],
+    "examples": [
+      {
+        "code": "{\n  \"talk\": \"Andrej Karpathy: Software Is Changing (Again)\",\n  \"venue\": \"Y Combinator AI Startup School, 2025-06-17\",\n  \"chapters\": [\n    { \"time\": \"1:25\", \"title\": \"Software evolution: From 1.0 to 3.0\" },\n    { \"time\": \"4:40\", \"title\": \"Programming in English: Rise of Software 3.0\" },\n    { \"time\": \"29:06\", \"title\": \"Vibe Coding: Everyone is now a programmer\" }\n  ]\n}",
+        "desc": "YC 官方 library 页章节目录节选（时间戳与章节名逐字取自已核验页面）：可据此定位 Karpathy 论述 software 1.0→2.0→3.0 演进、以及亲述 vibe coding 梗起源（29:06 章节）的原始段落。"
+      }
+    ]
   }
 ]
