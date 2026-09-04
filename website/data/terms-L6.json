@@ -262,13 +262,45 @@
       "fast-company"
     ],
     "shortDesc": "Fast Company 2025-09 提出的术语：vibe 出来的代码在生产中逐渐暴露出问题的状态。",
-    "longDesc": "<p><strong>Vibe Coding Hangover</strong>：Fast Company 2025-09 提出——vibe 出来的代码在<strong>生产中逐渐暴露问题</strong>。</p>\n<p><strong>典型症状：</strong></p>\n<ul>\n<li>没人敢改这块代码</li>\n<li>bug 报告无法复现</li>\n<li>文档完全缺失</li>\n<li>业务规则散落在 prompt 历史里</li>\n</ul>",
+    "longDesc": "<p><strong>Vibe Coding Hangover</strong>：Fast Company 2025-09 提出——vibe 出来的代码在<strong>生产中逐渐暴露问题</strong>。</p>\n<p><strong>典型症状：</strong></p>\n<ul>\n<li>没人敢改这块代码</li>\n<li>bug 报告无法复现</li>\n<li>文档完全缺失</li>\n<li>业务规则散落在 prompt 历史里</li>\n</ul><p>Vibe coding 宿醉(vibe coding hangover)指 AI 快速生成代码带来的短期产能快感消退后浮现的维护负担、安全债与可靠性问题。该说法由 Fast Company 2025-09-08 文章《The vibe coding hangover is upon us》定名(正文经 Wayback 快照核验):文中指出许多开发者发现 vibe coding 适合快速拼装 demo,却不适合构建安全、可靠、可解释的软件,且 AI 生成代码的问题可能要到软件上线很久之后才显现;PayPal 高级软件工程师 Jack Zante Hays 直言“AI 编码代理生成的代码可能变成 development hell”。安全厂商 Checkmarx(注意其商业利益)则将宿醉描述为:未经扫描的 AI 生成代码每多积累一周,就在生产率收益之下多沉淀一周的隐性债务。2025-09 上旬的标志性事件是 Coinbase CEO Brian Armstrong 在 X 上宣称其交易所近一半代码已由 AI 生成并计划继续提高比例,原帖随即遭遇大量嘲讽,被视为这一质疑情绪的集中爆发点。</p><p>Vibe coding 宿醉(vibe coding hangover)指 AI 快速生成代码带来的短期产能快感消退后浮现的维护负担、安全债与可靠性问题。该说法由 Fast Company 2025-09-08 文章《The vibe coding hangover is upon us》定名(正文经 Wayback 快照核验):文中指出许多开发者发现 vibe coding 适合快速拼装 demo,却不适合构建安全、可靠、可解释的软件,且 AI 生成代码的问题可能要到软件上线很久之后才显现;PayPal 高级软件工程师 Jack Zante Hays 直言“AI 编码代理生成的代码可能变成 development hell”。安全厂商 Checkmarx(注意其商业利益)则将宿醉描述为:未经扫描的 AI 生成代码每多积累一周,就在生产率收益之下多沉淀一周的隐性债务。2025-09 上旬的标志性事件是 Coinbase CEO Brian Armstrong 在 X 上宣称其交易所近一半代码已由 AI 生成并计划继续提高比例,原帖随即遭遇大量嘲讽,被视为这一质疑情绪的集中爆发点。</p>",
     "related": [
       "tech-debt",
       "vibe-slop"
     ],
     "enShortDesc": "Fast Company's term (Sep 2025): when vibe-coded apps in production start breaking down.",
-    "enLongDesc": "<p><strong>Vibe hangover</strong>: the period after vibe coding ships, when the codebase starts breaking down under real use. Maintenance cost exceeds original creation savings.</p>"
+    "enLongDesc": "<p><strong>Vibe hangover</strong>: the period after vibe coding ships, when the codebase starts breaking down under real use. Maintenance cost exceeds original creation savings.</p><p>The vibe coding hangover refers to the maintenance burden, security debt, and reliability problems that surface once the short-lived productivity high of rapidly AI-generated code wears off. The term was named by Fast Company's 2025-09-08 article \"The vibe coding hangover is upon us\" (text verified via a Wayback snapshot), which observed that many in the development community find vibe coding great for slapping together demos but not so great for building secure, reliable, and explainable software, and that problems created by AI-generated code may only surface long after the software has shipped; Jack Zante Hays, a senior software engineer at PayPal who works on AI software development tools, said that \"Code created by AI coding agents can become development hell.\" Checkmarx, a security vendor (note the commercial interest), frames the hangover as every week of unscanned AI-generated code being another week of debt accumulating quietly underneath the productivity gains. The landmark moment came in early September 2025, when Coinbase CEO Brian Armstrong bragged on X that nearly half his exchange's code was already AI-generated, with plans to push it higher — and the post unleashed a torrent of ridicule.</p><p>The vibe coding hangover refers to the maintenance burden, security debt, and reliability problems that surface once the short-lived productivity high of rapidly AI-generated code wears off. The term was named by Fast Company's 2025-09-08 article \"The vibe coding hangover is upon us\" (text verified via a Wayback snapshot), which observed that many in the development community find vibe coding great for slapping together demos but not so great for building secure, reliable, and explainable software, and that problems created by AI-generated code may only surface long after the software has shipped; Jack Zante Hays, a senior software engineer at PayPal who works on AI software development tools, said that \"Code created by AI coding agents can become development hell.\" Checkmarx, a security vendor (note the commercial interest), frames the hangover as every week of unscanned AI-generated code being another week of debt accumulating quietly underneath the productivity gains. The landmark moment came in early September 2025, when Coinbase CEO Brian Armstrong bragged on X that nearly half his exchange's code was already AI-generated, with plans to push it higher — and the post unleashed a torrent of ridicule.</p>",
+    "quotes": [
+      {
+        "text": "AI coding assistants Claude Code, Cursor, and Lovable have been riding high, but 'development hell,' 'toxic waste,' and 'evil genies' are killing their buzz.",
+        "cite": "Mark Sullivan(文章导语/dek), Fast Company《The vibe coding hangover is upon us》, 2025-09-08, https://www.fastcompany.com/91398622/the-vibe-coding-hangover-is-upon-us (正文取自 Wayback 快照 https://web.archive.org/web/20250908142508/https://www.fastcompany.com/91398622/the-vibe-coding-hangover-is-upon-us, via Wayback)"
+      },
+      {
+        "text": "\"Code created by AI coding agents can become development hell,\" says Jack Zante Hays, a senior software engineer at PayPal who works on AI software development tools.",
+        "cite": "Jack Zante Hays(受访者,PayPal 高级软件工程师), 转述自 Mark Sullivan, Fast Company, 2025-09-08, https://www.fastcompany.com/91398622/the-vibe-coding-hangover-is-upon-us (via Wayback)"
+      },
+      {
+        "text": "The vibe coding hangover is real, and it gets worse the longer it goes untreated. Every week of unscanned AI-generated code is another week of debt accumulating quietly underneath the productivity gains.",
+        "cite": "Checkmarx 官方博客(安全厂商)《The Vibe Coding Hangover》, 2026-05-14(页面 datePublished), https://checkmarx.com/blog/the-vibe-coding-hangover/"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "The vibe coding hangover is upon us — Mark Sullivan, Fast Company",
+        "url": "https://www.fastcompany.com/91398622/the-vibe-coding-hangover-is-upon-us",
+        "lastVerified": "2026-09-04"
+      },
+      {
+        "name": "The Vibe Coding Hangover — Checkmarx 官方博客(安全厂商)",
+        "url": "https://checkmarx.com/blog/the-vibe-coding-hangover/",
+        "lastVerified": "2026-09-04"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# 2025-09 上旬:Coinbase CEO Brian Armstrong 在 X 上宣称其交易所近一半代码已由 AI 生成,并计划继续提高比例,随即遭遇大量嘲讽,被视为 vibe coding 可靠性质疑情绪的集中爆发点\n# \"Coinbase CEO Brian Armstrong was the recipient of some very bad vibes last week after bragging on X that nearly half his exchange's code is already AI-generated, with plans to push it higher. The post unleashed a torrent of ridicule…\"\n#   —— Mark Sullivan, Fast Company《The vibe coding hangover is upon us》, 2025-09-08(正文经 Wayback 快照核验, via Wayback)",
+        "desc": "vibe coding 可靠性质疑情绪的标志性爆发点:Coinbase CEO Brian Armstrong 宣称近一半交易所代码已由 AI 生成并计划继续提高比例,原帖遭遇大量嘲讽(Fast Company 2025-09-08 报道,当时被多家媒体报道,可交叉核验)。"
+      }
+    ]
   },
   {
     "id": "dev-hell",
@@ -363,12 +395,36 @@
       "finance"
     ],
     "shortDesc": "AI 创业公司估值背离 ARR 等指标的潮流。The Economist 提出。",
-    "longDesc": "<p><strong>Vibe Valuation</strong>：AI 创业公司估值背离 ARR（年经常性收入）等指标的潮流。The Economist 提出。</p>\n<p><strong>与 vibe coding 关系：</strong>跨域类比——重速度、轻质量；类似\"vibe slop\"在投资领域。</p>",
+    "longDesc": "<p><strong>Vibe Valuation</strong>：AI 创业公司估值背离 ARR（年经常性收入）等指标的潮流。The Economist 提出。</p>\n<p><strong>与 vibe coding 关系：</strong>跨域类比——重速度、轻质量；类似\"vibe slop\"在投资领域。</p><p>“Vibe 估值”(vibe valuation)指风投对 AI 初创公司的巨额估值主要建立在叙事与“感觉”之上,而无视年度经常性收入(ARR)等老派电子表格指标。术语出自《经济学人》2025-06-25 文章《AI valuations are verging on the unhinged》(印刷版标题“Vibe valuations”):其导语(经 Wayback 快照逐字核验,付费墙内正文未引)称 vibe coding 在硅谷大行其道,而它还有个“继兄妹”——“vibe valuing”,即风投“为 AI 初创召唤出巨额估值,而对老派电子表格指标毫不在意”;据 Wikipedia《Vibe coding》词条概括,单数形式“vibe valuation”即经该词条概括传播开来。2025-2026 年该现象在 vibe-coding 赛道集中显现:Lovable 以 133 亿美元估值完成 Series C(CIO.com,2026-08-12;注:文末披露 Lovable 新投资人 Regent 同时是 CIO.com 母公司 Foundry 的所有者),Replit 于 2026-03 达 90 亿美元估值。</p><p>“Vibe 估值”(vibe valuation)指风投对 AI 初创公司的巨额估值主要建立在叙事与“感觉”之上,而无视年度经常性收入(ARR)等老派电子表格指标。术语出自《经济学人》2025-06-25 文章《AI valuations are verging on the unhinged》(印刷版标题“Vibe valuations”):其导语(经 Wayback 快照逐字核验,付费墙内正文未引)称 vibe coding 在硅谷大行其道,而它还有个“继兄妹”——“vibe valuing”,即风投“为 AI 初创召唤出巨额估值,而对老派电子表格指标毫不在意”;据 Wikipedia《Vibe coding》词条概括,单数形式“vibe valuation”即经该词条概括传播开来。2025-2026 年该现象在 vibe-coding 赛道集中显现:Lovable 以 133 亿美元估值完成 Series C(CIO.com,2026-08-12;注:文末披露 Lovable 新投资人 Regent 同时是 CIO.com 母公司 Foundry 的所有者),Replit 于 2026-03 达 90 亿美元估值。</p>",
     "related": [
       "vibe-slop"
     ],
     "enShortDesc": "AI startup valuations divorced from ARR and fundamentals. The Economist coined this term.",
-    "enLongDesc": "<p><strong>Vibe valuation</strong>: the trend of AI startups being valued at multiples disconnected from actual revenue. Vibes-based investing.</p>"
+    "enLongDesc": "<p><strong>Vibe valuation</strong>: the trend of AI startups being valued at multiples disconnected from actual revenue. Vibes-based investing.</p><p>\"Vibe valuation\" describes very large AI-startup valuations built by venture capitalists on narrative and feel rather than on old-school spreadsheet fundamentals such as annual recurring revenue. The term traces to The Economist's 2025-06-25 article \"AI valuations are verging on the unhinged\" (print-edition title \"Vibe valuations\"): its lede, verified verbatim via a Wayback snapshot (the paywalled body was not quoted), calls vibe valuing the step-sibling of vibe coding — the ability of venture capitalists to conjure up vast valuations for AI startups with scant regard for old-school spreadsheet measures; per Wikipedia's \"Vibe coding\" entry, the singular form \"vibe valuation\" spread through that summary. The phenomenon was on full display across the vibe-coding ecosystem in 2025-2026: Lovable raised its Series C at a $13.3B valuation (CIO.com, 2026-08-12, which disclosed that Lovable's new investor Regent also owns Foundry, CIO.com's parent company), and Replit reached a $9B valuation in March 2026.</p><p>\"Vibe valuation\" describes very large AI-startup valuations built by venture capitalists on narrative and feel rather than on old-school spreadsheet fundamentals such as annual recurring revenue. The term traces to The Economist's 2025-06-25 article \"AI valuations are verging on the unhinged\" (print-edition title \"Vibe valuations\"): its lede, verified verbatim via a Wayback snapshot (the paywalled body was not quoted), calls vibe valuing the step-sibling of vibe coding — the ability of venture capitalists to conjure up vast valuations for AI startups with scant regard for old-school spreadsheet measures; per Wikipedia's \"Vibe coding\" entry, the singular form \"vibe valuation\" spread through that summary. The phenomenon was on full display across the vibe-coding ecosystem in 2025-2026: Lovable raised its Series C at a $13.3B valuation (CIO.com, 2026-08-12, which disclosed that Lovable's new investor Regent also owns Foundry, CIO.com's parent company), and Replit reached a $9B valuation in March 2026.</p>",
+    "quotes": [
+      {
+        "text": "Vibe coding, or the ability to spin up a piece of software using generative artificial intelligence (AI) rather than old-school programming skills, is all the rage in Silicon Valley. But it has a step-sibling. Call it vibe valuing. This is the ability of venture capitalists to conjure up vast valuations for AI startups with scant regard for old-school spreadsheet measures.",
+        "cite": "The Economist《AI valuations are verging on the unhinged》, 2025-06-25(线上)/ 2025-06-28(印刷版,栏目标题 \"Vibe valuations\"), https://www.economist.com/business/2025/06/25/ai-valuations-are-verging-on-the-unhinged (导语取自 Wayback 快照, via Wayback)"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "AI valuations are verging on the unhinged — The Economist",
+        "url": "https://www.economist.com/business/2025/06/25/ai-valuations-are-verging-on-the-unhinged",
+        "lastVerified": "2026-09-04"
+      },
+      {
+        "name": "What vibe-coding startup valuations portend for CIOs — CIO.com",
+        "url": "https://www.cio.com/article/4208833/what-vibe-coding-valuations-portend-for-cios.html",
+        "lastVerified": "2026-09-04"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# Vibe-coding 赛道估值案例(2025-2026,数字与表述严格照研究文件/CIO.com 2026-08-12 报道)\n# Lovable(瑞典公司):Series C 融资,估值 $13.3B(133 亿美元)\n# Replit:2026-03 估值达 $9B(90 亿美元)\n# 利益披露:CIO.com 文末披露 Lovable 新投资人 Regent 同时是 CIO.com 母公司 Foundry 的所有者",
+        "desc": "vibe 估值狂欢的代表性数字:瑞典公司 Lovable 以 133 亿美元($13.3B)估值完成 Series C(CIO.com,2026-08-12);Replit 于 2026-03 达 90 亿美元($9B)估值。引用 CIO.com 数据需带其利益披露注记。"
+      }
+    ]
   },
   {
     "id": "homogenization",
@@ -461,12 +517,12 @@
       "community"
     ],
     "shortDesc": "GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"。",
-    "longDesc": "<p><strong>Eternal September</strong>：GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"，让既有社区难以维持秩序。</p>\n<p><strong>vibe coding 影响：</strong>大量\"prompt-only\"的 PR 涌入开源项目。</p>",
+    "longDesc": "<p><strong>Eternal September</strong>：GitHub 借用的 Usenet 术语——指\"大量新人不了解规范地涌入\"，让既有社区难以维持秩序。</p>\n<p><strong>vibe coding 影响：</strong>大量\"prompt-only\"的 PR 涌入开源项目。</p><p>2026 年该词被重新激活:GitHub 官方博客称开源生态正经历 “the Eternal September of open source”——AI 让创建成本骤降而审阅成本未降;Software Freedom Conservancy 进一步提出 AI 时代变体 “Eternal November”(2025 年 11 月,Opus 4.5 发布月)。</p><p>2026 年该词被重新激活:GitHub 官方博客称开源生态正经历 “the Eternal September of open source”——AI 让创建成本骤降而审阅成本未降;Software Freedom Conservancy 进一步提出 AI 时代变体 “Eternal November”(2025 年 11 月,Opus 4.5 发布月)。</p>",
     "related": [
       "vibe-slop"
     ],
     "enShortDesc": "Usenet term borrowed for GitHub: a flood of newcomers unfamiliar with norms.",
-    "enLongDesc": "<p><strong>Eternal September</strong>: the phenomenon where a community is overwhelmed by new members who don't know the established norms. Applied to GitHub after AI coding agents flooded it.</p>",
+    "enLongDesc": "<p><strong>Eternal September</strong>: the phenomenon where a community is overwhelmed by new members who don't know the established norms. Applied to GitHub after AI coding agents flooded it.</p><p>In 2026 the term was revived: The GitHub Blog described open source as hitting \"the Eternal September of open source\" — the cost to create has dropped while the cost to review has not; the Software Freedom Conservancy proposed an AI-era variant, \"Eternal November\" (November 2025, the month of Opus 4.5's release).</p><p>In 2026 the term was revived: The GitHub Blog described open source as hitting \"the Eternal September of open source\" — the cost to create has dropped while the cost to review has not; the Software Freedom Conservancy proposed an AI-era variant, \"Eternal November\" (November 2025, the month of Opus 4.5's release).</p>",
     "quotes": [
       {
         "text": "September that never ended: All time since September 1993. One of the seasonal rhythms of the Usenet used to be the annual September influx of clueless newbies who, lacking any sense of netiquette, made a general nuisance of themselves. [...] But in September 1993, AOL users became able to post to Usenet, nearly overwhelming the old-timers' capacity to acculturate them",
@@ -479,6 +535,18 @@
       {
         "text": "In the 2010s, the rise of smartphones and mass social media (Twitter/Facebook/Instagram) caused what internet veterans refer to as an Eternal September event, for the entire internet. \"Eternal September\" is an old slang term for when a bunch of normal folks flood into a previously cozy, boutique online space.",
         "cite": "Noah Smith,《The death (again) of the internet as we know it》, Noahpinion (Substack), 2024-05-11"
+      },
+      {
+        "text": "Open source is hitting an “Eternal September.” As contribution friction drops, maintainers are adapting with new trust signals, triage approaches, and community-led solutions.",
+        "cite": "Ashley Wolf, The GitHub Blog, 2026-02-12"
+      },
+      {
+        "text": "Today, a pull request can be generated in seconds. Generative AI makes it easy for people to produce code, issues, or security reports at scale. The cost to create has dropped but the cost to review has not.",
+        "cite": "Ashley Wolf, The GitHub Blog, 2026-02-12"
+      },
+      {
+        "text": "November 2025 — the month of Opus 4.5’s release — has been widely identified as a similar inflection point: LLM-backed generative AI coding tools made a substantial leap to increased usefulness.",
+        "cite": "Denver Gingerich, Software Freedom Conservancy, 2026-04-15"
       }
     ],
     "seeAlso": [
@@ -506,6 +574,22 @@
         "name": "Chambless《The Eternal September》原帖（alt.folklore.computers, 1994-02-08）- Google Groups 一手存档",
         "url": "https://groups.google.com/g/alt.folklore.computers/c/HUbG4uvU4T4/m/b9QR6DWeXAAJ",
         "lastVerified": "2026-09-01"
+      },
+      {
+        "name": "Welcome to the Eternal September of open source - The GitHub Blog",
+        "url": "https://github.blog/open-source/maintainers/welcome-to-the-eternal-september-of-open-source-heres-what-we-plan-to-do-for-maintainers/",
+        "lastVerified": "2026-09-04"
+      },
+      {
+        "name": "Eternal November — this new influx of users may be better than the last one - Software Freedom Conservancy",
+        "url": "https://sfconservancy.org/blog/2026/apr/15/eternal-november-generative-ai-llm/",
+        "lastVerified": "2026-09-04"
+      }
+    ],
+    "examples": [
+      {
+        "code": "# AI 时代的 \"Eternal September\" 再定义(引用格式)\n# GitHub 官方博客(2026-02-12): 开源生态正经历 \"the Eternal September of open source\"\n#   —— \"The cost to create has dropped but the cost to review has not.\"\n# Software Freedom Conservancy(2026-04-15)提出 AI 时代变体 \"Eternal November\"(2025-11,Opus 4.5 发布月)",
+        "desc": "AI 时代该词的机构级再定义引用方式:GitHub 官方博客与 SFC 的两处一手表述"
       }
     ]
   },

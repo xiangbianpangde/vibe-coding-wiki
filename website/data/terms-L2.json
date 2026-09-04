@@ -324,7 +324,7 @@
         "desc": "CLAUDE.md 典型内容"
       },
       {
-        "code": "@AGENTS.md\n\n## Claude Code\n\nUse plan mode for changes under `src/billing/`.",
+        "code": "# CLAUDE.md(官方 memory 文档:与 AGENTS.md 共存写法)\n# 首行 @import 使两个工具读同一份指令\n#\n# @AGENTS.md\n#\n# ## Claude Code\n#\n# Use plan mode for changes under `src/billing/`.",
         "desc": "官方 memory 文档给出的 CLAUDE.md 兼容 AGENTS.md 写法:首行 @import 使两个工具读同一份指令,再追加 Claude Code 专属约定。"
       }
     ],

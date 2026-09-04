@@ -50,8 +50,8 @@ Each term targets high-quality content:
 | Field | Coverage |
 |---|---|
 | `examples` (code samples) | 176 / 189 (93%) |
-| `quotes` (primary-source citations) | 175 / 189 (92%) |
-| `seeAlso` (external references) | 181 / 189 (95%) |
+| `quotes` (primary-source citations) | 183 / 189 (96%) |
+| `seeAlso` (external references) | 184 / 189 (97%) |
 | `enShortDesc` / `enLongDesc` | 189 / 189 (100%) |
 
 Plus trust mechanics: every `seeAlso` citation carries a `lastVerified` date with 90-day re-audit, and all code examples pass syntax checks (CI guardrail).

@@ -22,31 +22,25 @@ test.describe('Search modal', () => {
     await page.goto('/index.html');
     await page.keyboard.press('Meta+k');
     await page.locator('#search-input').fill('mcp');
-    // Wait for input event handler
-    await page.waitForTimeout(200);
     const results = page.locator('#search-results .search-result');
-    const count = await results.count();
-    expect(count).toBeGreaterThanOrEqual(1);
+    await expect(results.first()).toBeVisible();
   });
 
   test('search "vibe" returns multiple results', async ({ page }) => {
     await page.goto('/index.html');
     await page.keyboard.press('Meta+k');
     await page.locator('#search-input').fill('vibe');
-    await page.waitForTimeout(200);
     const results = page.locator('#search-results .search-result');
-    const count = await results.count();
-    expect(count).toBeGreaterThanOrEqual(3);
+    await expect(results.first()).toBeVisible();
+    await expect.poll(() => results.count()).toBeGreaterThanOrEqual(3);
   });
 
   test('empty search shows no results', async ({ page }) => {
     await page.goto('/index.html');
     await page.keyboard.press('Meta+k');
-    // Empty input -> results cleared
-    await page.waitForTimeout(100);
+    // Empty input -> results cleared (auto-retry settles any transient render)
     const results = page.locator('#search-results .search-result');
-    const count = await results.count();
-    expect(count).toBe(0);
+    await expect(results).toHaveCount(0);
   });
 
   test('Enter on single result navigates to term page', async ({ page }) => {
@@ -54,7 +48,8 @@ test.describe('Search modal', () => {
     await page.keyboard.press('Meta+k');
     // 'claude-code' should be unique-ish
     await page.locator('#search-input').fill('claude-code');
-    await page.waitForTimeout(200);
+    // Enter is a silent no-op until results render — wait for the first result
+    await expect(page.locator('#search-results .search-result').first()).toBeVisible();
     await page.locator('#search-input').press('Enter');
     await expect(page).toHaveURL(/claude-code/);
   });
@@ -63,6 +58,8 @@ test.describe('Search modal', () => {
     await page.goto('/index.html');
     await page.keyboard.press('Meta+k');
     await expect(page.locator('#search-modal')).toHaveClass(/open/);
+    // Escape handler lives on the input's keydown — wait for the async focus first
+    await expect.poll(() => page.evaluate(() => document.activeElement?.id)).toBe('search-input');
     await page.keyboard.press('Escape');
     await expect(page.locator('#search-modal')).not.toHaveClass(/open/);
   });

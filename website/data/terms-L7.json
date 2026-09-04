@@ -144,10 +144,27 @@
       {
         "code": "# Self-Consistency: 多次采样 + 多数投票\n# 单次 LLM 输出可能错，投票降低随机性\n\nfrom collections import Counter\n\ndef self_consistent_answer(prompt, model, n_samples=5):\n    answers = [model.generate(prompt, temperature=0.7) for _ in range(n_samples)]\n    # 多数投票\n    most_common = Counter(answers).most_common(1)[0][0]\n    return most_common\n\n# 适用：\n# - 数学推理（GSM8K +17.9%）\n# - 常识推理\n# - 代码生成（同一问题多种实现）\n\n# 代价：n x 推理成本",
         "desc": "Self-consistency 投票机制"
+      },
+      {
+        "code": "# Self-Consistency 论文实证数据(引用格式,摘要逐字):\n# GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%), ARC-challenge (+3.9%)",
+        "desc": "self-consistency 相对贪心解码的基准提升数据(论文摘要)"
       }
     ],
     "enShortDesc": "Sample multiple times and majority vote. Improves reasoning reliability.",
-    "enLongDesc": "<p><strong>Self-consistency</strong> (Wang et al. 2023): sample multiple chain-of-thought answers, take the majority. 5-10% accuracy gain on math/reasoning.</p>"
+    "enLongDesc": "<p><strong>Self-consistency</strong> (Wang et al. 2023): sample multiple chain-of-thought answers, take the majority. 5-10% accuracy gain on math/reasoning.</p>",
+    "quotes": [
+      {
+        "text": "In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths.",
+        "cite": "Xuezhi Wang, Jason Wei, Dale Schuurmans et al., arXiv:2203.11171 摘要, 2022-03-21"
+      }
+    ],
+    "seeAlso": [
+      {
+        "name": "Self-Consistency Improves Chain of Thought Reasoning in Language Models — arXiv",
+        "url": "https://arxiv.org/abs/2203.11171",
+        "lastVerified": "2026-09-04"
+      }
+    ]
   },
   {
     "id": "reflection",
